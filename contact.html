@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timberwood Footer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+</style>
+</head>
+
+<body>
+
+<script>
+function subscribe(){
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("msg");
+
+    if(email === ""){
+        msg.style.color = "red";
+        msg.innerText = "⚠ Please enter email!";
+        return;
+    }
+
+    if(!email.includes("@")){
+        msg.style.color = "red";
+        msg.innerText = "⚠ Enter valid email!";
+        return;
+    }
+
+    msg.style.color = "#4cff88";
+    msg.innerText = "✅ Subscribed successfully!";
+
+    document.getElementById("email").value = "";
+
+    setTimeout(()=>{
+        msg.innerText = "";
+    },3000);
+}
+</script>
