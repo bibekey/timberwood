@@ -69,37 +69,15 @@ nav ul{
     gap:20px;
 }
 
-nav a{
-    color:#b5b5b5;
+nav ul li a{
+    color:white;
     text-decoration:none;
-    font-size:14px;
-    position:relative;
-    transition:0.3s;
+    transition:.3s;
+    font-size:15px;
 }
 
-/* HOVER LINE */
-nav a::after{
-    content:"";
-    position:absolute;
-    bottom:-6px;
-    left:0;
-    width:0%;
-    height:2px;
-    background:#c47a3a;
-    transition:0.3s;
-}
-
-nav a:hover::after{
-    width:100%;
-}
-
-/* ACTIVE LINK */
-nav a.active{
-    color:#ffffff;
-}
-
-nav a.active::after{
-    width:100%;
+nav ul li a:hover{
+    color:#c89b63;
 }
 
 .menu-toggle{
