@@ -20,27 +20,33 @@ body{
 
 
 
-/* NAVBAR */
+
+/* =========================
+NAVBAR
+========================= */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    padding:18px 7%;
+    height:75px;
+
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(10px);
+
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    background:rgba(15,17,21,0.92);
-    backdrop-filter:blur(12px);
-    z-index:1000;
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    justify-content:space-between;
+
+    padding:0 5%;
+    z-index:999;
 }
 
-.logo{
-    font-size:30px;
-    font-weight:700;
-    color:white;
+.logo img{
+    height:40px;
+    width:auto;
+    display:block;
 }
 
 .logo span{
@@ -49,14 +55,13 @@ nav{
 
 nav ul{
     display:flex;
-    gap:28px;
+    gap:25px;
     list-style:none;
 }
 
 nav ul li a{
+    color:#fff;
     text-decoration:none;
-    color:white;
-    font-size:15px;
     transition:.3s;
 }
 
@@ -64,9 +69,9 @@ nav ul li a:hover{
     color:#c89b63;
 }
 
-.menu-toggle{
+.menu-btn{
     display:none;
-    font-size:30px;
+    font-size:28px;
     cursor:pointer;
 }
 
