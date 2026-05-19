@@ -595,26 +595,30 @@ footer{
 
 }
 
+/* MOBILE */
+
 @media(max-width:768px){
 
-    .menu-toggle{
-        display:block;
+    .viewer-slide{
+        padding:10px;
     }
 
-    nav ul{
-        position:absolute;
-        top:80px;
-        left:0;
-        width:100%;
-        background:#111;
-        flex-direction:column;
-        padding:30px;
-        display:none;
+    .viewer-slide img{
+        max-height:80vh;
     }
 
-    nav ul.active{
-        display:flex;
+    .prev,
+    .next{
+        width:42px;
+        height:42px;
+        font-size:20px;
     }
+
+    .close{
+        font-size:36px;
+    }
+
+}
 
     .hero{
         padding-top:120px;
