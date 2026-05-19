@@ -5,13 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>TimberWood | Portfolio</title>
-<link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" href="img/home/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
+body{
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+}
 
 /* NAVBAR */
 
@@ -322,6 +332,61 @@ nav ul li a:hover{
 
 .cta button:hover{
     transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:100px;
+    background:#090909;
+    padding:70px 7% 40px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-logo{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.footer-logo span{
+    color:#c89b63;
+}
+
+.footer p{
+    color:#999;
+    line-height:1.8;
+}
+
+.footer h3{
+    margin-bottom:20px;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer ul li{
+    margin-bottom:14px;
+    color:#aaa;
+}
+
+.bottom{
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:25px;
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+
+    color:#888;
 }
 
 /* LIGHTBOX */
@@ -695,52 +760,54 @@ nav ul li a:hover{
 
     <div class="footer-grid">
 
-        <div>
+        <div class="footer">
 
-            <div class="logo">
+            <div class="footer-logo">
                 Timber<span>Wood</span>
             </div>
 
-            <p style="margin-top:20px;">
-                Premium furniture brand delivering elegant and luxurious furniture collections for modern homes and offices.
+            <p>
+                Premium furniture and interior company delivering
+                luxury modern designs for homes and businesses.
             </p>
 
         </div>
 
-        <div>
+        <div class="footer">
 
             <h3>Company</h3>
 
             <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Portfolio</li>
+                <li>Contact</li>
             </ul>
 
         </div>
 
-        <div>
+        <div class="footer">
 
             <h3>Products</h3>
 
             <ul>
-                <li><a href="#">Beds</a></li>
-                <li><a href="#">Sofa Sets</a></li>
-                <li><a href="#">Dining Tables</a></li>
-                <li><a href="#">Wardrobes</a></li>
+                <li>Luxury Beds</li>
+                <li>Sofa Sets</li>
+                <li>Dining Tables</li>
+                <li>TV Cabinets</li>
             </ul>
 
         </div>
 
-        <div>
+        <div class="footer">
 
             <h3>Contact</h3>
 
             <ul>
                 <li>Biratnagar, Nepal</li>
+                <li>9705020251</li>
                 <li>9807091947</li>
-                <li>timberwood@gmail.com</li>
+                <li>timberwood.brt@gmail.com</li>
             </ul>
 
         </div>
@@ -748,21 +815,11 @@ nav ul li a:hover{
     </div>
 
     <div class="bottom">
-
-        <div>
-            © 2026 TimberWood. All Rights Reserved.
-        </div>
-
-        <div>
-            Privacy Policy | Terms & Conditions
-        </div>
-
+        <div>© 2026 TimberWood Pvt Ltd.</div>
+        <div>All Rights Reserved</div>
     </div>
 
 </footer>
-
-
-
 
 <!-- LIGHTBOX -->
 
