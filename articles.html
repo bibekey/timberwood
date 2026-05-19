@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Blog Article | TimberWood</title>
+<link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" href="img/home/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -519,53 +520,53 @@ footer{
 
 </section>
 
-<!-- FOOTER -->
+/* FOOTER */
 
-<footer>
+footer{
+    background:#0b0d10;
+    padding:70px 7% 30px;
+}
 
-    <div class="footer-grid">
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
 
-        <div>
-            <h2>TimberWood</h2>
-            <p>
-                Premium furniture solutions crafted with modern elegance and timeless wooden design.
-            </p>
-        </div>
+.footer-grid h3{
+    margin-bottom:20px;
+}
 
-        <div>
-            <h2>Quick Links</h2>
-            <ul>
-                <li>Home</li>
-                <li>Catalog</li>
-                <li>Services</li>
-                <li>Portfolio</li>
-            </ul>
-        </div>
+.footer-grid p,
+.footer-grid li{
+    color:#bdbdbd;
+    line-height:2;
+    list-style:none;
+}
 
-        <div>
-            <h2>Contact</h2>
-            <p>
-                Biratnagar, Nepal<br><br>
-                9800000000<br><br>
-                timberwood@email.com
-            </p>
-        </div>
+.footer-grid ul{
+    padding:0;
+}
 
-        <div>
-            <h2>Newsletter</h2>
+.footer-grid a{
+    color:#bdbdbd;
+    text-decoration:none;
+}
 
-            <input type="email" placeholder="Your Email">
+.footer-grid a:hover{
+    color:#c89b63;
+}
 
-            <button>Subscribe</button>
-        </div>
-
-    </div>
-
-    <div class="bottom">
-        © 2026 TimberWood. All Rights Reserved.
-    </div>
-
-</footer>
+.bottom{
+    margin-top:50px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:15px;
+    color:#888;
+}
 
 <script>
 
