@@ -17,42 +17,41 @@
     font-family:'Poppins',sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:#0f0f0f;
     color:#fff;
     overflow-x:hidden;
 }
 
-/* =========================
-NAVBAR
-========================= */
+/* NAVBAR */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:75px;
-    background:rgba(0,0,0,.95);
-    backdrop-filter:blur(10px);
+    padding:18px 7%;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    padding:0 5%;
-    z-index:999;
+    align-items:center;
+    background:rgba(15,17,21,0.88);
+    backdrop-filter:blur(14px);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo img{
-    height:42px;
+    height:40px;
     width:auto;
     display:block;
 }
 
-.menu-btn{
-    display:none;
-    font-size:32px;
-    cursor:pointer;
-    z-index:1001;
+.logo span{
+    color:#c89b63;
 }
 
 nav ul{
@@ -62,7 +61,7 @@ nav ul{
 }
 
 nav ul li a{
-    color:#fff;
+    color:white;
     text-decoration:none;
     transition:.3s;
     font-size:15px;
@@ -70,6 +69,12 @@ nav ul li a{
 
 nav ul li a:hover{
     color:#c89b63;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:30px;
+    cursor:pointer;
 }
 
 /* HERO */
@@ -113,6 +118,7 @@ nav ul li a:hover{
     line-height:1.9;
     margin-bottom:35px;
     font-size:16px;
+    max-width:600px;
 }
 
 .hero-buttons{
@@ -319,6 +325,10 @@ nav ul li a:hover{
     margin-bottom:8px;
 }
 
+.stat p{
+    margin:0;
+}
+
 /* PRODUCTS */
 
 .products{
@@ -385,6 +395,7 @@ nav ul li a:hover{
     background:#171a20;
     padding:35px;
     border-radius:26px;
+    border:1px solid rgba(255,255,255,0.06);
 }
 
 .stars{
@@ -441,9 +452,16 @@ nav ul li a:hover{
     color:#111;
     text-decoration:none;
     font-weight:700;
+    transition:.3s;
 }
 
-/* FOOTER */
+.cta a:hover{
+    transform:translateY(-5px);
+}
+
+/* =========================
+FOOTER
+========================= */
 
 footer{
     background:#0b0d10;
@@ -487,58 +505,48 @@ footer{
     color:#888;
 }
 
-/* =========================
-MOBILE
-========================= */
+/* MOBILE */
 
-@media(max-width:768px){
-
-    nav{
-        padding:0 20px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    nav ul{
-        position:fixed;
-        top:75px;
-        left:-100%;
-        width:100%;
-        height:calc(100vh - 75px);
-        background:#111;
-        flex-direction:column;
-        align-items:center;
-        justify-content:flex-start;
-        padding-top:40px;
-        gap:25px;
-        transition:.4s;
-    }
-
-    nav ul.active{
-        left:0;
-    }
-
-    nav ul li{
-        width:100%;
-        text-align:center;
-    }
-
-    nav ul li a{
-        display:block;
-        padding:15px;
-        font-size:18px;
-    }
+@media(max-width:1100px){
 
     .hero,
-    .about,
+    .about{
+        grid-template-columns:1fr;
+    }
+
     .feature-grid,
     .collection-grid,
     .product-grid,
     .testimonial-grid,
     .footer-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-text h1{
+        font-size:56px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav ul{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background:#111;
+        flex-direction:column;
+        padding:30px;
+        display:none;
+    }
+
+    nav ul.active{
+        display:flex;
     }
 
     .hero{
@@ -555,21 +563,12 @@ MOBILE
         font-size:34px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-        text-align:center;
-    }
-
-    .collection-card{
-        height:320px;
-    }
-
-    .product-card img{
-        height:240px;
+    .feature-grid,
+    .collection-grid,
+    .product-grid,
+    .testimonial-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
     }
 
 }
@@ -587,19 +586,19 @@ MOBILE
     <img src="img/home/LOGO.png" alt="TimberWood Logo">
 </div>
 
-<div class="menu-btn" id="menuBtn">
-☰
-</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        ☰
+    </div>
 
-<ul id="navLinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="catalog.html">Catalog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-</ul>
+    <ul id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
 
 </nav>
 
@@ -607,55 +606,444 @@ MOBILE
 
 <section class="hero">
 
-<div class="hero-text">
+    <div class="hero-text">
 
-<h4>MODERN PREMIUM FURNITURE</h4>
+        <h4>MODERN PREMIUM FURNITURE</h4>
 
-<h1>
-Luxury Furniture For Elegant Living
-</h1>
+        <h1>
+            Luxury Furniture For Elegant Living
+        </h1>
 
-<p>
-Discover beautifully crafted beds, sofas, dining tables, wardrobes, and modern furniture collections designed to transform your interiors with timeless style and comfort.
-</p>
+        <p>
+            Discover beautifully crafted beds, sofas, dining tables, wardrobes, and modern furniture collections designed to transform your interiors with timeless style and comfort.
+        </p>
 
-<div class="hero-buttons">
+        <div class="hero-buttons">
 
-<a href="catalog.html" class="btn btn-primary">
-View Catalog
-</a>
+            <a href="catalog.html" class="btn btn-primary">
+                View Catalog
+            </a>
 
-<a href="#" class="btn btn-outline">
-Explore Collection
-</a>
+            <a href="#" class="btn btn-outline">
+                Explore Collection
+            </a>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
-<div class="hero-image">
+    <div class="hero-image">
 
-<img src="https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?w=600&auto=format&fit=crop&q=60">
+        <img src="https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU4fHx8ZW58MHx8fHx8">
 
-</div>
+    </div>
 
 </section>
 
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature-grid">
+
+        <div class="feature-box">
+
+            <div class="feature-icon">🚚</div>
+
+            <h3>Fast Delivery</h3>
+
+            <p>
+                Quick and secure furniture delivery across Nepal with professional support.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-icon">🪵</div>
+
+            <h3>Premium Materials</h3>
+
+            <p>
+                Crafted using high-quality wood, fabrics, and durable modern finishes.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-icon">✨</div>
+
+            <h3>Modern Designs</h3>
+
+            <p>
+                Elegant furniture collections inspired by modern luxury interiors.
+            </p>
+
+        </div>
+
+        <div class="feature-box">
+
+            <div class="feature-icon">🛠️</div>
+
+            <h3>Custom Furniture</h3>
+
+            <p>
+                Personalized furniture solutions tailored for your home and office.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- COLLECTIONS -->
+
+<section class="collections">
+
+    <div class="section-title">
+
+        <h2>Popular Collections</h2>
+
+        <p>
+            Explore our premium furniture categories crafted for every space.
+        </p>
+
+    </div>
+
+    <div class="collection-grid">
+
+        <div class="collection-card">
+
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="collection-overlay">
+                <h3>Luxury Beds</h3>
+                <a href="catalog.html">Explore Collection →</a>
+            </div>
+
+        </div>
+
+        <div class="collection-card">
+
+            <img src="https://i.pinimg.com/736x/47/08/17/470817732ed4bb72d46f9a37aef25305.jpg">
+
+            <div class="collection-overlay">
+                <h3>Modern Sofas</h3>
+                <a href="catalog.html">Explore Collection →</a>
+            </div>
+
+        </div>
+
+        <div class="collection-card">
+
+            <img src="https://i.pinimg.com/736x/01/25/7b/01257b68a45e7b005f798eb6dac14ca6.jpg">
+
+            <div class="collection-overlay">
+                <h3>Dining Tables</h3>
+                <a href="catalog.html">Explore Collection →</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+
+    <img src="https://i.pinimg.com/736x/a5/de/0a/a5de0ac6816f2ecfdc04e64e84fc74e0.jpg">
+
+    <div class="about-text">
+
+        <h2>
+            Crafted For Modern Interiors
+        </h2>
+
+        <p>
+            TimberWood delivers stylish and premium-quality furniture designed for elegant living spaces. We combine craftsmanship, comfort, and modern aesthetics to create furniture collections that last for years.
+        </p>
+
+        <p>
+            From luxury bedrooms to sophisticated office setups, our furniture transforms interiors beautifully.
+        </p>
+
+        <div class="about-stats">
+
+            <div class="stat">
+                <h3>3+</h3>
+                <p>Years Experience</p>
+            </div>
+
+            <div class="stat">
+                <h3>200+</h3>
+                <p>Happy Customers</p>
+            </div>
+
+            <div class="stat">
+                <h3>250+</h3>
+                <p>Furniture Designs</p>
+            </div>
+
+            <div class="stat">
+                <h3>24/7</h3>
+                <p>Customer Support</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products">
+
+    <div class="section-title">
+
+        <h2>Featured Products</h2>
+
+        <p>
+            Best-selling furniture pieces loved by our customers.
+        </p>
+
+    </div>
+
+    <div class="product-grid">
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+
+            <div class="product-content">
+                <h3>Luxury Bed</h3>
+                <p>Premium modern wooden bed design.</p>
+                <div class="price">Rs. 75,000</div>
+            </div>
+
+        </div>
+
+        <div class="product-card">
+
+            <img src="https://i.pinimg.com/736x/96/f3/11/96f311f5bdf704e673dcc392021bae5a.jpg">
+
+            <div class="product-content">
+                <h3>Sofa Set</h3>
+                <p>Elegant modern living room sofa.</p>
+                <div class="price">Rs. 95,000</div>
+            </div>
+
+        </div>
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1602872030490-4a484a7b3ba6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGluaW5nJTIwdGFibGV8ZW58MHx8MHx8fDA%3D">
+
+            <div class="product-content">
+                <h3>Dining Table</h3>
+                <p>Modern luxury dining setup.</p>
+                <div class="price">Rs. 68,000</div>
+            </div>
+
+        </div>
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1708397016786-8916880649b8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHdhcmRyb2JlJTIwZGVzaWdufGVufDB8fDB8fHww">
+
+            <div class="product-content">
+                <h3>Wardrobe</h3>
+                <p>Spacious wooden wardrobe collection.</p>
+                <div class="price">Rs. 85,000</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+    <div class="section-title">
+
+        <h2>Customer Reviews</h2>
+
+        <p>
+            Trusted by thousands of happy customers across Nepal.
+        </p>
+
+    </div>
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                TimberWood completely transformed my bedroom. The quality and finishing are outstanding.
+            </p>
+
+            <div class="user">
+
+                <img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+                <div>
+                    <h4>Sushma Dahal</h4>
+                    <span>Interior Client</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                Premium quality furniture with excellent delivery service. Highly recommended.
+            </p>
+
+            <div class="user">
+
+                <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+                <div>
+                    <h4>Anil Duggar</h4>
+                    <span>Furniture Client</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                Beautiful modern sofa set and dining collection. The showroom experience was amazing.
+            </p>
+
+            <div class="user">
+
+                <img src="https://randomuser.me/api/portraits/women/68.jpg">
+
+                <div>
+                    <h4>Sabina Karki</h4>
+                    <span>Home Owner</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Upgrade Your Living Space Today
+    </h2>
+
+    <p>
+        Discover premium furniture collections designed for luxury interiors, comfort, and modern lifestyle.
+    </p>
+
+    <a href="catalog.html">
+        Explore Catalog
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <div class="logo">
+                Timber<span>Wood</span>
+            </div>
+
+            <p style="margin-top:20px;">
+                Premium furniture brand delivering elegant and luxurious furniture collections for modern homes and offices.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Company</h3>
+
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Products</h3>
+
+            <ul>
+                <li><a href="#">Beds</a></li>
+                <li><a href="#">Sofa Sets</a></li>
+                <li><a href="#">Dining Tables</a></li>
+                <li><a href="#">Wardrobes</a></li>
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <ul>
+                <li>Biratnagar, Nepal</li>
+                <li>9807091947</li>
+                <li>timberwood@gmail.com</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="bottom">
+
+        <div>
+            © 2026 TimberWood. All Rights Reserved.
+        </div>
+
+        <div>
+            Privacy Policy | Terms & Conditions
+        </div>
+
+    </div>
+
+</footer>
+
 <script>
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
-
-menuBtn.onclick = () => {
-
-    navLinks.classList.toggle("active");
-
-    if(navLinks.classList.contains("active")){
-        menuBtn.innerHTML = "✕";
-    }else{
-        menuBtn.innerHTML = "☰";
-    }
-
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
 }
 
 </script>
