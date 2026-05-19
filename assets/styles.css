@@ -18,7 +18,7 @@ body{
     overflow-x:hidden;
 
     opacity: 0;
-    animation: pageLoad 0.8s ease forwards;
+    animation: pageLoad 1s ease forwards;
 }
 
 /* page load fade + slight zoom */
