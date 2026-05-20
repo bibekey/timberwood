@@ -31,22 +31,21 @@ body{
 NAVBAR
 ========================= */
 
+/* NAVBAR */
+
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    height:75px;
-
-    background:rgba(0,0,0,.88);
-    backdrop-filter:blur(10px);
-
+    padding:18px 7%;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-
-    padding:0 5%;
-    z-index:999;
+    align-items:center;
+    background:rgba(15,17,21,0.88);
+    backdrop-filter:blur(14px);
+    z-index:1000;
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo img{
@@ -58,28 +57,39 @@ nav{
 .logo span{
     color:#c89b63;
 }
-
 nav ul{
     display:flex;
-    gap:25px;
     list-style:none;
+    gap:30px;
 }
 
 nav ul li a{
-    color:#fff;
+    position:relative;
+    color:white;
     text-decoration:none;
-    transition:.3s;
 }
 
-nav ul li a:hover{
-    color:#c89b63;
+nav ul li a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#c89b63;
+    transition:.4s;
 }
 
-.menu-btn{
+nav ul li a:hover::after{
+    width:100%;
+}
+
+.menu-toggle{
     display:none;
-    font-size:28px;
+    font-size:30px;
     cursor:pointer;
 }
+
 
 /* =========================
 HERO
@@ -342,106 +352,114 @@ CTA
 FOOTER
 ========================= */
 
+/* FOOTER */
+
 footer{
-    background:#0b0b0b;
-    padding:70px 5% 30px;
+    background:#0b0d10;
+    padding:70px 7% 30px;
 }
 
 .footer-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:2fr 1fr 1fr 1fr;
     gap:40px;
 }
 
-footer h2{
-    margin-bottom:18px;
+.footer-grid h3{
+    margin-bottom:20px;
 }
 
-footer p,
-footer li{
-    opacity:.7;
-    line-height:1.9;
+.footer-grid p,
+.footer-grid li{
+    color:#bdbdbd;
+    line-height:2;
     list-style:none;
 }
 
-footer input{
-    width:100%;
-    padding:14px;
-
-    border:none;
-    border-radius:12px;
-
-    margin:15px 0;
+.footer-grid a{
+    text-decoration:none;
+    color:#bdbdbd;
 }
 
-footer button{
-    padding:13px 24px;
-
-    border:none;
-    border-radius:12px;
-
-    background:#c89b63;
-    color:#000;
-
-    font-weight:600;
-    cursor:pointer;
+.footer-grid a:hover{
+    color:#c89b63;
 }
 
 .bottom{
     margin-top:50px;
     padding-top:25px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
+    border-top:1px solid rgba(255,255,255,0.08);
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
-
-    gap:10px;
-
-    opacity:.7;
+    gap:15px;
+    color:#888;
 }
 
-/* =========================
-MOBILE
-========================= */
+/* MOBILE */
+
+@media(max-width:1100px){
+
+    .hero,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid,
+    .collection-grid,
+    .product-grid,
+    .testimonial-grid,
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-text h1{
+        font-size:56px;
+    }
+
+}
 
 @media(max-width:768px){
 
-    .menu-btn{
+    .menu-toggle{
         display:block;
     }
 
     nav ul{
         position:absolute;
-        top:75px;
-        left:-100%;
-
+        top:80px;
+        left:0;
         width:100%;
-
         background:#111;
-
         flex-direction:column;
-
         padding:30px;
-
-        transition:.4s;
+        display:none;
     }
 
     nav ul.active{
-        left:0;
+        display:flex;
     }
 
-    .hero h1{
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero-text h1{
         font-size:42px;
     }
 
-    .section-title h2{
-        font-size:32px;
-    }
-
+    .section-title h2,
+    .about-text h2,
     .cta h2{
         font-size:34px;
+    }
+
+    .feature-grid,
+    .collection-grid,
+    .product-grid,
+    .testimonial-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
     }
 
 }
@@ -468,8 +486,8 @@ MOBILE
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="catalog.html">Catalog</a></li>
         <li><a href="blog.html">Blog</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 
@@ -751,63 +769,71 @@ Contact Us
 
 <footer>
 
-<div class="footer-grid">
+    <div class="footer-grid">
 
-<div>
+        <div>
 
-<h2>Newsletter</h2>
+            <div class="logo">
+                Timber<span>Wood</span>
+            </div>
 
-<p>
-Get updates about latest furniture
-collections and offers.
-</p>
+            <p style="margin-top:20px;">
+                Premium furniture brand delivering elegant and luxurious furniture collections for modern homes and offices.
+            </p>
 
-<input type="email" placeholder="Enter your email">
+        </div>
 
-<button>
-Subscribe
-</button>
+        <div>
 
-</div>
+            <h3>Company</h3>
 
-<div>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
 
-<h2>Showroom</h2>
+        </div>
 
-<p>
-Biratnagar Main Road<br><br>
-Sunday - Friday<br><br>
-9705020251
-</p>
+        <div>
 
-</div>
+            <h3>Products</h3>
 
-<div>
+            <ul>
+                <li><a href="#">Beds</a></li>
+                <li><a href="#">Sofa Sets</a></li>
+                <li><a href="#">Dining Tables</a></li>
+                <li><a href="#">Wardrobes</a></li>
+            </ul>
 
-<h2>Useful Links</h2>
+        </div>
 
-<ul>
-<li>About Us</li>
-<li>Services</li>
-<li>Portfolio</li>
-<li>Contact</li>
-</ul>
+        <div>
 
-</div>
+            <h3>Contact</h3>
 
-</div>
+            <ul>
+                <li>Biratnagar, Nepal</li>
+                <li>9807091947</li>
+                <li>timberwood@gmail.com</li>
+            </ul>
 
-<div class="bottom">
+        </div>
 
-<div>
-© 2026 TimberWood Pvt Ltd
-</div>
+    </div>
 
-<div>
-Privacy Policy | Terms
-</div>
+    <div class="bottom">
 
-</div>
+        <div>
+            © 2026 TimberWood. All Rights Reserved.
+        </div>
+
+        <div>
+            Privacy Policy | Terms & Conditions
+        </div>
+
+    </div>
 
 </footer>
 
