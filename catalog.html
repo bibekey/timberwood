@@ -6478,13 +6478,9 @@ Privacy Policy | Terms
 MOBILE MENU
 ========================= */
 
-const menuBtn = document.getElementById('menuBtn');
-const navMenu = document.querySelector('nav ul');
-
-menuBtn.onclick = () =>{
-    navMenu.classList.toggle('active');
-};
-
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
 /* =========================
 FILTER
 ========================= */
