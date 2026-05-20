@@ -701,44 +701,370 @@ footer{
 </nav>
 
 <!-- HERO -->
-
-<!-- HERO -->
+<!-- HERO SECTION -->
 
 <section class="hero">
 
-    <div class="hero-text">
+    <!-- Animated Background -->
 
-        <h4>MODERN PREMIUM FURNITURE</h4>
+    <div class="hero-bg">
+
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop" class="bg-slide active">
+
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400&auto=format&fit=crop" class="bg-slide">
+
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop" class="bg-slide">
+
+    </div>
+
+    <!-- Overlay -->
+
+    <div class="hero-overlay"></div>
+
+    <!-- Hero Content -->
+
+    <div class="hero-content">
+
+        <h4>PREMIUM INTERIOR & FURNITURE</h4>
 
         <h1>
-            Luxury Furniture For Elegant Living
+            Transform Your Home Into Luxury Living
         </h1>
 
         <p>
-            Discover beautifully crafted beds, sofas, dining tables, wardrobes, and modern furniture collections designed to transform your interiors with timeless style and comfort.
+            Modern furniture, interior solutions, custom wardrobes, luxury sofas,
+            modular kitchens, and elegant living spaces crafted for modern lifestyle.
         </p>
 
         <div class="hero-buttons">
 
             <a href="catalog.html" class="btn btn-primary">
-                View Catalog
+                View Collection
             </a>
 
-            <a href="#" class="btn btn-outline">
-                Explore Collection
+            <a href="contact.html" class="btn btn-outline">
+                Book Consultation
             </a>
 
         </div>
 
     </div>
 
-    <div class="hero-image">
+    <!-- Floating Advertisement -->
 
-        <img src="https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU4fHx8ZW58MHx8fHx8">
+    <div class="hero-ad">
+
+        <span>LIMITED OFFER</span>
+
+        <h3>25% OFF</h3>
+
+        <p>
+            Free Interior Consultation For New Customers
+        </p>
+
+        <a href="contact.html">
+            Book Now
+        </a>
 
     </div>
 
 </section>
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Poppins,sans-serif;
+    background:#0f0f0f;
+    color:white;
+}
+
+/* HERO */
+
+.hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    padding:120px 8%;
+}
+
+/* BACKGROUND */
+
+.hero-bg{
+    position:absolute;
+    inset:0;
+    z-index:1;
+}
+
+.bg-slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation:fadeSlide 15s infinite;
+    transform:scale(1.1);
+}
+
+.bg-slide:nth-child(1){
+    animation-delay:0s;
+}
+
+.bg-slide:nth-child(2){
+    animation-delay:5s;
+}
+
+.bg-slide:nth-child(3){
+    animation-delay:10s;
+}
+
+@keyframes fadeSlide{
+
+    0%{
+        opacity:0;
+        transform:scale(1.1);
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    30%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    40%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:0;
+    }
+
+}
+
+/* DARK OVERLAY */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    z-index:2;
+}
+
+/* CONTENT */
+
+.hero-content{
+    position:relative;
+    z-index:5;
+    max-width:700px;
+    animation:fadeUp 1s ease;
+}
+
+.hero-content h4{
+    color:#d4a86a;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.hero-content h1{
+    font-size:72px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    color:#d0d0d0;
+    line-height:1.9;
+    margin-bottom:35px;
+    font-size:17px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 34px;
+    border-radius:15px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#d4a86a;
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,0.2);
+    color:white;
+}
+
+.btn-outline:hover{
+    background:white;
+    color:black;
+}
+
+/* ADVERTISEMENT BOX */
+
+.hero-ad{
+    position:absolute;
+    right:8%;
+    bottom:70px;
+    z-index:6;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:25px;
+    width:300px;
+    animation:floatBox 4s ease-in-out infinite;
+}
+
+.hero-ad span{
+    color:#d4a86a;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+.hero-ad h3{
+    font-size:42px;
+    margin:10px 0;
+}
+
+.hero-ad p{
+    color:#d0d0d0;
+    margin-bottom:25px;
+    line-height:1.7;
+}
+
+.hero-ad a{
+    display:inline-block;
+    background:#d4a86a;
+    color:#111;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:12px;
+    font-weight:600;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes floatBox{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* CONTENT ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* MOBILE */
+
+@media(max-width:991px){
+
+    .hero{
+        padding:120px 5% 80px;
+        text-align:center;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:52px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-ad{
+        position:relative;
+        right:auto;
+        bottom:auto;
+        margin-top:40px;
+        width:100%;
+        max-width:350px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:110px 20px 60px;
+    }
+
+    .hero-content h1{
+        font-size:36px;
+    }
+
+    .hero-content p{
+        font-size:14px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-ad{
+        padding:25px;
+    }
+
+    .hero-ad h3{
+        font-size:32px;
+    }
+
+}
+
+</style>
 
 <!-- FEATURES -->
 
