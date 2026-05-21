@@ -430,7 +430,7 @@ footer{
 
 @media(max-width:900px){
 
-    .menu{
+    .menu-toggle{
         display:block;
     }
 
@@ -439,21 +439,14 @@ footer{
         top:80px;
         left:0;
         width:100%;
-
         background:#111;
-
         flex-direction:column;
-        text-align:center;
-
-        max-height:0;
-        overflow:hidden;
-
-        transition:.4s;
+        padding:30px;
+        display:none;
     }
 
     nav ul.active{
-        max-height:500px;
-        padding:20px 0;
+        display:flex;
     }
 
     .hero h1{
