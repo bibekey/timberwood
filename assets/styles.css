@@ -90,6 +90,8 @@ HERO| INDEX
     padding:140px 7% 100px;
     position:relative;
     overflow:hidden;
+    display:flex;
+    justify-content:center;
 }
 
 .hero::before{
@@ -535,16 +537,6 @@ ABOUT|STORY|STATS|TEAM|WHY US|CTA
 SERVICES|SECTION TITLE|SERVICES|WHY CHOOSE US|PROCESS|CTA|MOBILE
 ========================= */
 
-.hero{
-    height:70vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-}
-
 .hero::before{
     content:'';
     position:absolute;
@@ -832,16 +824,6 @@ CTA
 /* =========================
 PORTFOLIO GRID|STATS|CTA|LIGHTBOX|MOBILE
 ========================= */
-
-.hero{
-    height:70vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-}
 
 .hero::before{
     content:'';
@@ -1163,18 +1145,8 @@ HERO| CATALOG
 
 
 /* =========================
-HERO|BLOG|FEATURED|NEWSLETTER|MOBILE
+BLOG|FEATURED|NEWSLETTER|MOBILE
 ========================= */
-
-.hero{
-    height:70vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-}
 
 .hero::before{
     content:'';
@@ -1520,15 +1492,6 @@ HERO| ARTICLE
 HERO|CONTACT|LEFT|FORM|MAP|MOBILE|
 ========================= */
 
-.hero{
-    height:70vh;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-}
 
 .hero::before{
     content:'';
