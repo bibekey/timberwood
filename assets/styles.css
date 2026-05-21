@@ -104,6 +104,9 @@ HERO| INDEX
     opacity:.15;
     top:-100px;
     right:-100px;
+    inset:0;
+    background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('BED/BED (1).png') center/cover;
+    transform:scale(1.05);
 }
 
 .hero-text h4{
@@ -187,6 +190,7 @@ HERO| INDEX
         gap:40px;
         padding:120px 5% 70px;
         text-align:center;
+        height:60vh;
     }
 
     .hero-text{
@@ -217,11 +221,6 @@ HERO| INDEX
 
 @media(max-width:600px){
 
-    .hero{
-        padding:110px 20px 60px;
-        gap:30px;
-    }
-
     .hero-text h4{
         font-size:12px;
         letter-spacing:1px;
@@ -246,10 +245,6 @@ HERO| INDEX
         width:100%;
         padding:15px;
         font-size:15px;
-    }
-
-    .hero-image img{
-        border-radius:20px;
     }
 
     .hero::before{
@@ -304,16 +299,6 @@ ABOUT|STORY|STATS|TEAM|WHY US|CTA
     text-decoration:none;
     font-weight:600;
     transition:.3s;
-}
-
-.btn-outline{
-    border:1px solid rgba(255,255,255,0.15);
-    color:white;
-}
-
-.btn-outline:hover{
-    background:white;
-    color:black;
 }
 
 .about-image{
@@ -534,20 +519,9 @@ ABOUT|STORY|STATS|TEAM|WHY US|CTA
 }
 
 /* =========================
-SERVICES|SECTION TITLE|SERVICES|WHY CHOOSE US|PROCESS|CTA|MOBILE
+SECTION TITLE|SERVICES|WHY CHOOSE US|PROCESS|CTA|MOBILE
 ========================= */
 
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('BED/BED (1).png') center/cover;
-
-    transform:scale(1.05);
-}
 
 .hero-content{
     position:relative;
@@ -797,10 +771,6 @@ CTA
         display:flex;
     }
 
-    .hero{
-        padding-top:120px;
-    }
-
     .hero-text h1{
         font-size:42px;
     }
@@ -824,18 +794,6 @@ CTA
 /* =========================
 PORTFOLIO GRID|STATS|CTA|LIGHTBOX|MOBILE
 ========================= */
-
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('BED/BED (1).png') center/cover;
-
-    transform:scale(1.05);
-}
 
 .hero-content{
     position:relative;
@@ -1112,10 +1070,6 @@ PORTFOLIO GRID|STATS|CTA|LIGHTBOX|MOBILE
         display:flex;
     }
 
-    .hero{
-        height:60vh;
-    }
-
     .hero h1{
         font-size:34px;
     }
@@ -1147,18 +1101,6 @@ HERO| CATALOG
 /* =========================
 BLOG|FEATURED|NEWSLETTER|MOBILE
 ========================= */
-
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('BED/BED (1).png') center/cover;
-
-    transform:scale(1.05);
-}
 
 .hero-content{
     position:relative;
@@ -1456,10 +1398,6 @@ BLOG|FEATURED|NEWSLETTER|MOBILE
 
 @media(max-width:600px){
 
-    .hero{
-        height:60vh;
-    }
-
     .hero h1{
         font-size:34px;
     }
@@ -1489,21 +1427,8 @@ HERO| ARTICLE
 
 
 /* =========================
-HERO|CONTACT|LEFT|FORM|MAP|MOBILE|
+CONTACT|LEFT|FORM|MAP|MOBILE|
 ========================= */
-
-
-.hero::before{
-    content:'';
-    position:absolute;
-    inset:0;
-
-    background:
-    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
-    url('BED/BED (1).png') center/cover;
-
-    transform:scale(1.05);
-}
 
 .hero-content{
     position:relative;
@@ -1804,10 +1729,6 @@ footer{
 
     nav ul.active{
         display:flex;
-    }
-
-    .hero{
-        padding-top:120px;
     }
 
     .hero-text h1{
