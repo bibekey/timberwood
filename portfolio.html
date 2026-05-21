@@ -824,43 +824,6 @@ function toggleMenu(){
     document.getElementById("navLinks").classList.toggle("active");
 }
 
-/* IMAGE VIEWER */
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-function openImage(src){
-    lightbox.style.display = "flex";
-    lightboxImg.src = src;
-}
-
-function closeImage(){
-    lightbox.style.display = "none";
-}
-
-/* TOUCH SWIPE */
-
-let startX = 0;
-
-lightbox.addEventListener('touchstart', e=>{
-    startX = e.touches[0].clientX;
-});
-
-lightbox.addEventListener('touchend', e=>{
-    let endX = e.changedTouches[0].clientX;
-
-    if(Math.abs(startX - endX) > 80){
-        closeImage();
-    }
-});
-
-/* CLICK OUTSIDE */
-
-lightbox.addEventListener('click', function(e){
-    if(e.target !== lightboxImg){
-        closeImage();
-    }
-});
 
 </script>
 
