@@ -353,7 +353,7 @@ ABOUT|STORY|STATS|TEAM|WHY US|CTA
 
 /* STATS */
 
-.stats{
+.stats1{
     padding:20px 7% 100px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
