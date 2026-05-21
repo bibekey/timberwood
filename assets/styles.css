@@ -302,15 +302,6 @@ ABOUT|STORY|STATS|TEAM|WHY US|CTA
     transition:.3s;
 }
 
-.btn-primary{
-    background:#c89b63;
-    color:#111;
-}
-
-.btn-primary:hover{
-    transform:translateY(-4px);
-}
-
 .btn-outline{
     border:1px solid rgba(255,255,255,0.15);
     color:white;
