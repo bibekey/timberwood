@@ -5,10 +5,448 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TimberWood | Services</title>
-<link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" href="img/home/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#0f0f0f;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(10px);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+    z-index:999;
+}
+
+.logo img{
+    height:40px;
+    width:auto;
+    display:block;
+}
+
+.logo span{
+    color:#c89b63;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav ul li a{
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#c89b63;
+}
+
+.menu-btn{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    min-height:70vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:120px 20px 80px;
+
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.8)),
+    url('BED/BED (1).png');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.hero h1{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:700px;
+    line-height:1.8;
+    opacity:.85;
+}
+
+/* =========================
+SECTION TITLE
+========================= */
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.section-title p{
+    opacity:.7;
+}
+
+/* =========================
+SERVICES
+========================= */
+
+.services{
+    padding:100px 5%;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    background:#181818;
+
+    border-radius:25px;
+
+    padding:40px 30px;
+
+    transition:.4s;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+    border-color:#c89b63;
+}
+
+.service-icon{
+    width:75px;
+    height:75px;
+
+    border-radius:18px;
+
+    background:#c89b63;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:35px;
+    margin-bottom:25px;
+
+    color:#000;
+}
+
+.service-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.service-card p{
+    line-height:1.8;
+    opacity:.75;
+}
+
+/* =========================
+WHY CHOOSE US
+========================= */
+
+.why{
+    padding:100px 5%;
+    background:#121212;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.why-box{
+    background:#1b1b1b;
+
+    padding:35px;
+    border-radius:22px;
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.why-box:hover{
+    transform:translateY(-8px);
+}
+
+.why-box h3{
+    font-size:45px;
+    color:#c89b63;
+
+    margin-bottom:10px;
+}
+
+.why-box p{
+    opacity:.75;
+}
+
+/* =========================
+PROCESS
+========================= */
+
+.process{
+    padding:100px 5%;
+}
+
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.process-card{
+    background:#181818;
+    padding:40px 30px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    transition:.4s;
+}
+
+.process-card:hover{
+    transform:translateY(-8px);
+}
+
+.number{
+    width:70px;
+    height:70px;
+
+    margin:auto auto 25px;
+
+    border-radius:50%;
+
+    background:#c89b63;
+    color:#000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+    font-weight:700;
+}
+
+/* =========================
+CTA
+========================= */
+
+.cta{
+    padding:100px 5%;
+
+    text-align:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url('SOFA SETS/SOFA SETS (1).png');
+
+    background-size:cover;
+    background-position:center;
+}
+
+.cta h2{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:auto;
+
+    line-height:1.8;
+    opacity:.8;
+}
+
+.cta button{
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+    border-radius:50px;
+
+    background:#c89b63;
+    color:#000;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.cta button:hover{
+    transform:scale(1.05);
+}
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    background:#0b0b0b;
+    padding:70px 5% 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+footer h2{
+    margin-bottom:18px;
+}
+
+footer p,
+footer li{
+    opacity:.7;
+    line-height:1.9;
+    list-style:none;
+}
+
+footer input{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    margin:15px 0;
+}
+
+footer button{
+    padding:13px 24px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#c89b63;
+    color:#000;
+
+    font-weight:600;
+    cursor:pointer;
+}
+
+.bottom{
+    margin-top:50px;
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    opacity:.7;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul{
+        position:absolute;
+        top:75px;
+        left:-100%;
+
+        width:100%;
+
+        background:#111;
+
+        flex-direction:column;
+
+        padding:30px;
+
+        transition:.4s;
+    }
+
+    nav ul.active{
+        left:0;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+
+    .cta h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -21,11 +459,11 @@
     <img src="img/home/LOGO.png" alt="TimberWood Logo">
 </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-    </div>
+<div class="menu-btn" id="menuBtn">
+☰
+</div>
 
-    <ul id="navLinks">
+<ul id="navMenu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
@@ -41,14 +479,12 @@
 
 <section class="hero">
 
-    <div class="hero-content">
-        <h1>Our <span>Services</span></h1>
+<h1>Our Services</h1>
 
-        <p>
-            Premium Furniture Design, Manufacturing &
+<p>
+Premium Furniture Design, Manufacturing &
 Interior Solutions Crafted with Luxury and Precision.
-        </p>
-    </div>
+</p>
 
 </section>
 
@@ -180,7 +616,7 @@ Quality Craftsmanship with Modern Luxury
 
 <div class="why-box">
 
-<h3>3+</h3>
+<h3>10+</h3>
 
 <p>Years Experience</p>
 
@@ -188,7 +624,7 @@ Quality Craftsmanship with Modern Luxury
 
 <div class="why-box">
 
-<h3>230+</h3>
+<h3>500+</h3>
 
 <p>Happy Customers</p>
 
@@ -196,7 +632,7 @@ Quality Craftsmanship with Modern Luxury
 
 <div class="why-box">
 
-<h3>220+</h3>
+<h3>1000+</h3>
 
 <p>Furniture Designs</p>
 
@@ -204,9 +640,9 @@ Quality Craftsmanship with Modern Luxury
 
 <div class="why-box">
 
-<h3>100%</h3>
+<h3>24/7</h3>
 
-<p>Premium Quality</p>
+<p>Customer Support</p>
 
 </div>
 
@@ -315,75 +751,78 @@ Contact Us
 
 <footer>
 
-    <div class="footer-grid">
+<div class="footer-grid">
 
-        <div>
+<div>
 
-            <div class="logo">
-             <img src="img/home/LOGO.png" alt="TimberWood Logo">
-        </div>
+<h2>Newsletter</h2>
 
-            <p style="margin-top:20px;">
-                Premium furniture brand delivering elegant and luxurious furniture collections for modern homes and offices.
-            </p>
+<p>
+Get updates about latest furniture
+collections and offers.
+</p>
 
-        </div>
+<input type="email" placeholder="Enter your email">
 
-        <div>
+<button>
+Subscribe
+</button>
 
-            <h3>Company</h3>
+</div>
 
-            <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+<div>
 
-        </div>
+<h2>Showroom</h2>
 
-        <div>
+<p>
+Biratnagar Main Road<br><br>
+Sunday - Friday<br><br>
+9705020251
+</p>
 
-            <h3>Products</h3>
+</div>
 
-            <ul>
-                <li><a href="catalog.html">Beds</a></li>
-                <li><a href="catalog.html">Sofa Sets</a></li>
-                <li><a href="catalog.html">Dining Tables</a></li>
-                <li><a href="catalog.html">Wardrobes</a></li>
-            </ul>
+<div>
 
-        </div>
+<h2>Useful Links</h2>
 
-        <div>
+<ul>
+<li>About Us</li>
+<li>Services</li>
+<li>Portfolio</li>
+<li>Contact</li>
+</ul>
 
-            <h3>Contact</h3>
+</div>
 
-            <ul>
-                <li>Biratnagar 09, Main Road (South)</li>
-                <li>9705020251 / 9708000000</li>
-                <li>timberwood.brt@gmail.com</li>
-            </ul>
+</div>
 
-        </div>
+<div class="bottom">
 
-    </div>
+<div>
+© 2026 TimberWood Pvt Ltd
+</div>
 
-    <div class="bottom">
+<div>
+Privacy Policy | Terms
+</div>
 
-        <div>
-            © 2026 TimberWood. All Rights Reserved.
-        </div>
-
-        <div>
-            Privacy Policy | Terms & Conditions
-        </div>
-
-    </div>
+</div>
 
 </footer>
 
+<script>
 
-<script src="assets/script.js"></script>
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.getElementById('navMenu');
+
+menuBtn.onclick = () =>{
+    navMenu.classList.toggle('active');
+}
+
+</script>
+
 </body>
 </html>

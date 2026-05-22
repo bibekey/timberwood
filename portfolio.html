@@ -5,9 +5,492 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>TimberWood | Portfolio</title>
-<link rel="stylesheet" href="assets/styles.css">
 <link rel="icon" href="img/home/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    background:rgba(10,10,10,.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 7%;
+}
+
+.logo img{
+    height:40px;
+    width:auto;
+    display:block;
+}
+
+.logo span{
+    color:#c89b63;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:35px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#c89b63;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    height:70vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url('BED/BED (1).png') center/cover;
+
+    transform:scale(1.05);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#c89b63;
+}
+
+.hero p{
+    color:#ccc;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* SECTION */
+
+.section{
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.section-title span{
+    color:#c89b63;
+}
+
+.section-title p{
+    color:#aaa;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* PORTFOLIO GRID */
+
+.portfolio-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    position:relative;
+    overflow:hidden;
+    border-radius:24px;
+    background:#1a1a1a;
+    cursor:pointer;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,.05);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+    transition:.6s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    padding:30px;
+}
+
+.tag{
+    width:max-content;
+    background:#c89b63;
+    color:black;
+    font-size:12px;
+    font-weight:600;
+    padding:7px 16px;
+    border-radius:50px;
+    margin-bottom:14px;
+}
+
+.overlay h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.overlay p{
+    color:#ddd;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:70px;
+}
+
+.stat{
+    background:#181818;
+    border-radius:24px;
+    padding:40px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.stat h2{
+    font-size:48px;
+    color:#c89b63;
+    margin-bottom:10px;
+}
+
+.stat p{
+    color:#aaa;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.testimonial{
+    background:#171717;
+    border-radius:24px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.06);
+}
+
+.stars{
+    color:#c89b63;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.testimonial p{
+    color:#ccc;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.client{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.client img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.client h4{
+    font-size:18px;
+}
+
+.client span{
+    color:#999;
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    background:
+    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+    url('SOFA SETS/SOFA SETS (5).png') center/cover;
+
+    border-radius:35px;
+    padding:90px 50px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.cta p{
+    color:#ddd;
+    max-width:700px;
+    margin:auto;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+.cta button{
+    background:#c89b63;
+    color:black;
+    border:none;
+    padding:16px 40px;
+    border-radius:60px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.cta button:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:100px;
+    background:#090909;
+    padding:70px 7% 40px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-logo{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.footer-logo span{
+    color:#c89b63;
+}
+
+.footer p{
+    color:#999;
+    line-height:1.8;
+}
+
+.footer h3{
+    margin-bottom:20px;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer ul li{
+    margin-bottom:14px;
+    color:#aaa;
+}
+
+.bottom{
+    margin-top:60px;
+    border-top:1px solid rgba(255,255,255,.08);
+    padding-top:25px;
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+
+    color:#888;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.96);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    z-index:99999;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:90vh;
+    border-radius:20px;
+    object-fit:contain;
+}
+
+.close{
+    position:absolute;
+    top:25px;
+    right:35px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .menu{
+        display:block;
+    }
+
+    nav ul{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+
+        background:#111;
+        flex-direction:column;
+        text-align:center;
+
+        max-height:0;
+        overflow:hidden;
+
+        transition:.4s;
+    }
+
+    nav ul.active{
+        max-height:500px;
+        padding:20px 0;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .hero{
+        height:60vh;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .card img{
+        height:260px;
+    }
+
+    .overlay h3{
+        font-size:22px;
+    }
+
+    .cta{
+        padding:70px 25px;
+    }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -20,9 +503,7 @@
     <img src="img/home/LOGO.png" alt="TimberWood Logo">
 </div>
 
-    <div class="menu-toggle" onclick="toggleMenu()">
-        ☰
-    </div>
+    <div class="menu" onclick="toggleMenu()">☰</div>
 
     <ul id="navLinks">
         <li><a href="index.html">Home</a></li>
@@ -67,7 +548,7 @@
     <div class="portfolio-grid">
 
         <div class="card">
-            <img src="https://i.pinimg.com/736x/00/3e/aa/003eaa044f3c901ed0ca254b5bdcb554.jpg" onclick="openImage(this.src)">
+            <img src="BED/BED (7).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">Luxury Bed</div>
@@ -80,7 +561,7 @@
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/736x/5b/a2/eb/5ba2ebcdd185c10948c58110fca520c6.jpg" onclick="openImage(this.src)">
+            <img src="SOFA SETS/SOFA SETS (8).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">Living Room</div>
@@ -93,7 +574,7 @@
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/736x/47/b8/d0/47b8d06e3d3d20630282ab1338af03e1.jpg" onclick="openImage(this.src)">
+            <img src="DINING TABLE/DINING TABLE (6).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">Dining Setup</div>
@@ -106,7 +587,7 @@
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/ef/84/99/ef84996424a434b8da816ea8f62c475c.jpg" onclick="openImage(this.src)">
+            <img src="TV CABINET/TV CABINET (4).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">TV Cabinet</div>
@@ -119,7 +600,7 @@
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/736x/b2/84/57/b28457cd3dc593f8dcd80974a7a3bf88.jpg" onclick="openImage(this.src)">
+            <img src="CENTER TABLE/CENTER TABLE (12).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">Center Table</div>
@@ -132,7 +613,7 @@
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/ac/cc/d2/acccd2d70a32b7522f107766596a60d2.jpg" onclick="openImage(this.src)">
+            <img src="WARDROBE/WARDROBE (5).png" onclick="openImage(this.src)">
 
             <div class="overlay">
                 <div class="tag">Wardrobe</div>
@@ -151,7 +632,7 @@
     <div class="stats">
 
         <div class="stat">
-            <h2>289+</h2>
+            <h2>500+</h2>
             <p>Projects Completed</p>
         </div>
 
@@ -161,7 +642,7 @@
         </div>
 
         <div class="stat">
-            <h2>230+</h2>
+            <h2>250+</h2>
             <p>Happy Clients</p>
         </div>
 
@@ -199,11 +680,11 @@
             </p>
 
             <div class="client">
-                <img src="https://i.pinimg.com/1200x/01/c4/3b/01c43bbb39cf74d24c9190d4832a080c.jpg">
+                <img src="SOFA SETS/SOFA SETS (2).png">
 
                 <div>
-                    <h4>Anil Duggar</h4>
-                    <span>Furniture Client</span>
+                    <h4>Rahul Sharma</h4>
+                    <span>Home Owner</span>
                 </div>
             </div>
 
@@ -219,10 +700,10 @@
             </p>
 
             <div class="client">
-                <img src="https://i.pinimg.com/736x/58/41/43/5841436224d9c1371bb3f920352ec8e9.jpg">
+                <img src="BED/BED (3).png">
 
                 <div>
-                    <h4>Sushma Dahal</h4>
+                    <h4>Sneha Karki</h4>
                     <span>Interior Client</span>
                 </div>
             </div>
@@ -239,10 +720,10 @@
             </p>
 
             <div class="client">
-                <img src="https://i.pinimg.com/1200x/0b/ad/76/0bad7663463a07cb6a23fcc8cd07ace9.jpg">
+                <img src="OFFICE TABLE/OFFICE TABLE (5).png">
 
                 <div>
-                    <h4>Pradip Bhagat</h4>
+                    <h4>Aayush Rai</h4>
                     <span>Office Owner</span>
                 </div>
             </div>
@@ -340,7 +821,63 @@
 
 </footer>
 
+<!-- LIGHTBOX -->
 
-<script src="assets/script.js"></script>
+<div class="lightbox" id="lightbox">
+
+    <span class="close" onclick="closeImage()">×</span>
+
+    <img id="lightbox-img">
+
+</div>
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+/* IMAGE VIEWER */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+function openImage(src){
+    lightbox.style.display = "flex";
+    lightboxImg.src = src;
+}
+
+function closeImage(){
+    lightbox.style.display = "none";
+}
+
+/* TOUCH SWIPE */
+
+let startX = 0;
+
+lightbox.addEventListener('touchstart', e=>{
+    startX = e.touches[0].clientX;
+});
+
+lightbox.addEventListener('touchend', e=>{
+    let endX = e.changedTouches[0].clientX;
+
+    if(Math.abs(startX - endX) > 80){
+        closeImage();
+    }
+});
+
+/* CLICK OUTSIDE */
+
+lightbox.addEventListener('click', function(e){
+    if(e.target !== lightboxImg){
+        closeImage();
+    }
+});
+
+</script>
+
 </body>
 </html>
