@@ -13,91 +13,320 @@
 
 /* HERO */
 
-.hero{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:60px;
-    padding:140px 7% 100px;
+.hero-slider{
+    width:100%;
+    height:100vh;
     position:relative;
+    overflow:hidden;
 }
 
-.hero::before{
-    content:'';
+.hero-slide{
     position:absolute;
-    width:500px;
-    height:500px;
-    background:#c89b63;
-    filter:blur(180px);
-    opacity:.15;
-    top:-100px;
-    right:-100px;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    opacity:0;
+    visibility:hidden;
+    transition:1s ease;
 }
 
-.hero-text h4{
-    color:#c89b63;
-    margin-bottom:18px;
+.hero-slide.active{
+    opacity:1;
+    visibility:visible;
+    z-index:2;
+}
+
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to right,rgba(0,0,0,.75),rgba(0,0,0,.35));
+    z-index:1;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+}
+
+.hero-content.reverse{
+    flex-direction:row-reverse;
+}
+
+.hero-text{
+    flex:1;
+    color:white;
+    animation:fadeUp 1s ease;
+}
+
+.hero-tag{
+    display:inline-block;
+    padding:10px 18px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border-radius:50px;
+    font-size:13px;
     letter-spacing:2px;
+    margin-bottom:20px;
 }
 
 .hero-text h1{
-    color:#5c3d2e;
-    font-size:72px;
+    font-size:68px;
     line-height:1.1;
     margin-bottom:25px;
+    font-weight:700;
 }
 
 .hero-text p{
-    color:#555;
-    line-height:1.9;
+    font-size:17px;
+    line-height:1.8;
+    color:#ddd;
+    max-width:650px;
     margin-bottom:35px;
-    font-size:16px;
-    max-width:600px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:18px;
+    gap:20px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 32px;
-    border-radius:16px;
+    padding:16px 34px;
+    border-radius:60px;
     text-decoration:none;
     font-weight:600;
-    transition:.3s;
+    transition:.4s;
+    font-size:15px;
 }
 
 .btn-primary{
-    background:#c89b63;
-    color:#111;
+    background:white;
+    color:black;
 }
 
 .btn-primary:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 }
 
 .btn-outline{
-    border:1px solid rgba(0,0,0,0.45);
-    color:#5c3d2e;
+    border:1px solid rgba(255,255,255,.4);
+    color:white;
 }
 
 .btn-outline:hover{
     background:white;
-    color:#5c3d2e;
+    color:black;
 }
 
 .hero-image{
-    position:relative;
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:zoomIn 1s ease;
 }
 
 .hero-image img{
     width:100%;
-    border-radius:35px;
+    max-width:600px;
+    height:650px;
     object-fit:cover;
-    box-shadow:0 25px 60px rgba(0,0,0,0.45);
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+/* CENTER LAYOUT */
+
+.center-layout{
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-text.center{
+    max-width:850px;
+}
+
+.hero-text.center p{
+    margin:auto;
+    margin-bottom:35px;
+}
+
+.hero-text.center .hero-buttons{
+    justify-content:center;
+}
+
+.bg-image{
+    position:absolute;
+    inset:0;
+    z-index:0;
+}
+
+.bg-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:brightness(.45);
+}
+
+/* DOTS */
+
+.hero-dots{
+    position:absolute;
+    bottom:40px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:12px;
+    z-index:10;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:rgba(255,255,255,.35);
+    cursor:pointer;
+    transition:.4s;
+}
+
+.dot.active{
+    background:white;
+    transform:scale(1.2);
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/* =========================
+TABLET
+========================= */
+
+@media(max-width:991px){
+
+    .hero-content{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        padding-top:120px;
+        padding-bottom:60px;
+        gap:40px;
+    }
+
+    .hero-content.reverse{
+        flex-direction:column;
+    }
+
+    .hero-text h1{
+        font-size:48px;
+    }
+
+    .hero-text p{
+        margin:auto;
+        margin-bottom:30px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-image img{
+        max-width:500px;
+        height:420px;
+    }
+
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .hero-slider{
+        height:auto;
+        min-height:100vh;
+    }
+
+    .hero-content{
+        width:92%;
+        padding-top:120px;
+        padding-bottom:100px;
+    }
+
+    .hero-text h1{
+        font-size:34px;
+        line-height:1.2;
+    }
+
+    .hero-text p{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    .hero-tag{
+        font-size:11px;
+        padding:8px 14px;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+        padding:15px;
+    }
+
+    .hero-buttons{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .hero-image img{
+        width:100%;
+        height:300px;
+        border-radius:20px;
+    }
+
+    .hero-dots{
+        bottom:25px;
+    }
+
 }
 
 /* FEATURES */
@@ -539,39 +768,151 @@ footer{
 
 </nav>
 
-<!-- HERO -->
+<!-- =========================
+HERO SECTION START
+========================= -->
 
-<section class="hero">
+<section class="hero-slider">
 
-    <div class="hero-text">
+    <!-- SLIDE 1 -->
 
-        <h4>MODERN PREMIUM FURNITURE</h4>
+    <div class="hero-slide active">
 
-        <h1>
-            Luxury Furniture For Elegant Living
-        </h1>
+        <div class="hero-overlay"></div>
 
-        <p>
-            Discover beautifully crafted beds, sofas, dining tables, wardrobes, and modern furniture collections designed to transform your interiors with timeless style and comfort.
-        </p>
+        <div class="hero-content">
 
-        <div class="hero-buttons">
+            <div class="hero-text">
 
-            <a href="catalog.html" class="btn btn-primary">
-                View Catalog
-            </a>
+                <span class="hero-tag">
+                    MODERN PREMIUM FURNITURE
+                </span>
 
-            <a href="#" class="btn btn-outline">
-                Explore Collection
-            </a>
+                <h1>
+                    Luxury Furniture For Elegant Living
+                </h1>
+
+                <p>
+                    Discover beautifully crafted beds, sofas, dining tables, wardrobes, and modern furniture collections designed to transform your interiors with timeless style and comfort.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="catalog.html" class="btn btn-primary">
+                        View Catalog
+                    </a>
+
+                    <a href="#" class="btn btn-outline">
+                        Explore Collection
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?w=1200" alt="">
+            </div>
 
         </div>
 
     </div>
 
-    <div class="hero-image">
+    <!-- SLIDE 2 -->
 
-        <img src="https://images.unsplash.com/photo-1678132852119-c03c2e7d2740?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU4fHx8ZW58MHx8fHx8">
+    <div class="hero-slide">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content reverse">
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200" alt="">
+            </div>
+
+            <div class="hero-text">
+
+                <span class="hero-tag">
+                    TIMELESS INTERIORS
+                </span>
+
+                <h1>
+                    Stylish Spaces Crafted With Perfection
+                </h1>
+
+                <p>
+                    Enhance your home with premium interior furniture designed for comfort, elegance, and modern living experiences.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#" class="btn btn-primary">
+                        Shop Now
+                    </a>
+
+                    <a href="#" class="btn btn-outline">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SLIDE 3 -->
+
+    <div class="hero-slide">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content center-layout">
+
+            <div class="hero-text center">
+
+                <span class="hero-tag">
+                    PREMIUM WOOD COLLECTION
+                </span>
+
+                <h1>
+                    Modern Furniture That Defines Luxury
+                </h1>
+
+                <p>
+                    Experience handcrafted wooden furniture collections built for luxury interiors, premium comfort, and modern lifestyle aesthetics.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#" class="btn btn-primary">
+                        Discover More
+                    </a>
+
+                    <a href="#" class="btn btn-outline">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="bg-image">
+            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1600" alt="">
+        </div>
+
+    </div>
+
+    <!-- SLIDER DOTS -->
+
+    <div class="hero-dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
 
     </div>
 
