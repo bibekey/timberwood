@@ -343,66 +343,49 @@ IMAGE VIEWER
 }
 
 
-/* =========================
-FOOTER
-========================= */
+/* FOOTER */
 
 footer{
-    background:#0b0b0b;
-    padding:70px 5% 30px;
+    background:#0b0d10;
+    padding:70px 7% 30px;
 }
 
 .footer-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:2fr 1fr 1fr 1fr;
     gap:40px;
 }
 
-footer h2{
-    margin-bottom:18px;
+.footer-grid h3{
+    color:#fff;
+    margin-bottom:20px;
 }
 
-footer p,
-footer li{
-    opacity:.7;
-    line-height:1.9;
+.footer-grid p,
+.footer-grid li{
+    color:#bdbdbd;
+    line-height:2;
     list-style:none;
 }
 
-footer input{
-    width:100%;
-    padding:14px;
-
-    border:none;
-    border-radius:12px;
-
-    margin:15px 0;
+.footer-grid a{
+    text-decoration:none;
+    color:#bdbdbd;
 }
 
-footer button{
-    padding:13px 24px;
-
-    border:none;
-    border-radius:12px;
-
-    background:#c89b63;
-    color:#000;
-
-    font-weight:600;
-    cursor:pointer;
+.footer-grid a:hover{
+    color:#c89b63;
 }
 
 .bottom{
     margin-top:50px;
     padding-top:25px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
+    border-top:1px solid rgba(255,255,255,0.08);
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
-
-    opacity:.7;
+    gap:15px;
+    color:#888;
 }
 
 /* =========================
@@ -411,27 +394,24 @@ MOBILE
 
 @media(max-width:768px){
 
-    .menu-btn{
-        display:block;
-    }
-
     nav ul{
-        position:absolute;
-        top:75px;
-        left:-100%;
-
-        width:100%;
-
-        background:#111;
-
+        position:fixed;
+        top:80px;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:#fff;
         flex-direction:column;
-        padding:30px;
-
+        padding:40px;
         transition:.4s;
     }
 
     nav ul.active{
-        left:0;
+        right:0;
+    }
+
+    .menu-btn{
+        display:block;
     }
 
     .hero h1{
