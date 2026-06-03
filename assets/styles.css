@@ -162,7 +162,7 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
         transform:translateX(-20%);
     }
     to{
-        transform:translateX(0);
+        transform:translateX(20);
     }
 }
 
