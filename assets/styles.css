@@ -121,7 +121,7 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
 ========================= */
 
 .partners{
-    padding:80px 5%;
+    padding:20px 5%;
     background:#fff;
     text-align:center;
 }
@@ -159,10 +159,10 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
 
 @keyframes scroll{
     from{
-        transform:translateX(-20%);
+        transform:translateX(-30%);
     }
     to{
-        transform:translateX(20);
+        transform:translateX(0);
     }
 }
 
