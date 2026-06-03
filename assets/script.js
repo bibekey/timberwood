@@ -134,15 +134,3 @@ slider.addEventListener("touchend",(e)=>{
 showSlide(currentSlide);
 
 startSlider();
-
-
-
-
-/* POPUP NEWSLETTER */
-setTimeout(()=>{
-    document.getElementById("popup").style.display = "flex";
-}, 5000);
-
-function closePopup(){
-    document.getElementById("popup").style.display = "none";
-}
