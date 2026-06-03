@@ -159,7 +159,7 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
 
 @keyframes scroll{
     from{
-        transform:translateX(-50%);
+        transform:translateX(-10%);
     }
     to{
         transform:translateX(0);
@@ -181,7 +181,9 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
 }
 
 
-
+/* =========================
+   ADVERTISEMENT
+========================= */
 .sale-banner{
     display:flex;
     align-items:center;
