@@ -114,3 +114,68 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
     font-size:18px;
     line-height:1.8;
 }
+
+
+/* =========================
+   PARTNERS
+========================= */
+
+.partners{
+    padding:80px 5%;
+    background:#fff;
+    text-align:center;
+}
+
+.partners h2{
+    font-size:2rem;
+    margin-bottom:40px;
+    color:#5c3d2e;
+}
+
+.partners-slider{
+    overflow:hidden;
+    width:100%;
+    position:relative;
+}
+
+.partners-track{
+    display:flex;
+    align-items:center;
+    gap:80px;
+    width:max-content;
+    animation: scroll 18s linear infinite;
+}
+
+.partners-track img{
+    width:180px;
+    height:80px;
+    object-fit:contain;
+    transition:0.3s ease;
+}
+
+.partners-track img:hover{
+    transform:translateY(-3px) scale(1.05);
+}
+
+@keyframes scroll{
+    from{
+        transform:translateX(-50%);
+    }
+    to{
+        transform:translateX(0);
+    }
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .partners-track{
+        gap:40px;
+    }
+
+    .partners-track img{
+        width:120px;
+        height:60px;
+    }
+
+}
