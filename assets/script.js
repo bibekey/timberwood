@@ -138,7 +138,7 @@ startSlider();
 
 
 
-
+/* POPUP NEWSLETTER */
 setTimeout(()=>{
     document.getElementById("popup").style.display = "flex";
 }, 5000);
