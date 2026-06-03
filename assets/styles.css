@@ -179,3 +179,65 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
     }
 
 }
+
+
+
+.sale-banner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:50px;
+    padding:60px 5%;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://i.pinimg.com/736x/97/91/40/979140409d0029c4c6724a190907b3af.jpg');
+    color:#fff;
+    border-radius:20px;
+    margin:50px 5%;
+}
+
+.sale-left,
+.sale-right{
+    text-align:center;
+}
+
+.sale-left span{
+    background:#fff;
+    color:#8B5E3C;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.sale-banner h2{
+    font-size:4rem;
+    margin:15px 0;
+}
+
+.sale-banner h3{
+    font-size:1.6rem;
+    margin-bottom:10px;
+}
+
+.divider{
+    width:2px;
+    height:140px;
+    background:rgba(255,255,255,.3);
+}
+
+@media(max-width:768px){
+    .sale-banner{
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .divider{
+        width:100px;
+        height:2px;
+    }
+
+    .sale-banner h2{
+        font-size:3rem;
+    }
+}
