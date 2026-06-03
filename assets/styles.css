@@ -159,7 +159,7 @@ HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
 
 @keyframes scroll{
     from{
-        transform:translateX(-10%);
+        transform:translateX(-20%);
     }
     to{
         transform:translateX(0);
