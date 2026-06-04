@@ -5,7 +5,7 @@
 <title>TimberWood</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="TimberWood Furniture specializes in luxury furniture and modern interior solutions including premium beds, sofas, dining tables, wardrobes, office furniture, and custom wooden designs crafted for elegant living spaces.">
-<meta name="keywords" content="TimberWood Furniture, TimberWood, Luxury Furniture, Modern Furniture, Wooden Furniture, Premium Beds, Sofa Set, Dining Table, Wardrobe, Home Furniture, Interior Design, Office Furniture, Custom Furniture, Furniture Store Nepal, TimberWood Nepal, Elegant Living, Modern Interior, Furniture Catalog, Luxury Home Decor, Wood Interior, Contemporary Furniture">
+<meta name="keywords" content="TimberWood Furniture, TimberWood, Luxury Furniture, Modern Furniture, Wooden Furniture, Premium Beds, Sofa Set, Dining Table, Wardrobe, Home Furniture, Interior Design, Office Furniture, Custom Furniture, Furniture Store Nepal, TimberWood Nepal, Elegant Living, Modern Interior, Furniture Catalog, Luxury Home Decor, Wood Interior, Contemporary Furniture">ss
 <meta name="author" content="TimberWood Furniture">
 <meta property="og:image" content="img/home/LOGO.png">
     
@@ -598,41 +598,88 @@ MOBILE
     object-fit:cover;
 }
 
-/* CTA */
-
+/* CTA Section */
 .cta{
-    padding:120px 7%;
+    position:relative;
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     text-align:center;
-    background:fff;
+    overflow:hidden;
 }
 
-.cta h2{
-    color:#c89b63;
-    font-size:58px;
+/* Video Background */
+.cta-video{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:translate(-50%, -50%);
+    z-index:1;
+}
+
+/* Dark Overlay */
+.cta-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+    z-index:2;
+}
+
+/* Content */
+.cta-content{
+    position:relative;
+    z-index:3;
+    padding:0 7%;
+    max-width:900px;
+}
+
+.cta-content h2{
+    color:#fff;
+    font-size:clamp(36px,5vw,72px);
     margin-bottom:20px;
-}
-
-.cta p{
-    max-width:700px;
-    margin:auto;
-    color:#555;
-    line-height:1.9;
-}
-
-.cta a{
-    display:inline-block;
-    margin-top:35px;
-    padding:18px 38px;
-    border-radius:18px;
-    background:#c89b63;
-    color:#111;
-    text-decoration:none;
     font-weight:700;
+}
+
+.cta-content p{
+    color:#f5f5f5;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.cta-content a{
+    display:inline-block;
+    padding:15px 35px;
+    background:#c89b63;
+    color:#fff;
+    text-decoration:none;
+    border-radius:50px;
     transition:.3s;
 }
 
-.cta a:hover{
-    transform:translateY(-5px);
+.cta-content a:hover{
+    transform:translateY(-3px);
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .cta{
+        min-height:70vh;
+    }
+
+    .cta-content p{
+        font-size:16px;
+    }
+
+    .cta-content a{
+        padding:13px 28px;
+    }
+
 }
 
 /* FOOTER */
@@ -655,6 +702,7 @@ footer{
 
 .footer-grid p,
 .footer-grid li{
+    font-size:15px;
     color:#bdbdbd;
     line-height:2;
     list-style:none;
@@ -1324,17 +1372,25 @@ HERO SECTION START
 
 <section class="cta">
 
-    <h2>
-        Upgrade Your Living Space Today
-    </h2>
+    <video autoplay muted loop playsinline class="cta-video">
+        <source src="img/home/sofarepair.mp4" type="video/mp4">
+    </video>
 
-    <p>
-        Discover premium furniture collections designed for luxury interiors, comfort, and modern lifestyle.
-    </p>
+    <div class="cta-overlay"></div>
 
-    <a href="catalog.html">
-        Explore Catalog
-    </a>
+    <div class="cta-content">
+        <h2>
+            Upgrade Your Living Space Today
+        </h2>
+
+        <p>
+            Discover premium furniture collections designed for luxury interiors, comfort, and modern lifestyle.
+        </p>
+
+        <a href="catalog.html">
+            Explore Catalog
+        </a>
+    </div>
 
 </section>
 
@@ -1387,9 +1443,9 @@ HERO SECTION START
             <h3>Contact</h3>
 
             <ul>
-                <li>Biratnagar, Nepal</li>
+                <li>Biratnagar 09, Main Road (South)</li>
                 <li>9705020251 / 9708000000</li>
-                <li>timberwood@gmail.com</li>
+                <li>timberwood.brt@gmail.com</li>
             </ul>
 
         </div>
