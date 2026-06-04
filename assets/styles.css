@@ -334,7 +334,9 @@ LATEST NEWS
 }
 
 
-/* DEALER */
+/* =========================
+DEALER
+========================= */
 .dealer-award{
     position:relative;
     padding:120px 7%;
@@ -421,7 +423,10 @@ LATEST NEWS
 }
 
 
-/* CTA Section */
+/* =========================
+CTA
+========================= */
+
 .cta{
     position:relative;
     min-height:80vh;

@@ -191,45 +191,6 @@
     font-size:14px;
 }
 
-/* CTA */
-
-.cta{
-    background:#fff;;
-
-    border-radius:35px;
-    padding:90px 50px;
-    text-align:center;
-}
-
-.cta h2{
-    color:#5c3d2e;
-    font-size:55px;
-    margin-bottom:20px;
-}
-
-.cta p{
-    color:#555;
-    max-width:700px;
-    margin:auto;
-    line-height:1.9;
-    margin-bottom:35px;
-}
-
-.cta button{
-    background:#c89b63;
-    color:black;
-    border:none;
-    padding:16px 40px;
-    border-radius:60px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.cta button:hover{
-    transform:scale(1.05);
-}
 
 /* FOOTER */
 
@@ -322,9 +283,7 @@ footer{
         font-size:34px;
     }
 
-    .cta h2{
-        font-size:38px;
-    }
+
 
 }
 
@@ -350,9 +309,6 @@ footer{
         font-size:22px;
     }
 
-    .cta{
-        padding:70px 25px;
-    }
 
 }
 
@@ -600,23 +556,26 @@ footer{
 
 <!-- CTA -->
 
-<section class="section">
+<section class="cta">
 
-    <div class="cta">
+    <video autoplay muted loop playsinline class="cta-video">
+        <source src="img/home/sofarepair.mp4" type="video/mp4">
+    </video>
 
+    <div class="cta-overlay"></div>
+
+    <div class="cta-content">
         <h2>Let's Build Your Dream Interior</h2>
 
-        <p>
-            From modern furniture to luxury interiors,
-            TimberWood creates timeless spaces designed with beauty,
-            comfort, and premium craftsmanship.
-        </p>
+        <p>From modern furniture to luxury interiors, TimberWood creates timeless spaces designed with beauty, comfort, and premium craftsmanship</p>
 
-        <button>Start Your Project</button>
-
+        <a href="contact.html">
+            Start Your Project
+        </a>
     </div>
 
 </section>
+
 
 <!-- FOOTER -->
 
