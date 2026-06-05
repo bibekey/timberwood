@@ -283,9 +283,10 @@ IMAGE VIEWER
     top:20px;
     right:25px;
 
-    font-size:40px;
+    font-size:45px;
     cursor:pointer;
 
+    z-index:999;
 }
 
 /* BUTTONS */
@@ -305,8 +306,10 @@ IMAGE VIEWER
     background:rgba(255,255,255,.12);
     color:#fff;
 
-    font-size:26px;
+    font-size:28px;
     cursor:pointer;
+
+    z-index:999;
 
     backdrop-filter:blur(10px);
 }
@@ -319,6 +322,30 @@ IMAGE VIEWER
     right:20px;
 }
 
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .viewer-slide{
+        padding:10px;
+    }
+
+    .viewer-slide img{
+        max-height:80vh;
+    }
+
+    .prev,
+    .next{
+        width:42px;
+        height:42px;
+        font-size:20px;
+    }
+
+    .close{
+        font-size:36px;
+    }
+
+}
 
 
 /* =========================
@@ -438,20 +465,6 @@ MOBILE
 
     .card img{
         height:260px;
-    }
-
-    .viewer-slide{
-        padding:10px;
-    }
-
-    .viewer-slide img{
-        max-height:80vh;
-    }
-
-
-
-    .close{
-        font-size:36px;
     }
 
     .prev,
