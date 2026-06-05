@@ -134,3 +134,20 @@ slider.addEventListener("touchend",(e)=>{
 showSlide(currentSlide);
 
 startSlider();
+
+
+
+const buttons = document.querySelectorAll('.prev, .next');
+
+setTimeout(() => {
+    buttons.forEach(btn => btn.style.opacity = '0');
+}, 5000);
+
+document.querySelector('.hero-slider').addEventListener('mousemove', () => {
+    buttons.forEach(btn => btn.style.opacity = '1');
+
+    clearTimeout(window.hideTimer);
+    window.hideTimer = setTimeout(() => {
+        buttons.forEach(btn => btn.style.opacity = '0');
+    }, 5000);
+});
