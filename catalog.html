@@ -1,0 +1,6301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TimberWood | Catalog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore TimberWood Furniture Catalog featuring premium beds, sofas, dining tables, wardrobes, and modern wooden furniture designed for luxury homes and elegant interiors. Browse our latest collection and find the perfect furniture for your space.">
+<meta name="keywords" content="TimberWood Catalog, Furniture Catalog, TimberWood Furniture, Luxury Furniture Catalog, Modern Furniture, Premium Beds, Sofa Collection, Dining Table Set, Wardrobe Designs, Wooden Furniture Nepal, Home Furniture Catalog, Interior Furniture, Office Furniture, Custom Furniture, Furniture Collection, TimberWood Nepal, Elegant Furniture, Luxury Home Decor, Furniture Shop Catalog">
+<meta name="author" content="TimberWood Furniture">
+<meta property="og:image" content="img/home/LOGO.png">
+
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="img/home/LOGO.png" type="image/x-icon">   <!-- font icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+
+
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+    height:70vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://i.pinimg.com/736x/97/91/40/979140409d0029c4c6724a190907b3af.jpg');
+    transform:scale(1.05);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:800px;
+}
+
+.hero h1{
+    color:#fff;
+    font-size:70px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#c89b63;
+}
+
+.hero p{
+    color:#ccc;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* =========================
+FILTERS
+========================= */
+
+.filters{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:25px 5%;
+    background:#fff;
+    position:sticky;
+    top:75px;
+    z-index:99;
+}
+
+.filters::-webkit-scrollbar{
+    display:none;
+}
+
+.filter-btn{
+    min-width:max-content;
+    padding:12px 22px;
+    border:none;
+    border-radius:50px;
+    background:#555;
+    color:#fff;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#c89b63;
+    color:#000;
+}
+
+/* =========================
+CATALOG GRID
+========================= */
+
+.catalog{
+    padding:40px 5% 80px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+/* =========================
+CARD
+========================= */
+
+.card{
+    background:#fff;
+
+    border-radius:22px;
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.4s;
+    cursor:pointer;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card:active{
+    transform:scale(.98);
+}
+
+.card-image{
+    position:relative;
+    overflow:hidden;
+}
+
+.card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+
+    display:block;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+/* OVERLAY */
+
+.overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+    to top,
+    rgba(0,0,0,.35),
+    rgba(0,0,0,0)
+    );
+
+    opacity:0;
+    transition:.4s;
+}
+
+.card:hover .overlay{
+    opacity:1;
+}
+
+/* WISHLIST */
+
+.wishlist{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    width:42px;
+    height:42px;
+
+    background:rgba(0,0,0,.5);
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:10;
+
+    backdrop-filter:blur(10px);
+
+    font-size:20px;
+}
+
+/* CONTENT */
+
+.content{
+    padding:18px;
+}
+
+.content h3{
+    color:#5c3d2e;
+    margin-bottom:8px;
+}
+
+.content p{
+    opacity:.7;
+    font-size:14px;
+}
+
+/* =========================
+IMAGE VIEWER
+========================= */
+
+.viewer{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.80);
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    z-index:9999;
+
+    overflow:hidden;
+}
+
+.viewer.active{
+    display:flex;
+}
+
+.viewer-slider{
+    display:flex;
+    width:100%;
+    height:100%;
+    transition:transform .4s ease;
+}
+
+.viewer-slide{
+    min-width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.viewer-slide img{
+    width:100%;
+    max-width:1100px;
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    user-select:none;
+    pointer-events:none;
+}
+
+/* CLOSE */
+
+.close{
+    color:#fff;
+    position:absolute;
+    top:20px;
+    right:25px;
+
+    font-size:45px;
+    cursor:pointer;
+
+    z-index:999;
+}
+
+/* BUTTONS */
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.0);
+    color:#fff;
+
+    font-size:28px;
+    cursor:pointer;
+
+    z-index:999;
+
+    backdrop-filter:blur(10px);
+}
+
+.prev{
+    left:20px;
+}
+
+.next{
+    right:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .viewer-slide{
+        padding:10px;
+    }
+
+    .viewer-slide img{
+        max-height:80vh;
+    }
+
+    .prev,
+    .next{
+        width:42px;
+        height:42px;
+        font-size:20px;
+    }
+
+    .close{
+        font-size:36px;
+    }
+
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+footer{
+    background:#0b0b0b;
+    padding:70px 5% 30px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+}
+
+footer h2{
+    color:#fff;
+    margin-bottom:18px;
+}
+
+footer p,
+footer li{
+    color:#fff;
+    opacity:.7;
+    line-height:1.9;
+    list-style:none;
+}
+
+footer input{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    margin:15px 0;
+}
+
+footer button{
+    padding:13px 24px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#c89b63;
+    color:#000;
+
+    font-weight:600;
+    cursor:pointer;
+}
+
+.bottom{
+    margin-top:50px;
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+    opacity:.7;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    nav ul{
+        position:fixed;
+        top:80px;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:#fff;
+        flex-direction:column;
+        padding:40px;
+        transition:.4s;
+    }
+
+    nav ul.active{
+        right:0;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        height:60vh;
+    }
+
+    .hero-content h1{
+        font-size:30px;
+    }
+
+    .article-content{
+        padding:25px;
+    }
+
+    .author-box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .catalog{
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+        height:260px;
+    }
+
+    .prev,
+    .next{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo"><img src="img/home/LOGO.png" alt="TimberWood Logo"></div>
+
+<div class="menu-btn" id="menuBtn">☰</div>
+<ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Luxury Furniture <span>Catalog</span></h1>
+
+        <p>
+            Modern premium wooden furniture collection for bedroom, living room, dining and office.
+        </p>
+    </div>
+
+</section>
+
+<!-- FILTERS -->
+
+<div class="filters">
+
+<button class="filter-btn active" data-filter="all">
+All
+</button>
+
+<button class="filter-btn" data-filter="bed">
+Bed
+</button>
+
+<button class="filter-btn" data-filter="centre">
+Centre Table
+</button>
+
+<button class="filter-btn" data-filter="sofa">
+Sofa
+</button>
+
+<button class="filter-btn" data-filter="wardrobe">
+Wardrobe
+</button>
+
+<button class="filter-btn" data-filter="tv">
+TV Cabinet
+</button>
+
+<button class="filter-btn" data-filter="console">
+Console Table
+</button>
+
+<button class="filter-btn" data-filter="dining">
+Dining Table
+</button>
+
+<button class="filter-btn" data-filter="dressing">
+Dressing Table
+</button>
+
+<button class="filter-btn" data-filter="office">
+Office Table
+</button>
+
+<button class="filter-btn" data-filter="shoe">
+Shoe Rack
+</button>
+
+</div>
+
+<!-- CATALOG -->
+
+<div class="catalog">
+
+<!-- BED CARD START -->
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (21).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (22).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (23).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (24).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (25).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (26).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (27).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (28).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (29).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (30).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (31).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (32).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (33).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (34).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (35).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (36).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (37).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (38).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (39).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (40).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (41).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (42).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (43).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (44).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (45).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (46).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (47).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (48).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (49).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card bed"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/BED/BED (50).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Bed</h3>
+<p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
+</div>
+
+</div>
+
+<!-- BED CARD END -->
+
+
+
+
+<!-- CENTRE TABLE CARD START -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card centre"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CENTRE TABLE/CENTRE TABLE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Designed to Complete Your Living Space</h3>
+<p>Designed with modern style, perfect for everyday use and decor.</p>
+</div>
+
+</div>
+
+
+
+<!--CENTRE TABLE CARD END-->
+
+
+<!--SOFA SETS CARD START -->
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (21).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (22).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (23).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (24).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (25).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (26).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (27).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (28).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (29).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card sofa"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SOFA SETS/SOFA SETS (30).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Sofa</h3>
+<p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
+</div>
+
+</div>
+
+<!--SOFA SETS CARD END -->
+
+
+
+<!--WARDROBE CARD START -->
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card wardrobe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/WARDROBE/WARDROBE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Storage Solutions</h3>
+<p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
+</div>
+
+</div>
+
+<!-- WARDROBE CARD END -->
+
+
+
+<!--TV CABINET CARD START -->
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card tv"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/TV CABINET/TV CABINET (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Premium Tv Cabinet</h3>
+<p>Clean design with practical storage for media and accessories.</p>
+</div>
+
+</div>
+
+<!-- TV CABINET CARD END -->
+
+
+
+<!--CONSOLE TABLE CARD START -->
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card console"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/CONSOLE TABLE/CONSOLE TABLE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Console Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CONSOLE TABLE CARD END -->
+
+
+
+
+
+<!--DINING TABLE CARD START -->
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dining"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DINING TABLE/DINING TABLE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dining Table</h3>
+<p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
+</div>
+
+</div>
+
+<!-- DINING TABLE CARD END -->
+
+
+
+
+
+<!--DRESSING TABLE CARD START -->
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card dressing"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/DRESSING TABLE/DRESSING TABLE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Dressing Table</h3>
+<p>Perfect for entryways, combining elegance with everyday use</p>
+</div>
+
+</div>
+
+<!-- DRESSING TABLE CARD END -->
+
+
+
+
+
+<!--OFFICE TABLE CARD START -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card office"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/OFFICE TABLE/OFFICE TABLE (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Office Table</h3>
+<p>Clean and funcitional design for an efficient workspace.</p>
+</div>
+
+</div>
+
+<!-- OFFICE TABLE CARD END -->
+
+
+
+
+
+<!--SHOE RACK CARD START -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (1).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (2).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (3).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (4).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (5).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (6).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (7).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (8).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (9).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (10).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (11).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (12).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (13).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (14).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (15).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (16).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (17).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (18).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (19).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card shoe"
+onclick="openViewer(this.querySelector('img').src)">
+
+<div class="wishlist">♡</div>
+
+<div class="card-image">
+
+<img src="img/SHOE RACK/SHOE RACK (20).png">
+
+<div class="overlay"></div>
+
+</div>
+
+<div class="content">
+<h3>Luxury Shoe Rack</h3>
+<p>Keep your footwear organize with this stylish and compact shoe rack.</p>
+</div>
+
+</div>
+
+<!-- SHOE RACK CARD END -->
+
+
+
+
+
+</div>
+
+<!-- IMAGE VIEWER -->
+
+<div class="viewer" id="viewer">
+
+    <div class="close" onclick="closeViewer()">
+        ×
+    </div>
+
+    <button class="prev" onclick="prevImage()">
+        ❮
+    </button>
+
+    <div class="viewer-slider" id="viewerSlider">
+    </div>
+
+    <button class="next" onclick="nextImage()">
+        ❯
+    </button>
+
+</div>
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <video autoplay muted loop playsinline class="cta-video">
+        <source src="img/home/interior.mp4" type="video/mp4">
+    </video>
+
+
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+
+<h2>Newsletter</h2>
+
+<p>
+Get latest furniture updates and offers.
+</p>
+
+<input type="email" placeholder="Enter email">
+
+<button>Subscribe</button>
+
+</div>
+
+<div>
+
+<h2>Showroom</h2>
+
+<p>
+Biratnagar Main Road<br><br>
+Sunday - Friday<br><br>
+9705020251 / 9708000000
+</p>
+
+</div>
+
+<div>
+
+<h2>Useful Links</h2>
+
+<ul>
+<li>About Us</li>
+<li>Portfolio</li>
+<li>Contact</li>
+<li>Blog</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<div>
+© 2026 TimberWood Pvt Ltd
+</div>
+
+<div>
+Privacy Policy | Terms
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+/* =========================
+MOBILE MENU
+========================= */
+
+const menuBtn = document.getElementById('menuBtn');
+const navMenu = document.querySelector('nav ul');
+
+menuBtn.onclick = () =>{
+    navMenu.classList.toggle('active');
+};
+
+/* =========================
+FILTER
+========================= */
+
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.card');
+
+filterBtns.forEach(btn=>{
+
+    btn.addEventListener('click',()=>{
+
+        document
+        .querySelector('.filter-btn.active')
+        .classList.remove('active');
+
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        cards.forEach(card=>{
+
+            if(filter === 'all'){
+                card.style.display='block';
+            }
+            else if(card.classList.contains(filter)){
+                card.style.display='block';
+            }
+            else{
+                card.style.display='none';
+            }
+
+        });
+
+    });
+
+});
+
+/* =========================
+IMAGE VIEWER
+========================= */
+
+const viewer = document.getElementById('viewer');
+const viewerSlider = document.getElementById('viewerSlider');
+
+/* AUTO GET ALL IMAGES */
+
+const images = [];
+
+document.querySelectorAll('.card img').forEach(img=>{
+
+    images.push(img.src);
+
+});
+
+/* CREATE SLIDES */
+
+images.forEach(src=>{
+
+    viewerSlider.innerHTML += `
+    
+    <div class="viewer-slide">
+        <img src="${src}">
+    </div>
+    
+    `;
+
+});
+
+let currentIndex = 0;
+
+/* OPEN */
+
+function openViewer(src){
+
+    currentIndex = images.indexOf(
+        new URL(src, location.href).href
+    );
+
+    if(currentIndex < 0){
+        currentIndex = 0;
+    }
+
+    updateSlider();
+
+    viewer.classList.add('active');
+
+}
+
+/* CLOSE */
+
+function closeViewer(){
+
+    viewer.classList.remove('active');
+
+}
+
+/* UPDATE */
+
+function updateSlider(){
+
+    viewerSlider.style.transform =
+    `translateX(-${currentIndex * 100}%)`;
+
+}
+
+/* NEXT */
+
+function nextImage(){
+
+    currentIndex++;
+
+    if(currentIndex >= images.length){
+        currentIndex = 0;
+    }
+
+    updateSlider();
+
+}
+
+/* PREV */
+
+function prevImage(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = images.length - 1;
+    }
+
+    updateSlider();
+
+}
+
+/* =========================
+TOUCH SWIPE
+========================= */
+
+let startX = 0;
+
+/* MOBILE */
+
+viewer.addEventListener('touchstart',(e)=>{
+
+    startX = e.touches[0].clientX;
+
+});
+
+viewer.addEventListener('touchend',(e)=>{
+
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX - endX > 50){
+        nextImage();
+    }
+
+    if(endX - startX > 50){
+        prevImage();
+    }
+
+});
+
+/* DESKTOP DRAG */
+
+let isDragging = false;
+
+viewer.addEventListener('mousedown',(e)=>{
+
+    isDragging = true;
+    startX = e.clientX;
+
+});
+
+viewer.addEventListener('mouseup',(e)=>{
+
+    if(!isDragging) return;
+
+    let endX = e.clientX;
+
+    if(startX - endX > 50){
+        nextImage();
+    }
+
+    if(endX - startX > 50){
+        prevImage();
+    }
+
+    isDragging = false;
+
+});
+
+/* KEYBOARD */
+
+document.addEventListener('keydown',(e)=>{
+
+    if(!viewer.classList.contains('active')) return;
+
+    if(e.key === 'ArrowRight'){
+        nextImage();
+    }
+
+    if(e.key === 'ArrowLeft'){
+        prevImage();
+    }
+
+    if(e.key === 'Escape'){
+        closeViewer();
+    }
+
+});
+
+/* CLICK OUTSIDE CLOSE */
+
+viewer.addEventListener('click',(e)=>{
+
+    if(e.target === viewer){
+        closeViewer();
+    }
+
+});
+
+</script>
+
+
+<script src="assets/script.js"></script>
+</body>
+</html>
