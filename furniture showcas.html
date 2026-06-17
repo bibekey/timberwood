@@ -1,369 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Showcase</title>
 
 <style>
-body{
-margin:0;
-font-family:Arial;
-background:#f5f5f5;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 
-.showcase{
-padding:50px 5%;
-position:relative;
-}
+body{background:#f5f5f5;}
 
 .header{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-align-items:center;
-margin-bottom:20px;
+padding:20px;text-align:center;background:#111;color:#fff;
 }
 
-.filters{
-display:flex;
-gap:10px;
+.controls{
+display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
+padding:15px;background:#fff;position:sticky;top:0;z-index:10;
 }
 
-input,select{
-padding:10px;
-border-radius:8px;
-border:1px solid #ccc;
+.controls input,.controls select{
+padding:10px;border:1px solid #ddd;border-radius:8px;min-width:200px;
 }
 
-.slider{
-display:flex;
-gap:20px;
-overflow-x:auto;
-scroll-behavior:smooth;
-padding:10px 0;
+.carousel-container{overflow:hidden;padding:20px;}
+
+.carousel{
+display:flex;gap:15px;overflow-x:auto;scroll-behavior:smooth;
+padding-bottom:10px;
 }
 
-.slider::-webkit-scrollbar{display:none;}
+.carousel::-webkit-scrollbar{display:none;}
 
 .card{
-min-width:300px;
-background:#fff;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+min-width:280px;background:#fff;border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+position:relative;flex-shrink:0;
+transition:0.3s;
 }
 
-.img-box{
-height:200px;
-position:relative;
+.card:hover{transform:scale(1.03);}
+
+.card img{
+width:100%;height:200px;object-fit:cover;
+border-radius:12px 12px 0 0;cursor:pointer;
 }
 
-.img-box img{
-width:100%;
-height:100%;
-object-fit:cover;
-cursor:pointer;
+.brand{
+position:absolute;top:10px;left:10px;
+background:#000;color:#fff;padding:5px 8px;
+font-size:12px;border-radius:5px;
 }
 
 .badge{
-position:absolute;
-top:10px;
-left:10px;
-background:gold;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
+position:absolute;top:10px;right:10px;
+padding:5px 8px;font-size:12px;border-radius:5px;color:#fff;
 }
 
-.logo{
-position:absolute;
-top:10px;
-right:10px;
-width:40px;
-height:40px;
-background:#fff;
-border-radius:50%;
-padding:5px;
-}
+.new{background:green;}
+.sale{background:red;}
+.best{background:orange;}
 
-.content{padding:15px;}
+.card-content{padding:10px;}
 
-.title{font-weight:bold;font-size:18px;}
+.card h3{font-size:16px;margin-bottom:5px;}
+.card p{font-size:12px;color:#555;margin:3px 0;}
 
-.meta{font-size:13px;color:#666;}
+.price{font-weight:bold;color:#000;}
+.old-price{text-decoration:line-through;color:red;margin-left:5px;font-size:12px;}
 
-.price{
-margin-top:8px;
-font-weight:bold;
-color:#c89b5d;
-}
-
-.old{
-text-decoration:line-through;
-color:#999;
-font-size:13px;
-margin-left:5px;
-}
-
-.status{font-size:13px;font-weight:bold;margin-top:5px;}
-.in{color:green;}
-.out{color:red;}
-
-.actions{
-display:flex;
-flex-direction:column;
-gap:6px;
-margin-top:10px;
-}
-
-button{
-padding:8px;
-border:none;
-border-radius:6px;
+.btn{
+margin-top:8px;width:100%;padding:8px;
+background:#111;color:#fff;border:none;border-radius:6px;
 cursor:pointer;
-font-weight:bold;
 }
 
-.details{background:#111;color:#fff;}
-.wish{background:#eee;}
-.quote{background:#c89b5d;color:#fff;}
+.nav-buttons{text-align:center;margin:10px;}
 
-.nav{
-position:absolute;
-top:45%;
-transform:translateY(-50%);
-width:40px;
-height:40px;
-border-radius:50%;
-border:none;
-background:#fff;
+.nav-buttons button{
+padding:10px 15px;margin:5px;
+background:#111;color:#fff;border:none;border-radius:6px;
 cursor:pointer;
-box-shadow:0 5px 10px rgba(0,0,0,.2);
 }
 
-.prev{left:0;}
-.next{right:0;}
-
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;left:0;
+/* POPUP */
+.popup,.lightbox{
+display:none;position:fixed;top:0;left:0;
 width:100%;height:100%;
-background:rgba(0,0,0,.7);
-justify-content:center;
-align-items:center;
-z-index:999;
+background:rgba(0,0,0,0.7);
+justify-content:center;align-items:center;
+z-index:1000;
 }
 
-.modal-box{
-background:#fff;
-width:90%;
-max-width:500px;
-border-radius:15px;
-overflow:hidden;
+.popup-content{
+background:#fff;padding:20px;width:90%;max-width:500px;
+border-radius:10px;
 }
 
-.modal-box img{
-width:100%;
-height:250px;
-object-fit:cover;
+.popup img{
+width:100%;border-radius:10px;margin-bottom:10px;
 }
 
-.modal-body{
-padding:15px;
+.close{float:right;cursor:pointer;font-size:18px;}
+
+/* LIGHTBOX */
+.lightbox img{
+max-width:90%;
+max-height:90%;
 }
 
-.close{
-position:absolute;
-top:20px;
-right:20px;
-font-size:30px;
-color:#fff;
-cursor:pointer;
+/* AUTO SCROLL EFFECT */
+.carousel{
+animation: scroll 25s linear infinite;
 }
 
-.whatsapp-btn{
-margin-top:15px;
-width:100%;
-padding:12px;
-background:#25D366;
-color:#fff;
-border:none;
-border-radius:8px;
-font-weight:bold;
-cursor:pointer;
+.carousel:hover{
+animation-play-state:paused;
 }
 
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-50%);}
+}
 </style>
 </head>
 
 <body>
 
-<section class="showcase">
-
 <div class="header">
 <h2>Premium Furniture Collection</h2>
+</div>
 
-<div class="filters">
-<input id="search" placeholder="Search">
+<div class="controls">
+<input type="text" id="search" placeholder="Search furniture...">
+
 <select id="category">
-<option value="all">All</option>
+<option value="all">All Categories</option>
 <option>Sofa</option>
 <option>Bed</option>
-<option>Chair</option>
-<option>Table</option>
-<option>Wardrobe</option>
+<option>Dining Chair</option>
+<option>Dining Table</option>
+<option>Office Chair</option>
+<option>Cafeteria Chair</option>
+<option>Centre Table</option>
+<option>Shoe Rack</option>
 </select>
 </div>
+
+<div class="nav-buttons">
+<button onclick="scrollLeft()">⬅ Prev</button>
+<button onclick="scrollRight()">Next ➡</button>
 </div>
 
-<button class="nav prev">&#10094;</button>
+<div class="carousel-container">
+<div class="carousel" id="carousel">
 
-<div class="slider" id="slider"></div>
+<!-- CARD 1 -->
+<div class="card">
+<div class="brand">Royal Furnish</div>
+<div class="badge best">Best</div>
+<img src="https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg" onclick="openLightbox(this.src)">
+<div class="card-content">
+<h3>Luxury Sofa Set</h3>
+<p>Sofa</p>
+<p>Size: 7ft x 3ft</p>
+<p>Teak Wood + Fabric</p>
+<p class="price">₹28000 <span class="old-price">₹35000</span></p>
+<button class="btn" onclick="openPopup('Luxury Sofa','₹28000','Premium wooden sofa set')">View Details</button>
+</div>
+</div>
 
-<button class="nav next">&#10095;</button>
+<!-- CARD 2 -->
+<div class="card">
+<div class="brand">Urban Wood</div>
+<div class="badge new">New</div>
+<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
+<div class="card-content">
+<h3>King Size Bed</h3>
+<p>Bed</p>
+<p>Size: 6ft x 6.5ft</p>
+<p>Solid Wood</p>
+<p class="price">₹32000 <span class="old-price">₹40000</span></p>
+<button class="btn" onclick="openPopup('King Bed','₹32000','Premium wooden bed')">View Details</button>
+</div>
+</div>
 
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-<span class="close">&times;</span>
-
-<div class="modal-box">
-<img id="mimg">
-<div class="modal-body">
-
-<h2 id="mtitle"></h2>
-<p id="mcat"></p>
-<p id="mstatus"></p>
-<p id="mprice"></p>
-
-<button class="whatsapp-btn" onclick="orderNow()">
-Order on WhatsApp
-</button>
+<!-- CARD 3 -->
+<div class="card">
+<div class="brand">Prime Living</div>
+<img src="https://i.pinimg.com/736x/02/84/9d/02849d206c198ad362748a1944fd8570.jpg" onclick="openLightbox(this.src)">
+<div class="card-content">
+<h3>Dining Table Set</h3>
+<p>Dining Table</p>
+<p>₹18000</p>
+<button class="btn" onclick="openPopup('Dining Table','₹18000','Glass top dining set')">View Details</button>
+</div>
+</div>
 
 </div>
 </div>
+
+<!-- POPUP -->
+<div class="popup" id="popup" onclick="closePopup()">
+<div class="popup-content" onclick="event.stopPropagation()">
+<span class="close" onclick="closePopup()">✖</span>
+<h2 id="pname"></h2>
+<p id="pprice"></p>
+<p id="pdesc"></p>
+</div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<img id="lightimg">
 </div>
 
 <script>
 
-let products=[];
-let current=null;
-
-const cats=["Sofa","Bed","Chair","Table","Wardrobe"];
-
-for(let i=1;i<=60;i++){
-products.push({
-name:"Luxury Furniture "+i,
-category:cats[Math.floor(Math.random()*cats.length)],
-price:30000+i*1000,
-old:40000+i*1200,
-img:`https://picsum.photos/500/400?random=${i}`,
-badge:["New","Sale","Best"][Math.floor(Math.random()*3)],
-stock:Math.random()>0.2
-});
+/* POPUP */
+function openPopup(name,price,desc){
+document.getElementById("popup").style.display="flex";
+document.getElementById("pname").innerText=name;
+document.getElementById("pprice").innerText=price;
+document.getElementById("pdesc").innerText=desc;
 }
 
-const slider=document.getElementById("slider");
-
-function render(list){
-slider.innerHTML="";
-list.forEach((p,i)=>{
-slider.innerHTML+=`
-<div class="card">
-
-<div class="img-box">
-<span class="badge">${p.badge}</span>
-<img src="${p.img}">
-<img class="logo" src="https://cdn-icons-png.flaticon.com/512/25/25694.png">
-</div>
-
-<div class="content">
-<div class="title">${p.name}</div>
-<div class="meta">${p.category}</div>
-
-<div class="price">
-NPR ${p.price}
-<span class="old">NPR ${p.old}</span>
-</div>
-
-<div class="status ${p.stock?'in':'out'}">
-${p.stock?'In Stock':'Out of Stock'}
-</div>
-
-<div class="actions">
-<button class="details" onclick="openModal(${i})">View Details</button>
-<button class="wish">Wishlist</button>
-<button class="quote">Request Quote</button>
-</div>
-
-</div>
-</div>`;
-});
+function closePopup(){
+document.getElementById("popup").style.display="none";
 }
 
-render(products);
-
-// AUTO SCROLL
-setInterval(()=>{
-slider.scrollLeft+=1;
-if(slider.scrollLeft>=slider.scrollWidth-slider.clientWidth){
-slider.scrollLeft=0;
-}
-},15);
-
-// NAV
-document.querySelector(".next").onclick=()=>slider.scrollBy({left:300,behavior:"smooth"});
-document.querySelector(".prev").onclick=()=>slider.scrollBy({left:-300,behavior:"smooth"});
-
-// SEARCH
-document.getElementById("search").oninput=function(){
-render(products.filter(p=>p.name.toLowerCase().includes(this.value.toLowerCase())));
-};
-
-// FILTER
-document.getElementById("category").onchange=function(){
-if(this.value==="all")return render(products);
-render(products.filter(p=>p.category===this.value));
-};
-
-// MODAL OPEN
-function openModal(i){
-current=products[i];
-
-document.getElementById("modal").style.display="flex";
-document.getElementById("mimg").src=current.img;
-document.getElementById("mtitle").innerText=current.name;
-document.getElementById("mcat").innerText="Category: "+current.category;
-document.getElementById("mstatus").innerText=current.stock?"In Stock":"Out of Stock";
-document.getElementById("mprice").innerText="NPR "+current.price;
+/* LIGHTBOX */
+function openLightbox(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightimg").src=src;
 }
 
-// WHATSAPP ORDER
-function orderNow(){
+/* SCROLL */
+let carousel = document.getElementById("carousel");
 
-let phone="9779800000000"; // change your number
-
-let msg=`🪑 Furniture Order
-
-Product: ${current.name}
-Category: ${current.category}
-Price: NPR ${current.price}
-Status: ${current.stock?'In Stock':'Out of Stock'}
-
-I want to order this product.`;
-
-let url=`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-
-window.open(url,"_blank");
+function scrollLeft(){
+carousel.scrollBy({left:-300,behavior:"smooth"});
 }
 
-// CLOSE MODAL
-document.querySelector(".close").onclick=()=>{
-document.getElementById("modal").style.display="none";
-};
-
-window.onclick=(e)=>{
-if(e.target.id==="modal"){
-document.getElementById("modal").style.display="none";
+function scrollRight(){
+carousel.scrollBy({left:300,behavior:"smooth"});
 }
-};
 
 </script>
+
+</body>
+</html>
