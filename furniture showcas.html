@@ -1,0 +1,369 @@
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#f5f5f5;
+}
+
+.showcase{
+padding:50px 5%;
+position:relative;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+align-items:center;
+margin-bottom:20px;
+}
+
+.filters{
+display:flex;
+gap:10px;
+}
+
+input,select{
+padding:10px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+
+.slider{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding:10px 0;
+}
+
+.slider::-webkit-scrollbar{display:none;}
+
+.card{
+min-width:300px;
+background:#fff;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.img-box{
+height:200px;
+position:relative;
+}
+
+.img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+cursor:pointer;
+}
+
+.badge{
+position:absolute;
+top:10px;
+left:10px;
+background:gold;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+}
+
+.logo{
+position:absolute;
+top:10px;
+right:10px;
+width:40px;
+height:40px;
+background:#fff;
+border-radius:50%;
+padding:5px;
+}
+
+.content{padding:15px;}
+
+.title{font-weight:bold;font-size:18px;}
+
+.meta{font-size:13px;color:#666;}
+
+.price{
+margin-top:8px;
+font-weight:bold;
+color:#c89b5d;
+}
+
+.old{
+text-decoration:line-through;
+color:#999;
+font-size:13px;
+margin-left:5px;
+}
+
+.status{font-size:13px;font-weight:bold;margin-top:5px;}
+.in{color:green;}
+.out{color:red;}
+
+.actions{
+display:flex;
+flex-direction:column;
+gap:6px;
+margin-top:10px;
+}
+
+button{
+padding:8px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.details{background:#111;color:#fff;}
+.wish{background:#eee;}
+.quote{background:#c89b5d;color:#fff;}
+
+.nav{
+position:absolute;
+top:45%;
+transform:translateY(-50%);
+width:40px;
+height:40px;
+border-radius:50%;
+border:none;
+background:#fff;
+cursor:pointer;
+box-shadow:0 5px 10px rgba(0,0,0,.2);
+}
+
+.prev{left:0;}
+.next{right:0;}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:999;
+}
+
+.modal-box{
+background:#fff;
+width:90%;
+max-width:500px;
+border-radius:15px;
+overflow:hidden;
+}
+
+.modal-box img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.modal-body{
+padding:15px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:20px;
+font-size:30px;
+color:#fff;
+cursor:pointer;
+}
+
+.whatsapp-btn{
+margin-top:15px;
+width:100%;
+padding:12px;
+background:#25D366;
+color:#fff;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="showcase">
+
+<div class="header">
+<h2>Premium Furniture Collection</h2>
+
+<div class="filters">
+<input id="search" placeholder="Search">
+<select id="category">
+<option value="all">All</option>
+<option>Sofa</option>
+<option>Bed</option>
+<option>Chair</option>
+<option>Table</option>
+<option>Wardrobe</option>
+</select>
+</div>
+</div>
+
+<button class="nav prev">&#10094;</button>
+
+<div class="slider" id="slider"></div>
+
+<button class="nav next">&#10095;</button>
+
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<span class="close">&times;</span>
+
+<div class="modal-box">
+<img id="mimg">
+<div class="modal-body">
+
+<h2 id="mtitle"></h2>
+<p id="mcat"></p>
+<p id="mstatus"></p>
+<p id="mprice"></p>
+
+<button class="whatsapp-btn" onclick="orderNow()">
+Order on WhatsApp
+</button>
+
+</div>
+</div>
+</div>
+
+<script>
+
+let products=[];
+let current=null;
+
+const cats=["Sofa","Bed","Chair","Table","Wardrobe"];
+
+for(let i=1;i<=60;i++){
+products.push({
+name:"Luxury Furniture "+i,
+category:cats[Math.floor(Math.random()*cats.length)],
+price:30000+i*1000,
+old:40000+i*1200,
+img:`https://picsum.photos/500/400?random=${i}`,
+badge:["New","Sale","Best"][Math.floor(Math.random()*3)],
+stock:Math.random()>0.2
+});
+}
+
+const slider=document.getElementById("slider");
+
+function render(list){
+slider.innerHTML="";
+list.forEach((p,i)=>{
+slider.innerHTML+=`
+<div class="card">
+
+<div class="img-box">
+<span class="badge">${p.badge}</span>
+<img src="${p.img}">
+<img class="logo" src="https://cdn-icons-png.flaticon.com/512/25/25694.png">
+</div>
+
+<div class="content">
+<div class="title">${p.name}</div>
+<div class="meta">${p.category}</div>
+
+<div class="price">
+NPR ${p.price}
+<span class="old">NPR ${p.old}</span>
+</div>
+
+<div class="status ${p.stock?'in':'out'}">
+${p.stock?'In Stock':'Out of Stock'}
+</div>
+
+<div class="actions">
+<button class="details" onclick="openModal(${i})">View Details</button>
+<button class="wish">Wishlist</button>
+<button class="quote">Request Quote</button>
+</div>
+
+</div>
+</div>`;
+});
+}
+
+render(products);
+
+// AUTO SCROLL
+setInterval(()=>{
+slider.scrollLeft+=1;
+if(slider.scrollLeft>=slider.scrollWidth-slider.clientWidth){
+slider.scrollLeft=0;
+}
+},15);
+
+// NAV
+document.querySelector(".next").onclick=()=>slider.scrollBy({left:300,behavior:"smooth"});
+document.querySelector(".prev").onclick=()=>slider.scrollBy({left:-300,behavior:"smooth"});
+
+// SEARCH
+document.getElementById("search").oninput=function(){
+render(products.filter(p=>p.name.toLowerCase().includes(this.value.toLowerCase())));
+};
+
+// FILTER
+document.getElementById("category").onchange=function(){
+if(this.value==="all")return render(products);
+render(products.filter(p=>p.category===this.value));
+};
+
+// MODAL OPEN
+function openModal(i){
+current=products[i];
+
+document.getElementById("modal").style.display="flex";
+document.getElementById("mimg").src=current.img;
+document.getElementById("mtitle").innerText=current.name;
+document.getElementById("mcat").innerText="Category: "+current.category;
+document.getElementById("mstatus").innerText=current.stock?"In Stock":"Out of Stock";
+document.getElementById("mprice").innerText="NPR "+current.price;
+}
+
+// WHATSAPP ORDER
+function orderNow(){
+
+let phone="9779800000000"; // change your number
+
+let msg=`🪑 Furniture Order
+
+Product: ${current.name}
+Category: ${current.category}
+Price: NPR ${current.price}
+Status: ${current.stock?'In Stock':'Out of Stock'}
+
+I want to order this product.`;
+
+let url=`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+
+window.open(url,"_blank");
+}
+
+// CLOSE MODAL
+document.querySelector(".close").onclick=()=>{
+document.getElementById("modal").style.display="none";
+};
+
+window.onclick=(e)=>{
+if(e.target.id==="modal"){
+document.getElementById("modal").style.display="none";
+}
+};
+
+</script>
