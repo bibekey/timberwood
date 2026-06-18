@@ -66,6 +66,201 @@ nav ul li a:hover{
 }
 
 
+/* =========================
+OUR PRODUCT
+========================= */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#fff;
+}
+
+
+/* WRAPPER */
+.wrapper{
+position:relative;
+overflow:hidden;
+padding:15px;
+}
+
+/* CAROUSEL */
+.carousel-container{
+display:flex;
+gap:12px;
+overflow-x:auto;
+scroll-behavior:auto;
+scrollbar-width:none;
+}
+
+.carousel-container::-webkit-scrollbar{
+display:none;
+}
+
+/* CARD */
+.card{
+min-width:260px;
+max-width:260px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+position:relative;
+flex-shrink:0;
+}
+
+
+/* IMAGE */
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px 12px 0 0;
+cursor:pointer;
+}
+
+/* BRAND */
+.brand{
+position:absolute;
+top:8px;
+left:8px;
+background:#000;
+color:#fff;
+padding:4px 7px;
+font-size:11px;
+border-radius:5px;
+}
+
+/* BADGE */
+.badge{
+position:absolute;
+top:8px;
+right:8px;
+padding:4px 7px;
+font-size:11px;
+border-radius:5px;
+color:#fff;
+}
+.new{background:green;}
+.best{background:orange;}
+
+/* CONTENT */
+.card-product-content{
+    padding:10px;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* PRICE */
+.new-price{
+    font-size:16px;
+    font-weight:bold;
+    color:#c89b63;
+}
+
+/* OLD PRICE */
+.old-price{
+    font-size:16px;
+    font-weight:bold;
+    color:red;
+    text-decoration:line-through;
+}
+
+/* BUTTON */
+.btn-product{
+margin-top:6px;
+width:100%;
+padding:7px;
+background:#111;
+color:#fff;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.6);
+justify-content:center;
+align-items:center;
+z-index:1000;
+}
+
+.popup-content{
+width:92%;
+max-width:420px;
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+top:10px;
+right:10px;
+background:#111;
+color:#fff;
+border:none;
+width:32px;
+height:32px;
+border-radius:50%;
+cursor:pointer;
+}
+
+.popup-image img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.popup-body{
+padding:15px;
+}
+
+.buy-btn{
+width:100%;
+padding:10px;
+background:#111;
+color:#fff;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+.wa-btn{
+display:block;
+margin-top:10px;
+padding:10px;
+background:#25D366;
+color:#fff;
+text-align:center;
+text-decoration:none;
+border-radius:10px;
+}
+
+/* LIGHTBOX */
+.lightbox{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+z-index:2000;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
 
 /* =========================
 HERO: PORTFOLIO|SERVICES|BLOG|CONTACT

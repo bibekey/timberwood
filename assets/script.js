@@ -7,6 +7,86 @@ function toggleMenu(){
 
 
 
+/* OUR PRODUCT */
+const carousel = document.getElementById("carousel");
+carousel.innerHTML += carousel.innerHTML;
+
+/* AUTO SCROLL */
+let autoScrollEnabled = true;
+const speed = 0.7;
+
+function autoScroll(){
+  if(autoScrollEnabled){
+    carousel.scrollLeft += speed;
+    if(carousel.scrollLeft >= carousel.scrollWidth / 2){
+      carousel.scrollLeft = 0;
+    }
+  }
+  requestAnimationFrame(autoScroll);
+}
+requestAnimationFrame(autoScroll);
+
+carousel.addEventListener("mouseenter",()=>autoScrollEnabled=false);
+carousel.addEventListener("mouseleave",()=>autoScrollEnabled=true);
+carousel.addEventListener("touchstart",()=>autoScrollEnabled=false,{passive:true});
+carousel.addEventListener("touchend",()=>autoScrollEnabled=true,{passive:true});
+
+/* NAV */
+function scrollLeft(){
+carousel.scrollBy({left:-300,behavior:"smooth"});
+}
+
+function scrollRight(){
+carousel.scrollBy({left:300,behavior:"smooth"});
+}
+
+/* POPUP */
+const phone = "9779705020251";
+
+let images = [];
+let imgIndex = 0;
+
+function openPopup(title, price, desc, img){
+  document.getElementById("popup").style.display="flex";
+
+  document.getElementById("pTitle").innerText = title;
+  document.getElementById("pPrice").innerText = price;
+  document.getElementById("pDesc").innerText = desc;
+
+  images = [img, img, img];
+  imgIndex = 0;
+  showImage();
+
+  let msg = `Hello, I want to order:\nProduct: ${title}\nPrice: ${price}`;
+
+  document.getElementById("waBtn").href =
+  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+}
+
+function showImage(){
+document.getElementById("pImg").src = images[imgIndex];
+}
+
+function nextImg(){
+imgIndex = (imgIndex + 1) % images.length;
+showImage();
+}
+
+function prevImg(){
+imgIndex = (imgIndex - 1 + images.length) % images.length;
+showImage();
+}
+
+function closePopup(){
+document.getElementById("popup").style.display="none";
+}
+
+/* LIGHTBOX */
+function openLightbox(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightImg").src = src;
+}
+
 /* HERO INDEX */
 
 const slides = document.querySelectorAll(".hero-slide");
