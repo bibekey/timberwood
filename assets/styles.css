@@ -81,6 +81,16 @@ background:#fff;
 }
 
 
+/* HEADER */
+.header{
+padding:18px;
+text-align:center;
+background:#fff;
+color:#5c3d2e;
+font-size:18px;
+font-weight:bold;
+}
+
 /* WRAPPER */
 .wrapper{
 position:relative;
