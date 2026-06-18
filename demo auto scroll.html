@@ -38,8 +38,10 @@ padding:15px;
 display:flex;
 gap:12px;
 overflow-x:auto;
-scroll-behavior:smooth;
-scroll-snap-type:x mandatory;
+scroll-behavior:auto;
+scroll-snap-type:none;
+-ms-overflow-style:none;
+scrollbar-width:none;
 }
 
 .carousel-container::-webkit-scrollbar{
@@ -148,31 +150,92 @@ cursor:pointer;
 margin:0 5px;
 }
 
-/* POPUP */
+/* POPUP BACKDROP */
 .popup{
 display:none;
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
+inset:0;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(5px);
 justify-content:center;
 align-items:center;
 z-index:1000;
 }
 
+/* POPUP BOX */
 .popup-content{
+width:92%;
+max-width:420px;
 background:#fff;
-padding:15px;
-width:90%;
-max-width:400px;
-border-radius:10px;
+border-radius:18px;
+overflow:hidden;
+position:relative;
+animation:pop .25s ease;
+box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
-.popup img{
+@keyframes pop{
+from{transform:scale(0.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
+}
+
+/* CLOSE BUTTON */
+.close-btn{
+position:absolute;
+top:10px;
+right:10px;
+background:#111;
+color:#fff;
+border:none;
+width:32px;
+height:32px;
+border-radius:50%;
+cursor:pointer;
+font-size:14px;
+z-index:9999; /* ✅ ADD THIS */
+}
+
+/* IMAGE */
+.popup-image img{
 width:100%;
+height:220px;
+object-fit:cover;
+}
+
+/* BODY */
+.popup-body{
+padding:15px;
+}
+
+.popup-body h2{
+font-size:18px;
+margin-bottom:8px;
+}
+
+.price-tag{
+font-size:16px;
+font-weight:bold;
+color:#111;
+margin-bottom:10px;
+}
+
+.desc{
+font-size:13px;
+color:#555;
+line-height:1.4;
+}
+
+/* BUTTON */
+.buy-btn{
+margin-top:12px;
+width:100%;
+padding:10px;
+background:linear-gradient(135deg,#111,#444);
+color:#fff;
+border:none;
 border-radius:10px;
+cursor:pointer;
+font-size:14px;
 }
 
 /* LIGHTBOX */
@@ -192,6 +255,40 @@ z-index:2000;
 .lightbox img{
 max-width:90%;
 max-height:90%;
+}
+
+.gal-btn{
+position:absolute;
+top:40%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.6);
+color:#fff;
+border:none;
+width:30px;
+height:30px;
+border-radius:50%;
+cursor:pointer;
+z-index:10;
+}
+
+.left{left:10px;}
+.right{right:10px;}
+
+.popup-image{
+position:relative;
+}
+
+.wa-btn{
+margin-top:10px;
+display:block;
+text-align:center;
+padding:10px;
+background:#25D366;
+color:#fff;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+font-size:14px;
 }
 
 /* MOBILE */
@@ -229,7 +326,7 @@ max-width:200px;
 <p>Size: 7ft x 3ft</p>
 <p>Teak Wood + Fabric</p>
 <p class="price">₹28000 <span class="old-price">₹35000</span></p>
-<button class="btn" onclick="openPopup('Luxury Sofa Set','₹28000','Sofa Set Details')">View Details</button>
+<button class="btn"onclick="openPopup('Luxury Sofa Set','₹28000','Sofa Set Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
@@ -244,11 +341,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 3 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -259,11 +356,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 4 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -274,11 +371,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 5 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -289,11 +386,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 6 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -304,11 +401,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 7 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -319,11 +416,11 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 8 -->
 <div class="card">
 <div class="brand">Urban Wood</div>
 <div class="badge new">New</div>
@@ -334,37 +431,7 @@ max-width:200px;
 <p>Size: 6ft x 6.5ft</p>
 <p>Solid Wood</p>
 <p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 2 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 2 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn" onclick="openPopup('King Size Bed','₹32000','Bed Details')">View Details</button>
+<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
 </div>
 </div>
 
@@ -372,12 +439,37 @@ max-width:200px;
 </div>
 
 <!-- POPUP -->
-<div class="popup" id="popup" onclick="closePopup()">
-<div class="popup-content" onclick="event.stopPropagation()">
-<h2 id="pTitle"></h2>
-<p id="pPrice"></p>
-<p id="pDesc"></p>
-</div>
+<div class="popup" id="popup">
+  <div class="popup-content">
+
+    <button class="close-btn" onclick="closePopup()">✕</button>
+
+    <!-- IMAGE GALLERY -->
+    <div class="popup-image">
+
+      <button class="gal-btn left" onclick="prevImg()">‹</button>
+
+      <img id="pImg" src="">
+
+      <button class="gal-btn right" onclick="nextImg()">›</button>
+
+    </div>
+
+    <div class="popup-body">
+      <h2 id="pTitle"></h2>
+
+      <p class="price-tag" id="pPrice"></p>
+
+      <p class="desc" id="pDesc"></p>
+
+      <button class="buy-btn">Buy Now</button>
+
+      <a id="waBtn" class="wa-btn" target="_blank">
+        Order on WhatsApp
+      </a>
+    </div>
+
+  </div>
 </div>
 
 <!-- LIGHTBOX -->
@@ -388,45 +480,90 @@ max-width:200px;
 <script>
 
 const carousel = document.getElementById("carousel");
+carousel.innerHTML += carousel.innerHTML;
+
+let autoScrollEnabled = true;
+const speed = 0.7;
 
 /* AUTO SCROLL */
-let scrollAmount = 0;
-
 function autoScroll(){
-scrollAmount += 1;
-carousel.scrollLeft = scrollAmount;
-
-if(scrollAmount >= carousel.scrollWidth - carousel.clientWidth){
-scrollAmount = 0;
+    if(autoScrollEnabled){
+        carousel.scrollLeft += speed;
+        if(carousel.scrollLeft >= carousel.scrollWidth / 2){
+            carousel.scrollLeft = 0;
+        }
+    }
+    requestAnimationFrame(autoScroll);
 }
-}
-setInterval(autoScroll, 20);
+requestAnimationFrame(autoScroll);
 
-/* MANUAL SCROLL */
+/* PAUSE */
+carousel.addEventListener("mouseenter",()=>autoScrollEnabled=false);
+carousel.addEventListener("mouseleave",()=>autoScrollEnabled=true);
+carousel.addEventListener("touchstart",()=>autoScrollEnabled=false,{passive:true});
+carousel.addEventListener("touchend",()=>autoScrollEnabled=true,{passive:true});
+
+/* CART NAV */
 function scrollLeft(){
 carousel.scrollBy({left:-300,behavior:"smooth"});
 }
-
 function scrollRight(){
 carousel.scrollBy({left:300,behavior:"smooth"});
 }
 
-/* POPUP */
-function openPopup(title,price,desc){
-document.getElementById("popup").style.display="flex";
-document.getElementById("pTitle").innerText=title;
-document.getElementById("pPrice").innerText=price;
-document.getElementById("pDesc").innerText=desc;
+/* ===================== */
+/* 🔥 PRODUCT POPUP SYSTEM */
+/* ===================== */
+
+const phone = "9779705020251"; // FIXED (no + sign)
+
+let images = [];
+let imgIndex = 0;
+
+function openPopup(title, price, desc, img){
+
+    document.getElementById("popup").style.display="flex";
+
+    document.getElementById("pTitle").innerText = title;
+    document.getElementById("pPrice").innerText = price;
+    document.getElementById("pDesc").innerText = desc;
+
+    // SAMPLE MULTI IMAGES (replace later per product)
+    images = [img, img, img];
+    imgIndex = 0;
+
+    showImage();
+
+    let msg = `Hello, I want to order:\nProduct: ${title}\nPrice: ${price}`;
+
+    document.getElementById("waBtn").href =
+    `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
 }
 
+/* IMAGE SLIDER */
+function showImage(){
+    document.getElementById("pImg").src = images[imgIndex];
+}
+
+function nextImg(){
+    imgIndex = (imgIndex + 1) % images.length;
+    showImage();
+}
+
+function prevImg(){
+    imgIndex = (imgIndex - 1 + images.length) % images.length;
+    showImage();
+}
+
+/* CLOSE */
 function closePopup(){
-document.getElementById("popup").style.display="none";
+    document.getElementById("popup").style.display="none";
 }
 
 /* LIGHTBOX */
 function openLightbox(src){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightImg").src=src;
+    document.getElementById("lightbox").style.display="flex";
+    document.getElementById("lightImg").src = src;
 }
 
 </script>
