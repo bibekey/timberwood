@@ -5,11 +5,35 @@ function toggleMenu(){
 }
 
 
+function filterProducts(){
+let search = document.getElementById("searchInput").value.toLowerCase();
+let category = document.getElementById("categoryFilter").value;
+let brand = document.getElementById("brandFilter").value;
 
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase();
+let cat = card.getAttribute("data-category");
+let br = card.getAttribute("data-brand");
+
+let matchSearch = text.includes(search);
+let matchCategory = (category === "all" || cat === category);
+let matchBrand = (brand === "all" || br === brand);
+
+if(matchSearch && matchCategory && matchBrand){
+card.classList.remove("hide");
+}else{
+card.classList.add("hide");
+}
+
+});
+
+}
 
 /* OUR PRODUCT */
 const carousel = document.getElementById("carousel");
-carousel.innerHTML += carousel.innerHTML;
 
 /* AUTO SCROLL */
 let autoScrollEnabled = true;

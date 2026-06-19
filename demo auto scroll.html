@@ -26,6 +26,25 @@ color:#fff;
 font-size:18px;
 }
 
+/* SEARCH + FILTER */
+.filter-box{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+padding:15px;
+justify-content:center;
+background:#fff;
+}
+
+.filter-box input,
+.filter-box select{
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+min-width:180px;
+outline:none;
+}
+
 /* CAROUSEL WRAPPER */
 .wrapper{
 position:relative;
@@ -39,14 +58,11 @@ display:flex;
 gap:12px;
 overflow-x:auto;
 scroll-behavior:auto;
-scroll-snap-type:none;
 -ms-overflow-style:none;
 scrollbar-width:none;
 }
 
-.carousel-container::-webkit-scrollbar{
-display:none;
-}
+.carousel-container::-webkit-scrollbar{display:none;}
 
 /* CARD */
 .card{
@@ -57,247 +73,10 @@ border-radius:12px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 position:relative;
 flex-shrink:0;
-scroll-snap-align:start;
-animation:fadeIn .5s ease;
 }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(10px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-/* IMAGE */
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px 12px 0 0;
-cursor:pointer;
-}
-
-/* BRAND */
-.brand{
-position:absolute;
-top:8px;
-left:8px;
-background:#000;
-color:#fff;
-padding:4px 7px;
-font-size:11px;
-border-radius:5px;
-}
-
-/* BADGE */
-.badge{
-position:absolute;
-top:8px;
-right:8px;
-padding:4px 7px;
-font-size:11px;
-border-radius:5px;
-color:#fff;
-}
-.new{background:green;}
-.sale{background:red;}
-.best{background:orange;}
-
-/* CONTENT */
-.card-content{
-padding:10px;
-}
-
-.card h3{font-size:14px;margin-bottom:4px;}
-.card p{font-size:11px;color:#555;margin:2px 0;}
-
-.price{
-font-weight:bold;
-font-size:13px;
-}
-
-.old-price{
-text-decoration:line-through;
-color:red;
-font-size:11px;
-margin-left:5px;
-}
-
-/* BUTTON */
-.btn{
-margin-top:6px;
-width:100%;
-padding:7px;
-background:#111;
-color:#fff;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-size:12px;
-}
-
-/* NAV BUTTONS */
-.nav{
-text-align:center;
-margin:10px;
-}
-
-.nav button{
-padding:10px 14px;
-background:#111;
-color:#fff;
-border:none;
-border-radius:6px;
-cursor:pointer;
-margin:0 5px;
-}
-
-/* POPUP BACKDROP */
-.popup{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(5px);
-justify-content:center;
-align-items:center;
-z-index:1000;
-}
-
-/* POPUP BOX */
-.popup-content{
-width:92%;
-max-width:420px;
-background:#fff;
-border-radius:18px;
-overflow:hidden;
-position:relative;
-animation:pop .25s ease;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-@keyframes pop{
-from{transform:scale(0.8);opacity:0;}
-to{transform:scale(1);opacity:1;}
-}
-
-/* CLOSE BUTTON */
-.close-btn{
-position:absolute;
-top:10px;
-right:10px;
-background:#111;
-color:#fff;
-border:none;
-width:32px;
-height:32px;
-border-radius:50%;
-cursor:pointer;
-font-size:14px;
-z-index:9999; /* ✅ ADD THIS */
-}
-
-/* IMAGE */
-.popup-image img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
-/* BODY */
-.popup-body{
-padding:15px;
-}
-
-.popup-body h2{
-font-size:18px;
-margin-bottom:8px;
-}
-
-.price-tag{
-font-size:16px;
-font-weight:bold;
-color:#111;
-margin-bottom:10px;
-}
-
-.desc{
-font-size:13px;
-color:#555;
-line-height:1.4;
-}
-
-/* BUTTON */
-.buy-btn{
-margin-top:12px;
-width:100%;
-padding:10px;
-background:linear-gradient(135deg,#111,#444);
-color:#fff;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-size:14px;
-}
-
-/* LIGHTBOX */
-.lightbox{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-z-index:2000;
-}
-
-.lightbox img{
-max-width:90%;
-max-height:90%;
-}
-
-.gal-btn{
-position:absolute;
-top:40%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.6);
-color:#fff;
-border:none;
-width:30px;
-height:30px;
-border-radius:50%;
-cursor:pointer;
-z-index:10;
-}
-
-.left{left:10px;}
-.right{right:10px;}
-
-.popup-image{
-position:relative;
-}
-
-.wa-btn{
-margin-top:10px;
-display:block;
-text-align:center;
-padding:10px;
-background:#25D366;
-color:#fff;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
-font-size:14px;
-}
-
-/* MOBILE */
-@media(max-width:480px){
-.card{
-min-width:200px;
-max-width:200px;
-}
-}
+/* HIDE FILTER */
+.hide{display:none !important;}
 </style>
 </head>
 
@@ -307,263 +86,88 @@ max-width:200px;
 <h2>Premium Furniture Collection</h2>
 </div>
 
-<div class="nav">
-<button onclick="scrollLeft()">⬅ Prev</button>
-<button onclick="scrollRight()">Next ➡</button>
+<!-- 🔍 SEARCH + FILTERS -->
+<div class="filter-box">
+
+<input type="text" id="searchInput" placeholder="🔍 Search products..." onkeyup="filterProducts()">
+
+<select id="categoryFilter" onchange="filterProducts()">
+<option value="all">All Categories</option>
+<option value="Bed">Bed</option>
+<option value="Sofa">Sofa</option>
+<option value="Center Table">Center Table</option>
+<option value="TV Cabinet">TV Cabinet</option>
+<option value="Office Table">Office Table</option>
+<option value="Dining Table">Dining Table</option>
+<option value="Dining Chair">Dining Chair</option>
+<option value="Shoe Rack">Shoe Rack</option>
+</select>
+
+<select id="brandFilter" onchange="filterProducts()">
+<option value="all">All Brands</option>
+<option value="TW">TimberWood (TW)</option>
+<option value="Geeken">Geeken</option>
+<option value="Qudo">Qudo</option>
+<option value="Sleepwell">Sleepwell</option>
+</select>
+
 </div>
 
+<!-- CAROUSEL -->
 <div class="wrapper">
 <div class="carousel-container" id="carousel">
 
-<!-- CARD 1 -->
-<div class="card">
-<div class="brand">Royal Furnish</div>
-<div class="badge best">Best</div>
-<img src="img/product/sofaset1.jpeg" onclick="openLightbox(this.src)">
-<div class="card-content">
+<!-- CARD -->
+<div class="card" data-category="Sofa" data-brand="TW">
 <h3>Luxury Sofa Set</h3>
-<p>Sofa</p>
-<p>Size: 7ft x 3ft</p>
-<p>Teak Wood + Fabric</p>
-<p class="price">Rs. 140,000 <span class="old-price">>Rs. 152,000</span></p>
-<button class="btn"onclick="openPopup('Luxury Sofa Set','>Rs. 140,000','Sofa Set Details','img/product/sofaset1.jpeg')">View Details</button>
-</div>
+<p>Premium Sofa</p>
 </div>
 
-<!-- CARD 2 -->
-<div class="card">
-<div class="brand">TimberWood</div>
-<div class="badge new">New</div>
-<img src="img/product/bed1.jpeg" onclick="openLightbox(this.src)">
-<div class="card-content">
+<div class="card" data-category="Bed" data-brand="TW">
 <h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Formica Bed</p>
-<p class="price">Rs. 95,000 <span class="old-price">Rs. 99,000</span></p>
-<button class="btn"onclick="openPopup('King Size Bed','Rs. 95,000','Bed Details','img/product/bed1.jpeg')">View Details</button>
-</div>
+<p>Wood Bed</p>
 </div>
 
-<!-- CARD 3 -->
-<div class="card">
-<div class="brand">GEEKEN</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/b9/27/97/b92797e9535c929481d024d1f8df20f7.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
+<div class="card" data-category="Office Table" data-brand="Geeken">
 <h3>Office Chair</h3>
-<p>Office Chair</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Rexin</p>
-<p class="price">Rs. 26,000 <span class="old-price">Rs. 29,000</span></p>
-<button class="btn"onclick="openPopup('Office Chair','Rs. 26,000','Bed Details','https://i.pinimg.com/736x/b9/27/97/b92797e9535c929481d024d1f8df20f7.jpg')">View Details</button>
-</div>
+<p>Ergonomic Chair</p>
 </div>
 
-<!-- CARD 4 -->
-<div class="card">
-<div class="brand">Qudo</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/8b/4a/95/8b4a951e03f109532058b03c1b421a5a.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>Cafeteria Seating</h3>
-<p>Bar Stool</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Rexin, Wood</p>
-<p class="price">Rs. 12,000 <span class="old-price">Rs. 15,000</span></p>
-<button class="btn"onclick="openPopup('Cafeteria Seatin','Rs. 12,000 ','Bed Details','https://i.pinimg.com/736x/8b/4a/95/8b4a951e03f109532058b03c1b421a5a.jpg')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 5 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 6 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 7 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
-</div>
-</div>
-
-<!-- CARD 8 -->
-<div class="card">
-<div class="brand">Urban Wood</div>
-<div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/d7/aa/db/d7aadbc166d6f59d9bc95c6551eb197b.jpg" onclick="openLightbox(this.src)">
-<div class="card-content">
-<h3>King Size Bed</h3>
-<p>Bed</p>
-<p>Size: 6ft x 6.5ft</p>
-<p>Solid Wood</p>
-<p class="price">₹32000 <span class="old-price">₹40000</span></p>
-<button class="btn"onclick="openPopup('King Size Bed','₹32000','Bed Details','https://i.pinimg.com/736x/6c/5d/ae/6c5dae4860e9a231a768016c5884e92f.jpg')">View Details</button>
-</div>
+<div class="card" data-category="Dining Table" data-brand="Qudo">
+<h3>Dining Set</h3>
+<p>6 Seater</p>
 </div>
 
 </div>
-</div>
-
-<!-- POPUP -->
-<div class="popup" id="popup">
-  <div class="popup-content">
-
-    <button class="close-btn" onclick="closePopup()">✕</button>
-
-    <!-- IMAGE GALLERY -->
-    <div class="popup-image">
-
-      <button class="gal-btn left" onclick="prevImg()">‹</button>
-
-      <img id="pImg" src="">
-
-      <button class="gal-btn right" onclick="nextImg()">›</button>
-
-    </div>
-
-    <div class="popup-body">
-      <h2 id="pTitle"></h2>
-
-      <p class="price-tag" id="pPrice"></p>
-
-      <p class="desc" id="pDesc"></p>
-
-      <button class="buy-btn">Buy Now</button>
-
-      <a id="waBtn" class="wa-btn" target="_blank">
-        Order on WhatsApp
-      </a>
-    </div>
-
-  </div>
-</div>
-
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
-<img id="lightImg">
 </div>
 
 <script>
 
-const carousel = document.getElementById("carousel");
-carousel.innerHTML += carousel.innerHTML;
+function filterProducts(){
+let search = document.getElementById("searchInput").value.toLowerCase();
+let category = document.getElementById("categoryFilter").value;
+let brand = document.getElementById("brandFilter").value;
 
-let autoScrollEnabled = true;
-const speed = 0.7;
+let cards = document.querySelectorAll(".card");
 
-/* AUTO SCROLL */
-function autoScroll(){
-    if(autoScrollEnabled){
-        carousel.scrollLeft += speed;
-        if(carousel.scrollLeft >= carousel.scrollWidth / 2){
-            carousel.scrollLeft = 0;
-        }
-    }
-    requestAnimationFrame(autoScroll);
-}
-requestAnimationFrame(autoScroll);
+cards.forEach(card => {
 
-/* PAUSE */
-carousel.addEventListener("mouseenter",()=>autoScrollEnabled=false);
-carousel.addEventListener("mouseleave",()=>autoScrollEnabled=true);
-carousel.addEventListener("touchstart",()=>autoScrollEnabled=false,{passive:true});
-carousel.addEventListener("touchend",()=>autoScrollEnabled=true,{passive:true});
+let text = card.innerText.toLowerCase();
+let cat = card.getAttribute("data-category");
+let br = card.getAttribute("data-brand");
 
-/* CART NAV */
-function scrollLeft(){
-carousel.scrollBy({left:-300,behavior:"smooth"});
-}
-function scrollRight(){
-carousel.scrollBy({left:300,behavior:"smooth"});
+let matchSearch = text.includes(search);
+let matchCategory = (category === "all" || cat === category);
+let matchBrand = (brand === "all" || br === brand);
+
+if(matchSearch && matchCategory && matchBrand){
+card.classList.remove("hide");
+}else{
+card.classList.add("hide");
 }
 
-/* ===================== */
-/* 🔥 PRODUCT POPUP SYSTEM */
-/* ===================== */
+});
 
-const phone = "9779705020251"; // FIXED (no + sign)
-
-let images = [];
-let imgIndex = 0;
-
-function openPopup(title, price, desc, img){
-
-    document.getElementById("popup").style.display="flex";
-
-    document.getElementById("pTitle").innerText = title;
-    document.getElementById("pPrice").innerText = price;
-    document.getElementById("pDesc").innerText = desc;
-
-    // SAMPLE MULTI IMAGES (replace later per product)
-    images = [img, img, img];
-    imgIndex = 0;
-
-    showImage();
-
-    let msg = `Hello, I want to order:\nProduct: ${title}\nPrice: ${price}`;
-
-    document.getElementById("waBtn").href =
-    `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-}
-
-/* IMAGE SLIDER */
-function showImage(){
-    document.getElementById("pImg").src = images[imgIndex];
-}
-
-function nextImg(){
-    imgIndex = (imgIndex + 1) % images.length;
-    showImage();
-}
-
-function prevImg(){
-    imgIndex = (imgIndex - 1 + images.length) % images.length;
-    showImage();
-}
-
-/* CLOSE */
-function closePopup(){
-    document.getElementById("popup").style.display="none";
-}
-
-/* LIGHTBOX */
-function openLightbox(src){
-    document.getElementById("lightbox").style.display="flex";
-    document.getElementById("lightImg").src = src;
 }
 
 </script>

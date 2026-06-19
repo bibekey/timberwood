@@ -935,6 +935,36 @@ HERO SECTION START
 <h2>Our Furniture Collection</h2>
 </div>
 
+
+
+<!-- 🔍 SEARCH + FILTERS -->
+<div class="filter-box">
+
+<input type="text" id="searchInput" placeholder="🔍 Search products..." onkeyup="filterProducts()">
+
+<select id="categoryFilter" onchange="filterProducts()">
+<option value="all">All Categories</option>
+<option value="Bed">Bed</option>
+<option value="Sofa">Sofa</option>
+<option value="Center Table">Center Table</option>
+<option value="TV Cabinet">TV Cabinet</option>
+<option value="Office Table">Office Table</option>
+<option value="Dining Table">Dining Table</option>
+<option value="Dining Chair">Dining Chair</option>
+<option value="Shoe Rack">Shoe Rack</option>
+</select>
+
+<select id="brandFilter" onchange="filterProducts()">
+<option value="all">All Brands</option>
+<option value="TW">TimberWood (TW)</option>
+<option value="Geeken">Geeken</option>
+<option value="Qudo">Qudo</option>
+<option value="Sleepwell">Sleepwell</option>
+</select>
+
+</div>
+
+<!-- CAROUSEL -->
 <div class="wrapper">
 <div class="carousel-container" id="carousel">
 
