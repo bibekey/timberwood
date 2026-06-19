@@ -64,45 +64,67 @@ function scrollRight(){
 carousel.scrollBy({left:300,behavior:"smooth"});
 }
 
-/* POPUP */
-const phone = "9779705020251";
+/* OPEN POPUP */
+function showProduct(btn){
 
-let images = [];
-let imgIndex = 0;
+let card = btn.closest(".card");
 
-function openPopup(title, price, desc, img){
-  document.getElementById("popup").style.display="flex";
+let title = card.querySelector("h3").innerText;
+let image = card.getAttribute("data-image");
 
-  document.getElementById("pTitle").innerText = title;
-  document.getElementById("pPrice").innerText = price;
-  document.getElementById("pDesc").innerText = desc;
+document.getElementById("popup").style.display="flex";
 
-  images = [img, img, img];
-  imgIndex = 0;
-  showImage();
+document.getElementById("popupTitle").innerText = title;
+document.getElementById("popupImage").src = image;
 
-  let msg = `Hello, I want to order:\nProduct: ${title}\nPrice: ${price}`;
+document.getElementById("oldPrice").innerText = "Rs. 97,000";
+document.getElementById("newPrice").innerText = "Rs. 87,000";
 
-  document.getElementById("waBtn").href =
-  `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+document.getElementById("highlights").innerText =
+"Premium Quality | Modern Design | In Stock";
+
+document.getElementById("specs").innerText =
+"Plywood + Laminated Finish | Fabric Cushion | Strong Build";
+
+document.getElementById("features").innerHTML = `
+<li>Premium finish</li>
+<li>Durable structure</li>
+<li>Comfortable seating</li>
+<li>Easy maintenance</li>
+`;
 }
 
-function showImage(){
-document.getElementById("pImg").src = images[imgIndex];
-}
-
-function nextImg(){
-imgIndex = (imgIndex + 1) % images.length;
-showImage();
-}
-
-function prevImg(){
-imgIndex = (imgIndex - 1 + images.length) % images.length;
-showImage();
-}
-
+/* CLOSE POPUP */
 function closePopup(){
 document.getElementById("popup").style.display="none";
+}
+
+/* WHATSAPP AUTO MESSAGE */
+function sendWhatsApp(){
+
+let productName=document.getElementById("popupTitle").innerText;
+let price=document.getElementById("newPrice").innerText;
+let oldPrice=document.getElementById("oldPrice").innerText;
+let highlights=document.getElementById("highlights").innerText;
+
+/* YOUR NUMBER */
+let phone="9779705020251";
+
+let message=`
+🪑 Furniture Order Request
+
+📌 Product: ${productName}
+💰 Price: ${price}
+~~${oldPrice}~~
+
+📏 Details: ${highlights}
+
+🙏 Please confirm availability & delivery.
+`;
+
+let url=`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+window.open(url,"_blank");
 }
 
 /* LIGHTBOX */
