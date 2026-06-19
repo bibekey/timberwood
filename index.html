@@ -937,7 +937,7 @@ HERO SECTION START
 
 
 
-<!-- 🔍 SEARCH + FILTERS -->
+<!-- SEARCH + FILTERS -->
 <div class="filter-box">
 
 <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
@@ -958,7 +958,7 @@ HERO SECTION START
 <option value="all">All Brands</option>
 <option value="TW">TimberWood (TW)</option>
 <option value="Geeken">Geeken</option>
-<option value="Qudo">Qudo</option>
+<option value="Qedo">Qedo</option>
 <option value="Sleepwell">Sleepwell</option>
 </select>
 
@@ -1000,10 +1000,10 @@ HERO SECTION START
 <div class="card" data-category="Office Chair" data-brand="Geeken"data-image="img/product/sofaset1.jpeg">
 <div class="brand">Geeken</div>
 <div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/b9/27/97/b92797e9535c929481d024d1f8df20f7.jpg" onclick="openLightbox(this.src)">
+<img src="img/product/GP-133.png" onclick="openLightbox(this.src)">
 <div class="card-product-content">
 <h3>Office Chair</h3>
-<p>Model No: Regular</p>
+<p>Model No: GP-133</p>
 <p>Availability: In Stock</p>
 <p class="new-price">Rs. 26,000 <span class="old-price">Rs. 29,000</span></p>
 <button class="btn-view" onclick="showProduct(this)">View Details</button>
@@ -1011,13 +1011,13 @@ HERO SECTION START
 </div>
 
 <!-- CARD 4 -->
-<div class="card" data-category="Bar Tool" data-brand="Qudo"data-image="https://i.pinimg.com/736x/8b/4a/95/8b4a951e03f109532058b03c1b421a5a.jpg">
-<div class="brand">Qudo</div>
+<div class="card" data-category="Bar Tool" data-brand="Qedo"data-image="https://qedocafeteriaseating.com/assets/images/products/all-500px/classic-sm-yellow.jpg">
+<div class="brand">Qedo</div>
 <div class="badge new">New</div>
-<img src="https://i.pinimg.com/736x/8b/4a/95/8b4a951e03f109532058b03c1b421a5a.jpg" onclick="openLightbox(this.src)">
+<img src="https://qedocafeteriaseating.com/assets/images/products/all-500px/classic-sm-yellow.jpg" onclick="openLightbox(this.src)">
 <div class="card-product-content">
 <h3>Cafeteria Seating</h3>
-<p>Model No: Regular</p>
+<p>Model No: Classic Smart</p>
 <p>Availability: In Stock</p>
 <p class="new-price">Rs. 12,000 <span class="old-price">Rs. 15,000</span></p>
 <button class="btn-view" onclick="showProduct(this)">View Details</button>
@@ -1044,7 +1044,7 @@ HERO SECTION START
 <div class="badge new">New</div>
 <img src="img/product/wardrobe1.jpeg" onclick="openLightbox(this.src)">
 <div class="card-product-content">
-<h3>Moredern Premium Wardrobe</h3>
+<h3>Premium Wardrobe</h3>
 <p>Model No: Regular</p>
 <p>Availability: In Stock</p>
 <p class="new-price">Rs. 95,000 <span class="old-price">Rs. 105,000</span></p>
@@ -1062,6 +1062,34 @@ HERO SECTION START
 <p>Model No: Regular</p>
 <p>Availability: In Stock</p>
 <p class="new-price">Rs. 95,000 <span class="old-price">Rs. 105,000</span></p>
+<button class="btn-view" onclick="showProduct(this)">View Details</button>
+</div>
+</div>
+
+<!-- CARD 8 -->
+<div class="card" data-category="Office Chair" data-brand="Geeken"data-image="https://geeken.in/storage/1261/GP-171.png">
+<div class="brand">Geeken</div>
+<div class="badge new">New</div>
+<img src="https://geeken.in/storage/1261/GP-171.png" onclick="openLightbox(this.src)">
+<div class="card-product-content">
+<h3>Office Chair</h3>
+<p>Model No: GP-</p>
+<p>Availability: In Stock</p>
+<p class="new-price">Rs. 18,000 <span class="old-price">Rs. 23,000</span></p>
+<button class="btn-view" onclick="showProduct(this)">View Details</button>
+</div>
+</div>
+
+<!-- CARD 9 -->
+<div class="card" data-category="Bar Tool" data-brand="Qedo"data-image="https://qedocafeteriaseating.com/assets/images/products/all-500px/tulip-royale-gray.jpg">
+<div class="brand">Qedo</div>
+<div class="badge new">New</div>
+<img src="https://qedocafeteriaseating.com/assets/images/products/all-500px/tulip-royale-gray.jpg" onclick="openLightbox(this.src)">
+<div class="card-product-content">
+<h3>Cafeteria Seating</h3>
+<p>Model No: Tulip Royale</p>
+<p>Availability: In Stock</p>
+<p class="new-price">Rs. 12,000 <span class="old-price">Rs. 15,000</span></p>
 <button class="btn-view" onclick="showProduct(this)">View Details</button>
 </div>
 </div>
@@ -1117,8 +1145,7 @@ HERO SECTION START
 
 <button class="btn btn-cart">Add to Cart</button>
 
-<button class="btn btn-whatsapp" onclick="sendWhatsApp()">
-📲 WhatsApp Order
+<button class="btn btn-whatsapp" onclick="sendWhatsApp()">WhatsApp Order
 </button>
 
 <button class="btn btn-close" onclick="closePopup()">Close</button>
@@ -1204,12 +1231,12 @@ HERO SECTION START
             <!-- Logos -->
             <img src="img/img/geeken.png"alt="Geeken">
             <img src="img/img/sleepwell.png"alt="Sleepwell">
-            <img src="img/img/qudo.png"alt="Qudo">
+            <img src="img/img/Qedo.png"alt="Qedo">
 
             <!-- Duplicate for seamless loop -->
             <img src="img/img/geeken1.png"alt="Geeken">
             <img src="img/img/sleepwell1.png"alt="Sleepwell">
-            <img src="img/img/qudo1.png"alt="Qudo">
+            <img src="img/img/Qedo1.png"alt="Qedo">
 
         </div>
     </div>
