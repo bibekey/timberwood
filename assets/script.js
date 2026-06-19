@@ -69,29 +69,30 @@ function showProduct(btn){
 
 let card = btn.closest(".card");
 
-let title = card.querySelector("h3").innerText;
-let image = card.getAttribute("data-image");
+document.getElementById("popup").style.display = "flex";
 
-document.getElementById("popup").style.display="flex";
+document.getElementById("popupTitle").innerText =
+card.querySelector("h3").innerText;
 
-document.getElementById("popupTitle").innerText = title;
-document.getElementById("popupImage").src = image;
+document.getElementById("popupImage").src =
+card.dataset.image;
 
-document.getElementById("oldPrice").innerText = "Rs. 97,000";
-document.getElementById("newPrice").innerText = "Rs. 87,000";
+document.getElementById("oldPrice").innerText =
+card.dataset.oldprice;
+
+document.getElementById("newPrice").innerText =
+card.dataset.price;
 
 document.getElementById("highlights").innerText =
-"Premium Quality | Modern Design | In Stock";
+card.dataset.highlights;
 
 document.getElementById("specs").innerText =
-"Plywood + Laminated Finish | Fabric Cushion | Strong Build";
+card.dataset.specs;
 
-document.getElementById("features").innerHTML = `
-<li>Premium finish</li>
-<li>Durable structure</li>
-<li>Comfortable seating</li>
-<li>Easy maintenance</li>
-`;
+let features = card.dataset.features.split("|");
+
+document.getElementById("features").innerHTML =
+features.map(item => `<li>${item}</li>`).join("");
 }
 
 /* CLOSE POPUP */
