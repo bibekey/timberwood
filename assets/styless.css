@@ -563,110 +563,187 @@ background:#333;
 /* ================= POPUP ================= */
 
 .popup-overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:999;
-padding:10px;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:10px;
 }
 
+/* MAIN BOX */
 .popup{
-width:100%;
-max-width:900px;
-background:#fff;
-border-radius:12px;
-display:flex;
-flex-wrap:wrap;
-overflow:hidden;
+    width:100%;
+    max-width:900px;
+    background:#fff;
+    border-radius:12px;
+    display:flex;
+    flex-wrap:wrap;
+    overflow:hidden;
+    max-height:95vh;
 }
 
+/* IMAGE */
 .popup-img{
-flex:1;
-min-width:280px;
+    flex:1;
+    min-width:280px;
+    max-height:95vh;
 }
 
 .popup-img img{
-width:100%;
-height:50%;
-object-fit:cover;
+    width:100%;
+    height:100%;
+    max-height:95vh;
+    object-fit:cover;
+    display:block;
 }
 
+/* CONTENT */
 .popup-content{
-flex:1;
-padding:20px;
-max-height:80vh;
-overflow-y:auto;
+    flex:1;
+    padding:20px;
+    max-height:95vh;
+    overflow-y:auto;
 }
 
+/* TEXT */
 .popup-title{
-font-size:22px;
-font-weight:bold;
-margin-bottom:10px;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
 .price{
-margin:10px 0;
+    margin:10px 0;
 }
 
 .old-price{
-font-size:14px;
-text-decoration:line-through;
-color:#888;
-margin-right:10px;
+    font-size:14px;
+    text-decoration:line-through;
+    color:#888;
+    margin-right:10px;
 }
 
 .new-price{
-font-size:15px;
-font-weight:bold;
+    font-size:15px;
+    font-weight:bold;
 }
 
 .popup-badge{
-background:#000;
-color:#fff;
-padding:4px 8px;
-border-radius:6px;
-font-size:12px;
-margin-left:10px;
+    background:#000;
+    color:#fff;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:12px;
+    margin-left:10px;
 }
 
+/* SECTIONS */
 .section{
-margin-top:12px;
+    margin-top:12px;
 }
 
 .section h4{
-font-size:14px;
-margin-bottom:6px;
+    font-size:14px;
+    margin-bottom:6px;
 }
 
-.section p, .section li{
-font-size:13px;
-color:#555;
+.section p,
+.section li{
+    font-size:13px;
+    color:#555;
 }
 
+/* ACTION BUTTONS */
 .popup-actions{
-margin-top:15px;
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
 }
 
 .popup-btn{
-padding:10px 14px;
-border:none;
-border-radius:8px;
-cursor:pointer;
-font-size:12px;
+    padding:10px 14px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:12px;
 }
 
-.btn-cart{background:#000;color:#fff;font-size:10px;padding:6px 10px;cursor:pointer;}
-.btn-whatsapp{background:#25D366;color:#fff;font-size:10px;padding:6px 10px;cursor:pointer;}
-.btn-close{background:#ddd;font-size:10px;padding:6px 10px;cursor:pointer;}
+/* BUTTONS */
+.btn-cart{
+    background:#000;
+    color:#fff;
+    font-size:10px;
+    padding:6px 10px;
+    cursor:pointer;
+}
+
+.btn-whatsapp{
+    background:#25D366;
+    color:#fff;
+    font-size:10px;
+    padding:6px 10px;
+    cursor:pointer;
+}
+
+.btn-close{
+    background:#ddd;
+    font-size:10px;
+    padding:6px 10px;
+    cursor:pointer;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width:768px){
+
+    .popup{
+        flex-direction:column;
+        max-height:95vh;
+    }
+
+    .popup-img{
+        width:100%;
+        min-width:100%;
+        max-height:40vh;
+    }
+
+    .popup-img img{
+        max-height:40vh;
+        object-fit:cover;
+    }
+
+    .popup-content{
+        max-height:55vh;
+        padding:15px;
+    }
+
+    .popup-title{
+        font-size:18px;
+    }
+
+    .section p,
+    .section li{
+        font-size:12px;
+    }
+
+    .popup-actions{
+        flex-direction:column;
+    }
+
+    .popup-btn,
+    .btn-cart,
+    .btn-whatsapp,
+    .btn-close{
+        width:100%;
+        font-size:12px;
+    }
+}
 
 /* LIGHTBOX */
 .lightbox{
