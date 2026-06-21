@@ -530,14 +530,14 @@ color:#fff;
 }
 
 .new-price {
-    font-size:20px;
+    font-size:15px;
     font-weight:bold;
-    color:red;
 }
 
-.old-price span{
+.old-price {
     text-decoration:line-through;
-    margin-right:10px;
+    color:red;
+    margin-right:10px 0;
 }
 
 /* BUTTON */
@@ -614,22 +614,6 @@ background:#333;
     font-size:22px;
     font-weight:bold;
     margin-bottom:10px;
-}
-
-.price{
-    margin:10px 0;
-}
-
-.old-price{
-    font-size:14px;
-    text-decoration:line-through;
-    color:#888;
-    margin-right:10px;
-}
-
-.new-price{
-    font-size:15px;
-    font-weight:bold;
 }
 
 .popup-badge{
