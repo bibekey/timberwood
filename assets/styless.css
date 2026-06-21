@@ -616,6 +616,22 @@ background:#333;
     margin-bottom:10px;
 }
 
+.price{
+    margin:10px 0;
+}
+
+.old-price{
+    font-size:14px;
+    text-decoration:line-through;
+    color:red;
+    margin-right:10px;
+}
+
+.new-price{
+    font-size:15px;
+    font-weight:bold;
+}
+
 .popup-badge{
     background:#000;
     color:#fff;
