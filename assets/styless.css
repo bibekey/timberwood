@@ -661,12 +661,12 @@ padding:10px 14px;
 border:none;
 border-radius:8px;
 cursor:pointer;
-font-size:14px;
+font-size:12px;
 }
 
-.btn-cart{background:#000;color:#fff;font-size:10px;}
-.btn-whatsapp{background:#25D366;color:#fff;font-size:10px;}
-.btn-close{background:#ddd;font-size:10px;}
+.btn-cart{background:#000;color:#fff;font-size:10px;padding:6px 10px;cursor:pointer;}
+.btn-whatsapp{background:#25D366;color:#fff;font-size:10px;padding:6px 10px;cursor:pointer;}
+.btn-close{background:#ddd;font-size:10px;padding:6px 10px;cursor:pointer;}
 
 /* LIGHTBOX */
 .lightbox{
