@@ -527,18 +527,16 @@ color:#fff;
 }
 
 .card-product-content p{
-    color:#555;
 }
 
-.new-price{
+.new-price {
     font-size:20px;
     font-weight:bold;
-    color:#555;
+    color:red;
 }
 
-.old-price{
+.old-price span{
     text-decoration:line-through;
-    color:#888;
     margin-right:10px;
 }
 
