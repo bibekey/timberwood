@@ -1266,7 +1266,7 @@ footer::before{
 }
 
 .logo span{
-    color:#d4af37;
+    color:#fff;
 }
 
 .footer-grid p{
@@ -1365,7 +1365,7 @@ footer::before{
 
     footer{
         padding:55px 20px 25px;
-        text-align:center;
+        text-align:left;
     }
 
     .footer-grid{
@@ -1374,7 +1374,7 @@ footer::before{
     }
 
     .footer-grid h3::after{
-        left:50%;
+        left:5%;
         transform:translateX(-50%);
     }
 
@@ -1383,7 +1383,7 @@ footer::before{
     }
 
     .social-icons{
-        justify-content:center;
+        justify-content:left;
     }
 
     .logo{
