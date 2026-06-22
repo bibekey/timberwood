@@ -626,12 +626,17 @@ HERO SECTION START
 <option value="all">All Categories</option>
 <option value="Bed">Bed</option>
 <option value="Sofa">Sofa</option>
-<option value="Center Table">Center Table</option>
+<option value="Center Table">Centre Table</option>
+<option value="Wardrobe">Wardrobe</option>
 <option value="TV Cabinet">TV Cabinet</option>
-<option value="Office Table">Office Table</option>
+<option value="Console Table">Console Table</option>
 <option value="Dining Table">Dining Table</option>
+<option value="Dressing Table">Dressing Table</option>
+<option value="Office Table">Office Table</option>
+<option value="Office Chair">Office Chair</option>
 <option value="Dining Chair">Dining Chair</option>
 <option value="Shoe Rack">Shoe Rack</option>
+<option value="Mattress">Mattress</option>
 </select>
 
 <select id="brandFilter" onchange="filterProducts()">
@@ -649,6 +654,20 @@ HERO SECTION START
 <div class="carousel-container" id="carousel">
 
 <!-- CARD 1 -->
+<div class="card"data-category="Bed"data-brand="TW"data-image="img/product/bed1.jpeg"data-oldprice="Rs. 120,000"data-price="Rs. 105,000"data-highlights="King Size Bed | Solid Wood | Storage | In Stock"data-specs="Tik Wood | Hydraulic | Storage"data-features="King Size|Storage Box|Strong Build|Easy Assembly">
+<div class="brand">10 % Off</div>
+<div class="badge new">New Arrival</div>
+<img src="img/product/bed1.jpeg" onclick="openLightbox(this.src)">
+<div class="card-product-content">
+<h3>Premium King Size Bed</h3>
+<p>Model: TW8317BD</p>
+<p>Availability: In Stock</p>
+<p class="new-price">Rs. 105,000 <span class="old-price">Rs. 120,000</span></p>
+<button class="btn-view" onclick="showProduct(this)">View Details</button>
+</div>
+</div>
+
+<!-- CARD 2 -->
 <div class="card"data-category="Sofa"data-brand="TW"data-image="img/product/sofaset1.jpeg"data-oldprice="Rs. 150,000"
 data-price="Rs. 135,000"data-highlights="Premium Sofa | Modern Design | In Stock"data-specs="Plywood Frame | Fabric Cushion | 3 Seater"data-features="Premium Finish|Strong Structure|Comfortable Seating|Easy Cleaning">
 <div class="brand">10 % Off</div>
@@ -663,7 +682,7 @@ data-price="Rs. 135,000"data-highlights="Premium Sofa | Modern Design | In Stock
 </div>
 </div>
 
-<!-- CARD 2 -->
+<!-- CARD 3 -->
 <div class="card" data-category="Office Chair" data-brand="Geeken"data-image="https://geeken.in/storage/1243/GP-133.png"data-oldprice="Rs. 38,600"data-price="Rs. 34,740"data-highlights="Premium Chair | Modern Design | In Stock"data-specs="High Back Chair | Cushion Arm | PP Chrome Base | Leatherette Tapestry | Torsion Bar"data-features="Comfortable|Strong Build|Easy Assembly">
 <div class="brand">10 % Off</div>
 <img src="https://geeken.in/storage/1243/GP-133.png" onclick="openLightbox(this.src)">
@@ -672,20 +691,6 @@ data-price="Rs. 135,000"data-highlights="Premium Sofa | Modern Design | In Stock
 <p>Model: GP-133</p>
 <p>Availability: In Stock (1)</p>
 <p class="new-price">Rs. 34,740 <span class="old-price">Rs. 38,600</span></p>
-<button class="btn-view" onclick="showProduct(this)">View Details</button>
-</div>
-</div>
-
-<!-- CARD 3 -->
-<div class="card"data-category="Bed"data-brand="TW"data-image="img/product/bed1.jpeg"data-oldprice="Rs. 120,000"data-price="Rs. 105,000"data-highlights="King Size Bed | Solid Wood | Storage | In Stock"data-specs="Tik Wood | Hydraulic | Storage"data-features="King Size|Storage Box|Strong Build|Easy Assembly">
-<div class="brand">10 % Off</div>
-<div class="badge new">New Arrival</div>
-<img src="img/product/bed1.jpeg" onclick="openLightbox(this.src)">
-<div class="card-product-content">
-<h3>Premium King Size Bed</h3>
-<p>Model: TW8317BD</p>
-<p>Availability: In Stock</p>
-<p class="new-price">Rs. 105,000 <span class="old-price">Rs. 120,000</span></p>
 <button class="btn-view" onclick="showProduct(this)">View Details</button>
 </div>
 </div>
