@@ -1269,6 +1269,16 @@ footer::before{
     color:#fff;
 }
 
+/* BADGES */
+.footer-badges{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:13px;
+    color:#c9a66b;
+    margin-bottom:15px;
+}
+
 .footer-grid p{
     color:#cfcfcf;
     line-height:1.8;
