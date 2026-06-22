@@ -1344,6 +1344,16 @@ footer::before{
     font-size:14px;
 }
 
+    .bottom a{
+        color:#aaa;
+        text-decoration:none;
+        transition:0.3s ease;
+}
+
+    .bottom a:hover{
+        color:#d4af37;
+}
+
 /* Tablet */
 
 @media(max-width:900px){
@@ -1388,11 +1398,6 @@ footer::before{
 
     .logo{
         font-size:28px;
-    }
-
-    .bottom{
-        font-size:13px;
-        line-height:1.7;
     }
 
     .bottom a{
