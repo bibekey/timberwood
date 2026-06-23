@@ -69,7 +69,7 @@ nav ul li a:hover{
 }
 
 /* =========================
-MOBILE FIX
+MOBILE
 ========================= */
 
 @media(max-width:768px){
@@ -121,6 +121,7 @@ MOBILE FIX
         z-index:1001;
     }
 }
+
 /* HERO */
 
 .hero-slider{
