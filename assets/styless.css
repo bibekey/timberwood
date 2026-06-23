@@ -90,7 +90,7 @@ nav ul li a:hover{
     nav ul.active{
         display:flex;
     }
-    
+
 /* HERO */
 
 .hero-slider{
@@ -724,7 +724,7 @@ background:#333;
     cursor:pointer;
 }
 
-/* ================= MOBILE FIX ================= */
+/* ================= MOBILE ================= */
 @media (max-width:768px){
 
     .popup{
