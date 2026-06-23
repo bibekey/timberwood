@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>TimberWood | Privacy Policy</title>
+<meta name="description" content="Learn about TimberWood Furniture, a premium furniture brand specializing in modern and luxury wooden designs including beds, sofas, dining tables, wardrobes, and custom interior solutions crafted for elegant living spaces.">
+<meta name="keywords" content="About TimberWood, TimberWood Furniture, Furniture Company Nepal, Luxury Furniture Brand, Wooden Furniture Manufacturer, Modern Furniture Design, Interior Solutions, Custom Furniture Nepal, Home Furniture Experts, Premium Beds, Sofa Sets, Dining Tables, Wardrobes, TimberWood Story, Furniture Craftsmanship, Interior Design Nepal, Elegant Living Furniture">
+<meta name="author" content="TimberWood Furniture">
+<meta property="og:image" content="img/img/LOGO.png">
+
+<link rel="stylesheet" href="assets/styless.css">
+<link rel="icon" href="img/img/LOGO.png" type="image/x-icon">   <!-- font icons -->
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<style>
+
+/* HERO */
+
+.about-hero{
+    min-height:75vh;
+    padding:140px 7% 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-text h4{
+    color:#c89b63;
+    margin-bottom:15px;
+    letter-spacing:2px;
+}
+
+.about-text h1{
+    color:#5c3d2e;
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.about-text p{
+    color:#555;
+    line-height:1.9;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.about-btns{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.about-btns a{
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#c89b63;
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:1px solid #5c3d2e;
+    color:#5c3d2e;
+}
+
+.btn-outline:hover{
+    background:#5c3d2e;
+    color:black;
+}
+
+.about-image{
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:30px;
+    object-fit:cover;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* STORY */
+
+.story{
+    padding:90px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.story img{
+    width:100%;
+    border-radius:25px;
+}
+
+.story-text h2{
+    color:#5c3d2e;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.story-text p{
+    color:#555;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+/* STATS */
+
+.stats{
+    padding:20px 7% 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-box{
+    background:#171a20;
+    padding:40px 20px;
+    border-radius:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h2{
+    font-size:42px;
+    color:#c89b63;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#bdbdbd;
+}
+
+/* TEAM */
+
+.team{
+    padding:100px 7%;
+    background:ghostwhite;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:#5c3d2e;
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#555;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+}
+
+.team-content{
+    padding:25px;
+}
+
+.team-content h3{
+    color:#5c3d2e;
+    margin-bottom:8px;
+}
+
+.team-content p{
+    color:#555;
+}
+
+/* WHY US */
+
+.why{
+    padding:100px 7%;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.why-card{
+    background:#fff;
+    padding:35px;
+    border-radius:24px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+}
+
+.why-card h3{
+    color:#5c3d2e;
+    margin:20px 0 15px;
+}
+
+.why-card p{
+    color:#555;
+    line-height:1.8;
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:#c89b63;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    color:#111;
+}
+
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .about-hero,
+    .story{
+        grid-template-columns:1fr;
+    }
+
+    .team-grid,
+    .why-grid,
+    .stats,
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-text h1{
+        font-size:45px;
+    }
+
+    .cta h2{
+        font-size:40px;
+    }
+}
+
+@media(max-width:768px){
+
+    nav ul{
+        position:fixed;
+        top:80px;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:#fff;
+        flex-direction:column;
+        padding:40px;
+        transition:.4s;
+    }
+
+    nav ul.active{
+        right:0;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+
+    .team-grid,
+    .why-grid,
+    .stats,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-text h1{
+        font-size:38px;
+    }
+
+    .section-title h2,
+    .cta h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo"><img src="img/img/LOGO.png" alt="TimberWood Logo"></div>
+
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+    <div class="about-text">
+
+        <h4>Privacy Policy</h4>
+        <p>Updated on Jun 23, 2026 </p>
+        <p>
+            TimberWood is a premium furniture brand dedicated to creating elegant, durable, and timeless furniture designs for homes, offices, and commercial interiors. We blend modern aesthetics with expert craftsmanship to deliver furniture that transforms spaces beautifully.
+        </p>
+
+
+
+    </div>
+
+    <div class="about-image">
+        <img src="https://i.pinimg.com/736x/d9/e4/46/d9e446b6b563a2acfa8f393670db15ce.jpg">
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer class="lux-footer">
+
+    <div class="footer-grid">
+
+        <!-- BRAND COLUMN -->
+        <div class="footer-brand">
+
+            <div class="logo">
+                Timber<span>Wood</span>
+            </div>
+
+            <p class="brand-text">
+                Crafting timeless luxury furniture with precision, elegance, and modern design.
+                Built for refined interiors and lasting impressions.
+            </p>
+
+            <!-- TRUST / QUICK HIGHLIGHT -->
+            <div class="footer-badges">
+                <span>✔ Custom Design</span>
+                <span>✔ Premium Quality Wood</span>
+                <span>✔ Nepal Craftsmanship</span>
+            </div>
+            <!-- SOCIAL -->
+            <div class="social-icons">
+                <a href="https://www.instagram.com/__timberwood" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@timberwood_furniture" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/people/Timberwood-Nepal/100086470805697/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/timber-wood-pvt-ltd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+        </div>
+
+        <!-- COMPANY -->
+        <div>
+            <h3>Company</h3>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Client Reviews</a></li>
+            </ul>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div>
+            <h3>Collections</h3>
+            <ul>
+                <li><a href="#">Luxury Beds</a></li>
+                <li><a href="#">Designer Sofas</a></li>
+                <li><a href="#">Dining Sets</a></li>
+                <li><a href="#">Wardrobes</a></li>
+                <li><a href="download.html" download>Download</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div>
+            <h3>Showroom</h3>
+
+            <ul>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://www.google.com/maps/dir//Timber+Wood+Pvt+Ltd,+09+Main+Rd+(South),+Biratnagar+55613,+Nepal/@26.4480681,87.2758062,17z/data=!4m17!1m8!3m7!1s0x39ef75a33f407227:0x7045dd18179b1163!2sTimber+Wood+Pvt+Ltd!8m2!3d26.4480191!4d87.2783763!15sChNUaW1iZXIgd29vZCBwdnQgbHRkWhUiE3RpbWJlciB3b29kIHB2dCBsdGSSAQ9mdXJuaXR1cmVfc3RvcmXgAQA!16s%2Fg%2F11z4rz_14q!4m7!1m0!1m5!1m1!1s0x39ef75a33f407227:0x7045dd18179b1163!2m2!1d87.2783763!2d26.4480191?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        Biratnagar 09, Main Road (South)
+                    </a>
+                </li>
+
+                <li><i class="fas fa-phone"></i> 9705020251/9708000000</li>
+                <li><i class="fas fa-envelope"></i> info@timberwood.com.np</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom">
+
+        <div>
+            © 2026 Timber Wood Pvt Ltd. All Rights Reserved.   Developed by <a href="https://rajbanshibibek.com.np" target="_blank">Bibek Rajbanshi</a>
+        </div>
+
+        <div>
+            <a href="Privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-&-conditions.html">Terms & Conditions</a>
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+
+<script src="assets/script.js"></script>
+</body>
+</html>
