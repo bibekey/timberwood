@@ -65,6 +65,32 @@ nav ul li a:hover{
     cursor:pointer;
 }
 
+@media(max-width:768px){
+
+    nav ul{
+        position:fixed;
+        top:80px;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:#fff;
+        flex-direction:column;
+        padding:40px;
+        transition:.4s;
+    }
+
+    nav ul.active{
+        right:0;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav ul.active{
+        display:flex;
+    }
+    
 /* HERO */
 
 .hero-slider{
