@@ -10,7 +10,7 @@
 <meta name="author" content="TimberWood Furniture">
 <meta property="og:image" content="img/img/LOGO.png">
 
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/styless.css">
 <link rel="icon" href="img/img/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -22,25 +22,25 @@
 
 /* SECTION */
 
-.section{
+.blog-section{
     padding:100px 7%;
 }
 
-.section-title{
+.blog-section-title{
     text-align:center;
     margin-bottom:60px;
 }
 
-.section-title h2{
+.blog-section-title h2{
     font-size:50px;
     margin-bottom:15px;
 }
 
-.section-title span{
+.blog-section-title span{
     color:#c89b63;
 }
 
-.section-title p{
+.blog-section-title p{
     color:#555;
     max-width:700px;
     margin:auto;
@@ -143,7 +143,7 @@
 
 /* FEATURED */
 
-.featured{
+.blog-featured{
     background:#fff;
     border-radius:35px;
     overflow:hidden;
@@ -154,13 +154,13 @@
     border:1px solid rgba(255,255,255,.06);
 }
 
-.featured img{
+.blog-featured img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-.featured-content{
+.blog-featured-content{
     padding:60px;
     display:flex;
     flex-direction:column;
@@ -182,14 +182,14 @@
     margin-bottom:25px;
 }
 
-.featured-content h2{
+.blog-featured-content h2{
     color:#5c3d2e;
     font-size:48px;
     line-height:1.2;
     margin-bottom:25px;
 }
 
-.featured-content p{
+.blog-featured-content p{
     color:#555;
     line-height:1.9;
     margin-bottom:35px;
@@ -197,7 +197,7 @@
 
 /* NEWSLETTER */
 
-.newsletter{
+.blog-newsletter{
     background:#fff;;
 
     border-radius:35px;
@@ -206,12 +206,12 @@
     padding:90px 40px;
 }
 
-.newsletter h2{
+.blog-newsletter h2{
     font-size:52px;
     margin-bottom:20px;
 }
 
-.newsletter p{
+.blog-newsletter p{
     color:#555;
     max-width:700px;
     margin:auto;
@@ -219,7 +219,7 @@
     margin-bottom:35px;
 }
 
-.newsletter-form{
+.blog-newsletter-form{
     max-width:650px;
     margin:auto;
 
@@ -227,7 +227,7 @@
     gap:15px;
 }
 
-.newsletter-form input{
+.blog-newsletter-form input{
     flex:1;
     padding:18px 20px;
     border:none;
@@ -236,7 +236,7 @@
     font-size:15px;
 }
 
-.newsletter-form button{
+.blog-newsletter-form button{
     border:none;
     background:#c89b63;
     color:black;
@@ -252,11 +252,11 @@
 
 @media(max-width:950px){
 
-    .featured{
+    .blog-featured{
         grid-template-columns:1fr;
     }
 
-    .featured img{
+    .blog-featured img{
         height:350px;
     }
 
@@ -284,23 +284,23 @@
         display:block;
     }
 
-    .section-title h2{
+    .blog-section-title h2{
         font-size:35px;
     }
 
-    .featured-content{
+    .blog-featured-content{
         padding:40px;
     }
 
-    .featured-content h2{
+    .blog-featured-content h2{
         font-size:34px;
     }
 
-    .newsletter h2{
+    .blog-newsletter h2{
         font-size:38px;
     }
 
-    .newsletter-form{
+    .blog-newsletter-form{
         flex-direction:column;
     }
 
@@ -324,11 +324,11 @@
         font-size:22px;
     }
 
-    .featured-content h2{
+    .blog-featured-content h2{
         font-size:28px;
     }
 
-    .newsletter{
+    .blog-newsletter{
         padding:70px 25px;
     }
 
@@ -371,15 +371,15 @@
 
 <!-- FEATURED -->
 
-<section class="section">
+<section class="blog-section">
 
-    <div class="featured">
+    <div class="blog-featured">
 
         <img src="https://i.pinimg.com/736x/ff/2f/d4/ff2fd4efa1cab182f60d69059ae10f6a.jpg">
 
-        <div class="featured-content">
+        <div class="blog-featured-content">
 
-            <div class="featured-tag">
+            <div class="blog-featured-tag">
                 FEATURED ARTICLE
             </div>
 
@@ -403,9 +403,9 @@
 
 <!-- BLOGS -->
 
-<section class="section">
+<section class="blog-section">
 
-    <div class="section-title">
+    <div class="blog-section-title">
 
         <h2>Latest <span>Articles</span></h2>
 
@@ -633,9 +633,9 @@
 
 <!-- NEWSLETTER -->
 
-<section class="section">
+<section class="blog-section">
 
-    <div class="newsletter">
+    <div class="blog-newsletter">
 
         <h2>Join Our Newsletter</h2>
 
@@ -644,7 +644,7 @@
             interior design inspiration, offers, and TimberWood updates.
         </p>
 
-        <div class="newsletter-form">
+        <div class="blog-newsletter-form">
 
             <input type="email" placeholder="Enter your email">
 
