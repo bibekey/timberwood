@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>TimberWood | Privacy Policy</title>
+<title>TimberWood | Terms & Conditions</title>
 <meta name="description" content="Learn about TimberWood Furniture, a premium furniture brand specializing in modern and luxury wooden designs including beds, sofas, dining tables, wardrobes, and custom interior solutions crafted for elegant living spaces.">
 <meta name="keywords" content="About TimberWood, TimberWood Furniture, Furniture Company Nepal, Luxury Furniture Brand, Wooden Furniture Manufacturer, Modern Furniture Design, Interior Solutions, Custom Furniture Nepal, Home Furniture Experts, Premium Beds, Sofa Sets, Dining Tables, Wardrobes, TimberWood Story, Furniture Craftsmanship, Interior Design Nepal, Elegant Living Furniture">
 <meta name="author" content="TimberWood Furniture">
@@ -36,6 +36,12 @@
     letter-spacing:2px;
 }
 
+.about-text h1{
+    color:#5c3d2e;
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
 
 .about-text p{
     color:#555;
@@ -44,6 +50,38 @@
     margin-bottom:30px;
 }
 
+.about-btns{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.about-btns a{
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#c89b63;
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:1px solid #5c3d2e;
+    color:#5c3d2e;
+}
+
+.btn-outline:hover{
+    background:#5c3d2e;
+    color:black;
+}
 
 .about-image{
     position:relative;
@@ -56,16 +94,215 @@
     box-shadow:0 20px 50px rgba(0,0,0,0.5);
 }
 
+/* STORY */
+
+.story{
+    padding:90px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.story img{
+    width:100%;
+    border-radius:25px;
+}
+
+.story-text h2{
+    color:#5c3d2e;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.story-text p{
+    color:#555;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+/* STATS */
+
+.stats{
+    padding:20px 7% 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-box{
+    background:#171a20;
+    padding:40px 20px;
+    border-radius:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h2{
+    font-size:42px;
+    color:#c89b63;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#bdbdbd;
+}
+
+/* TEAM */
+
+.team{
+    padding:100px 7%;
+    background:ghostwhite;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:#5c3d2e;
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#555;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+}
+
+.team-content{
+    padding:25px;
+}
+
+.team-content h3{
+    color:#5c3d2e;
+    margin-bottom:8px;
+}
+
+.team-content p{
+    color:#555;
+}
+
+/* WHY US */
+
+.why{
+    padding:100px 7%;
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.why-card{
+    background:#fff;
+    padding:35px;
+    border-radius:24px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.why-card:hover{
+    transform:translateY(-8px);
+}
+
+.why-card h3{
+    color:#5c3d2e;
+    margin:20px 0 15px;
+}
+
+.why-card p{
+    color:#555;
+    line-height:1.8;
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:#c89b63;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    color:#111;
+}
 
 
 /* MOBILE */
 
 @media(max-width:1000px){
 
+    .about-hero,
+    .story{
+        grid-template-columns:1fr;
+    }
+
+    .team-grid,
+    .why-grid,
+    .stats,
     .footer-grid{
         grid-template-columns:1fr 1fr;
     }
-    
+
+    .about-text h1{
+        font-size:45px;
+    }
+
+    .cta h2{
+        font-size:40px;
+    }
+}
+
+@media(max-width:768px){
+
+    .team-grid,
+    .why-grid,
+    .stats,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-text h1{
+        font-size:38px;
+    }
+
+    .section-title h2,
+    .cta h2{
+        font-size:34px;
+    }
+
+}
 
 </style>
 
@@ -95,65 +332,18 @@
 
     <div class="about-text">
 
-        <h4>Privacy Policy</h4>
-        <p>Last Updated on Jun 23, 2026 </p>
-
-    <p>
-        Welcome to <strong>Timber Wood Pvt Ltd</strong>. We respect your privacy and are committed to protecting
-        any personal information you may provide while using our website <strong>timberwood.com.np</strong>.
-    </p>
-
-    <h3>1. Information We Collect</h3>
-    <p>We may collect the following information:</p>
-    <ul>
-        <li>Name and contact details (email, phone number)</li>
-        <li>Messages submitted through contact forms</li>
-        <li>Browsing data such as IP address and device information</li>
-    </ul>
-
-    <h3>2. How We Use Information</h3>
-    <p>Your information is used to:</p>
-    <ul>
-        <li>Respond to inquiries and customer requests</li>
-        <li>Improve our website and services</li>
-        <li>Send updates about our products (only if you opt-in)</li>
-    </ul>
-
-    <h3>3. Data Protection</h3>
-    <p>
-        We implement appropriate security measures to protect your personal data from unauthorized access,
-        alteration, or disclosure.
-    </p>
-
-    <h3>4. Cookies</h3>
-    <p>
-        Our website may use cookies to improve user experience. You can disable cookies in your browser settings.
-    </p>
-
-    <h3>5. Third-Party Services</h3>
-    <p>
-        We may use third-party services such as analytics tools. These services may collect limited user data
-        under their own privacy policies.
-    </p>
-
-    <h3>6. Your Rights</h3>
-    <p>
-        You have the right to request access, correction, or deletion of your personal data by contacting us.
-    </p>
-
-    <h3>7. Contact Us</h3>
-    <p>
-        If you have any questions about this Privacy Policy, contact us at:<br>
-        Email: support@timberwood.com.np<br>
-        Phone: +977-9705020251
-    </p>
+        <h4>Terms & Condition</h4>
+        <p>Updated on Jun 23, 2026 </p>
+        <p>
+            TimberWood is a premium furniture brand dedicated to creating elegant, durable, and timeless furniture designs for homes, offices, and commercial interiors. We blend modern aesthetics with expert craftsmanship to deliver furniture that transforms spaces beautifully.
+        </p>
 
 
 
     </div>
 
     <div class="about-image">
-        <img src="https://i.pinimg.com/736x/1f/6f/8f/1f6f8f98e43574874e6e23c2caef6de7.jpg">
+        <img src="https://i.pinimg.com/736x/d9/e4/46/d9e446b6b563a2acfa8f393670db15ce.jpg">
     </div>
 
 </section>
