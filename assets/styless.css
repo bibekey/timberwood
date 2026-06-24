@@ -96,6 +96,17 @@ MOBILE
         width:100%;
     }
 
+    nav ul li a{
+        display:block;
+        padding:1px 0px;
+        font-size:16px;
+        border-radius:8px;
+    }
+
+    nav ul li a:hover{
+        background:#f6f3ee;
+    }
+
     /* HAMBURGER */
     .menu-btn{
         display:block;
