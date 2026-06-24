@@ -13,7 +13,7 @@ body{
 }
 
 /* =========================
-NAVBAR
+NAVBAR: ALL
 ========================= */
 
 nav{
@@ -114,7 +114,7 @@ MOBILE
 }
 
 
-/* HERO */
+/* HOME: HERO */
 
 .hero-slider{
     width:100%;
@@ -608,7 +608,7 @@ transition:0.3s;
 background:#333;
 }
 
-/* ================= POPUP ================= */
+/*-- POPUP -- */
 
 .popup-overlay{
     position:fixed;
@@ -747,7 +747,7 @@ background:#333;
     cursor:pointer;
 }
 
-/* ================= MOBILE FIX ================= */
+/* --- MOBILE --- */
 @media (max-width:768px){
 
     .popup{
@@ -811,7 +811,7 @@ max-height:90%;
 
 
 /* =========================
-HERO: PORTFOLIO|SERVICES|BLOG|CONTACT
+HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
 ========================= */
 
 .hero{
@@ -1256,7 +1256,7 @@ CTA
 
 
 
-/* ================= FOOTER ================= */
+/*--FOOTER--*/
 
 footer{
     background:linear-gradient(135deg,#1f1f1f,#111);
