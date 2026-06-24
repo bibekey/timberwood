@@ -1167,7 +1167,7 @@ DEALER
 
 
 /* =========================
-CTA
+CTA: ALL
 ========================= */
 
 .cta{
@@ -1256,7 +1256,7 @@ CTA
 
 
 
-/*--FOOTER--*/
+/*--FOOTER: ALL--*/
 
 footer{
     background:linear-gradient(135deg,#1f1f1f,#111);
