@@ -1,19 +1,36 @@
-TIMBERWOOD NEPAL
+TIMBER WOOD PVT. LTD.
 
-Website:
-https://timberwood.com.np
 
-Company:
-Timberwood Nepal
+Website: https://bibekey.github.io/timberwood/
+Email: info@timberwood.com.np
 
-Country:
-Nepal
+Developer: Bibek Rajbanshi
+Role: Web Designer & Front-End Developer
+Website: https://rajbanshibibek.com.np/
+Portfolio: https://rajbanshibibek.com.np/
+Location: Nepal
 
-Technical SEO:
-In-House Team
 
-Website Type:
-Corporate Timber Website
 
-Last Updated:
-2026
+Site Name: TimberWood
+Description: Premium furniture brand specializing in modern, luxury, and custom furniture solutions.
+
+Language: English
+Responsive: Yes
+SEO Optimized: Yes
+
+
+TECHNOLOGIES:
+HTML
+CSS
+JavaScript
+Font Awesome
+Google Fonts
+GitHub Pages
+
+
+Thank you for visiting TimberWood.
+Crafting elegant furniture for modern living.
+
+LAST UPDATE
+2026-06-24
