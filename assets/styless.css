@@ -1526,12 +1526,13 @@ ABOUT
 }
 
 .btn-outline{
-    border:1px solid #5c3d2e;
-    color:#5c3d2e;
+    border:1px solid #fff;
+    background:#fff;
+    color:#8b5e3c;
 }
 
 .btn-outline:hover{
-    background:#5c3d2e;
+    background:#fff;
     color:black;
 }
 
