@@ -13,318 +13,6 @@
 <link rel="icon" href="img/img/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<style>
-
-/* =========================
-FILTERS
-========================= */
-
-.catalog-filters{
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    scrollbar-width:none;
-    padding:25px 5%;
-    background:#fff;
-    position:sticky;
-    top:75px;
-    z-index:99;
-}
-
-.catalog-filters::-webkit-scrollbar{
-    display:none;
-}
-
-.filter-btn{
-    min-width:max-content;
-    padding:12px 22px;
-    border:none;
-    border-radius:50px;
-    background:#555;
-    color:#fff;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.filter-btn.active,
-.filter-btn:hover{
-    background:#c89b63;
-    color:#000;
-}
-
-/* =========================
-CATALOG GRID
-========================= */
-
-.catalog{
-    padding:40px 5% 80px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-
-/* =========================
-CARD
-========================= */
-
-.card{
-    background:#fff;
-    border-radius:22px;
-    overflow:hidden;
-    position:relative;
-    transition:.4s;
-    cursor:pointer;
-    border:1px solid rgba(255,255,255,.05);
-    -webkit-tap-highlight-color: transparent;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.card:active{
-    transform:scale(.98);
-}
-
-.card-image{
-    position:relative;
-    overflow:hidden;
-}
-
-.card img{
-    width:100%;
-    height:320px;
-    object-fit:cover;
-
-    display:block;
-    transition:.5s;
-}
-
-.card:hover img{
-    transform:scale(1.08);
-}
-
-/* OVERLAY */
-
-.overlay{
-    position:absolute;
-    inset:0;
-
-    background:linear-gradient(
-    to top,
-    rgba(0,0,0,.35),
-    rgba(0,0,0,0)
-    );
-
-    opacity:0;
-    transition:.4s;
-}
-
-.card:hover .overlay{
-    opacity:1;
-}
-
-/* WISHLIST */
-
-.wishlist{
-    position:absolute;
-    top:15px;
-    right:15px;
-
-    width:42px;
-    height:42px;
-
-    background:rgba(0,0,0,.5);
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    z-index:10;
-
-    backdrop-filter:blur(10px);
-
-    font-size:20px;
-}
-
-/* CONTENT */
-
-.content{
-    padding:18px;
-}
-
-.content h3{
-    color:#5c3d2e;
-    margin-bottom:8px;
-}
-
-.content p{
-    opacity:.7;
-    font-size:14px;
-}
-
-/* =========================
-IMAGE VIEWER
-========================= */
-
-.viewer{
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.80);
-
-    display:none;
-    align-items:center;
-    justify-content:center;
-
-    z-index:9999;
-
-    overflow:hidden;
-}
-
-.viewer.active{
-    display:flex;
-}
-
-.viewer-slider{
-    display:flex;
-    width:100%;
-    height:100%;
-    transition:transform .4s ease;
-}
-
-.viewer-slide{
-    min-width:100%;
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-}
-
-.viewer-slide img{
-    width:100%;
-    max-width:1100px;
-    max-height:90vh;
-
-    object-fit:contain;
-
-    border-radius:18px;
-
-    user-select:none;
-    pointer-events:none;
-}
-
-/* CLOSE */
-
-.close{
-    color:#fff;
-    position:absolute;
-    top:20px;
-    right:25px;
-
-    font-size:45px;
-    cursor:pointer;
-
-    z-index:999;
-}
-
-/* BUTTONS */
-
-.prev,
-.next{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-
-    width:55px;
-    height:55px;
-
-    border:none;
-    border-radius:50%;
-
-    background:rgba(0,0,0,.0);
-    color:#fff;
-
-    font-size:28px;
-    cursor:pointer;
-
-    z-index:999;
-
-    backdrop-filter:blur(10px);
-}
-
-.prev{
-    left:20px;
-}
-
-.next{
-    right:20px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .viewer-slide{
-        padding:10px;
-    }
-
-    .viewer-slide img{
-        max-height:80vh;
-    }
-
-    .prev,
-    .next{
-        width:42px;
-        height:42px;
-        font-size:20px;
-    }
-
-    .close{
-        font-size:36px;
-    }
-
-}
-
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:768px){
-
-    .article-content{
-        padding:25px;
-    }
-
-    .author-box{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .catalog{
-        grid-template-columns:1fr;
-    }
-
-    .card img{
-        height:260px;
-    }
-
-    .prev,
-    .next{
-        width:45px;
-        height:45px;
-        font-size:20px;
-    }
-
-}
-
-</style>
 </head>
 
 <body>
@@ -420,12 +108,12 @@ Shoe Rack
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (1).png">
 
@@ -433,7 +121,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -443,12 +131,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (2).png">
 
@@ -456,7 +144,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -465,12 +153,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (3).png">
 
@@ -478,7 +166,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -487,12 +175,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (4).png">
 
@@ -500,7 +188,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -509,12 +197,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (5).png">
 
@@ -522,7 +210,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -531,12 +219,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (6).png">
 
@@ -544,7 +232,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -553,12 +241,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (7).png">
 
@@ -566,7 +254,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -575,12 +263,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (8).png">
 
@@ -588,7 +276,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -597,12 +285,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (9).png">
 
@@ -610,7 +298,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -619,12 +307,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (10).png">
 
@@ -632,7 +320,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -641,12 +329,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (11).png">
 
@@ -654,7 +342,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -663,12 +351,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (12).png">
 
@@ -676,7 +364,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -685,12 +373,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (13).png">
 
@@ -698,7 +386,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -707,12 +395,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (14).png">
 
@@ -720,7 +408,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -729,12 +417,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (15).png">
 
@@ -742,7 +430,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -751,12 +439,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (16).png">
 
@@ -764,7 +452,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -773,12 +461,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (17).png">
 
@@ -786,7 +474,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -795,12 +483,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (18).png">
 
@@ -808,7 +496,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -817,12 +505,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (19).png">
 
@@ -830,7 +518,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -839,12 +527,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (20).png">
 
@@ -852,7 +540,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -861,12 +549,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (21).png">
 
@@ -874,7 +562,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -883,12 +571,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (22).png">
 
@@ -896,7 +584,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -905,12 +593,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (23).png">
 
@@ -918,7 +606,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -927,12 +615,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (24).png">
 
@@ -940,7 +628,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -949,12 +637,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (25).png">
 
@@ -962,7 +650,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -971,12 +659,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (26).png">
 
@@ -984,7 +672,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -993,12 +681,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (27).png">
 
@@ -1006,7 +694,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1015,12 +703,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (28).png">
 
@@ -1028,7 +716,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1037,12 +725,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (29).png">
 
@@ -1050,7 +738,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1059,12 +747,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (30).png">
 
@@ -1072,7 +760,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1081,12 +769,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (31).png">
 
@@ -1094,7 +782,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1103,12 +791,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (32).png">
 
@@ -1116,7 +804,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1125,12 +813,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (33).png">
 
@@ -1138,7 +826,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1147,12 +835,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (34).png">
 
@@ -1160,7 +848,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1169,12 +857,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (35).png">
 
@@ -1182,7 +870,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1191,12 +879,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (36).png">
 
@@ -1204,7 +892,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1213,12 +901,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (37).png">
 
@@ -1226,7 +914,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1235,12 +923,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (38).png">
 
@@ -1248,7 +936,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1257,12 +945,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (39).png">
 
@@ -1270,7 +958,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1279,12 +967,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (40).png">
 
@@ -1292,7 +980,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1301,12 +989,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (41).png">
 
@@ -1314,7 +1002,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1323,12 +1011,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (42).png">
 
@@ -1336,7 +1024,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1345,12 +1033,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (43).png">
 
@@ -1358,7 +1046,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1367,12 +1055,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (44).png">
 
@@ -1380,7 +1068,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1389,12 +1077,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (45).png">
 
@@ -1402,7 +1090,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1411,12 +1099,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (46).png">
 
@@ -1424,7 +1112,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1433,12 +1121,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (47).png">
 
@@ -1446,7 +1134,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1455,12 +1143,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (48).png">
 
@@ -1468,7 +1156,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1477,12 +1165,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (49).png">
 
@@ -1490,7 +1178,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1499,12 +1187,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card bed"
+<div class="catalog-card bed"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/BED/BED (50).png">
 
@@ -1512,7 +1200,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Bed</h3>
 <p>Experience restful sleep with our premium bed designs crafted for elegance, comfort, and modern bedroom interiors.</p>
 </div>
@@ -1526,12 +1214,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CENTRE TABLE CARD START -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (1).png">
 
@@ -1539,7 +1227,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1548,12 +1236,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (2).png">
 
@@ -1561,7 +1249,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1570,12 +1258,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (3).png">
 
@@ -1583,7 +1271,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1593,12 +1281,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (4).png">
 
@@ -1606,7 +1294,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1615,12 +1303,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (5).png">
 
@@ -1628,7 +1316,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1637,12 +1325,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (6).png">
 
@@ -1650,7 +1338,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1659,12 +1347,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (7).png">
 
@@ -1672,7 +1360,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1681,12 +1369,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (8).png">
 
@@ -1694,7 +1382,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1703,12 +1391,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (9).png">
 
@@ -1716,7 +1404,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1725,12 +1413,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (10).png">
 
@@ -1738,7 +1426,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1747,12 +1435,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (11).png">
 
@@ -1760,7 +1448,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1769,12 +1457,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (12).png">
 
@@ -1782,7 +1470,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1791,12 +1479,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (13).png">
 
@@ -1804,7 +1492,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1813,12 +1501,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (14).png">
 
@@ -1826,7 +1514,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1835,12 +1523,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (15).png">
 
@@ -1848,7 +1536,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1857,12 +1545,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (16).png">
 
@@ -1870,7 +1558,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1879,12 +1567,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (17).png">
 
@@ -1892,7 +1580,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1901,12 +1589,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (18).png">
 
@@ -1914,7 +1602,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1923,12 +1611,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (19).png">
 
@@ -1936,7 +1624,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1945,12 +1633,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card centre"
+<div class="catalog-card centre"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CENTRE TABLE/CENTRE TABLE (20).png">
 
@@ -1958,7 +1646,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Designed to Complete Your Living Space</h3>
 <p>Designed with modern style, perfect for everyday use and decor.</p>
 </div>
@@ -1973,12 +1661,12 @@ onclick="openViewer(this.querySelector('img').src)">
 <!--SOFA SETS CARD START -->
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (1).png">
 
@@ -1986,7 +1674,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -1996,12 +1684,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (2).png">
 
@@ -2009,7 +1697,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2018,12 +1706,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (3).png">
 
@@ -2031,7 +1719,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2040,12 +1728,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (4).png">
 
@@ -2053,7 +1741,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2062,12 +1750,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (5).png">
 
@@ -2075,7 +1763,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2084,12 +1772,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (6).png">
 
@@ -2097,7 +1785,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2106,12 +1794,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (7).png">
 
@@ -2119,7 +1807,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2128,12 +1816,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (8).png">
 
@@ -2141,7 +1829,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2150,12 +1838,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (9).png">
 
@@ -2163,7 +1851,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2172,12 +1860,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (10).png">
 
@@ -2185,7 +1873,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2194,12 +1882,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (11).png">
 
@@ -2207,7 +1895,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2216,12 +1904,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (12).png">
 
@@ -2229,7 +1917,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2238,12 +1926,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (13).png">
 
@@ -2251,7 +1939,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2260,12 +1948,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (14).png">
 
@@ -2273,7 +1961,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2282,12 +1970,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (15).png">
 
@@ -2295,7 +1983,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2304,12 +1992,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (16).png">
 
@@ -2317,7 +2005,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2326,12 +2014,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (17).png">
 
@@ -2339,7 +2027,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2348,12 +2036,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (18).png">
 
@@ -2361,7 +2049,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2370,12 +2058,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (19).png">
 
@@ -2383,7 +2071,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2392,12 +2080,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (20).png">
 
@@ -2405,7 +2093,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2414,12 +2102,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (21).png">
 
@@ -2427,7 +2115,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2436,12 +2124,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (22).png">
 
@@ -2449,7 +2137,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2458,12 +2146,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (23).png">
 
@@ -2471,7 +2159,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2480,12 +2168,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (24).png">
 
@@ -2493,7 +2181,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2502,12 +2190,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (25).png">
 
@@ -2515,7 +2203,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2524,12 +2212,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (26).png">
 
@@ -2537,7 +2225,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2546,12 +2234,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (27).png">
 
@@ -2559,7 +2247,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2568,12 +2256,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (28).png">
 
@@ -2581,7 +2269,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2590,12 +2278,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (29).png">
 
@@ -2603,7 +2291,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2612,12 +2300,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card sofa"
+<div class="catalog-card sofa"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SOFA SETS/SOFA SETS (30).png">
 
@@ -2625,7 +2313,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Sofa</h3>
 <p>Premium sofa sets that combine durability, style, and comfort at the best value for your home.</p>
 </div>
@@ -2639,12 +2327,12 @@ onclick="openViewer(this.querySelector('img').src)">
 <!--WARDROBE CARD START -->
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (1).png">
 
@@ -2652,7 +2340,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2662,12 +2350,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (2).png">
 
@@ -2675,7 +2363,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2684,12 +2372,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (3).png">
 
@@ -2697,7 +2385,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2706,12 +2394,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (4).png">
 
@@ -2719,7 +2407,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2728,12 +2416,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (5).png">
 
@@ -2741,7 +2429,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2750,12 +2438,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (6).png">
 
@@ -2763,7 +2451,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2772,12 +2460,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (7).png">
 
@@ -2785,7 +2473,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2794,12 +2482,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (8).png">
 
@@ -2807,7 +2495,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2816,12 +2504,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (9).png">
 
@@ -2829,7 +2517,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2838,12 +2526,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (10).png">
 
@@ -2851,7 +2539,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2860,12 +2548,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (11).png">
 
@@ -2873,7 +2561,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2882,12 +2570,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (12).png">
 
@@ -2895,7 +2583,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2904,12 +2592,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (13).png">
 
@@ -2917,7 +2605,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2926,12 +2614,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (14).png">
 
@@ -2939,7 +2627,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2948,12 +2636,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (15).png">
 
@@ -2961,7 +2649,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2970,12 +2658,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (16).png">
 
@@ -2983,7 +2671,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -2992,12 +2680,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (17).png">
 
@@ -3005,7 +2693,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -3014,12 +2702,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (18).png">
 
@@ -3027,7 +2715,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -3036,12 +2724,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (19).png">
 
@@ -3049,7 +2737,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -3058,12 +2746,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card wardrobe"
+<div class="catalog-card wardrobe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/WARDROBE/WARDROBE (20).png">
 
@@ -3071,7 +2759,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Storage Solutions</h3>
 <p>Transform your space with custom wardrobe designs that match your lifestyle and interior vision</p>
 </div>
@@ -3085,12 +2773,12 @@ onclick="openViewer(this.querySelector('img').src)">
 <!--TV CABINET CARD START -->
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (1).png">
 
@@ -3098,7 +2786,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3108,12 +2796,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (2).png">
 
@@ -3121,7 +2809,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3130,12 +2818,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (3).png">
 
@@ -3143,7 +2831,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3152,12 +2840,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (4).png">
 
@@ -3165,7 +2853,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3174,12 +2862,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (5).png">
 
@@ -3187,7 +2875,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3196,12 +2884,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (6).png">
 
@@ -3209,7 +2897,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3218,12 +2906,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (7).png">
 
@@ -3231,7 +2919,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3240,12 +2928,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (8).png">
 
@@ -3253,7 +2941,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3262,12 +2950,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (9).png">
 
@@ -3275,7 +2963,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3284,12 +2972,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (10).png">
 
@@ -3297,7 +2985,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3306,12 +2994,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (11).png">
 
@@ -3319,7 +3007,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3328,12 +3016,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (12).png">
 
@@ -3341,7 +3029,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3350,12 +3038,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (13).png">
 
@@ -3363,7 +3051,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3372,12 +3060,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (14).png">
 
@@ -3385,7 +3073,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3394,12 +3082,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (15).png">
 
@@ -3407,7 +3095,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3416,12 +3104,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (16).png">
 
@@ -3429,7 +3117,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3438,12 +3126,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (17).png">
 
@@ -3451,7 +3139,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3460,12 +3148,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (18).png">
 
@@ -3473,7 +3161,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3482,12 +3170,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (19).png">
 
@@ -3495,7 +3183,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3504,12 +3192,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card tv"
+<div class="catalog-card tv"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/TV CABINET/TV CABINET (20).png">
 
@@ -3517,7 +3205,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Premium Tv Cabinet</h3>
 <p>Clean design with practical storage for media and accessories.</p>
 </div>
@@ -3531,12 +3219,12 @@ onclick="openViewer(this.querySelector('img').src)">
 <!--CONSOLE TABLE CARD START -->
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (1).png">
 
@@ -3544,7 +3232,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3554,12 +3242,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (2).png">
 
@@ -3567,7 +3255,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3576,12 +3264,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (3).png">
 
@@ -3589,7 +3277,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3598,12 +3286,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (4).png">
 
@@ -3611,7 +3299,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3620,12 +3308,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (5).png">
 
@@ -3633,7 +3321,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3642,12 +3330,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (6).png">
 
@@ -3655,7 +3343,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3664,12 +3352,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (7).png">
 
@@ -3677,7 +3365,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3686,12 +3374,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (8).png">
 
@@ -3699,7 +3387,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3708,12 +3396,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (9).png">
 
@@ -3721,7 +3409,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3730,12 +3418,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (10).png">
 
@@ -3743,7 +3431,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3752,12 +3440,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (11).png">
 
@@ -3765,7 +3453,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3774,12 +3462,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (12).png">
 
@@ -3787,7 +3475,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3796,12 +3484,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (13).png">
 
@@ -3809,7 +3497,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3818,12 +3506,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (14).png">
 
@@ -3831,7 +3519,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3840,12 +3528,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (15).png">
 
@@ -3853,7 +3541,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3862,12 +3550,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (16).png">
 
@@ -3875,7 +3563,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3884,12 +3572,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (17).png">
 
@@ -3897,7 +3585,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3906,12 +3594,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (18).png">
 
@@ -3919,7 +3607,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3928,12 +3616,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (19).png">
 
@@ -3941,7 +3629,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3950,12 +3638,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card console"
+<div class="catalog-card console"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/CONSOLE TABLE/CONSOLE TABLE (20).png">
 
@@ -3963,7 +3651,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Console Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -3979,12 +3667,12 @@ onclick="openViewer(this.querySelector('img').src)">
 <!--DINING TABLE CARD START -->
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (1).png">
 
@@ -3992,7 +3680,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4002,12 +3690,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (2).png">
 
@@ -4015,7 +3703,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4024,12 +3712,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (3).png">
 
@@ -4037,7 +3725,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4046,12 +3734,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (4).png">
 
@@ -4059,7 +3747,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4068,12 +3756,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (5).png">
 
@@ -4081,7 +3769,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4090,12 +3778,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (6).png">
 
@@ -4103,7 +3791,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4112,12 +3800,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (7).png">
 
@@ -4125,7 +3813,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4134,12 +3822,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (8).png">
 
@@ -4147,7 +3835,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4156,12 +3844,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (9).png">
 
@@ -4169,7 +3857,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4178,12 +3866,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (10).png">
 
@@ -4191,7 +3879,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4200,12 +3888,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (11).png">
 
@@ -4213,7 +3901,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4222,12 +3910,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (12).png">
 
@@ -4235,7 +3923,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4244,12 +3932,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (13).png">
 
@@ -4257,7 +3945,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4266,12 +3954,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (14).png">
 
@@ -4279,7 +3967,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4288,12 +3976,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (15).png">
 
@@ -4301,7 +3989,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4310,12 +3998,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (16).png">
 
@@ -4323,7 +4011,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4332,12 +4020,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (17).png">
 
@@ -4345,7 +4033,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4354,12 +4042,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (18).png">
 
@@ -4367,7 +4055,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4376,12 +4064,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (19).png">
 
@@ -4389,7 +4077,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4398,12 +4086,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dining"
+<div class="catalog-card dining"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DINING TABLE/DINING TABLE (20).png">
 
@@ -4411,7 +4099,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dining Table</h3>
 <p>Perfect for family meals, comfort and suitable for everyday gatherings.</p>
 </div>
@@ -4428,12 +4116,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (1).png">
 
@@ -4441,7 +4129,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4451,12 +4139,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (2).png">
 
@@ -4464,7 +4152,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4473,12 +4161,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (3).png">
 
@@ -4486,7 +4174,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4495,12 +4183,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (4).png">
 
@@ -4508,7 +4196,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4517,12 +4205,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (5).png">
 
@@ -4530,7 +4218,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4539,12 +4227,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (6).png">
 
@@ -4552,7 +4240,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4561,12 +4249,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (7).png">
 
@@ -4574,7 +4262,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4583,12 +4271,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (8).png">
 
@@ -4596,7 +4284,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4605,12 +4293,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (9).png">
 
@@ -4618,7 +4306,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4627,12 +4315,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (10).png">
 
@@ -4640,7 +4328,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4649,12 +4337,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (11).png">
 
@@ -4662,7 +4350,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4671,12 +4359,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (12).png">
 
@@ -4684,7 +4372,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4693,12 +4381,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (13).png">
 
@@ -4706,7 +4394,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4715,12 +4403,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (14).png">
 
@@ -4728,7 +4416,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4737,12 +4425,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (15).png">
 
@@ -4750,7 +4438,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4759,12 +4447,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (16).png">
 
@@ -4772,7 +4460,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4781,12 +4469,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (17).png">
 
@@ -4794,7 +4482,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4803,12 +4491,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (18).png">
 
@@ -4816,7 +4504,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4825,12 +4513,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (19).png">
 
@@ -4838,7 +4526,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4847,12 +4535,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card dressing"
+<div class="catalog-card dressing"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/DRESSING TABLE/DRESSING TABLE (20).png">
 
@@ -4860,7 +4548,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Dressing Table</h3>
 <p>Perfect for entryways, combining elegance with everyday use</p>
 </div>
@@ -4875,12 +4563,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!--OFFICE TABLE CARD START -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (1).png">
 
@@ -4888,7 +4576,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -4897,12 +4585,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (2).png">
 
@@ -4910,7 +4598,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -4919,12 +4607,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (3).png">
 
@@ -4932,7 +4620,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -4942,12 +4630,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (2).png">
 
@@ -4955,7 +4643,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -4964,12 +4652,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (3).png">
 
@@ -4977,7 +4665,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -4986,12 +4674,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (4).png">
 
@@ -4999,7 +4687,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5008,12 +4696,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (5).png">
 
@@ -5021,7 +4709,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5030,12 +4718,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (6).png">
 
@@ -5043,7 +4731,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5052,12 +4740,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (7).png">
 
@@ -5065,7 +4753,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5074,12 +4762,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (8).png">
 
@@ -5087,7 +4775,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5096,12 +4784,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (9).png">
 
@@ -5109,7 +4797,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5118,12 +4806,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (10).png">
 
@@ -5131,7 +4819,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5140,12 +4828,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (11).png">
 
@@ -5153,7 +4841,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5162,12 +4850,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (12).png">
 
@@ -5175,7 +4863,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5184,12 +4872,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (13).png">
 
@@ -5197,7 +4885,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5206,12 +4894,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (14).png">
 
@@ -5219,7 +4907,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5228,12 +4916,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (15).png">
 
@@ -5241,7 +4929,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5250,12 +4938,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (16).png">
 
@@ -5263,7 +4951,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5272,12 +4960,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (17).png">
 
@@ -5285,7 +4973,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5294,12 +4982,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (18).png">
 
@@ -5307,7 +4995,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5316,12 +5004,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (19).png">
 
@@ -5329,7 +5017,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5338,12 +5026,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card office"
+<div class="catalog-card office"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/OFFICE TABLE/OFFICE TABLE (20).png">
 
@@ -5351,7 +5039,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Office Table</h3>
 <p>Clean and funcitional design for an efficient workspace.</p>
 </div>
@@ -5366,12 +5054,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!--SHOE RACK CARD START -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (1).png">
 
@@ -5379,7 +5067,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5388,12 +5076,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (2).png">
 
@@ -5401,7 +5089,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5410,12 +5098,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (3).png">
 
@@ -5423,7 +5111,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5433,12 +5121,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (4).png">
 
@@ -5446,7 +5134,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5455,12 +5143,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (5).png">
 
@@ -5468,7 +5156,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5477,12 +5165,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (6).png">
 
@@ -5490,7 +5178,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5499,12 +5187,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (7).png">
 
@@ -5512,7 +5200,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5521,12 +5209,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (8).png">
 
@@ -5534,7 +5222,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5543,12 +5231,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (9).png">
 
@@ -5556,7 +5244,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5565,12 +5253,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (10).png">
 
@@ -5578,7 +5266,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5588,12 +5276,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (11).png">
 
@@ -5601,7 +5289,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5610,12 +5298,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (12).png">
 
@@ -5623,7 +5311,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5632,12 +5320,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (13).png">
 
@@ -5645,7 +5333,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5654,12 +5342,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (14).png">
 
@@ -5667,7 +5355,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5676,12 +5364,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (15).png">
 
@@ -5689,7 +5377,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5698,12 +5386,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (16).png">
 
@@ -5711,7 +5399,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5720,12 +5408,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (17).png">
 
@@ -5733,7 +5421,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5742,12 +5430,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (18).png">
 
@@ -5755,7 +5443,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5764,12 +5452,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (19).png">
 
@@ -5777,7 +5465,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5786,12 +5474,12 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <!-- CARD -->
 
-<div class="card shoe"
+<div class="catalog-card shoe"
 onclick="openViewer(this.querySelector('img').src)">
 
 <div class="wishlist">♡</div>
 
-<div class="card-image">
+<div class="catalog-card-image">
 
 <img src="img/SHOE RACK/SHOE RACK (20).png">
 
@@ -5799,7 +5487,7 @@ onclick="openViewer(this.querySelector('img').src)">
 
 </div>
 
-<div class="content">
+<div class="catalog-content">
 <h3>Luxury Shoe Rack</h3>
 <p>Keep your footwear organize with this stylish and compact shoe rack.</p>
 </div>
@@ -5962,7 +5650,7 @@ FILTER
 ========================= */
 
 const filterBtns = document.querySelectorAll('.filter-btn');
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.catalog-card');
 
 filterBtns.forEach(btn=>{
 
@@ -6005,7 +5693,7 @@ const viewerSlider = document.getElementById('viewerSlider');
 
 const images = [];
 
-document.querySelectorAll('.card img').forEach(img=>{
+document.querySelectorAll('.catalog-card img').forEach(img=>{
 
     images.push(img.src);
 
