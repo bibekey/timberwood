@@ -1470,3 +1470,283 @@ footer::before{
 /* =========================
 ABOUT
 ========================= */
+
+/* HERO */
+
+.about-hero{
+    min-height:75vh;
+    padding:140px 7% 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about-text h4{
+    color:#c89b63;
+    margin-bottom:15px;
+    letter-spacing:2px;
+}
+
+.about-text h1{
+    color:#5c3d2e;
+    font-size:60px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.about-text p{
+    color:#555;
+    line-height:1.9;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.about-btns{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.about-btns a{
+    padding:14px 28px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#c89b63;
+    color:#111;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:1px solid #5c3d2e;
+    color:#5c3d2e;
+}
+
+.btn-outline:hover{
+    background:#5c3d2e;
+    color:black;
+}
+
+.about-image{
+    position:relative;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:30px;
+    object-fit:cover;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* STORY */
+
+.story{
+    padding:90px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.story img{
+    width:100%;
+    border-radius:25px;
+}
+
+.story-text h2{
+    color:#5c3d2e;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.story-text p{
+    color:#555;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+/* ABOUT STATS */
+
+.about-stats{
+    padding:20px 7% 100px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat-box{
+    background:#171a20;
+    padding:40px 20px;
+    border-radius:22px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.06);
+    transition:.4s;
+}
+
+.stat-box:hover{
+    transform:translateY(-10px);
+}
+
+.stat-box h2{
+    font-size:42px;
+    color:#c89b63;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#bdbdbd;
+}
+
+/* TEAM */
+
+.team{
+    padding:100px 7%;
+    background:ghostwhite;
+}
+
+.about-section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.about-section-title h2{
+    color:#5c3d2e;
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.about-section-title p{
+    color:#555;
+}
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.team-card:hover{
+    transform:translateY(-10px);
+}
+
+.team-card img{
+    width:100%;
+    height:340px;
+    object-fit:cover;
+}
+
+.team-content{
+    padding:25px;
+}
+
+.team-content h3{
+    color:#5c3d2e;
+    margin-bottom:8px;
+}
+
+.team-content p{
+    color:#555;
+}
+
+/* WHY US */
+
+.about-why{
+    padding:100px 7%;
+}
+
+.about-why-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.about-why-card{
+    background:#fff;
+    padding:35px;
+    border-radius:24px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+.about-why-card:hover{
+    transform:translateY(-8px);
+}
+
+.about-why-card h3{
+    color:#5c3d2e;
+    margin:20px 0 15px;
+}
+
+.about-why-card p{
+    color:#555;
+    line-height:1.8;
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:#c89b63;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    color:#111;
+}
+
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+    .about-hero,
+    .story{
+        grid-template-columns:1fr;
+    }
+
+    .team-grid,
+    .about-why-grid,
+    .about-stats,
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-text h1{
+        font-size:45px;
+    }
+}
+
+@media(max-width:768px){
+
+    .team-grid,
+    .about-why-grid,
+    .about-stats,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .about-text h1{
+        font-size:38px;
+    }
+
+    .about-section-title h2,{
+        font-size:34px;
+    }
+
+}
