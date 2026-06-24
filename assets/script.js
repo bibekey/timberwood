@@ -112,15 +112,15 @@ let highlights=document.getElementById("highlights").innerText;
 let phone="9779705020251";
 
 let message=`
-🪑 Furniture Order Request
+Furniture Order Request
 
-📌 Product: ${productName}
-💰 Price: ${price}
+Product: ${productName}
+Price: ${price}
 ~~${oldPrice}~~
 
-📏 Details: ${highlights}
+Details: ${highlights}
 
-🙏 Please confirm availability & delivery.
+Please confirm availability & delivery.
 `;
 
 let url=`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
