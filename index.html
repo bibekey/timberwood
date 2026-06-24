@@ -279,6 +279,28 @@
     object-fit:cover;
 }
 
+/* MOBILE */
+
+@media(max-width:1100px){
+
+    .hero,
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .feature-grid,
+    .collection-grid,
+    .product-grid,
+    .testimonial-grid,
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero-text h1{
+        font-size:56px;
+    }
+
+}
 
 @media(max-width:768px){
 
@@ -1318,7 +1340,7 @@ data-price="Rs. 81,000"data-highlights="Premium L-Sofa | Modern Design | In Stoc
                 <span>✔ Premium Quality Wood</span>
                 <span>✔ Nepal Craftsmanship</span>
             </div>
-            
+
             <!-- SOCIAL -->
             <div class="social-icons">
                 <a href="https://www.instagram.com/__timberwood" target="_blank"><i class="fab fa-instagram"></i></a>
