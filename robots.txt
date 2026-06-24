@@ -1,0 +1,71 @@
+Timber Wood Pvt. Ltd.
+
+# Website: https://timberwood.com.np
+
+User-agent: *
+Allow: /
+
+# Restricted Directories
+
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /temp/
+Disallow: /private/
+
+# Block URL Parameters (Optional)
+
+Disallow: /*?*
+
+# XML Sitemap
+
+Sitemap: https://bibekey.github.io/timberwood/sitemap.xml
+
+
+# AI CRAWLERS & ASSISTANTS
+
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+
+
+# SEARCH ENGINES
+
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+
+# END OF FILE
+
+# Last Updated: 2026-06-24

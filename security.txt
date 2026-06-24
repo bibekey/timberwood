@@ -1,0 +1,41 @@
+
+Timber Wood Pvt. Ltd.
+
+# https://bibekey.github.io/timberwood/
+
+
+Contact: mailto:info@timberwood.com.np
+
+Expires: 2027-06-24T23:59:59Z
+
+Preferred-Languages: en
+
+Canonical: https://bibekey.github.io/timberwood/.well-known/security.txt
+
+Policy: https://bibekey.github.io/timberwood/privacy-policy.html
+
+Hiring: https://bibekey.github.io/timberwood/contact.html
+
+Acknowledgments: https://bibekey.github.io/timberwood/
+
+
+# REPORTING GUIDELINES
+
+
+# Please report security vulnerabilities responsibly.
+
+# Include detailed reproduction steps, affected URLs,
+
+# screenshots (if applicable), and contact information.
+
+#
+
+# Timber Wood Pvt. Ltd. appreciates responsible
+
+# disclosure efforts that help protect our users,
+
+# customers, and systems.
+
+
+# Last Updated: 2026-06-24
+
