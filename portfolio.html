@@ -14,228 +14,6 @@
 <link rel="icon" href="img/img/LOGO.png" type="image/x-icon">   <!-- font icons -->
 <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<style>
-
-
-
-/* SECTION */
-
-.portfolio-section{
-    padding:100px 7%;
-}
-
-.portfolio-section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.portfolio-section-title h2{
-    font-size:48px;
-    margin-bottom:15px;
-}
-
-.portfolio-section-title span{
-    color:#c89b63;
-}
-
-.portfolio-section-title p{
-    color:#555;
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
-}
-
-/* PORTFOLIO GRID */
-
-.portfolio-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.portfolio-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:24px;
-    background:#fff;
-    cursor:pointer;
-    transition:.4s;
-    border:1px solid rgba(255,255,255,.05);
-}
-
-.portfolio-card:hover{
-    transform:translateY(-10px);
-}
-
-.portfolio-card img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    display:block;
-    transition:.6s;
-}
-
-.portfolio-card:hover img{
-    transform:scale(1.08);
-}
-
-.portfolio-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-
-    padding:30px;
-}
-
-.portfolio-tag{
-    width:max-content;
-    background:#c89b63;
-    color:black;
-    font-size:12px;
-    font-weight:600;
-    padding:7px 16px;
-    border-radius:50px;
-    margin-bottom:14px;
-}
-
-.portfolio-overlay h3{
-    color:#fff;
-    font-size:28px;
-    margin-bottom:10px;
-}
-
-.portfolio-overlay p{
-    color:#ddd;
-    line-height:1.7;
-    font-size:15px;
-}
-
-/* PORTFOLIO STATS */
-
-.portfolio-stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
-    margin-top:70px;
-}
-
-.stat{
-    background:#181818;
-    border-radius:24px;
-    padding:40px;
-    text-align:center;
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.stat h2{
-    font-size:48px;
-    color:#c89b63;
-    margin-bottom:10px;
-}
-
-.stat p{
-    color:#aaa;
-}
-
-/* PORTFOLIO TESTIMONIAL */
-
-.portfolio-testimonial{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.portfolio-testimonial{
-    background:#fff;
-    border-radius:24px;
-    padding:35px;
-    border:1px solid rgba(255,255,255,.06);
-}
-
-.stars{
-    color:#c89b63;
-    font-size:22px;
-    margin-bottom:18px;
-}
-
-.portfolio-testimonial p{
-    color:#555;
-    line-height:1.9;
-    margin-bottom:20px;
-}
-
-.client{
-    display:flex;
-    align-items:center;
-    gap:15px;
-}
-
-.client img{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.client h4{
-    color:#5c3d2e;
-    font-size:18px;
-}
-
-.client span{
-    color:#555;
-    font-size:14px;
-}
-
-
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .portfolio-section-title h2{
-        font-size:34px;
-    }
-
-
-
-}
-
-@media(max-width:600px){
-
-    .hero{
-        height:60vh;
-    }
-
-    .hero h1{
-        font-size:34px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .portfolio-card img{
-        height:260px;
-    }
-
-    .portfolio-overlay h3{
-        font-size:22px;
-    }
-
-
-}
-
-</style>
 </head>
 
 <body>
@@ -374,22 +152,22 @@
 
     <div class="portfolio-stats">
 
-        <div class="stat">
+        <div class="portfolio-stat">
             <h2>3+</h2>
             <p>Years Experience</p>
         </div>
 
-        <div class="stat">
+        <div class="portfolio-stat">
             <h2>200+</h2>
             <p>Projects Completed</p>
         </div>
 
-        <div class="stat">
+        <div class="portfolio-stat">
             <h2>220+</h2>
             <p>Happy Clients</p>
         </div>
 
-        <div class="stat">
+        <div class="portfolio-stat">
             <h2>100%</h2>
             <p>Premium Quality</p>
         </div>
