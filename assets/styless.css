@@ -1949,6 +1949,7 @@ SERVICES
 /* =========================
 PORTFOLIO
 ========================= */
+
 /* PORTFOLIO SECTION */
 
 .portfolio-section{
@@ -2045,9 +2046,9 @@ PORTFOLIO
     font-size:15px;
 }
 
-/* PORTFOLIO STATS */
+/* PORTFOLIO STAT */
 
-.portfolio-stats{
+.portfolio-stat{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:25px;
@@ -2123,7 +2124,6 @@ PORTFOLIO
 }
 
 
-
 /* MOBILE */
 
 @media(max-width:900px){
@@ -2136,8 +2136,6 @@ PORTFOLIO
     .portfolio-section-title h2{
         font-size:34px;
     }
-
-
 
 }
 
@@ -2162,8 +2160,6 @@ PORTFOLIO
     .portfolio-overlay h3{
         font-size:22px;
     }
-
-
 }
 
 
