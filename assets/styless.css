@@ -74,24 +74,16 @@ MOBILE
 
 @media(max-width:768px){
 
-    nav{
-        padding:15px 20px;
-    }
-
-    /* MOBILE MENU PANEL */
     nav ul{
         position:fixed;
-        top:0;
+        top:80px;
         right:-100%;
-        width:280px;
+        width:260px;
         height:100vh;
         background:#fff;
         flex-direction:column;
-        padding:80px 25px;
-        gap:20px;
-        transition:0.4s ease;
-        box-shadow:-10px 0 30px rgba(0,0,0,0.08);
-        z-index:999;
+        padding:40px;
+        transition:.4s;
     }
 
     /* ACTIVE MENU */
@@ -104,21 +96,9 @@ MOBILE
         width:100%;
     }
 
-    nav ul li a{
-        display:block;
-        padding:12px 10px;
-        font-size:16px;
-        border-radius:8px;
-    }
-
-    nav ul li a:hover{
-        background:#f6f3ee;
-    }
-
     /* HAMBURGER */
     .menu-btn{
         display:block;
-        z-index:1001;
     }
 }
 
