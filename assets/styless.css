@@ -83,7 +83,7 @@ MOBILE
         position:fixed;
         top:0;
         right:-100%;
-        width:280px;
+        width:150px;
         height:100vh;
         background:#fff;
         flex-direction:column;
