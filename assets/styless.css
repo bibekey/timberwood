@@ -1891,9 +1891,7 @@ ABOUT
     margin-bottom:20px;
 }
 
-/*==============================
-MISSION SECTION
-==============================*/
+/* MISSION */
 
 .mission-section{
     padding:100px 8%;
@@ -2009,7 +2007,7 @@ RESPONSIVE
     }
 
     .section-title h2{
-        font-size:32px;
+        font-size:30px;
     }
 
     .mission-card{
