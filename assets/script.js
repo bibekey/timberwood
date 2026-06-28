@@ -278,9 +278,6 @@ startSlider();
 
 
 
-
-
-
 setInterval(function(){
 
 if(window.location.hostname!=="timberwood.com.np" &&
