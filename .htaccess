@@ -1,19 +1,42 @@
 Options -Indexes
 
+ErrorDocument 404 /404.html
+
 RewriteEngine On
+
+# ==========================================
+# REMOVE .html EXTENSION
+# ==========================================
+
+# Redirect /page.html -> /page
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Serve .html internally
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/.]+)$ $1.html [L]
+
+# ==========================================
+# REDIRECT /public_html TO /about
+# ==========================================
+
+RewriteRule ^public_html/?$ /about [R=301,L]
 
 # ==========================================
 # ONLY ALLOW timberwood.com.np
 # ==========================================
 
 RewriteCond %{HTTP_HOST} !^(www\.)?timberwood\.com\.np$ [NC]
-RewriteRule ^(.*)$ https://rajbanshibibek.com.np [R=302,L]
+RewriteCond %{HTTP_HOST} !^bibekey\.github\.io$ [NC]
+RewriteRule ^ https://rajbanshibibek.com.np [R=302,L]
 
 # ==========================================
 # BLOCK HOTLINKING
 # ==========================================
 
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?timberwood\.com\.np/ [NC]
+RewriteCond %{HTTP_REFERER} !^https?://bibekey\.github\.io/timberwood/ [NC]
 RewriteCond %{HTTP_REFERER} !^$
 RewriteRule \.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|mp4)$ - [F,L]
 
@@ -21,6 +44,6 @@ RewriteRule \.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|mp4)$ - [F,L]
 # PROTECT HIDDEN FILES
 # ==========================================
 
-<FilesMatch "^(\.htaccess|\.env|composer\.json|package\.json)">
+<FilesMatch "^(\.htaccess|\.env|composer\.json|package\.json)$">
     Require all denied
 </FilesMatch>
