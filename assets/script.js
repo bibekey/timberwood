@@ -13,6 +13,14 @@ location.replace("https://rajbanshibibek.com.np");
 
 },2000);
 
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+
+
+
+
 /* MOBILE MENU */
 function toggleMenu(){
     document.getElementById("menu").classList.toggle("active");
