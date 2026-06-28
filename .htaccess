@@ -1,0 +1,26 @@
+Options -Indexes
+
+RewriteEngine On
+
+# ==========================================
+# ONLY ALLOW timberwood.com.np
+# ==========================================
+
+RewriteCond %{HTTP_HOST} !^(www\.)?timberwood\.com\.np$ [NC]
+RewriteRule ^(.*)$ https://rajbanshibibek.com.np [R=302,L]
+
+# ==========================================
+# BLOCK HOTLINKING
+# ==========================================
+
+RewriteCond %{HTTP_REFERER} !^https?://(www\.)?timberwood\.com\.np/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+RewriteRule \.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|mp4)$ - [F,L]
+
+# ==========================================
+# PROTECT HIDDEN FILES
+# ==========================================
+
+<FilesMatch "^(\.htaccess|\.env|composer\.json|package\.json)">
+    Require all denied
+</FilesMatch>
