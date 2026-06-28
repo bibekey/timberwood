@@ -1,20 +1,18 @@
+
+setInterval(function(){
+
+if(window.location.hostname!=="timberwood.com.np" &&
+window.location.hostname!=="www.timberwood.com.np" &&
+window.location.hostname!=="localhost" &&
+window.location.hostname!=="127.0.0.1"){
+
+location.replace("https://rajbanshibibek.com.np");
+
+}
+
+},2000);
+
 /* MOBILE MENU */
-(function () {
-
-    const allowedDomains = [
-        "timberwood.com.np",
-        "www.timberwood.com.np",
-        "localhost",
-        "127.0.0.1"
-    ];
-
-    if (!allowedDomains.includes(window.location.hostname)) {
-        window.location.replace("https://rajbanshibibek.com.np");
-    }
-
-})();
-
-
 function toggleMenu(){
     document.getElementById("menu").classList.toggle("active");
 }
