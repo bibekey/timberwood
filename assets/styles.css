@@ -2573,14 +2573,14 @@ PORTFOLIO
 
 /* PORTFOLIO STAT */
 
-.portfolio-stat{
+.stats{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:25px;
     margin-top:70px;
 }
 
-.portfolio-stat{
+.stat{
     background:#181818;
     border-radius:24px;
     padding:40px;
@@ -2588,13 +2588,13 @@ PORTFOLIO
     border:1px solid rgba(255,255,255,.06);
 }
 
-.portfolio-stat h2{
+.stat h2{
     font-size:48px;
     color:#c89b63;
     margin-bottom:10px;
 }
 
-.portfolio-stat p{
+.stat p{
     color:#aaa;
 }
 
