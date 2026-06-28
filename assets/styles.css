@@ -3489,17 +3489,6 @@ CONTACT
 PRIVACY POLICY
 ======================================*/
 
-.privacy-hero{
-    width:100%;
-    min-height:100vh;
-    padding:120px 8% 80px;
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:70px;
-    align-items:start;
-    background:#faf9f7;
-}
-
 /* Left Content */
 
 .privacy-text{
@@ -3600,47 +3589,12 @@ PRIVACY POLICY
     transform:scale(1.02);
 }
 
-/* Contact Box */
 
-.privacy-text p:last-child{
-    background:#f8f5ef;
-    border-left:5px solid #c59d5f;
-    padding:25px;
-    border-radius:12px;
-    margin-top:25px;
-}
 
-/* Selection */
-
-.privacy-text::selection{
-    background:#c59d5f;
-    color:#fff;
-}
-
-.privacy-text *::selection{
-    background:#c59d5f;
-    color:#fff;
-}
-
-/* Scroll */
-
-html{
-    scroll-behavior:smooth;
-}
 
 /* Responsive */
 
-@media(max-width:1200px){
 
-    .privacy-hero{
-        gap:50px;
-    }
-
-    .privacy-image img{
-        height:650px;
-    }
-
-}
 
 @media(max-width:992px){
 
@@ -3686,31 +3640,6 @@ html{
 
     .privacy-image img{
         height:340px;
-    }
-
-}
-
-@media(max-width:480px){
-
-    .privacy-hero{
-        padding:90px 20px 50px;
-    }
-
-    .privacy-text{
-        padding:22px;
-    }
-
-    .privacy-text h4{
-        font-size:2rem;
-    }
-
-    .privacy-text h3{
-        font-size:1.15rem;
-    }
-
-    .privacy-image img{
-        height:280px;
-        border-radius:15px;
     }
 
 }
