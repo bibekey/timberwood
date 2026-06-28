@@ -3499,7 +3499,7 @@ PRIVACY POLICY
     border:1px solid rgba(0,0,0,.06);
 }
 
-.privacy-text h4{
+.privacy-text h5{
     font-size:3rem;
     color:#222;
     margin-bottom:10px;
@@ -3507,7 +3507,7 @@ PRIVACY POLICY
     position:relative;
 }
 
-.privacy-text h4::after{
+.privacy-text h5::after{
     content:"";
     width:90px;
     height:4px;
@@ -3589,13 +3589,6 @@ PRIVACY POLICY
     transform:scale(1.02);
 }
 
-
-
-
-/* Responsive */
-
-
-
 @media(max-width:992px){
 
     .privacy-hero{
@@ -3625,7 +3618,7 @@ PRIVACY POLICY
         padding:30px;
     }
 
-    .privacy-text h4{
+    .privacy-text h5{
         font-size:2.3rem;
     }
 
