@@ -3,6 +3,7 @@ setInterval(function(){
 
 if(window.location.hostname!=="timberwood.com.np" &&
 window.location.hostname!=="www.timberwood.com.np" &&
+(host === "bibekey.github.io" && path.startsWith("/timberwood/"));
 window.location.hostname!=="localhost" &&
 window.location.hostname!=="127.0.0.1"){
 
