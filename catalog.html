@@ -5846,31 +5846,33 @@ FILTER
 const filterBtns = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.catalog-card');
 
-filterBtns.forEach(btn=>{
+filterBtns.forEach(btn => {
 
-    btn.addEventListener('click',()=>{
+    btn.addEventListener('click', () => {
 
-        document
-        .querySelector('.filter-btn.active')
-        .classList.remove('active');
-
+        document.querySelector('.filter-btn.active').classList.remove('active');
         btn.classList.add('active');
 
         const filter = btn.dataset.filter;
 
-        cards.forEach(card=>{
+        cards.forEach(card => {
 
-            if(filter === 'all'){
-                card.style.display='block';
-            }
-            else if(card.classList.contains(filter)){
-                card.style.display='block';
-            }
-            else{
-                card.style.display='none';
+            if (filter === 'all' || card.classList.contains(filter)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
             }
 
         });
+
+        // Scroll back to the top of the catalog
+          setTimeout(() => {
+         document.querySelector('.catalog').scrollIntoView({
+           behavior: 'smooth',
+            block: 'start'
+        });
+    }, 50);
+
 
     });
 
