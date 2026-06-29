@@ -2804,31 +2804,6 @@ CARD
     opacity:1;
 }
 
-/* WISHLIST */
-
-.wishlist{
-    position:absolute;
-    top:15px;
-    right:15px;
-
-    width:42px;
-    height:42px;
-
-    background:rgba(0,0,0,.5);
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    z-index:10;
-
-    backdrop-filter:blur(10px);
-
-    font-size:20px;
-}
-
 /* CONTENT */
 
 .catalog-content{
