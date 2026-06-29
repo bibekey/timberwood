@@ -5866,12 +5866,14 @@ filterBtns.forEach(btn => {
         });
 
         // Scroll back to the top of the catalog
-          setTimeout(() => {
-         document.querySelector('.catalog').scrollIntoView({
-           behavior: 'smooth',
-            block: 'start'
-        });
-    }, 50);
+setTimeout(() => {
+    const catalog = document.querySelector(".catalog");
+
+    window.scrollTo({
+        top: catalog.offsetTop - 100,
+        behavior: "smooth"
+    });
+}, 50);
 
 
     });
