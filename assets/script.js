@@ -3,7 +3,6 @@ function toggleMenu(){
     document.getElementById("menu").classList.toggle("active");
 }
 
-
 function filterProducts(){
 let search = document.getElementById("searchInput").value.toLowerCase();
 let category = document.getElementById("categoryFilter").value;
