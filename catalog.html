@@ -5926,9 +5926,22 @@ function openViewer(src){
         currentIndex = 0;
     }
 
-    updateSlider();
+    viewerSlider.animate(
+[
+    {opacity:.85},
+    {opacity:1}
+],
+{
+    duration:250
+});
 
-    viewer.classList.add('active');
+updateSlider();
+
+    viewer.classList.add("active");
+
+requestAnimationFrame(() => {
+    viewer.classList.add("show");
+});
 
 }
 
@@ -5936,7 +5949,11 @@ function openViewer(src){
 
 function closeViewer(){
 
-    viewer.classList.remove('active');
+    viewer.classList.remove("show");
+
+setTimeout(() => {
+    viewer.classList.remove("active");
+},300);
 
 }
 
@@ -5959,7 +5976,16 @@ function nextImage(){
         currentIndex = 0;
     }
 
-    updateSlider();
+    viewerSlider.animate(
+[
+    {opacity:.85},
+    {opacity:1}
+],
+{
+    duration:250
+});
+
+updateSlider();
 
 }
 
@@ -5973,7 +5999,16 @@ function prevImage(){
         currentIndex = images.length - 1;
     }
 
-    updateSlider();
+    viewerSlider.animate(
+[
+    {opacity:.85},
+    {opacity:1}
+],
+{
+    duration:250
+});
+
+updateSlider();
 
 }
 
