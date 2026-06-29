@@ -2908,27 +2908,21 @@ IMAGE VIEWER
     position:absolute;
     top:25px;
     right:25px;
-
     width:48px;
     height:48px;
-
     border:none;
     border-radius:50%;
-
     background:rgba(255,255,255,.12);
     backdrop-filter:blur(12px);
-
     color:#fff;
     font-size:22px;
-
     cursor:pointer;
-    transition:.3s;
-}
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.3s ease;
 
-.close-viewer:hover{
-    background:#fff;
-    color:#111;
-    transform:rotate(90deg);
+    z-index:10000;   /* ADD THIS */
 }
 
 .viewer-nav{
