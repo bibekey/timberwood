@@ -2929,21 +2929,25 @@ IMAGE VIEWER
     position:absolute;
     top:50%;
     transform:translateY(-50%);
+    width:56px;
+    height:56px;
 
-    width:58px;
-    height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    border-radius:50%;
     border:none;
-
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(12px);
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
 
     color:#fff;
     font-size:24px;
-
     cursor:pointer;
-    transition:.3s;
+
+    transition:.3s ease;
+
+    z-index:9999;          /* Important */
 }
 
 .viewer-nav:hover{
@@ -2953,11 +2957,11 @@ IMAGE VIEWER
 }
 
 .prev{
-    left:25px;
+    left:20px;
 }
 
 .next{
-    right:25px;
+    right:20px;
 }
 
 
