@@ -5705,9 +5705,9 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <div class="viewer" id="viewer">
 
-    <div class="close" onclick="closeViewer()">
-        ×
-    </div>
+<button class="close-viewer" onclick="closeViewer()">
+    <i class="fa-solid fa-xmark"></i>
+</button>
 
     <button class="prev" onclick="prevImage()">
         ❮
@@ -5719,6 +5719,8 @@ onclick="openViewer(this.querySelector('img').src)">
     <button class="next" onclick="nextImage()">
         ❯
     </button>
+    
+    <div id="imageCounter" class="image-counter"></div>
 
 </div>
 
@@ -5964,6 +5966,8 @@ function updateSlider(){
     viewerSlider.style.transform =
     `translateX(-${currentIndex * 100}%)`;
 
+    document.getElementById("imageCounter").textContent =
+        `${currentIndex + 1} / ${images.length}`;
 }
 
 /* NEXT */
