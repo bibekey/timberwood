@@ -2947,7 +2947,7 @@ IMAGE VIEWER
 
     transition:.3s ease;
 
-    z-index:9999;          /* Important */
+    z-index:9999; /* Important */
 }
 
 .viewer-nav:hover{
@@ -2963,8 +2963,6 @@ IMAGE VIEWER
 .next{
     right:20px;
 }
-
-
 
 .image-counter{
     position:absolute;
