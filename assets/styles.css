@@ -2179,9 +2179,7 @@ RESPONSIVE
     padding:35px;
 }
 
-.purpose-header span{
-    font-size:38px;
-
+.purpose-header span,
 .purpose-header h2{
     font-size:38px;
 }
