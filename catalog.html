@@ -5705,21 +5705,14 @@ onclick="openViewer(this.querySelector('img').src)">
 
 <div class="viewer" id="viewer">
 
-<button class="close-viewer" onclick="closeViewer()">
-    <i class="fa-solid fa-xmark"></i>
-</button>
+    <button class="close-viewer" onclick="closeViewer()">✕</button>
 
-    <button class="prev" onclick="prevImage()">
-        ❮
-    </button>
+    <button class="viewer-nav prev" onclick="prevImage()">❮</button>
 
-    <div class="viewer-slider" id="viewerSlider">
-    </div>
+    <div class="viewer-slider" id="viewerSlider"></div>
 
-    <button class="next" onclick="nextImage()">
-        ❯
-    </button>
-    
+    <button class="viewer-nav next" onclick="nextImage()">❯</button>
+
     <div id="imageCounter" class="image-counter"></div>
 
 </div>
