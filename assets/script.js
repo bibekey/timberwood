@@ -1,7 +1,25 @@
 
-function toggleMenu(){
-    document.getElementById("menu").classList.toggle("active");
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    const btn = document.getElementById("menuBtn");
+
+    menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+        btn.innerHTML = "✕";
+    } else {
+        btn.innerHTML = "☰";
+    }
 }
+
+const menuLinks = document.querySelectorAll("#menu a");
+
+menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("active");
+        document.getElementById("menuBtn").innerHTML = "☰";
+    });
+});
 
 function filterProducts(){
 let search = document.getElementById("searchInput").value.toLowerCase();

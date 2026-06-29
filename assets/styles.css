@@ -61,11 +61,16 @@ nav ul li a:hover{
     color:#8b5e3c;
 }
 
-/* MENU BUTTON */
 .menu-btn{
     display:none;
-    font-size:28px;
+    font-size:30px;
     cursor:pointer;
+    user-select:none;
+    transition:.3s ease;
+}
+
+.menu-btn:hover{
+    color:#8b5e3c;
 }
 
 /* =========================
