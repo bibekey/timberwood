@@ -1313,6 +1313,12 @@ FAQ
     }
 
     .faq-item {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       border: 1px solid #e7e0d8;
       border-radius: 16px;
       overflow: hidden;
