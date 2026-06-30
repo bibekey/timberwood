@@ -1121,85 +1121,295 @@ according to your design and space.
 
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- =========================
+TESTIMONIALS
+========================= -->
 
-<section class="testimonials">
+<section class="testimonials-section">
 
-    <div class="section-title">
+<div class="section-title">
+    <span>CLIENT REVIEWS</span>
+    <h2>What Our Customers Say</h2>
+    <p>
+        Trusted by homeowners, business owners, and interior lovers across Nepal for premium quality and elegant design.
+    </p>
+</div>
 
-        <h2>Customer Reviews</h2>
+<div class="testimonial-grid">
 
+    <div class="testimonial-card">
+        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="stars">★★★★★</div>
         <p>
-            Trusted by thousands of happy customers across Nepal.
+            TimberWood completely transformed my bedroom. The finishing, design, and overall quality were beyond my expectations.
         </p>
-
+        <div class="client-info">
+            <img src="https://i.pinimg.com/736x/d0/ca/01/d0ca01cb9223ce4d787f84e48f5f6bd6.jpg" alt="Client">
+            <div>
+                <h4>Sushma Dahal</h4>
+                <span>Home Interior Client</span>
+            </div>
+        </div>
     </div>
 
-    <div class="testimonial-grid">
-
-        <div class="testimonial">
-
-            <div class="stars">★★★★★</div>
-
-            <p>
-                TimberWood completely transformed my bedroom. The quality and finishing are outstanding.
-            </p>
-
-            <div class="user">
-                <img src="https://i.pinimg.com/736x/d0/ca/01/d0ca01cb9223ce4d787f84e48f5f6bd6.jpg">
-                <div>
-                    <h4>Sushma Dahal</h4>
-                    <span>Interior Client</span>
-                </div>
-
+    <div class="testimonial-card">
+        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="stars">★★★★★</div>
+        <p>
+            The sofa set and dining table we ordered were beautifully made. Great service, on-time delivery, and premium craftsmanship.
+        </p>
+        <div class="client-info">
+            <img src="https://i.pinimg.com/736x/0b/3f/e5/0b3fe5525c5a02cbe7d0f6a1d6228f92.jpg" alt="Client">
+            <div>
+                <h4>Anil Duggar</h4>
+                <span>Furniture Buyer</span>
             </div>
-
         </div>
-
-        <div class="testimonial">
-
-            <div class="stars">★★★★★</div>
-
-            <p>
-                Premium quality furniture with excellent delivery service. Highly recommended.
-            </p>
-
-            <div class="user">
-                <img src="https://i.pinimg.com/736x/0b/3f/e5/0b3fe5525c5a02cbe7d0f6a1d6228f92.jpg">
-
-
-                <div>
-                    <h4>Anil Duggar</h4>
-                    <span>Furniture Client</span>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="testimonial">
-
-            <div class="stars">★★★★★</div>
-
-            <p>
-                Beautiful modern sofa set and dining collection. The showroom experience was amazing.
-            </p>
-
-            <div class="user">
-                <img src="https://i.pinimg.com/736x/de/6f/1a/de6f1a73f8f077970de8aff9484124e9.jpg">
-
-                <div>
-                    <h4>Pradip Bhagat</h4>
-                    <span>Home Owner</span>
-                </div>
-
-            </div>
-
-        </div>
-
     </div>
+
+    <div class="testimonial-card">
+        <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="stars">★★★★★</div>
+        <p>
+            Professional team, stylish design suggestions, and excellent execution. Our office interior now looks modern and elegant.
+        </p>
+        <div class="client-info">
+            <img src="https://i.pinimg.com/736x/de/6f/1a/de6f1a73f8f077970de8aff9484124e9.jpg" alt="Client">
+            <div>
+                <h4>Pradip Bhagat</h4>
+                <span>Commercial Client</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="review-banner">
+    <div>
+        <h3>Want to share your experience?</h3>
+        <p>We would love to hear your feedback and feature your review on our website.</p>
+    </div>
+    <a href="#" class="review-btn">Write a Review</a>
+</div>
 
 </section>
+
+<style>
+/* =========================
+TESTIMONIALS SECTION
+========================= */
+
+.testimonials-section{
+    padding:100px 8%;
+    background:
+        linear-gradient(180deg, #faf7f2 0%, #ffffff 100%);
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title span{
+    display:inline-block;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    color:#b88a2a;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-title h2{
+    font-size:44px;
+    line-height:1.2;
+    color:#111;
+    margin-bottom:14px;
+}
+
+.section-title p{
+    max-width:750px;
+    margin:0 auto;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+    gap:30px;
+}
+
+.testimonial-card{
+    position:relative;
+    background:rgba(255,255,255,0.9);
+    border:1px solid rgba(184,138,42,0.12);
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    border-radius:24px;
+    padding:35px;
+    transition:all .4s ease;
+    overflow:hidden;
+}
+
+.testimonial-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 30px 60px rgba(0,0,0,0.12);
+}
+
+.testimonial-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg, rgba(184,138,42,0.05), transparent);
+    opacity:0;
+    transition:.4s;
+}
+
+.testimonial-card:hover::before{
+    opacity:1;
+}
+
+.quote-icon{
+    width:54px;
+    height:54px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#b88a2a;
+    color:#fff;
+    font-size:20px;
+    margin-bottom:20px;
+    box-shadow:0 12px 24px rgba(184,138,42,0.25);
+}
+
+.stars{
+    color:#f5b301;
+    font-size:18px;
+    letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.testimonial-card p{
+    color:#555;
+    font-size:16px;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.client-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    position:relative;
+    z-index:2;
+}
+
+.client-info img{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #b88a2a;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.client-info h4{
+    font-size:18px;
+    color:#111;
+    margin-bottom:5px;
+}
+
+.client-info span{
+    color:#777;
+    font-size:14px;
+}
+
+.review-banner{
+    margin-top:50px;
+    background:linear-gradient(135deg, #111 0%, #2a2113 100%);
+    color:#fff;
+    border-radius:24px;
+    padding:32px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+.review-banner h3{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.review-banner p{
+    color:rgba(255,255,255,0.82);
+    line-height:1.7;
+}
+
+.review-btn{
+    display:inline-block;
+    padding:14px 28px;
+    background:#b88a2a;
+    color:#fff;
+    text-decoration:none;
+    border-radius:999px;
+    font-weight:700;
+    transition:.35s ease;
+    white-space:nowrap;
+}
+
+.review-btn:hover{
+    background:#fff;
+    color:#111;
+    transform:translateY(-2px);
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 900px){
+    .section-title h2{
+        font-size:36px;
+    }
+
+    .review-banner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media (max-width: 600px){
+    .testimonials-section{
+        padding:70px 6%;
+    }
+
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .testimonial-card{
+        padding:28px;
+    }
+
+    .review-banner{
+        padding:26px;
+    }
+
+    .review-banner h3{
+        font-size:22px;
+    }
+
+    .review-btn{
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
+
 
 <!-- CTA -->
 
