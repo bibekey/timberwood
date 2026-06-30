@@ -1058,7 +1058,7 @@ gap:35px;
 }
 
 .service-card{
-background:#1c1c1c;
+background:#fff;
 border-radius:20px;
 padding:45px;
 transition:.4s;
@@ -1067,12 +1067,11 @@ border:1px solid rgba(255,255,255,.08);
 
 .service-card:hover{
 transform:translateY(-10px);
-background:#d8b04f;
+background:#6734;
 }
 
 .service-card i{
 font-size:55px;
-color:#d8b04f;
 margin-bottom:25px;
 transition:.4s;
 }
@@ -1082,7 +1081,7 @@ color:#fff;
 }
 
 .service-card h3{
-color:#fff;
+color:#5c3d2e;
 font-size:28px;
 margin-bottom:18px;
 }
@@ -1106,7 +1105,7 @@ margin:10px 0;
 .service-card a{
 display:inline-block;
 padding:12px 28px;
-background:#fff;
+background:#d8b04f;
 color:#111;
 border-radius:40px;
 text-decoration:none;
@@ -1116,14 +1115,6 @@ transition:.3s;
 
 .service-card:hover a{
 background:#111;
-color:#fff;
-}
-
-.featured{
-background:#d8b04f;
-}
-
-.featured i{
 color:#fff;
 }
 
