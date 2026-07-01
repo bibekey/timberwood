@@ -215,46 +215,220 @@
 
 <!-- TEAM -->
 
-<section class="team">
 
-    <div class="about-section-title">
-        <h2>Meet Our Team</h2>
-        <p>
-            Skilled professionals behind every TimberWood creation.
-        </p>
-    </div>
+<style>
 
-    <div class="team-grid">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        <div class="team-card">
-            <img src="https://i.pinimg.com/736x/89/47/cd/8947cd2139c6fac86eccb9952f1653cf.jpg">
+body{
+    background:#f7f5f2;
+}
 
-            <div class="team-content">
-                <h3>Govind Goyal</h3>
-                <p>Founder & Director</p>
-            </div>
-        </div>
+.team-section{
+    padding:80px 8%;
+}
 
-        <div class="team-card">
-            <img src="https://i.pinimg.com/736x/9d/15/a9/9d15a99089c7d4f4be8efface3041ecf.jpg">
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
 
-            <div class="team-content">
-                <h3>Saurav Goyal</h3>
-                <p>Production Manager</p>
-            </div>
-        </div>
+.section-title span{
+    color:#b68d40;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
 
-        <div class="team-card">
-            <img src="https://i.pinimg.com/736x/95/07/76/950776be27c4131fe8dbe7280822ce19.jpg">
+.section-title h2{
+    margin:10px 0;
+    font-size:40px;
+    color:#222;
+}
 
-            <div class="team-content">
-                <h3>Isha Jain</h3>
-                <p>Interior Designer</p>
-            </div>
-        </div>
+.section-title p{
+    max-width:650px;
+    margin:auto;
+    color:#777;
+    line-height:1.8;
+}
+
+/*==========================
+TEAM GRID
+==========================*/
 
 
-    </div>
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f7f5f2;
+}
+
+.team-section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title span{
+    color:#b68d40;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    margin:10px 0;
+    font-size:40px;
+    color:#222;
+}
+
+.section-title p{
+    max-width:650px;
+    margin:auto;
+    color:#777;
+    line-height:1.8;
+}
+
+/*==========================
+TEAM GRID
+==========================*/
+
+.team-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.team-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.team-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.team-card img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.team-content{
+    padding:20px;
+}
+
+.team-content h3{
+    color:#222;
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.team-content h4{
+    color:#b68d40;
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.team-content p{
+    color:#666;
+    font-size:14px;
+    line-height:1.7;
+}
+
+/*==========================
+RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+.team-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:600px){
+.team-grid{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+</head>
+<body>
+
+<section class="team-section">
+
+<div class="section-title">
+<span>OUR TEAM</span>
+<h2>Meet Our Experts</h2>
+<p>
+Our dedicated team combines experience, creativity, and professionalism to deliver quality furniture and interior solutions with exceptional customer service.
+</p>
+</div>
+
+<div class="team-grid">
+
+<div class="team-card">
+<img src="https://i.pinimg.com/736x/89/47/cd/8947cd2139c6fac86eccb9952f1653cf.jpg" alt="Founder">
+<div class="team-content">
+<h3>Mr. Govind Goyal</h3>
+<h4>Managing Director</h4>
+<p>Provides strategic leadership and guides the company's vision, growth, and long-term success.</p>
+</div>
+</div>
+
+<div class="team-card">
+<img src="https://i.pinimg.com/736x/9d/15/a9/9d15a99089c7d4f4be8efface3041ecf.jpg" alt="Managing Director">
+<div class="team-content">
+<h3>Mr. Saurav Goyal</h3>
+<h4>Operation Manager</h4>
+<p>Manages daily operations to ensure efficient workflow, quality standards, and timely project delivery.</p>
+</div>
+</div>
+
+<div class="team-card">
+<img src="https://i.pinimg.com/736x/95/07/76/950776be27c4131fe8dbe7280822ce19.jpg" alt="Interior Designer">
+<div class="team-content">
+<h3>Mrs. Isha Jain</h3>
+<h4>Interior Designer</h4>
+<p>Designs creative and functional interior spaces that match each client's style and requirements..</p>
+</div>
+</div>
+
+<div class="team-card">
+<img src="https://i.pinimg.com/736x/e9/8f/00/e98f00b26c96795753339db66a05a479.jpg" alt="Sales & Marketing Manager">
+<div class="team-content">
+<h3>Mrs. Ritika Ghimire</h3>
+<h4>Sales & Marketing Manager</h4>
+<p>Assists customers, manages showroom sales, and promotes our products through effective marketing</p>
+</div>
+</div>
+
+</div>
 
 </section>
 
