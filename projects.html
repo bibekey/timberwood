@@ -2,22 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>TimberWood</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects</title>
+<meta name="description" content="TimberWood Furniture specializes in luxury furniture and modern interior solutions including premium beds, sofas, dining tables, wardrobes, office furniture, and custom wooden designs crafted for elegant living spaces.">
+<meta name="keywords" content="TimberWood Furniture, TimberWood, Luxury Furniture, Modern Furniture, Wooden Furniture, Premium Beds, Sofa Set, Dining Table, Wardrobe, Home Furniture, Interior Design, Office Furniture, Custom Furniture, Furniture Store Nepal, TimberWood Nepal, Elegant Living, Modern Interior, Furniture Catalog, Luxury Home Decor, Wood Interior, Contemporary Furniture">
+<meta name="author" content="TimberWood Furniture">
+<meta property="og:image" content="img/img/LOGO.png">
+<meta name="robots" content="noarchive">
+    
+
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="favicon.png" type="image/x-icon">
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo"><img src="img/img/LOGO.png" alt="TimberWood"></div>
+
+    <ul id="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="catalog.html">Catalog</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div id="menuBtn" class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</nav>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#f8f8f8;
-}
-
+    
 /*==================================
       PROJECTS PAGE
 ==================================*/
@@ -410,7 +433,7 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </div>
 
 <div class="project-card" data-category="Residential">
-<img src="https://i.pinimg.com/736x/0c/1b/f5/0c1bf5642e8190d1747a1a1bb6dd26a8.jpg">
+<img src="https://i.pinimg.com/1200x/2d/d3/a6/2dd3a6b9a35365f04c6fd764a9e398c1.jpg">
 <div class="project-info">
 <span>Residential</span>
 <h3>Luxury Bedroom</h3>
@@ -418,7 +441,7 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </div>
 
 <div class="project-card" data-category="Commercial">
-<img src="https://i.pinimg.com/736x/f4/7d/63/f47d634a89d8e4c1d6f2d8d56fb01dc8.jpg">
+<img src="https://i.pinimg.com/736x/12/05/75/120575c8657121d0244ace4206922d8b.jpg">
 <div class="project-info">
 <span>Commercial</span>
 <h3>Retail Showroom</h3>
@@ -514,6 +537,133 @@ search.addEventListener("keyup",filterProjects);
 
 filterProjects();
 
+</script>
+<!-- CTA -->
+
+<section class="cta">
+
+    <video autoplay muted loop playsinline class="cta-video">
+        <source src="img/img/twinterior.mp4" type="video/mp4">
+    </video>
+
+    <div class="cta-overlay"></div>
+
+    <div class="cta-content">
+        <h2>
+            Upgrade Your Living Space Today
+        </h2>
+
+        <p>
+            Discover premium furniture collections designed for luxury interiors, comfort, and modern lifestyle.
+        </p>
+
+        <a href="catalog.html">
+            View Catalog
+        </a>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="lux-footer">
+
+    <div class="footer-grid">
+
+        <!-- BRAND COLUMN -->
+        <div class="footer-brand">
+
+            <div class="logo">
+                Timber<span>Wood</span>
+            </div>
+
+            <p class="brand-text">
+                Crafting timeless luxury furniture with precision, elegance, and modern design.
+                Built for refined interiors and lasting impressions.
+            </p>
+
+            <!-- TRUST / QUICK HIGHLIGHT -->
+            <div class="footer-badges">
+                <span>✔ Custom Design</span>
+                <span>✔ Premium Quality Wood</span>
+                <span>✔ Nepal Craftsmanship</span>
+            </div>
+
+            <!-- SOCIAL -->
+            <div class="social-icons">
+                <a href="https://www.instagram.com/__timberwood" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@timberwood_furniture" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/people/Timberwood-Nepal/100086470805697/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.linkedin.com/company/timber-wood-pvt-ltd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+
+        </div>
+
+        <!-- COMPANY -->
+        <div>
+            <h3>Company</h3>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#">Client Reviews</a></li>
+            </ul>
+        </div>
+
+        <!-- PRODUCTS -->
+        <div>
+            <h3>Collections</h3>
+            <ul>
+                <li><a href="#">Luxury Beds</a></li>
+                <li><a href="#">Designer Sofas</a></li>
+                <li><a href="#">Dining Sets</a></li>
+                <li><a href="#">Wardrobes</a></li>
+                <li><a href="download.html" download>Download</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTACT -->
+        <div>
+            <h3>Showroom</h3>
+
+            <ul>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://www.google.com/maps/dir//Timber+Wood+Pvt+Ltd,+09+Main+Rd+(South),+Biratnagar+55613,+Nepal/@26.4480681,87.2758062,17z/data=!4m17!1m8!3m7!1s0x39ef75a33f407227:0x7045dd18179b1163!2sTimber+Wood+Pvt+Ltd!8m2!3d26.4480191!4d87.2783763!15sChNUaW1iZXIgd29vZCBwdnQgbHRkWhUiE3RpbWJlciB3b29kIHB2dCBsdGSSAQ9mdXJuaXR1cmVfc3RvcmXgAQA!16s%2Fg%2F11z4rz_14q!4m7!1m0!1m5!1m1!1s0x39ef75a33f407227:0x7045dd18179b1163!2m2!1d87.2783763!2d26.4480191?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        Biratnagar 09, Main Road (South)
+                    </a>
+                </li>
+
+                <li><i class="fas fa-phone"></i><a href="tel:+9779705020251"> 9705020251/9708000000</li>
+                <li><i class="fas fa-envelope"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@timberwood.com.np" target="_blank"> info@timberwood.com.np</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="bottom">
+
+        <div>
+            © 2026 Timber Wood Pvt Ltd. All Rights Reserved.   Developed by <a href="https://rajbanshibibek.com.np" target="_blank">Bibek Rajbanshi</a>
+        </div>
+
+        <div>
+            <a href="Privacy-policy.html">Privacy Policy</a> | 
+            <a href="terms-&-conditions.html">Terms & Conditions</a>
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+
+<script src="assets/script.js"></script>
+<script>
+window.__TW_LOADED__ = true;
 </script>
 
 </body>
