@@ -2771,12 +2771,6 @@ RESPONSIVE
 
 }
 
-/* TEAM */
-
-/*==========================
-TEAM GRID
-==========================*/
-
  /*==========================
 TEAM GRID
 ==========================*/
@@ -2903,22 +2897,58 @@ FADE UP ANIMATION
 RESPONSIVE
 ==========================*/
 
-@media(max-width:992px){
+/*==========================
+RESPONSIVE
+==========================*/
 
-.team-grid{
-    grid-template-columns:repeat(2,1fr);
-}
+/* Tablet */
+@media (max-width:992px){
 
-}
-
-@media(max-width:600px){
-
-.team-grid{
-    grid-template-columns:1fr;
-}
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
 
 }
 
+/* Mobile */
+@media (max-width:600px){
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .team-card{
+        border-radius:12px;
+    }
+
+    .team-card img{
+        height:150px;
+    }
+
+    .team-content{
+        padding:12px;
+    }
+
+    .team-content h3{
+        font-size:15px;
+        margin-bottom:4px;
+        line-height:1.3;
+    }
+
+    .team-content h4{
+        font-size:11px;
+        margin-bottom:8px;
+        line-height:1.3;
+    }
+
+    .team-content p{
+        font-size:11px;
+        line-height:1.5;
+    }
+
+}
 
 /* MOBILE */
 
