@@ -2806,7 +2806,7 @@ SECTION TITLE
 .section-title h2{
     margin:10px 0;
     font-size:40px;
-    color:#222;
+    color:#5c3d2e;
 }
 
 .section-title p{
@@ -2855,7 +2855,7 @@ TEAM GRID
 
 .team-card:hover{
     transform:translateY(-12px);
-    background:#b68d40;
+    background:#6734;
     box-shadow:0 20px 45px rgba(0,0,0,.18);
 }
 
@@ -2897,7 +2897,10 @@ TEAM GRID
     transition:.4s;
 }
 
-.team-card:hover h3,
+.team-card:hover h3{
+    color:#5c3d2e;
+}
+
 .team-card:hover h4{
     color:#fff;
 }
