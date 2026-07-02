@@ -1,380 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects</title>
 
-<title>TimberWood | Portfolio</title>
-<meta name="description" content="Explore TimberWood Furniture portfolio showcasing our completed projects in luxury homes, modern interiors, custom furniture designs, beds, sofas, dining setups, and wardrobe installations.">
-<meta name="keywords" content="TimberWood Portfolio, Furniture Portfolio Nepal, Interior Design Projects, Custom Furniture Work, Luxury Home Projects, Modern Interior Portfolio, Wooden Furniture Showcase, TimberWood Projects, Sofa Design Work, Bed Installation Projects, Dining Table Projects, Wardrobe Designs, Home Interior Gallery, Furniture Craftsmanship, TimberWood Nepal, Elegant Living Projects, Interior Work Examples, Premium Furniture Portfolio">
-<meta name="author" content="TimberWood Furniture">
-<meta property="og:image" content="img/img/LOGO.png">
-<meta name="robots" content="noarchive">
-    
-<link rel="stylesheet" href="assets/styles.css">
-<link rel="icon" href="favicon.png" type="image/x-icon">
-<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+/*==================================
+      PROJECTS PAGE
+==================================*/
+
+.projects-page{
+    padding:80px 8%;
+}
+
+.page-title{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.page-title span{
+    color:#b68d40;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.page-title h1{
+    font-size:42px;
+    color:#222;
+    margin:15px 0;
+}
+
+.page-title p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* Layout */
+
+.projects-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:40px;
+}
+
+/* Sidebar */
+
+.project-sidebar{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    position:sticky;
+    top:90px;
+}
+
+.project-sidebar h3{
+    margin-bottom:25px;
+    color:#222;
+    padding-bottom:15px;
+    border-bottom:2px solid #eee;
+}
+
+.project-menu{
+    list-style:none;
+}
+
+.project-menu>li{
+    margin-bottom:22px;
+}
+
+.project-menu>li>a{
+    display:block;
+    color:#222;
+    font-weight:600;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.project-menu>li>a:hover{
+    color:#b68d40;
+}
+
+.project-menu ul{
+    list-style:none;
+    padding-left:18px;
+}
+
+.project-menu ul li{
+    margin:8px 0;
+}
+
+.project-menu ul li a{
+    color:#666;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.project-menu ul li a::before{
+    content:"• ";
+    color:#b68d40;
+}
+
+.project-menu ul li a:hover{
+    color:#b68d40;
+}
+
+/* Search Bar */
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 20px;
+    border:none;
+    border-radius:40px;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.search-box input:focus{
+    box-shadow:0 10px 25px rgba(182,141,64,.3);
+}
+
+
+/* Filter */
+
+.filter-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.filter-buttons button{
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
+    background:#fff;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover{
+    background:#b68d40;
+    color:#fff;
+}
+
+/* Grid */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* Card */
+
+.project-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.project-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.project-card:hover img{
+    transform:scale(1.08);
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.project-info{
+    padding:20px;
+}
+
+.project-info span{
+    display:inline-block;
+    background:#b68d40;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.project-info h3{
+    color:#222;
+    font-size:20px;
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.projects-layout{
+grid-template-columns:250px 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.projects-page{
+padding:60px 5%;
+}
+
+.projects-layout{
+grid-template-columns:1fr;
+}
+
+.project-sidebar{
+position:relative;
+top:0;
+margin-bottom:30px;
+}
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:576px){
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.page-title h1{
+font-size:32px;
+}
+
+}
+
+</style>
 
 </head>
-
 <body>
 
-<!-- NAVBAR -->
+<section class="projects-page">
 
-<nav>
+<div class="page-title">
 
-    <div class="logo"><img src="img/img/LOGO.png" alt="TimberWood Logo"></div>
+<span>OUR PORTFOLIO</span>
 
-    <ul id="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="catalog.html">Catalog</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+<h1>Our Projects</h1>
 
-    <div id="menuBtn" class="menu-btn" onclick="toggleMenu()">☰</div>
+<p>
+Explore our residential, commercial, hospitality and custom furniture projects crafted with quality, creativity and attention to detail.
+</p>
 
-</nav>
+</div>
 
-<!-- HERO -->
+<div class="projects-layout">
 
-<section class="hero">
+<!-- Sidebar -->
 
-    <div class="hero-content">
-        <h1>Our <span>Portfolio</span></h1>
+<aside class="project-sidebar">
 
-        <p>
-            Discover luxury furniture collections crafted with modern design,
-            premium wood finishing, elegant interiors, and timeless comfort.
-        </p>
-    </div>
+<h3>Project Categories</h3>
 
-</section>
+<ul class="project-menu">
 
-<!-- PROJECTS -->
+<li>
+<a href="#" data-filter="Residential">Residential Interior</a>
+<ul>
+<li><a href="#">Living Room</a></li>
+<li><a href="#">Bedroom</a></li>
+<li><a href="#">Kitchen</a></li>
+<li><a href="#">Dining</a></li>
+<li><a href="#">Bathroom</a></li>
+<li><a href="#">Complete Home</a></li>
+</ul>
+</li>
 
-<section class="portfolio-section">
+<li>
+<a href="#" data-filter="Commercial">Commercial Interior</a>
+<ul>
+<li><a href="#">Office</a></li>
+<li><a href="#">Showroom</a></li>
+<li><a href="#">Retail</a></li>
+<li><a href="#">Clinic</a></li>
+<li><a href="#">Bank</a></li>
+<li><a href="#">Educational</a></li>
+</ul>
+</li>
 
-    <div class="portfolio-section-title">
-        <h2>Featured <span>Projects</span></h2>
+<li>
+<a href="#" data-filter="Hospitality">Hospitality Interior</a>
+<ul>
+<li><a href="#">Hotel</a></li>
+<li><a href="#">Restaurant</a></li>
+<li><a href="#">Cafe</a></li>
+<li><a href="#">Resort</a></li>
+<li><a href="#">Banquet</a></li>
+</ul>
+</li>
 
-        <p>
-            Explore our completed furniture designs and custom interior projects
-            built for homes, offices, hotels, and premium living spaces.
-        </p>
-    </div>
+<li>
+<a href="#" data-filter="Furniture">Custom Furniture</a>
+<ul>
+<li><a href="#">Home Furniture</a></li>
+<li><a href="#">Office Furniture</a></li>
+<li><a href="#">Hotel Furniture</a></li>
+<li><a href="#">Restaurant Furniture</a></li>
+<li><a href="#">Custom Built Furniture</a></li>
+</ul>
+</li>
 
-    <div class="portfolio-grid">
+</ul>
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/1200x/1a/dc/4f/1adc4f6f2b7df9b6da3802df29f23395.jpg" onclick="openImage(this.src)">
+</aside>
 
-            <div class="portfolio-overlay">
-                <div class="portfolio-tag">Luxury Bed</div>
-                <h3>Modern Bedroom</h3>
-                <p>
-                    Premium wooden bedroom setup with floating side tables
-                    and elegant lighting design.
-                </p>
-            </div>
-        </div>
+<!-- Content -->
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/1200x/8b/f9/cc/8bf9ccf9830669a8730d15a411761353.jpg" onclick="openImage(this.src)">
+<div class="project-content">
 
-            <div class="portfolio-overlay">
-                <div class="portfolio-tag">Living Room</div>
-                <h3>Luxury Sofa Interior</h3>
-                <p>
-                    Modern sofa collection crafted for comfort,
-                    beauty, and luxury interiors.
-                </p>
-            </div>
-        </div>
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search projects...">
+</div>
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/736x/4d/58/46/4d58460045f13605d52641b1bf7bde0d.jpg" onclick="openImage(this.src)">
+<div class="filter-buttons">
 
-            <div class="portfolio-overlay">
-                <div class="portfolio-tag">Dining Setup</div>
-                <h3>Elegant Dining</h3>
-                <p>
-                    Minimal modern dining collection with premium
-                    wooden texture and aesthetic finishing.
-                </p>
-            </div>
-        </div>
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="Residential">Residential</button>
+    <button data-filter="Commercial">Commercial</button>
+    <button data-filter="Hospitality">Hospitality</button>
+    <button data-filter="Furniture">Furniture</button>
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/736x/9a/ca/89/9aca89086f39153b41836a4161159cca.jpg" onclick="openImage(this.src)">
+</div>
 
-            <div class="portfolio-overlay">
-                <div class="portfolio-tag">TV Cabinet</div>
-                <h3>Entertainment Space</h3>
-                <p>
-                    Modern TV cabinet setup with luxury wall panel
-                    and storage combination.
-                </p>
-            </div>
-        </div>
+<div class="project-grid">
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/736x/03/60/f9/0360f9f312cfeea32b3060d0a003f5df.jpg" onclick="openImage(this.src)">
+<div class="project-card" data-category="Residential">
+<img src="https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg">
+<div class="project-info">
+<span>Residential</span>
+<h3>Modern Living Room</h3>
+</div>
+<p id="noResult" style="display:none;text-align:center;margin-top:40px;font-size:18px;color:#888;">
+    No projects found.
+</p>
+</div>
 
-            <div class="portfolio-overlay">
-                <div class="portfolio-tag">Center Table</div>
-                <h3>Minimal Design</h3>
-                <p>
-                    Stylish center table collection for premium
-                    living room decoration.
-                </p>
-            </div>
-        </div>
+<div class="project-card" data-category="Commercial">
+<img src="https://i.pinimg.com/736x/e7/15/6d/e7156d59d8a44fd894469120d259ff17.jpg">
+<div class="project-info">
+<span>Commercial</span>
+<h3>Corporate Office</h3>
+</div>
+</div>
 
-        <div class="portfolio-card">
-            <img src="https://i.pinimg.com/1200x/3f/9f/18/3f9f186fa583af1aae7385f878b95abc.jpg" onclick="openImage(this.src)">
+<div class="project-card" data-category="Hospitality">
+<img src="https://i.pinimg.com/736x/47/26/80/472680180c9f8894cbea9fbf9b077ed0.jpg">
+<div class="project-info">
+<span>Hospitality</span>
+<h3>Luxury Hotel Suite</h3>
+</div>
+</div>
 
-            <div class="portfolio-overlay">
-                <div class="tag">Wardrobe</div>
-                <h3>Storage Interior</h3>
-                <p>
-                    Elegant wardrobe design with spacious
-                    compartments and premium finishing.
-                </p>
-            </div>
-        </div>
+<div class="project-card" data-category="Furniture">
+<img src="https://i.pinimg.com/1200x/98/f7/c9/98f7c9cc619c77b71c5b69f04a85428e.jpg">
+<div class="project-info">
+<span>Furniture</span>
+<h3>Custom Dining Set</h3>
+</div>
+</div>
 
-    </div>
+<div class="project-card" data-category="Residential">
+<img src="https://i.pinimg.com/736x/0c/1b/f5/0c1bf5642e8190d1747a1a1bb6dd26a8.jpg">
+<div class="project-info">
+<span>Residential</span>
+<h3>Luxury Bedroom</h3>
+</div>
+</div>
 
-    <!-- PORTFOLIO STAT -->
+<div class="project-card" data-category="Commercial">
+<img src="https://i.pinimg.com/736x/f4/7d/63/f47d634a89d8e4c1d6f2d8d56fb01dc8.jpg">
+<div class="project-info">
+<span>Commercial</span>
+<h3>Retail Showroom</h3>
+</div>
+</div>
 
-    <div class="stats">
+</div>
 
-        <div class="stat">
-            <h2>3+</h2>
-            <p>Years Experience</p>
-        </div>
+</div>
 
-        <div class="stat">
-            <h2>200+</h2>
-            <p>Projects Completed</p>
-        </div>
-
-        <div class="stat">
-            <h2>220+</h2>
-            <p>Happy Clients</p>
-        </div>
-
-        <div class="stat">
-            <h2>100%</h2>
-            <p>Premium Quality</p>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-<!-- PORTFOLIO TESTIMONIAL -->
 
-<section class="portfolio-section">
+<script>
 
-    <div class="portfolio-section-title">
-        <h2>Client <span>Reviews</span></h2>
+const buttons=document.querySelectorAll(".filter-buttons button");
+const cards=document.querySelectorAll(".project-card");
+const search=document.getElementById("searchInput");
+const sidebar=document.querySelectorAll(".project-sidebar a[data-filter]");
+const noResult=document.getElementById("noResult");
 
-        <p>
-            Trusted by homeowners, interior designers,
-            and businesses across Nepal.
-        </p>
-    </div>
+let currentFilter="all";
 
-    <div class="portfolio-testimonial">
+function filterProjects(){
 
-        <div class="portfolio-testimonials">
+    const keyword=search.value.toLowerCase();
+    let visible=0;
 
-            <div class="stars">★★★★★</div>
+    cards.forEach(card=>{
 
-            <p>
-                TimberWood delivered exactly what we imagined.
-                Premium finishing, luxury quality, and very professional service.
-            </p>
+        const category=card.dataset.category;
+        const title=card.querySelector("h3").innerText.toLowerCase();
 
-            <div class="client">
-                <img src="https://i.pinimg.com/736x/0b/3f/e5/0b3fe5525c5a02cbe7d0f6a1d6228f92.jpg">
+        const matchCategory=currentFilter==="all" || category===currentFilter;
+        const matchSearch=title.includes(keyword);
 
-                <div>
-                    <h4>Anil Duggar</h4>
-                    <span>Home Owner</span>
-                </div>
-            </div>
+        if(matchCategory && matchSearch){
+            card.style.display="block";
+            visible++;
+        }else{
+            card.style.display="none";
+        }
 
-        </div>
+    });
 
-        <div class="portfolio-testimonials">
+    noResult.style.display=visible ? "none":"block";
 
-            <div class="stars">★★★★★</div>
+}
 
-            <p>
-                Best furniture company for custom designs.
-                Their craftsmanship and detailing are amazing.
-            </p>
+buttons.forEach(btn=>{
 
-            <div class="client">
-                <img src="https://i.pinimg.com/736x/de/6f/1a/de6f1a73f8f077970de8aff9484124e9.jpg">
+    btn.onclick=function(){
 
-                <div>
-                    <h4>Pradip Bhagat</h4>
-                    <span>Interior Client</span>
-                </div>
-            </div>
+        buttons.forEach(b=>b.classList.remove("active"));
 
-        </div>
+        this.classList.add("active");
 
-        <div class="portfolio-testimonials">
+        currentFilter=this.dataset.filter;
 
-            <div class="stars">★★★★★</div>
+        filterProjects();
 
-            <p>
-                Beautiful modern furniture with luxury finishing.
-                Highly recommended for office and home interiors.
-            </p>
+    }
 
-            <div class="client">
-                <img src="https://i.pinimg.com/736x/d0/ca/01/d0ca01cb9223ce4d787f84e48f5f6bd6.jpg">
+});
 
-                <div>
-                    <h4>Sushma Dahal</h4>
-                    <span>Home Owner</span>
-                </div>
-            </div>
+sidebar.forEach(link=>{
 
-        </div>
+    link.onclick=function(e){
 
-    </div>
+        e.preventDefault();
 
-</section>
+        currentFilter=this.dataset.filter;
 
-<!-- CTA -->
+        buttons.forEach(btn=>{
 
-<section class="cta">
+            btn.classList.remove("active");
 
-    <video autoplay muted loop playsinline class="cta-video">
-        <source src="img/img/interior.mp4" type="video/mp4">
-    </video>
+            if(btn.dataset.filter===currentFilter){
+                btn.classList.add("active");
+            }
 
-    <div class="cta-overlay"></div>
+        });
 
-    <div class="cta-content">
-        <h2>Let's Build Your Dream Interior</h2>
+        filterProjects();
 
-        <p>From modern furniture to luxury interiors, TimberWood creates timeless spaces designed with beauty, comfort, and premium craftsmanship</p>
+    }
 
-        <a href="contact.html">
-            Start Your Project
-        </a>
-    </div>
+});
 
-</section>
+search.addEventListener("keyup",filterProjects);
 
+filterProjects();
 
-<!-- FOOTER -->
+</script>
 
-<footer class="lux-footer">
-
-    <div class="footer-grid">
-
-        <!-- BRAND COLUMN -->
-        <div class="footer-brand">
-
-            <div class="logo">
-                Timber<span>Wood</span>
-            </div>
-
-            <p class="brand-text">
-                Crafting timeless luxury furniture with precision, elegance, and modern design.
-                Built for refined interiors and lasting impressions.
-            </p>
-
-            <!-- TRUST / QUICK HIGHLIGHT -->
-            <div class="footer-badges">
-                <span>✔ Custom Design</span>
-                <span>✔ Premium Quality Wood</span>
-                <span>✔ Nepal Craftsmanship</span>
-            </div>
-            <!-- SOCIAL -->
-            <div class="social-icons">
-                <a href="https://www.instagram.com/__timberwood" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@timberwood_furniture" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.facebook.com/people/Timberwood-Nepal/100086470805697/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/company/timber-wood-pvt-ltd" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-
-        </div>
-
-        <!-- COMPANY -->
-        <div>
-            <h3>Company</h3>
-            <ul>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="#">Client Reviews</a></li>
-            </ul>
-        </div>
-
-        <!-- PRODUCTS -->
-        <div>
-            <h3>Collections</h3>
-            <ul>
-                <li><a href="#">Luxury Beds</a></li>
-                <li><a href="#">Designer Sofas</a></li>
-                <li><a href="#">Dining Sets</a></li>
-                <li><a href="#">Wardrobes</a></li>
-                <li><a href="download.html" download>Download</a></li>
-            </ul>
-        </div>
-
-        <!-- CONTACT -->
-        <div>
-            <h3>Showroom</h3>
-
-            <ul>
-                <li>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps/dir//Timber+Wood+Pvt+Ltd,+09+Main+Rd+(South),+Biratnagar+55613,+Nepal/@26.4480681,87.2758062,17z/data=!4m17!1m8!3m7!1s0x39ef75a33f407227:0x7045dd18179b1163!2sTimber+Wood+Pvt+Ltd!8m2!3d26.4480191!4d87.2783763!15sChNUaW1iZXIgd29vZCBwdnQgbHRkWhUiE3RpbWJlciB3b29kIHB2dCBsdGSSAQ9mdXJuaXR1cmVfc3RvcmXgAQA!16s%2Fg%2F11z4rz_14q!4m7!1m0!1m5!1m1!1s0x39ef75a33f407227:0x7045dd18179b1163!2m2!1d87.2783763!2d26.4480191?hl=en-US&entry=ttu&g_ep=EgoyMDI2MDYxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-                        Biratnagar 09, Main Road (South)
-                    </a>
-                </li>
-
-                <li><i class="fas fa-phone"></i> 9705020251/9708000000</li>
-                <li><i class="fas fa-envelope"></i> info@timberwood.com.np</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- BOTTOM BAR -->
-    <div class="bottom">
-
-        <div>
-            © 2026 Timber Wood Pvt Ltd. All Rights Reserved.   Developed by <a href="https://rajbanshibibek.com.np" target="_blank">Bibek Rajbanshi</a>
-        </div>
-
-        <div>
-            <a href="Privacy-policy.html">Privacy Policy</a> | 
-            <a href="terms-&-conditions.html">Terms & Conditions</a>
-        </div>
-
-    </div>
-</footer>
-
-
-
-
-
-<script src="assets/script.js"></script>
 </body>
 </html>
