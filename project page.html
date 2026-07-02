@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+/*==================================
+      PROJECTS PAGE
+==================================*/
+
+.projects-page{
+    padding:80px 8%;
+}
+
+.page-title{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.page-title span{
+    color:#b68d40;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.page-title h1{
+    font-size:42px;
+    color:#222;
+    margin:15px 0;
+}
+
+.page-title p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* Layout */
+
+.projects-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:40px;
+}
+
+/* Sidebar */
+
+.project-sidebar{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    position:sticky;
+    top:90px;
+}
+
+.project-sidebar h3{
+    margin-bottom:25px;
+    color:#222;
+    padding-bottom:15px;
+    border-bottom:2px solid #eee;
+}
+
+.project-menu{
+    list-style:none;
+}
+
+.project-menu>li{
+    margin-bottom:22px;
+}
+
+.project-menu>li>a{
+    display:block;
+    color:#222;
+    font-weight:600;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.project-menu>li>a:hover{
+    color:#b68d40;
+}
+
+.project-menu ul{
+    list-style:none;
+    padding-left:18px;
+}
+
+.project-menu ul li{
+    margin:8px 0;
+}
+
+.project-menu ul li a{
+    color:#666;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.project-menu ul li a::before{
+    content:"• ";
+    color:#b68d40;
+}
+
+.project-menu ul li a:hover{
+    color:#b68d40;
+}
+
+/* Search Bar */
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 20px;
+    border:none;
+    border-radius:40px;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.search-box input:focus{
+    box-shadow:0 10px 25px rgba(182,141,64,.3);
+}
+
+
+/* Filter */
+
+.filter-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.filter-buttons button{
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
+    background:#fff;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover{
+    background:#b68d40;
+    color:#fff;
+}
+
+/* Grid */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* Card */
+
+.project-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.project-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.project-card:hover img{
+    transform:scale(1.08);
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.project-info{
+    padding:20px;
+}
+
+.project-info span{
+    display:inline-block;
+    background:#b68d40;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.project-info h3{
+    color:#222;
+    font-size:20px;
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.projects-layout{
+grid-template-columns:250px 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.projects-page{
+padding:60px 5%;
+}
+
+.projects-layout{
+grid-template-columns:1fr;
+}
+
+.project-sidebar{
+position:relative;
+top:0;
+margin-bottom:30px;
+}
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:576px){
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.page-title h1{
+font-size:32px;
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<section class="projects-page">
+
+<div class="page-title">
+
+<span>OUR PORTFOLIO</span>
+
+<h1>Our Projects</h1>
+
+<p>
+Explore our residential, commercial, hospitality and custom furniture projects crafted with quality, creativity and attention to detail.
+</p>
+
+</div>
+
+<div class="projects-layout">
+
+<!-- Sidebar -->
+
+<aside class="project-sidebar">
+
+<h3>Project Categories</h3>
+
+<ul class="project-menu">
+
+<li>
+<a href="#" data-filter="Residential">Residential Interior</a>
+<ul>
+<li><a href="#">Living Room</a></li>
+<li><a href="#">Bedroom</a></li>
+<li><a href="#">Kitchen</a></li>
+<li><a href="#">Dining</a></li>
+<li><a href="#">Bathroom</a></li>
+<li><a href="#">Complete Home</a></li>
+</ul>
+</li>
+
+<li>
+<a href="#" data-filter="Commercial">Commercial Interior</a>
+<ul>
+<li><a href="#">Office</a></li>
+<li><a href="#">Showroom</a></li>
+<li><a href="#">Retail</a></li>
+<li><a href="#">Clinic</a></li>
+<li><a href="#">Bank</a></li>
+<li><a href="#">Educational</a></li>
+</ul>
+</li>
+
+<li>
+<a href="#" data-filter="Hospitality">Hospitality Interior</a>
+<ul>
+<li><a href="#">Hotel</a></li>
+<li><a href="#">Restaurant</a></li>
+<li><a href="#">Cafe</a></li>
+<li><a href="#">Resort</a></li>
+<li><a href="#">Banquet</a></li>
+</ul>
+</li>
+
+<li>
+<a href="#" data-filter="Furniture">Custom Furniture</a>
+<ul>
+<li><a href="#">Home Furniture</a></li>
+<li><a href="#">Office Furniture</a></li>
+<li><a href="#">Hotel Furniture</a></li>
+<li><a href="#">Restaurant Furniture</a></li>
+<li><a href="#">Custom Built Furniture</a></li>
+</ul>
+</li>
+
+</ul>
+
+</aside>
+
+<!-- Content -->
+
+<div class="project-content">
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search projects...">
+</div>
+
+<div class="filter-buttons">
+
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="Residential">Residential</button>
+    <button data-filter="Commercial">Commercial</button>
+    <button data-filter="Hospitality">Hospitality</button>
+    <button data-filter="Furniture">Furniture</button>
+
+</div>
+
+<div class="project-grid">
+
+<div class="project-card" data-category="Residential">
+<img src="https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg">
+<div class="project-info">
+<span>Residential</span>
+<h3>Modern Living Room</h3>
+</div>
+<p id="noResult" style="display:none;text-align:center;margin-top:40px;font-size:18px;color:#888;">
+    No projects found.
+</p>
+</div>
+
+<div class="project-card" data-category="Commercial">
+<img src="https://i.pinimg.com/736x/e7/15/6d/e7156d59d8a44fd894469120d259ff17.jpg">
+<div class="project-info">
+<span>Commercial</span>
+<h3>Corporate Office</h3>
+</div>
+</div>
+
+<div class="project-card" data-category="Hospitality">
+<img src="https://i.pinimg.com/736x/47/26/80/472680180c9f8894cbea9fbf9b077ed0.jpg">
+<div class="project-info">
+<span>Hospitality</span>
+<h3>Luxury Hotel Suite</h3>
+</div>
+</div>
+
+<div class="project-card" data-category="Furniture">
+<img src="https://i.pinimg.com/1200x/98/f7/c9/98f7c9cc619c77b71c5b69f04a85428e.jpg">
+<div class="project-info">
+<span>Furniture</span>
+<h3>Custom Dining Set</h3>
+</div>
+</div>
+
+<div class="project-card" data-category="Residential">
+<img src="https://i.pinimg.com/736x/0c/1b/f5/0c1bf5642e8190d1747a1a1bb6dd26a8.jpg">
+<div class="project-info">
+<span>Residential</span>
+<h3>Luxury Bedroom</h3>
+</div>
+</div>
+
+<div class="project-card" data-category="Commercial">
+<img src="https://i.pinimg.com/736x/f4/7d/63/f47d634a89d8e4c1d6f2d8d56fb01dc8.jpg">
+<div class="project-info">
+<span>Commercial</span>
+<h3>Retail Showroom</h3>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+const buttons=document.querySelectorAll(".filter-buttons button");
+const cards=document.querySelectorAll(".project-card");
+const search=document.getElementById("searchInput");
+const sidebar=document.querySelectorAll(".project-sidebar a[data-filter]");
+const noResult=document.getElementById("noResult");
+
+let currentFilter="all";
+
+function filterProjects(){
+
+    const keyword=search.value.toLowerCase();
+    let visible=0;
+
+    cards.forEach(card=>{
+
+        const category=card.dataset.category;
+        const title=card.querySelector("h3").innerText.toLowerCase();
+
+        const matchCategory=currentFilter==="all" || category===currentFilter;
+        const matchSearch=title.includes(keyword);
+
+        if(matchCategory && matchSearch){
+            card.style.display="block";
+            visible++;
+        }else{
+            card.style.display="none";
+        }
+
+    });
+
+    noResult.style.display=visible ? "none":"block";
+
+}
+
+buttons.forEach(btn=>{
+
+    btn.onclick=function(){
+
+        buttons.forEach(b=>b.classList.remove("active"));
+
+        this.classList.add("active");
+
+        currentFilter=this.dataset.filter;
+
+        filterProjects();
+
+    }
+
+});
+
+sidebar.forEach(link=>{
+
+    link.onclick=function(e){
+
+        e.preventDefault();
+
+        currentFilter=this.dataset.filter;
+
+        buttons.forEach(btn=>{
+
+            btn.classList.remove("active");
+
+            if(btn.dataset.filter===currentFilter){
+                btn.classList.add("active");
+            }
+
+        });
+
+        filterProjects();
+
+    }
+
+});
+
+search.addEventListener("keyup",filterProjects);
+
+filterProjects();
+
+</script>
+
+</body>
+</html>
