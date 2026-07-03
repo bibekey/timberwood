@@ -1205,7 +1205,7 @@ INTERIOR
 
 .interior{
 padding:100px 8%;
-background:#mmm;
+background:#f7f7f7;
 }
 
 .interior .section-title h2,
@@ -1214,9 +1214,9 @@ color:#5c3d2e;
 }
 
 .service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-gap:35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
 }
 
 .service-card{
@@ -1278,6 +1278,52 @@ transition:.3s;
 .service-card:hover a{
 background:#111;
 color:#fff;
+}
+/* Tablet */
+@media (max-width:992px){
+
+.service-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.service-card{
+    padding:35px;
+}
+
+}
+
+/* Mobile */
+@media (max-width:576px){
+
+.service-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.service-card{
+    padding:25px;
+}
+
+.service-card i{
+    font-size:40px;
+}
+
+.service-card h3{
+    font-size:22px;
+}
+
+.service-card p,
+.service-card li{
+    font-size:14px;
+    line-height:1.7;
+}
+
+.service-card a{
+    padding:10px 22px;
+    font-size:13px;
+}
+
 }
 
 .process{
@@ -1344,10 +1390,6 @@ height:320px;
 
 .category-content h3{
 font-size:24px;
-}
-
-.service-card{
-padding:30px;
 }
 
 .process h2{
