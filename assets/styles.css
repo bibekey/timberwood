@@ -967,7 +967,7 @@ margin-bottom:14px;
 
 .section-header p{
 max-width:680px;
-color:#666;
+color:#111;
 line-height:1.8;
 font-size:clamp(14px, 1.2vw, 17px);
 }
@@ -1859,7 +1859,7 @@ LATEST NEWS
 
 .blog-content span{
     font-size:12px;
-    color:#D4A017;
+    color:#b88a2a;
     font-weight:600;
     text-transform:uppercase;
 }
@@ -1878,7 +1878,7 @@ LATEST NEWS
 
 .blog-content a{
     color:#fff;
-    background:#D4A017;
+    background:#b88a2a;
     padding:8px 15px;
     border-radius:20px;
     text-decoration:none;
@@ -2542,7 +2542,7 @@ ABOUT
 }
 
 .about-text p{
-    color:#555;
+    color:#111;
     line-height:1.9;
     font-size:16px;
     margin-bottom:30px;
