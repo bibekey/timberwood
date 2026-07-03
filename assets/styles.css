@@ -2296,7 +2296,7 @@ CTA: ALL
 
 
 /* =========================
-FOOTER: AL
+FOOTER: ALL
 ========================= */
 
 footer{
@@ -2380,7 +2380,7 @@ footer::before{
 }
 
 .footer-grid ul li{
-    margin-bottom:14px;
+    margin-bottom:12px;
     color:#cfcfcf;
     transition:.3s;
 }
