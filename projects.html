@@ -169,7 +169,62 @@
     box-shadow:0 10px 25px rgba(182,141,64,.3);
 }
 
+/*==================================
+      COLLAPSIBLE SIDEBAR
+==================================*/
 
+.project-menu .menu-toggle{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-weight:600;
+    color:#222;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.project-menu .menu-toggle:hover{
+
+    color:#b68d40;
+
+}
+
+.project-menu .arrow{
+
+    font-size:12px;
+
+    transition:.35s;
+
+}
+
+.project-menu .menu-toggle.open .arrow{
+
+    transform:rotate(180deg);
+
+}
+
+.project-menu ul{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .35s ease;
+
+    padding-left:18px;
+
+}
+
+.project-menu ul.open{
+
+    max-height:500px;
+
+}
 /* Filter */
 
 .filter-buttons{
@@ -324,7 +379,10 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 <ul class="project-menu">
 
 <li>
-<a href="#" data-filter="Residential">Residential Interior</a>
+<a href="#" class="menu-toggle" data-filter="Residential">
+    <span>Residential Interior</span>
+    <span class="arrow">&#9662;</span>
+</a>
 <ul>
 <li><a href="#" data-filter="Living Room">Living Room</a></li>
 <li><a href="#" data-filter="Bedroom">Bedroom</a></li>
@@ -336,7 +394,10 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </li>
 
 <li>
-<a href="#" data-filter="Commercial">Commercial Interior</a>
+<a href="#" class="menu-toggle" data-filter="Commercial">
+    <span>Commercial Interior</span>
+    <span class="arrow">&#9662;</span>
+</a>
 <ul>
 <li><a href="#" data-filter="Office">Office</a></li>
 <li><a href="#" data-filter="Showroom">Showroom</a></li>
@@ -348,7 +409,10 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </li>
 
 <li>
-<a href="#" data-filter="Hospitality">Hospitality Interior</a>
+<a href="#" class="menu-toggle" data-filter="Hospitality">
+    <span>Hospitality Interior</span>
+    <span class="arrow">&#9662;</span>
+</a>
 <ul>
 <li><a href="#" data-filter="Hotel">Hotel</a></li>
 <li><a href="#" data-filter="Restaurant">Restaurant</a></li>
@@ -359,7 +423,10 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </li>
 
 <li>
-<a href="#" data-filter="Furniture">Custom Furniture</a>
+<a href="#" class="menu-toggle" data-filter="Furniture">
+    <span>Custom Furniture</span>
+    <span class="arrow">&#9662;</span>
+</a>
 <ul>
 <li><a href="#" data-filter="Home Furniture">Home Furniture</a></li>
 <li><a href="#" data-filter="Office Furniture">Office Furniture</a></li>
@@ -822,6 +889,43 @@ document.addEventListener("DOMContentLoaded", function () {
     =========================*/
 
     filterProjects();
+
+});
+
+/*==================================
+      SIDEBAR ACCORDION
+==================================*/
+
+const menuToggles = document.querySelectorAll(".menu-toggle");
+
+menuToggles.forEach(toggle=>{
+
+    const submenu = toggle.nextElementSibling;
+
+    submenu.classList.remove("open");
+
+    toggle.addEventListener("click",function(e){
+
+        e.preventDefault();
+
+        // close others
+        menuToggles.forEach(item=>{
+
+            if(item!==toggle){
+
+                item.classList.remove("open");
+
+                item.nextElementSibling.classList.remove("open");
+
+            }
+
+        });
+
+        toggle.classList.toggle("open");
+
+        submenu.classList.toggle("open");
+
+    });
 
 });
 
