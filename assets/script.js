@@ -49,36 +49,94 @@ card.classList.add("hide");
 
 }
 
-/* OUR PRODUCT */
+/*==================================
+        OUR PRODUCT CAROUSEL
+==================================*/
+
 const carousel = document.getElementById("carousel");
 
+let autoScroll = true;
+let animationId;
+const AUTO_SPEED = 0.6;
+const SCROLL_STEP = () => window.innerWidth <= 768 ? 180 : 260;
+
 /* AUTO SCROLL */
-let autoScrollEnabled = true;
-const speed = 0.7;
+function startAutoScroll(){
 
-function autoScroll(){
-  if(autoScrollEnabled){
-    carousel.scrollLeft += speed;
-    if(carousel.scrollLeft >= carousel.scrollWidth / 2){
-      carousel.scrollLeft = 0;
+    function animate(){
+
+        if(autoScroll){
+
+            carousel.scrollLeft += AUTO_SPEED;
+
+            /* Infinite Loop */
+            if(carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth)){
+                carousel.scrollLeft = 0;
+            }
+
+        }
+
+        animationId = requestAnimationFrame(animate);
     }
-  }
-  requestAnimationFrame(autoScroll);
+
+    animate();
 }
-requestAnimationFrame(autoScroll);
 
-carousel.addEventListener("mouseenter",()=>autoScrollEnabled=false);
-carousel.addEventListener("mouseleave",()=>autoScrollEnabled=true);
-carousel.addEventListener("touchstart",()=>autoScrollEnabled=false,{passive:true});
-carousel.addEventListener("touchend",()=>autoScrollEnabled=true,{passive:true});
+startAutoScroll();
 
-/* NAV */
+/* PAUSE */
+function pauseScroll(){
+    autoScroll = false;
+}
+
+/* RESUME */
+let resumeTimer;
+
+function resumeScroll(){
+
+    clearTimeout(resumeTimer);
+
+    resumeTimer = setTimeout(()=>{
+        autoScroll = true;
+    },1500);
+
+}
+
+/* EVENTS */
+
+carousel.addEventListener("mouseenter", pauseScroll);
+carousel.addEventListener("mouseleave", resumeScroll);
+
+carousel.addEventListener("touchstart", pauseScroll, {passive:true});
+carousel.addEventListener("touchend", resumeScroll, {passive:true});
+
+carousel.addEventListener("mousedown", pauseScroll);
+carousel.addEventListener("mouseup", resumeScroll);
+
+carousel.addEventListener("wheel", resumeScroll, {passive:true});
+
+/* NAVIGATION */
+
 function scrollLeft(){
-carousel.scrollBy({left:-300,behavior:"smooth"});
+
+    carousel.scrollBy({
+        left:-SCROLL_STEP(),
+        behavior:"smooth"
+    });
+
+    resumeScroll();
+
 }
 
 function scrollRight(){
-carousel.scrollBy({left:300,behavior:"smooth"});
+
+    carousel.scrollBy({
+        left:SCROLL_STEP(),
+        behavior:"smooth"
+    });
+
+    resumeScroll();
+
 }
 
 /* OPEN POPUP */
