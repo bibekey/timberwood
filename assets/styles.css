@@ -775,18 +775,17 @@ MOBILE
     .filter-box select{
         width:100%;
         min-width:0;
-        height:32px;
         font-size:11px;
+        height:32px;
     }
 
-    /* SAME HORIZONTAL SCROLL AS DESKTOP */
+    /* keep horizontal scroll on mobile */
     .carousel-container{
         display:flex;
         gap:8px;
         overflow-x:auto;
         overflow-y:hidden;
-        scroll-snap-type:x proximity;
-        -webkit-overflow-scrolling:touch;
+        scroll-behavior:smooth;
         scrollbar-width:none;
         padding-bottom:4px;
     }
@@ -796,12 +795,11 @@ MOBILE
     }
 
     .card{
-        flex:0 0 145px;   /* width of each card */
-        scroll-snap-align:start;
+        flex:0 0 140px;
     }
 
     .card img{
-        height:120px;
+        height:110px;
     }
 
     .card-product-content{
@@ -834,6 +832,19 @@ MOBILE
         padding:12px;
     }
 
+    .popup-title{
+        font-size:16px;
+    }
+
+    .section h4{
+        font-size:11px;
+    }
+
+    .section p,
+    .section li{
+        font-size:10px;
+    }
+
     .popup-actions{
         flex-direction:column;
     }
@@ -843,8 +854,10 @@ MOBILE
     .btn-whatsapp,
     .btn-close{
         width:100%;
+        font-size:11px;
     }
 }
+
 /* FEATURES */
 
 .features{
