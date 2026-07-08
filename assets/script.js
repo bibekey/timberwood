@@ -55,87 +55,76 @@ card.classList.add("hide");
 
 const carousel = document.getElementById("carousel");
 
-let autoScroll = true;
-let animationId;
-const AUTO_SPEED = 0.6;
-const SCROLL_STEP = () => window.innerWidth <= 768 ? 180 : 260;
+if (carousel) {
 
-/* AUTO SCROLL */
-function startAutoScroll(){
+    let autoScroll = true;
+    let resumeTimer;
 
-    function animate(){
+    const AUTO_SPEED = 0.5;
+    const SCROLL_STEP = window.innerWidth <= 768 ? 180 : 260;
 
-        if(autoScroll){
+    function animate() {
+
+        if (autoScroll) {
 
             carousel.scrollLeft += AUTO_SPEED;
 
-            /* Infinite Loop */
-            if(carousel.scrollLeft >= (carousel.scrollWidth - carousel.clientWidth)){
+            /* Seamless loop (duplicate cards required) */
+            if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
                 carousel.scrollLeft = 0;
             }
 
         }
 
-        animationId = requestAnimationFrame(animate);
+        requestAnimationFrame(animate);
     }
 
-    animate();
-}
+    requestAnimationFrame(animate);
 
-startAutoScroll();
+    function pauseScroll() {
+        autoScroll = false;
+    }
 
-/* PAUSE */
-function pauseScroll(){
-    autoScroll = false;
-}
+    function resumeScroll() {
+        clearTimeout(resumeTimer);
 
-/* RESUME */
-let resumeTimer;
+        resumeTimer = setTimeout(() => {
+            autoScroll = true;
+        }, 1200);
+    }
 
-function resumeScroll(){
+    carousel.addEventListener("mouseenter", pauseScroll);
+    carousel.addEventListener("mouseleave", resumeScroll);
 
-    clearTimeout(resumeTimer);
+    carousel.addEventListener("touchstart", pauseScroll, { passive: true });
+    carousel.addEventListener("touchend", resumeScroll, { passive: true });
 
-    resumeTimer = setTimeout(()=>{
-        autoScroll = true;
-    },1500);
+    carousel.addEventListener("mousedown", pauseScroll);
+    carousel.addEventListener("mouseup", resumeScroll);
 
-}
+    carousel.addEventListener("wheel", resumeScroll, { passive: true });
 
-/* EVENTS */
+    window.scrollLeft = function () {
 
-carousel.addEventListener("mouseenter", pauseScroll);
-carousel.addEventListener("mouseleave", resumeScroll);
+        carousel.scrollBy({
+            left: -SCROLL_STEP,
+            behavior: "smooth"
+        });
 
-carousel.addEventListener("touchstart", pauseScroll, {passive:true});
-carousel.addEventListener("touchend", resumeScroll, {passive:true});
+        resumeScroll();
 
-carousel.addEventListener("mousedown", pauseScroll);
-carousel.addEventListener("mouseup", resumeScroll);
+    };
 
-carousel.addEventListener("wheel", resumeScroll, {passive:true});
+    window.scrollRight = function () {
 
-/* NAVIGATION */
+        carousel.scrollBy({
+            left: SCROLL_STEP,
+            behavior: "smooth"
+        });
 
-function scrollLeft(){
+        resumeScroll();
 
-    carousel.scrollBy({
-        left:-SCROLL_STEP(),
-        behavior:"smooth"
-    });
-
-    resumeScroll();
-
-}
-
-function scrollRight(){
-
-    carousel.scrollBy({
-        left:SCROLL_STEP(),
-        behavior:"smooth"
-    });
-
-    resumeScroll();
+    };
 
 }
 
