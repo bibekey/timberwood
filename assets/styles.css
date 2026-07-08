@@ -759,7 +759,7 @@ MOBILE
         MOBILE
 ==================================*/
 
-@media(max-width:768px){
+@media (max-width:768px){
 
     .header{
         font-size:16px;
@@ -775,20 +775,29 @@ MOBILE
     .filter-box select{
         width:100%;
         min-width:0;
-        font-size:11px;
         height:32px;
+        font-size:11px;
     }
 
-    /* 2-column compact cards */
+    /* SAME HORIZONTAL SCROLL AS DESKTOP */
     .carousel-container{
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
+        display:flex;
         gap:8px;
-        overflow:visible;
+        overflow-x:auto;
+        overflow-y:hidden;
+        scroll-snap-type:x proximity;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+        padding-bottom:4px;
+    }
+
+    .carousel-container::-webkit-scrollbar{
+        display:none;
     }
 
     .card{
-        width:100%;
+        flex:0 0 145px;   /* width of each card */
+        scroll-snap-align:start;
     }
 
     .card img{
@@ -825,19 +834,6 @@ MOBILE
         padding:12px;
     }
 
-    .popup-title{
-        font-size:16px;
-    }
-
-    .section h4{
-        font-size:11px;
-    }
-
-    .section p,
-    .section li{
-        font-size:10px;
-    }
-
     .popup-actions{
         flex-direction:column;
     }
@@ -847,10 +843,8 @@ MOBILE
     .btn-whatsapp,
     .btn-close{
         width:100%;
-        font-size:11px;
     }
 }
-
 /* FEATURES */
 
 .features{
