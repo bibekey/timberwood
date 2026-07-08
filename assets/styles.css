@@ -683,7 +683,7 @@ MOBILE
 }
 
 /*==================================
-        COMPACT PRODUCT POPUP
+        POPUP
 ==================================*/
 
 .popup-overlay{
@@ -692,124 +692,96 @@ MOBILE
     display:none;
     justify-content:center;
     align-items:center;
-    padding:8px;
-    background:rgba(0,0,0,.70);
-    z-index:9999;
+    padding:10px;
+    background:rgba(0,0,0,.65);
+    z-index:999;
 }
 
 .popup{
     display:flex;
+    flex-wrap:wrap;
     width:100%;
-    max-width:620px;
-    max-height:88vh;
+    max-width:760px;
+    max-height:95vh;
+    overflow:hidden;
     background:#fff;
     border-radius:10px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* IMAGE */
-
 .popup-img{
-    flex:0 0 220px;
-    background:#f8f8f8;
+    flex:1;
+    min-width:240px;
 }
 
 .popup-img img{
     width:100%;
     height:100%;
+    max-height:95vh;
     object-fit:cover;
 }
 
-/* CONTENT */
-
 .popup-content{
     flex:1;
-    padding:12px;
+    padding:14px;
     overflow-y:auto;
 }
 
-/* TITLE */
-
 .popup-title{
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
-    color:#5c3d2e;
-    margin-bottom:6px;
-}
-
-/* PRICE */
-
-.price{
-    display:flex;
-    align-items:center;
-    gap:6px;
     margin-bottom:8px;
 }
 
-.old-price{
-    font-size:10px;
-    color:#999;
-    text-decoration:line-through;
-}
-
-.new-price{
-    font-size:15px;
-    font-weight:700;
-    color:#000;
+.price{
+    margin:8px 0;
 }
 
 .popup-badge{
     display:inline-block;
+    margin-left:6px;
     padding:2px 6px;
-    margin-left:4px;
-    background:#5c3d2e;
+    background:#000;
     color:#fff;
     border-radius:4px;
-    font-size:9px;
+    font-size:10px;
 }
 
-/* DETAILS */
-
 .section{
-    margin-top:8px;
+    margin-top:10px;
 }
 
 .section h4{
-    margin-bottom:3px;
-    font-size:11px;
-    color:#5c3d2e;
+    margin-bottom:4px;
+    font-size:12px;
 }
 
 .section p,
 .section li{
-    font-size:10px;
-    line-height:1.5;
-    color:#666;
+    font-size:11px;
+    color:#555;
 }
 
 /* BUTTONS */
-
 .popup-actions{
     display:flex;
-    gap:5px;
-    margin-top:10px;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:12px;
 }
 
 .popup-btn,
 .btn-cart,
 .btn-whatsapp,
 .btn-close{
-    flex:1;
-    height:32px;
+    padding:7px 10px;
     border:none;
-    border-radius:6px;
+    border-radius:5px;
     font-size:10px;
     cursor:pointer;
 }
 
 .btn-cart{
-    background:#5c3d2e;
+    background:#000;
     color:#fff;
 }
 
@@ -820,7 +792,6 @@ MOBILE
 
 .btn-close{
     background:#ddd;
-    color:#444;
 }
 
 /*==================================
@@ -833,7 +804,7 @@ MOBILE
     display:none;
     justify-content:center;
     align-items:center;
-    background:rgba(0,0,0,.9);
+    background:rgba(0,0,0,.85);
     z-index:2000;
 }
 
@@ -848,40 +819,88 @@ MOBILE
 
 @media (max-width:768px){
 
-    .popup{
+    .header{
+        font-size:16px;
+        padding:8px;
+    }
+
+    .filter-box{
         flex-direction:column;
-        max-width:360px;
-        max-height:92vh;
+        align-items:stretch;
     }
 
-    .popup-img{
-        flex:none;
-        height:180px;
+    .filter-box input,
+    .filter-box select{
+        width:100%;
+        min-width:0;
+        font-size:11px;
+        height:32px;
     }
 
-    .popup-content{
-        padding:10px;
+    /* keep horizontal scroll on mobile */
+    .carousel-container{
+        display:flex;
+        gap:8px;
+        overflow-x:auto;
+        overflow-y:hidden;
+        scroll-behavior:smooth;
+        scrollbar-width:none;
+        padding-bottom:4px;
     }
 
-    .popup-title{
-        font-size:14px;
+    .carousel-container::-webkit-scrollbar{
+        display:none;
     }
 
-    .old-price{
+    .card{
+        flex:0 0 140px;
+    }
+
+    .card img{
+        height:110px;
+    }
+
+    .card-product-content{
+        padding:6px;
+        font-size:10px;
+    }
+
+    .card-product-content h3{
+        font-size:11px;
+    }
+
+    .btn-view{
+        padding:5px;
         font-size:9px;
     }
 
-    .new-price{
-        font-size:13px;
+    .popup{
+        flex-direction:column;
+    }
+
+    .popup-img{
+        min-width:100%;
+    }
+
+    .popup-img img{
+        max-height:220px;
+    }
+
+    .popup-content{
+        padding:12px;
+    }
+
+    .popup-title{
+        font-size:16px;
     }
 
     .section h4{
-        font-size:10px;
+        font-size:11px;
     }
 
     .section p,
     .section li{
-        font-size:9px;
+        font-size:10px;
     }
 
     .popup-actions{
@@ -893,8 +912,7 @@ MOBILE
     .btn-whatsapp,
     .btn-close{
         width:100%;
-        height:34px;
-        font-size:10px;
+        font-size:11px;
     }
 }
 
