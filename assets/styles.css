@@ -4557,3 +4557,52 @@ CONTACT
     }
 
 }
+
+
+
+
+
+/* =====================
+   SCROLL ANIMATION
+===================== */
+
+.animate{
+    opacity:0;
+    transition:all .8s ease;
+}
+
+/* Fade Up */
+.fade-up{
+    transform:translateY(80px);
+}
+
+/* Fade Down */
+.fade-down{
+    transform:translateY(-80px);
+}
+
+/* Fade Left */
+.fade-left{
+    transform:translateX(-80px);
+}
+
+/* Fade Right */
+.fade-right{
+    transform:translateX(80px);
+}
+
+/* Zoom */
+.zoom{
+    transform:scale(.7);
+}
+
+/* Rotate */
+.rotate{
+    transform:rotate(-10deg) scale(.8);
+}
+
+/* Visible */
+.animate.show{
+    opacity:1;
+    transform:none;
+}
