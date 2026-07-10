@@ -3997,30 +3997,72 @@ IMAGE VIEWER
 MOBILE
 ========================= */
 
-@media(max-width:768px){
+@media (max-width:768px){
 
+    /* Content */
     .article-content{
-        padding:25px;
+        padding:18px;
     }
 
     .author-box{
         flex-direction:column;
         text-align:center;
+        gap:10px;
     }
 
+    /* Catalog - 2 Columns */
     .catalog{
-        grid-template-columns:1fr;
+        display:grid;
+        grid-template-columns:repeat(2, 1fr);
+        gap:12px;
+    }
+
+    /* Card */
+    .catalog-card{
+        border-radius:10px;
+        overflow:hidden;
     }
 
     .catalog-card img{
-        height:260px;
+        width:100%;
+        height:150px;
+        object-fit:cover;
     }
 
+    /* Text */
+    .catalog-card h3{
+        font-size:14px;
+        line-height:1.3;
+        margin:8px 0 4px;
+    }
+
+    .catalog-card h4{
+        font-size:12px;
+    }
+
+    .catalog-card p,
+    .catalog-card li,
+    .catalog-card span{
+        font-size:11px;
+        line-height:1.4;
+    }
+
+    .catalog-card .price{
+        font-size:13px;
+        font-weight:600;
+    }
+
+    .catalog-card .btn{
+        font-size:11px;
+        padding:7px 10px;
+    }
+
+    /* Navigation */
     .prev,
     .next{
-        width:45px;
-        height:45px;
-        font-size:20px;
+        width:38px;
+        height:38px;
+        font-size:18px;
     }
 
 }
