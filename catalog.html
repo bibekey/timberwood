@@ -5321,7 +5321,21 @@ onclick="openViewer(this.querySelector('img').src)">
 
 
 
+
+
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f6f1ea;
+    color:#5c3d2e;
+}
 
 /* ===========================
         LOADER
@@ -5453,6 +5467,9 @@ onclick="openViewer(this.querySelector('img').src)">
 }
 </style>
 
+</head>
+<body>
+
 <!-- ==========================
         LOADER
 =========================== -->
@@ -5489,17 +5506,6 @@ onclick="openViewer(this.querySelector('img').src)">
       PAGE CONTENT
 =========================== -->
 
-<div class="page">
-
-<h1>Welcome to TimberWood</h1>
-
-<p>
-This is your website content.
-The loading screen will automatically disappear after the percentage reaches 100%.
-</p>
-
-</div>
-
 <script>
 
 const loader = document.getElementById("loader");
@@ -5533,6 +5539,7 @@ const loading = setInterval(() => {
 
 </script>
 
+</body>
 
 
 <script>
