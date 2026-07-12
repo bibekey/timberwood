@@ -2,7 +2,6 @@
 menu
 ==================================*/
 function toggleMenu() {
-    const menu = document.getElementById("menu");
     const btn = document.getElementById("menuBtn");
 
     menu.classList.toggle("active");
