@@ -1,4 +1,6 @@
-
+/*==================================
+menu
+==================================*/
 function toggleMenu() {
     const menu = document.getElementById("menu");
     const btn = document.getElementById("menuBtn");
@@ -20,6 +22,7 @@ menuLinks.forEach(link => {
         document.getElementById("menuBtn").innerHTML = "☰";
     });
 });
+
 
 /*==================================
 PROJECTS
@@ -80,9 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    /*=========================
-      TOP FILTER BUTTONS
-    =========================*/
+    /*---TOP FILTER BUTTONS---*/
 
     filterButtons.forEach(button => {
 
@@ -101,9 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    /*=========================
-      SIDEBAR FILTERS
-    =========================*/
+    /*--SIDEBAR FILTERS--*/
 
     sidebarLinks.forEach(link => {
 
@@ -134,9 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    /*=========================
-      LIVE SEARCH
-    =========================*/
+    /*--SEARCH--*/
 
     searchInput.addEventListener("input", function () {
 
@@ -144,9 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    /*=========================
-      INITIAL LOAD
-    =========================*/
+    /*INITIAL LOAD*/
 
     filterProjects();
 
@@ -189,7 +184,9 @@ menuToggles.forEach(toggle=>{
 
 });
 
-
+/*==================================
+Our Furniture Collection
+==================================*/
 function filterProducts(){
 let search = document.getElementById("searchInput").value.toLowerCase();
 let category = document.getElementById("categoryFilter").value;
