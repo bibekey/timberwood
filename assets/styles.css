@@ -2118,11 +2118,10 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-        url("https://i.pinimg.com/736x/97/91/40/979140409d0029c4c6724a190907b3af.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        url("https://i.pinimg.com/736x/97/91/40/979140409d0029c4c6724a190907b3af.jpg") center/cover no-repeat;
     transform: scale(1.05);
     z-index: -1;
-}
 }
 
 .hero-content{
