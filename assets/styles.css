@@ -670,7 +670,7 @@ MOBILE
 }
 
 /* BUTTON */
-.btn-view{
+.btn-buy{
     width:100%;
     margin-top:6px;
     padding:6px;
@@ -683,7 +683,7 @@ MOBILE
     transition:.2s;
 }
 
-.btn-view:hover{
+.btn-buy:hover{
     background:#333;
 }
 
