@@ -292,77 +292,10 @@ if (carousel) {
 
 }
 
-/* OPEN POPUP */
-function showProduct(btn){
 
-let card = btn.closest(".card");
-
-document.getElementById("popup").style.display = "flex";
-
-document.getElementById("popupTitle").innerText =
-card.querySelector("h3").innerText;
-
-document.getElementById("popupImage").src =
-card.dataset.image;
-
-document.getElementById("oldPrice").innerText =
-card.dataset.oldprice;
-
-document.getElementById("newPrice").innerText =
-card.dataset.price;
-
-document.getElementById("highlights").innerText =
-card.dataset.highlights;
-
-document.getElementById("specs").innerText =
-card.dataset.specs;
-
-let features = card.dataset.features.split("|");
-
-document.getElementById("features").innerHTML =
-features.map(item => `<li>${item}</li>`).join("");
-}
-
-/* CLOSE POPUP */
-function closePopup(){
-document.getElementById("popup").style.display="none";
-}
-
-/* WHATSAPP AUTO MESSAGE */
-function sendWhatsApp(){
-
-let productName=document.getElementById("popupTitle").innerText;
-let price=document.getElementById("newPrice").innerText;
-let oldPrice=document.getElementById("oldPrice").innerText;
-let highlights=document.getElementById("highlights").innerText;
-
-/* YOUR NUMBER */
-let phone="9779705020251";
-
-let message=`
-Furniture Order Request
-
-Product: ${productName}
-Price: ${price}
-~~${oldPrice}~~
-
-Details: ${highlights}
-
-Please confirm availability & delivery.
-`;
-
-let url=`https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-
-window.open(url,"_blank");
-}
-
-/* LIGHTBOX */
-function openLightbox(src){
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightImg").src = src;
-}
-
-/* HERO INDEX */
+/*==================================
+HOME: HERO
+==================================*/
 
 const slides = document.querySelectorAll(".hero-slide");
 const dots = document.querySelectorAll(".dot");
