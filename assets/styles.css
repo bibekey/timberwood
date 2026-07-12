@@ -1266,6 +1266,318 @@ grid-template-columns:repeat(2, minmax(0, 1fr));
 
 }
 
+/*View All Projects */
+/*==================================
+      PROJECTS PAGE
+==================================*/
+
+.projects-page{
+    padding:80px 8%;
+}
+
+.page-title{
+    text-align:center;
+    max-width:800px;
+    margin:auto;
+    margin-bottom:60px;
+}
+
+.page-title span{
+    color:#b68d40;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.page-title h1{
+    font-size:42px;
+    color:#222;
+    margin:15px 0;
+}
+
+.page-title p{
+    color:#666;
+    line-height:1.8;
+}
+
+/* Layout */
+
+.projects-layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:40px;
+}
+
+/* Sidebar */
+
+.project-sidebar{
+    background:#fff;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    position:sticky;
+    top:90px;
+}
+
+.project-sidebar h3{
+    margin-bottom:25px;
+    color:#222;
+    padding-bottom:15px;
+    border-bottom:2px solid #eee;
+}
+
+.project-menu{
+    list-style:none;
+}
+
+.project-menu>li{
+    margin-bottom:22px;
+}
+
+.project-menu>li>a{
+    display:block;
+    color:#222;
+    font-weight:600;
+    text-decoration:none;
+    margin-bottom:10px;
+    transition:.3s;
+}
+
+.project-menu>li>a:hover{
+    color:#b68d40;
+}
+
+.project-menu ul{
+    list-style:none;
+    padding-left:18px;
+}
+
+.project-menu ul li{
+    margin:8px 0;
+}
+
+.project-menu ul li a{
+    color:#666;
+    text-decoration:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.project-menu ul li a::before{
+    content:"• ";
+    color:#b68d40;
+}
+
+.project-menu ul li a:hover{
+    color:#b68d40;
+}
+
+/* Search Bar */
+
+.search-box{
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 20px;
+    border:none;
+    border-radius:40px;
+    background:#fff;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+}
+
+.search-box input:focus{
+    box-shadow:0 10px 25px rgba(182,141,64,.3);
+}
+
+/*==================================
+      COLLAPSIBLE SIDEBAR
+==================================*/
+
+.project-menu .menu-toggle{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    font-weight:600;
+    color:#222;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.project-menu .menu-toggle:hover{
+
+    color:#b68d40;
+
+}
+
+.project-menu .arrow{
+
+    font-size:12px;
+
+    transition:.35s;
+
+}
+
+.project-menu .menu-toggle.open .arrow{
+
+    transform:rotate(180deg);
+
+}
+
+.project-menu ul{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .35s ease;
+
+    padding-left:18px;
+
+}
+
+.project-menu ul.open{
+
+    max-height:500px;
+
+}
+/* Filter */
+
+.filter-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.filter-buttons button{
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
+    background:#fff;
+    cursor:pointer;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover{
+    background:#b68d40;
+    color:#fff;
+}
+
+/* Grid */
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+/* Card */
+
+.projects-card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.projects-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.projects-card:hover img{
+    transform:scale(1.08);
+}
+
+.projects-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.project-info{
+    padding:20px;
+}
+
+.project-info span{
+    display:inline-block;
+    background:#b68d40;
+    color:#fff;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:12px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.project-info h3{
+    color:#222;
+    font-size:20px;
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.projects-layout{
+grid-template-columns:250px 1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.projects-page{
+padding:60px 5%;
+}
+
+.projects-layout{
+grid-template-columns:1fr;
+}
+
+.project-sidebar{
+position:relative;
+top:0;
+margin-bottom:30px;
+}
+
+.project-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:576px){
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.page-title h1{
+font-size:32px;
+}
+
+}
 
 /*=========================
 INTERIOR
