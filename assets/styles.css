@@ -1628,6 +1628,8 @@ font-size:32px;
 }
 
 .view-overlay span{
+    position:absolute;
+    top:50%;
     width:48px;
     height:48px;
     font-size:20px;
