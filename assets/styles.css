@@ -7,11 +7,6 @@
     font-family:'Poppins',sans-serif;
 }
 
-body{
-    background:#f6f3ee;
-    color:#222;
-}
-
 /* =========================
 NAVBAR: ALL
 ========================= */
@@ -4942,19 +4937,4 @@ CONTACT
 .animate.show{
     opacity:1;
     transform:none;
-}
-
-
-
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus{
-    outline: none;
-}
-
-button,
-a{
-    -webkit-touch-callout: none;
 }
