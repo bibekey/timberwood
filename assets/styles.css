@@ -1524,7 +1524,7 @@ font-size:32px;
     width:65px;
     height:65px;
     border-radius:50%;
-    background:#111;
+    background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
     display:flex;
     justify-content:center;
     align-items:center;
