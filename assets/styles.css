@@ -2465,6 +2465,10 @@ DEALER
         padding:90px 5%;
     }
 
+    .dealer-content h2{
+        font-size:12px;
+    }
+
     .dealer-content p{
         font-size:16px;
     }
