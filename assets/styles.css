@@ -540,8 +540,7 @@ MOBILE
 .filter-box select:focus{
     background:#fff;
     border-color:#c89b63;
-    box-shadow:none;
-    outline:none;
+    box-shadow:0 0 0 3px rgba(200,155,99,.18);
 }
 
 /* Select Arrow */
@@ -4100,6 +4099,7 @@ CARD
     transition:.4s;
     cursor:pointer;
     border:1px solid rgba(255,255,255,.05);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .catalog-card:hover{
