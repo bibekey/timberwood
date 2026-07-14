@@ -752,48 +752,126 @@ MOBILE
 /* FEATURES */
 
 .features{
-    padding:20px 7% 100px;
+    padding:40px 7% 120px;
+    max-width:1400px;
+    margin:0 auto;
 }
 
 .feature-grid{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:30px;
+    align-items:stretch;
 }
 
 .feature-box{
     background:#fff;
-    padding:35px 25px;
+    padding:38px 28px;
     border-radius:26px;
-    transition:.4s;
-    border:1px solid rgba(255,255,255,0.06);
+    transition:.4s ease;
+    border:1px solid rgba(200,155,99,0.12);
+    box-shadow:0 12px 30px rgba(0,0,0,0.06);
+    height:100%;
 }
 
 .feature-box:hover{
     transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+    border-color:rgba(200,155,99,0.28);
 }
 
 .feature-icon{
-    width:70px;
-    height:70px;
-    background:#c89b63;
+    width:72px;
+    height:72px;
+    background:linear-gradient(135deg, #c89b63, #e2c08d);
     border-radius:18px;
     display:flex;
     align-items:center;
     justify-content:center;
     font-size:30px;
     color:#111;
-    margin-bottom:20px;
+    margin-bottom:22px;
+    box-shadow:0 10px 20px rgba(200,155,99,0.28);
+    transition:.35s ease;
+}
+
+.feature-box:hover .feature-icon{
+    transform:rotate(6deg) scale(1.05);
 }
 
 .feature-box h3{
     color:#5c3d2e;
     margin-bottom:12px;
+    font-size:22px;
+    line-height:1.3;
 }
 
 .feature-box p{
     color:#555;
     line-height:1.8;
+    font-size:15px;
+}
+
+/* Large desktop */
+@media (min-width:1400px){
+    .feature-grid{
+        gap:34px;
+    }
+
+    .feature-box{
+        padding:42px 30px;
+    }
+}
+
+/*==================================
+Mobile Design
+==================================*/
+@media (max-width:576px){
+
+    .features{
+        padding:50px 18px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+        gap:16px;
+    }
+
+    .feature-box{
+        display:flex;
+        align-items:flex-start;
+        gap:18px;
+        padding:18px;
+        border-radius:18px;
+        text-align:left;
+        box-shadow:0 8px 25px rgba(0,0,0,.08);
+    }
+
+    .feature-icon{
+        flex-shrink:0;
+        width:58px;
+        height:58px;
+        margin:0;
+        border-radius:16px;
+        font-size:22px;
+    }
+
+    .feature-content{
+        flex:1;
+    }
+
+    .feature-box h3{
+        font-size:18px;
+        margin-bottom:8px;
+        line-height:1.3;
+    }
+
+    .feature-box p{
+        font-size:14px;
+        line-height:1.6;
+        margin:0;
+    }
+
 }
 
 /*=========================
