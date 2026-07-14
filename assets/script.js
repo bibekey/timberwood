@@ -183,158 +183,110 @@ menuToggles.forEach(toggle=>{
 
 });
 
-/*==================================================
-    TIMBERWOOD UI SCRIPTS
-==================================================*/
+/*==================================
+Our Furniture Collection
+==================================*/
+function filterProducts(){
+let search = document.getElementById("searchInput").value.toLowerCase();
+let category = document.getElementById("categoryFilter").value;
+let brand = document.getElementById("brandFilter").value;
 
-document.addEventListener("DOMContentLoaded", () => {
+let cards = document.querySelectorAll(".card");
 
-    initProductFilter();
-    initProductCarousel();
+cards.forEach(card => {
+
+let text = card.innerText.toLowerCase();
+let cat = card.getAttribute("data-category");
+let br = card.getAttribute("data-brand");
+
+let matchSearch = text.includes(search);
+let matchCategory = (category === "all" || cat === category);
+let matchBrand = (brand === "all" || br === brand);
+
+if(matchSearch && matchCategory && matchBrand){
+card.classList.remove("hide");
+}else{
+card.classList.add("hide");
+}
 
 });
 
-
-/*==================================================
-    PRODUCT FILTER
-==================================================*/
-
-function initProductFilter() {
-
-    const searchInput = document.getElementById("searchInput");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const brandFilter = document.getElementById("brandFilter");
-    const cards = document.querySelectorAll(".card");
-
-    if (!cards.length) return;
-
-    function filterProducts() {
-
-        const search = searchInput.value.trim().toLowerCase();
-        const category = categoryFilter.value;
-        const brand = brandFilter.value;
-
-        cards.forEach(card => {
-
-            const text = card.textContent.toLowerCase();
-
-            const matchSearch =
-                text.includes(search);
-
-            const matchCategory =
-                category === "all" ||
-                card.dataset.category === category;
-
-            const matchBrand =
-                brand === "all" ||
-                card.dataset.brand === brand;
-
-            card.classList.toggle(
-                "hide",
-                !(matchSearch && matchCategory && matchBrand)
-            );
-
-        });
-
-    }
-
-    searchInput.addEventListener("input", filterProducts);
-    categoryFilter.addEventListener("change", filterProducts);
-    brandFilter.addEventListener("change", filterProducts);
-
-    filterProducts();
-
 }
 
+/*==================================
+        OUR PRODUCT CAROUSEL
+==================================*/
 
-/*==================================================
-    PRODUCT CAROUSEL
-==================================================*/
+const carousel = document.getElementById("carousel");
 
-function initProductCarousel() {
+if (carousel) {
 
-    const carousel = document.getElementById("carousel");
-
-    if (!carousel) return;
+    let autoScroll = true;
+    let resumeTimer;
 
     const AUTO_SPEED = 0.5;
     const SCROLL_STEP = window.innerWidth <= 768 ? 180 : 260;
 
-    let autoPlay = true;
-    let resumeTimer;
+    function animate() {
 
-    function autoScroll() {
-
-        if (autoPlay) {
+        if (autoScroll) {
 
             carousel.scrollLeft += AUTO_SPEED;
 
+            /* Seamless loop (duplicate cards required) */
             if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
                 carousel.scrollLeft = 0;
             }
 
         }
 
-        requestAnimationFrame(autoScroll);
-
+        requestAnimationFrame(animate);
     }
 
-    requestAnimationFrame(autoScroll);
+    requestAnimationFrame(animate);
 
-    function pause() {
-        autoPlay = false;
+    function pauseScroll() {
+        autoScroll = false;
     }
 
-    function resume() {
-
+    function resumeScroll() {
         clearTimeout(resumeTimer);
 
         resumeTimer = setTimeout(() => {
-            autoPlay = true;
+            autoScroll = true;
         }, 1200);
-
     }
 
-    [
-        "mouseenter",
-        "touchstart",
-        "mousedown"
-    ].forEach(event => {
-        carousel.addEventListener(event, pause, {
-            passive: true
-        });
-    });
+    carousel.addEventListener("mouseenter", pauseScroll);
+    carousel.addEventListener("mouseleave", resumeScroll);
 
-    [
-        "mouseleave",
-        "touchend",
-        "mouseup",
-        "wheel"
-    ].forEach(event => {
-        carousel.addEventListener(event, resume, {
-            passive: true
-        });
-    });
+    carousel.addEventListener("touchstart", pauseScroll, { passive: true });
+    carousel.addEventListener("touchend", resumeScroll, { passive: true });
 
-    window.scrollLeft = () => {
+    carousel.addEventListener("mousedown", pauseScroll);
+    carousel.addEventListener("mouseup", resumeScroll);
+
+    carousel.addEventListener("wheel", resumeScroll, { passive: true });
+
+    window.scrollLeft = function () {
 
         carousel.scrollBy({
             left: -SCROLL_STEP,
             behavior: "smooth"
         });
 
-        resume();
+        resumeScroll();
 
     };
 
-    window.scrollRight = () => {
+    window.scrollRight = function () {
 
         carousel.scrollBy({
             left: SCROLL_STEP,
             behavior: "smooth"
         });
 
-        resume();
+        resumeScroll();
 
     };
 
