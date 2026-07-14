@@ -184,7 +184,7 @@ menuToggles.forEach(toggle=>{
 });
 
 /*==================================
-Our Furniture Collection
+FEATURED Collection
 ==================================*/
 function filterProducts(){
 let search = document.getElementById("searchInput").value.toLowerCase();
