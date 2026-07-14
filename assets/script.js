@@ -146,6 +146,124 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+/*PROJECT IMAGE VIEW*/
+document.addEventListener("DOMContentLoaded", function () {
+
+    const galleryCards = document.querySelectorAll(".projects-card");
+
+    const lightbox = document.querySelector(".gallery-lightbox");
+    const image = document.getElementById("galleryImage");
+    const counter = document.querySelector(".gallery-counter");
+
+    let gallery = [];
+    let current = 0;
+
+    galleryCards.forEach(card => {
+
+        card.querySelector(".project-image").addEventListener("click", function(){
+
+            gallery = card.dataset.images.split(",");
+            current = 0;
+
+            showImage();
+
+            lightbox.classList.add("active");
+
+        });
+
+    });
+
+    function showImage(){
+
+        image.src = gallery[current].trim();
+        counter.textContent = `${current + 1} / ${gallery.length}`;
+
+    }
+
+    document.querySelector(".gallery-next").onclick = () => {
+
+        current = (current + 1) % gallery.length;
+        showImage();
+
+    };
+
+    document.querySelector(".gallery-prev").onclick = () => {
+
+        current = (current - 1 + gallery.length) % gallery.length;
+        showImage();
+
+    };
+
+    document.querySelector(".close-gallery").onclick = () => {
+
+        lightbox.classList.remove("active");
+
+    };
+
+    lightbox.onclick = e => {
+
+        if (e.target === lightbox) {
+            lightbox.classList.remove("active");
+        }
+
+    };
+
+    document.addEventListener("keydown", e => {
+
+        if (!lightbox.classList.contains("active")) return;
+
+        if (e.key === "ArrowRight") {
+
+            current = (current + 1) % gallery.length;
+            showImage();
+
+        }
+
+        if (e.key === "ArrowLeft") {
+
+            current = (current - 1 + gallery.length) % gallery.length;
+            showImage();
+
+        }
+
+        if (e.key === "Escape") {
+
+            lightbox.classList.remove("active");
+
+        }
+
+    });
+
+    let startX = 0;
+
+    image.addEventListener("touchstart", e => {
+
+        startX = e.touches[0].clientX;
+
+    });
+
+    image.addEventListener("touchend", e => {
+
+        let endX = e.changedTouches[0].clientX;
+
+        if (startX - endX > 50) {
+
+            current = (current + 1) % gallery.length;
+            showImage();
+
+        }
+
+        if (endX - startX > 50) {
+
+            current = (current - 1 + gallery.length) % gallery.length;
+            showImage();
+
+        }
+
+    });
+
+});
+
 /*==================================
       SIDEBAR ACCORDION
 ==================================*/
