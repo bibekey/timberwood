@@ -1634,6 +1634,10 @@ font-size:32px;
     height:48px;
     font-size:20px;
 }
+.view-overlay p {
+    color:#5c3d2e;
+}
+
 }
 
 /*=========================
