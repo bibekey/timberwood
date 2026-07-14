@@ -515,6 +515,7 @@ MOBILE
     color:#333;
     font-size:12px;
     font-weight:500;
+    outline:none;
     box-shadow:0 2px 6px rgba(0,0,0,.04);
     transition:all .25s ease;
     appearance:none;
@@ -593,7 +594,7 @@ MOBILE
     scrollbar-width:none;
 }
 
-.carousel-container-scrollbar{
+.carousel-container::-webkit-scrollbar{
     display:none;
 }
 
@@ -721,7 +722,7 @@ MOBILE
         padding-bottom:4px;
     }
 
-    .carousel-container-scrollbar{
+    .carousel-container::-webkit-scrollbar{
         display:none;
     }
 
@@ -1296,7 +1297,7 @@ grid-template-columns:repeat(2, minmax(0, 1fr));
     border-radius:40px;
     background:#fff;
     box-shadow:0 5px 15px rgba(0,0,0,.08);
-    
+    outline:none;
     font-size:15px;
     transition:.3s;
 }
@@ -1853,7 +1854,7 @@ color:#222;
 transition:.3s;
 }
 
-.faq-item summary-details-marker{
+.faq-item summary::-webkit-details-marker{
 display:none;
 }
 
@@ -4059,7 +4060,7 @@ CATALOG
     z-index:99;
 }
 
-.catalog-filters-scrollbar{
+.catalog-filters::-webkit-scrollbar{
     display:none;
 }
 
@@ -4103,6 +4104,7 @@ CARD
     transition:.4s;
     cursor:pointer;
     border:1px solid rgba(255,255,255,.05);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .catalog-card:hover{
@@ -4606,7 +4608,7 @@ BLOG
     flex:1;
     padding:18px 20px;
     border:none;
-    
+    outline:none;
     border-radius:60px;
     font-size:15px;
 }
@@ -4811,7 +4813,7 @@ CONTACT
     width:100%;
     padding:18px 22px;
     border:none;
-    
+    outline:none;
     border-radius:18px;
     background:#f5f6fa;
     color:#fff;
@@ -4940,4 +4942,19 @@ CONTACT
 .animate.show{
     opacity:1;
     transform:none;
+}
+
+
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus{
+    outline: none;
+}
+
+button,
+a{
+    -webkit-touch-callout: none;
 }
