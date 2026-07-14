@@ -150,10 +150,23 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </div>
 
 <!-- Project 1 -->
-<div class="projects-card" data-category="Residential" data-type="Living Room">
+<div class="projects-card"
+data-category="Residential"
+data-type="Living Room"
+data-images="
+https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg,
+https://i.pinimg.com/736x/35/b0/79/35b079c70d7acd1c3acc2238c939ba80.jpg,
+https://i.pinimg.com/736x/7e/b8/c6/7eb8c6d323996b42eec933cf4f4bf4e3.jpg">
+
     <div class="project-image">
         <img src="https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg" alt="Living Room">
+
+        <div class="view-overlay">
+            <span>👁</span>
+            <p>View Project</p>
+        </div>
     </div>
+
     <div class="project-info">
         <span>Residential</span>
         <h3>Modern Living Room</h3>
@@ -162,10 +175,23 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </div>
 
 <!-- Project 2 -->
-<div class="projects-card" data-category="Residential" data-type="Bedroom">
+<div class="projects-card"
+data-category="Residential"
+data-type="Bedroom"
+data-images="
+https://i.pinimg.com/736x/35/b0/79/35b079c70d7acd1c3acc2238c939ba80.jpg,
+https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg,
+https://i.pinimg.com/736x/7e/b8/c6/7eb8c6d323996b42eec933cf4f4bf4e3.jpg">
+
     <div class="project-image">
         <img src="https://i.pinimg.com/736x/35/b0/79/35b079c70d7acd1c3acc2238c939ba80.jpg" alt="Bedroom">
+
+        <div class="view-overlay">
+            <span>👁</span>
+            <p>View Project</p>
+        </div>
     </div>
+
     <div class="project-info">
         <span>Residential</span>
         <h3>Luxury Bedroom</h3>
@@ -174,17 +200,29 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 </div>
 
 <!-- Project 3 -->
-<div class="projects-card" data-category="Residential" data-type="Kitchen">
+<div class="projects-card"
+data-category="Residential"
+data-type="Kitchen"
+data-images="
+https://i.pinimg.com/736x/7e/b8/c6/7eb8c6d323996b42eec933cf4f4bf4e3.jpg,
+https://i.pinimg.com/736x/fc/fc/93/fcfc9338d22b86b12b0a19ff53a06370.jpg,
+https://i.pinimg.com/736x/35/b0/79/35b079c70d7acd1c3acc2238c939ba80.jpg">
+
     <div class="project-image">
         <img src="https://i.pinimg.com/736x/7e/b8/c6/7eb8c6d323996b42eec933cf4f4bf4e3.jpg" alt="Kitchen">
+
+        <div class="view-overlay">
+            <span>👁</span>
+            <p>View Project</p>
+        </div>
     </div>
+
     <div class="project-info">
         <span>Residential</span>
         <h3>Contemporary Kitchen</h3>
         <p>Functional modular kitchen with premium storage solutions.</p>
     </div>
 </div>
-
 <!-- Project 4 -->
 <div class="projects-card" data-category="Residential" data-type="Dining">
     <div class="project-image">
@@ -449,6 +487,21 @@ Explore our residential, commercial, hospitality and custom furniture projects c
     </div>
 </div>
 
+<!-- LIGHTBOX -->
+<div class="gallery-lightbox">
+
+    <span class="close-gallery">&times;</span>
+
+    <div class="gallery-counter"></div>
+
+    <button class="gallery-prev">&#10094;</button>
+
+    <img id="galleryImage">
+
+    <button class="gallery-next">&#10095;</button>
+
+</div>
+
 </section>
 
 <!-- CTA -->
@@ -574,6 +627,133 @@ Explore our residential, commercial, hospitality and custom furniture projects c
 
 
 
+<script>
+    const cards=document.querySelectorAll(".projects-card");
+
+const lightbox=document.querySelector(".gallery-lightbox");
+const image=document.getElementById("galleryImage");
+const counter=document.querySelector(".gallery-counter");
+
+let gallery=[];
+let current=0;
+
+cards.forEach(card=>{
+
+card.querySelector(".project-image").onclick=()=>{
+
+gallery=card.dataset.images.split(",");
+
+current=0;
+
+showImage();
+
+lightbox.classList.add("active");
+
+};
+
+});
+
+function showImage(){
+
+image.src=gallery[current].trim();
+
+counter.innerHTML=`${current+1} / ${gallery.length}`;
+
+}
+
+document.querySelector(".gallery-next").onclick=()=>{
+
+current=(current+1)%gallery.length;
+
+showImage();
+
+};
+
+document.querySelector(".gallery-prev").onclick=()=>{
+
+current=(current-1+gallery.length)%gallery.length;
+
+showImage();
+
+};
+
+document.querySelector(".close-gallery").onclick=()=>{
+
+lightbox.classList.remove("active");
+
+};
+
+lightbox.onclick=e=>{
+
+if(e.target===lightbox){
+
+lightbox.classList.remove("active");
+
+}
+
+};
+
+document.addEventListener("keydown",e=>{
+
+if(!lightbox.classList.contains("active")) return;
+
+if(e.key==="ArrowRight"){
+
+current=(current+1)%gallery.length;
+
+showImage();
+
+}
+
+if(e.key==="ArrowLeft"){
+
+current=(current-1+gallery.length)%gallery.length;
+
+showImage();
+
+}
+
+if(e.key==="Escape"){
+
+lightbox.classList.remove("active");
+
+}
+
+});
+
+/* Mobile Swipe */
+
+let startX=0;
+
+image.addEventListener("touchstart",e=>{
+
+startX=e.touches[0].clientX;
+
+});
+
+image.addEventListener("touchend",e=>{
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX-endX>50){
+
+current=(current+1)%gallery.length;
+
+showImage();
+
+}
+
+if(endX-startX>50){
+
+current=(current-1+gallery.length)%gallery.length;
+
+showImage();
+
+}
+
+});
+
+</script>>
 <script src="assets/script.js"></script>
 <script>
 window.__TW_LOADED__ = true;

@@ -1485,6 +1485,154 @@ font-size:32px;
 
 }
 
+.project-image{
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+    border-radius:18px;
+}
+
+.project-image img{
+    width:100%;
+    display:block;
+    transition:.45s;
+}
+
+.project-image:hover img{
+    transform:scale(1.08);
+}
+
+.view-overlay{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    opacity:0;
+    transition:.35s;
+}
+
+.project-image:hover .view-overlay{
+    opacity:1;
+}
+
+.view-overlay span{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#b68d40;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    margin-bottom:12px;
+    transform:scale(.7);
+    transition:.35s;
+}
+
+.project-image:hover .view-overlay span{
+    transform:scale(1);
+}
+
+.view-overlay p{
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+/* Lightbox */
+
+.gallery-lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.96);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.gallery-lightbox.active{
+    display:flex;
+}
+
+.gallery-lightbox img{
+    max-width:90%;
+    max-height:82vh;
+    border-radius:10px;
+}
+
+.close-gallery{
+    position:absolute;
+    top:20px;
+    right:30px;
+    color:#fff;
+    font-size:40px;
+    cursor:pointer;
+}
+
+.gallery-counter{
+    position:absolute;
+    top:25px;
+    left:30px;
+    color:#fff;
+    font-size:18px;
+    background:rgba(255,255,255,.1);
+    padding:8px 18px;
+    border-radius:50px;
+}
+
+.gallery-prev,
+.gallery-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    background:#b68d40;
+    color:#fff;
+    font-size:25px;
+}
+
+.gallery-prev{
+    left:20px;
+}
+
+.gallery-next{
+    right:20px;
+}
+
+@media(max-width:768px){
+
+.gallery-lightbox img{
+    max-width:95%;
+}
+
+.gallery-prev,
+.gallery-next{
+    width:45px;
+    height:45px;
+}
+
+.view-overlay{
+    opacity:1;
+    background:linear-gradient(to top,rgba(0,0,0,.6),transparent);
+    justify-content:flex-end;
+    padding-bottom:20px;
+}
+
+.view-overlay span{
+    width:48px;
+    height:48px;
+    font-size:20px;
+}
+}
+
 /*=========================
 INTERIOR
 =========================*/
