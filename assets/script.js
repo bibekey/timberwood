@@ -22,90 +22,7 @@ menuLinks.forEach(link => {
     });
 });
 
-const lightbox=document.getElementById("lightbox");
-const image=document.getElementById("lightbox-img");
 
-const current=document.getElementById("current");
-const total=document.getElementById("total");
-
-let images=[];
-let index=0;
-
-document.querySelectorAll(".project-card").forEach(card=>{
-
-card.onclick=()=>{
-
-images=card.dataset.images.split(",").map(i=>i.trim());
-
-index=0;
-
-show();
-
-lightbox.classList.add("active");
-
-document.body.style.overflow="hidden";
-
-};
-
-});
-
-function show(){
-
-image.src=images[index];
-
-current.innerHTML=index+1;
-
-total.innerHTML=images.length;
-
-}
-
-document.querySelector(".next").onclick=()=>{
-
-index=(index+1)%images.length;
-
-show();
-
-}
-
-document.querySelector(".prev").onclick=()=>{
-
-index=(index-1+images.length)%images.length;
-
-show();
-
-}
-
-document.querySelector(".lightbox-close").onclick=closeBox;
-
-function closeBox(){
-
-lightbox.classList.remove("active");
-
-document.body.style.overflow="auto";
-
-}
-
-lightbox.onclick=(e)=>{
-
-if(e.target===lightbox){
-
-closeBox();
-
-}
-
-}
-
-document.onkeydown=(e)=>{
-
-if(!lightbox.classList.contains("active")) return;
-
-if(e.key==="ArrowRight") document.querySelector(".next").click();
-
-if(e.key==="ArrowLeft") document.querySelector(".prev").click();
-
-if(e.key==="Escape") closeBox();
-
-}
 /*==================================
 PROJECTS
 ==================================*/
@@ -493,6 +410,90 @@ if (carousel) {
 
 }
 
+const lightbox=document.getElementById("lightbox");
+const image=document.getElementById("lightbox-img");
+
+const current=document.getElementById("current");
+const total=document.getElementById("total");
+
+let images=[];
+let index=0;
+
+document.querySelectorAll(".project-card").forEach(card=>{
+
+card.onclick=()=>{
+
+images=card.dataset.images.split(",").map(i=>i.trim());
+
+index=0;
+
+show();
+
+lightbox.classList.add("active");
+
+document.body.style.overflow="hidden";
+
+};
+
+});
+
+function show(){
+
+image.src=images[index];
+
+current.innerHTML=index+1;
+
+total.innerHTML=images.length;
+
+}
+
+document.querySelector(".next").onclick=()=>{
+
+index=(index+1)%images.length;
+
+show();
+
+}
+
+document.querySelector(".prev").onclick=()=>{
+
+index=(index-1+images.length)%images.length;
+
+show();
+
+}
+
+document.querySelector(".lightbox-close").onclick=closeBox;
+
+function closeBox(){
+
+lightbox.classList.remove("active");
+
+document.body.style.overflow="auto";
+
+}
+
+lightbox.onclick=(e)=>{
+
+if(e.target===lightbox){
+
+closeBox();
+
+}
+
+}
+
+document.onkeydown=(e)=>{
+
+if(!lightbox.classList.contains("active")) return;
+
+if(e.key==="ArrowRight") document.querySelector(".next").click();
+
+if(e.key==="ArrowLeft") document.querySelector(".prev").click();
+
+if(e.key==="Escape") closeBox();
+
+}
 
 /*==================================
 HOME: HERO
