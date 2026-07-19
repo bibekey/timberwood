@@ -478,17 +478,18 @@
     }
 
     /* Stats */
-    .stats{
-        gap:8px;
-        margin-top:18px;
-    }
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:10px;
+    margin-top:18px;
+}
 
-    .stat{
-        flex:1 1 100%;
-        padding:10px 12px;
-        font-size:13px;
-        text-align:center;
-    }
+.stat{
+    padding:10px 12px;
+    font-size:13px;
+    text-align:center;
+}
 
     /* Tabs */
     .tabs{
