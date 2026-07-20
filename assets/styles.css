@@ -142,12 +142,7 @@ MOBILE
 .hero-overlay{
     position:absolute;
     inset:0;
-    background:
-        linear-gradient(
-            rgba(0,0,0,.78),
-            rgba(0,0,0,.78)
-        ),
-        url('https://i.pinimg.com/736x/e8/70/54/e87054986bcbec4f3416f40a058a98b5.jpg') center center/cover no-repeat;
+    background:linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.78)),url('https://i.pinimg.com/1200x/f6/a0/65/f6a06546d3bfa5c8f2fec9331596b6aa.jpg') center center/cover no-repeat;
     filter: brightness(.8) contrast(1.1);
     transform: scale(1.05);
     z-index:1;
