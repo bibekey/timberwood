@@ -4959,6 +4959,11 @@ BLOG
 
     .blog-featured-content h2{
         font-size:34px;
+        text-align:left;
+    }
+
+        .blog-featured-content p{
+        text-align:left;
     }
 
     .blog-newsletter h2{
