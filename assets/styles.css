@@ -1,3 +1,70 @@
+/* ==================================
+   GLOBAL RESET + REMOVE TAP HIGHLIGHT
+================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+    /* Remove mobile tap highlight */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    background:#f6f3ee;
+    color:#222;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* Remove focus outline on touch devices */
+a,
+button,
+input,
+textarea,
+select,
+.menu-btn,
+[role="button"]{
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+}
+
+/* Remove blue outline after tap/click */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.menu-btn:focus{
+    outline:none;
+    box-shadow:none;
+}
+
+/* Keep keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+.menu-btn:focus-visible{
+    outline:2px solid #c89b63;
+    outline-offset:3px;
+}
 
 /* BODY */
 
@@ -510,6 +577,7 @@ MOBILE
     box-shadow:0 2px 6px rgba(0,0,0,.04);
     transition:all .25s ease;
     appearance:none;
+    -webkit-appearance:none;
 }
 
 /* Search Input */
@@ -584,7 +652,7 @@ MOBILE
     scrollbar-width:none;
 }
 
-.carousel-container-scrollbar{
+.carousel-container::-webkit-scrollbar{
     display:none;
 }
 
@@ -712,7 +780,7 @@ MOBILE
         padding-bottom:4px;
     }
 
-    .carousel-container-scrollbar{
+    .carousel-container::-webkit-scrollbar{
         display:none;
     }
 
@@ -2083,7 +2151,7 @@ color:#222;
 transition:.3s;
 }
 
-.faq-item summary-details-marker{
+.faq-item summary::-webkit-details-marker{
 display:none;
 }
 
@@ -4293,7 +4361,7 @@ CATALOG
     z-index:99;
 }
 
-.catalog-filters-scrollbar{
+.catalog-filters::-webkit-scrollbar{
     display:none;
 }
 
@@ -4337,6 +4405,7 @@ CARD
     transition:.4s;
     cursor:pointer;
     border:1px solid rgba(255,255,255,.05);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .catalog-card:hover{
