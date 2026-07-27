@@ -38,7 +38,7 @@ RewriteRule ^ https://rajbanshibibek.com.np [R=302,L]
 RewriteCond %{HTTP_REFERER} !^https?://(www\.)?timberwood\.com\.np/ [NC]
 RewriteCond %{HTTP_REFERER} !^https?://bibekey\.github\.io/timberwood/ [NC]
 RewriteCond %{HTTP_REFERER} !^$
-RewriteRule \.(css|js|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|mp4)$ - [F,L]
+RewriteRule \.(css|js|jpg|jpeg|png|gif|svg|webp|pdf|docx|xlsx|zip|woff|woff2|ttf|mp4)$ - [F,L]
 
 # ==========================================
 # PROTECT HIDDEN FILES
