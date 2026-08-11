@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Furniture Shop - Product Details</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADER */
+header {
+    background: white;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: #155b31;
+    font-size: 24px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.logo span {
+    display: inline-flex;
+    width: 35px;
+    height: 35px;
+    background: #f5b51b;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #155b31;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-button {
+    position: relative;
+    border: 1px solid #ddd;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    background: #155b31;
+    color: white;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 20px;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SEARCH */
+.search-box {
+    display: none;
+    padding: 12px 0;
+    border-top: 1px solid #eee;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* MAIN */
+.breadcrumb {
+    color: #888;
+    font-size: 13px;
+    padding: 25px 0;
+}
+
+.product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* PRODUCT IMAGE */
+.main-image {
+    height: 500px;
+    background: #f7f7f7;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.main-image img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    font-size: 25px;
+    z-index: 2;
+}
+
+.left {
+    left: 15px;
+    background: #155b31;
+    color: white;
+}
+
+.right {
+    right: 15px;
+    background: #f5b51b;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 70px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    background: #f7f7f7;
+    padding: 2px;
+}
+
+.thumbnail.active {
+    border-color: #155b31;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* DETAILS */
+.small-title {
+    color: #999;
+    font-size: 13px;
+}
+
+.title-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 8px 0;
+}
+
+.stock {
+    color: #16834a;
+    background: #e9f8ef;
+    padding: 5px 9px;
+    border-radius: 15px;
+    font-size: 11px;
+}
+
+.rating {
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+.stars {
+    color: #f5b51b;
+}
+
+.price {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.old-price {
+    color: #999;
+    font-size: 15px;
+    text-decoration: line-through;
+    margin-left: 10px;
+}
+
+.description {
+    color: #777;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 22px 0 10px;
+}
+
+.colors {
+    display: flex;
+    gap: 10px;
+}
+
+.color {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid white;
+    outline: 1px solid #ccc;
+}
+
+.color.selected {
+    outline: 3px solid #155b31;
+}
+
+.black { background: black; }
+.brown { background: brown; }
+.red { background: #a51d20; }
+.green { background: #168c78; }
+.blue { background: #1584a4; }
+
+.buy-area {
+    display: flex;
+    gap: 8px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.quantity {
+    display: flex;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 22px;
+    overflow: hidden;
+}
+
+.quantity button {
+    width: 38px;
+    border: none;
+    background: white;
+}
+
+.quantity span {
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border: none;
+    padding: 12px 22px;
+    border-radius: 22px;
+    font-weight: bold;
+}
+
+.cart-button {
+    background: #155b31;
+    color: white;
+}
+
+.buy-button {
+    background: #f5b51b;
+}
+
+.wishlist {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    background: white;
+    font-size: 20px;
+}
+
+.info {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* TABS */
+.tabs {
+    margin-top: 60px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-buttons button {
+    border: none;
+    background: white;
+    padding: 15px 0;
+    color: #888;
+}
+
+.tab-buttons button.active {
+    color: #155b31;
+    border-bottom: 3px solid #155b31;
+}
+
+.tab {
+    display: none;
+    padding: 25px 0;
+}
+
+.tab.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f5b51b;
+    text-align: left;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background: #f5f5f5;
+}
+
+/* RELATED PRODUCTS */
+.related {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.related h2 {
+    margin: 8px 0 25px;
+}
+
+.related h2 span {
+    color: #155b31;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: left;
+}
+
+.card {
+    position: relative;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 8px;
+    background: white;
+}
+
+.card-image {
+    height: 210px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.discount {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #155b31;
+    color: white;
+    padding: 6px 9px;
+    border-radius: 15px;
+    font-size: 10px;
+}
+
+.card h3 {
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+.card p {
+    color: #777;
+    font-size: 12px;
+}
+
+.card-price {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.card-buttons button {
+    flex: 1;
+    padding: 9px;
+    border: none;
+    border-radius: 7px;
+    background: #155b31;
+    color: white;
+    font-size: 12px;
+}
+
+.card-buttons button:last-child {
+    background: #f5b51b;
+    color: #222;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px 0 50px;
+}
+
+.service {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.service-icon {
+    font-size: 28px;
+}
+
+.service h4 {
+    font-size: 14px;
+}
+
+.service p {
+    color: #999;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+/* FOOTER */
+footer {
+    background: #155b31;
+    color: white;
+    padding: 35px 0;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+footer h3 {
+    margin-bottom: 12px;
+}
+
+footer p,
+footer a {
+    color: #dce9df;
+    font-size: 12px;
+    line-height: 2;
+    text-decoration: none;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #ffffff30;
+    margin-top: 25px;
+    padding-top: 18px;
+    font-size: 11px;
+}
+
+/* CART DRAWER */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    z-index: 90;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -430px;
+    width: min(430px, 95%);
+    height: 100vh;
+    background: white;
+    z-index: 100;
+    transition: .3s;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.drawer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.close {
+    border: none;
+    background: none;
+    font-size: 25px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 75px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 70px;
+    object-fit: contain;
+    background: #f7f7f7;
+    border-radius: 8px;
+}
+
+.cart-item h4 {
+    font-size: 13px;
+}
+
+.cart-item p {
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.remove-item {
+    border: none;
+    background: none;
+    color: #d33;
+}
+
+.cart-summary {
+    margin-top: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.total {
+    font-size: 20px;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.checkout-button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #155b31;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* MODALS */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    z-index: 120;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: min(650px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-group {
+    margin-bottom: 13px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 11px;
+    border-radius: 7px;
+}
+
+.form-group textarea {
+    min-height: 75px;
+    resize: vertical;
+}
+
+.payment {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0 20px;
+}
+
+.payment label {
+    flex: 1;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.order-summary {
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.place-order {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #155b31;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.success {
+    text-align: center;
+    padding: 25px 5px;
+}
+
+.success-icon {
+    font-size: 55px;
+    color: #16834a;
+    margin-bottom: 10px;
+}
+
+.order-number {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 12px 0;
+}
+
+.small-button {
+    border: none;
+    padding: 9px 14px;
+    border-radius: 7px;
+    background: #eee;
+    margin-top: 10px;
+}
+
+/* TOAST */
+.message {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    display: none;
+    z-index: 200;
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+    nav {
+        display: none;
+    }
+
+    .product {
+        grid-template-columns: 1fr;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        min-height: 65px;
+    }
+
+    .main-image {
+        height: 350px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .products {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .card-image {
+        height: 150px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .payment {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container header">
+
+        <div class="logo">
+            <span>F</span> Furniture.
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#product">Shop</a>
+            <a href="#related">Products</a>
+            <a href="#footer">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="header-button" onclick="toggleSearch()">⌕</button>
+
+            <button class="header-button" onclick="openOrders()">📦</button>
+
+            <button class="header-button" onclick="openCart()">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="search-box" id="searchBox">
+        <div class="container">
+            <input type="text"
+                   id="searchInput"
+                   placeholder="Search products..."
+                   oninput="searchProducts()">
+        </div>
+    </div>
+</header>
+
+
+<div class="container" id="home">
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        Home / Shop / Chair / Product Details
+    </div>
+
+
+    <!-- PRODUCT -->
+    <section class="product" id="product">
+
+        <!-- IMAGE -->
+        <div>
+
+            <div class="main-image">
+
+                <button class="arrow left" onclick="previousImage()">‹</button>
+
+                <img id="mainImage"
+                     src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=700&q=80"
+                     alt="Gaming Chair">
+
+                <button class="arrow right" onclick="nextImage()">›</button>
+
+            </div>
+
+            <div class="thumbnails">
+
+                <button class="thumbnail active" onclick="changeImage(0)">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=300&q=80">
+                </button>
+
+                <button class="thumbnail" onclick="changeImage(1)">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=300&q=80">
+                </button>
+
+                <button class="thumbnail" onclick="changeImage(2)">
+                    <img src="https://images.unsplash.com/photo-1616627983736-8c3f6a5b7c48?auto=format&fit=crop&w=300&q=80">
+                </button>
+
+                <button class="thumbnail" onclick="changeImage(3)">
+                    <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=300&q=80">
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- DETAILS -->
+        <div>
+
+            <div class="small-title">Chair</div>
+
+            <div class="title-line">
+                <h1>Red Gaming Chair</h1>
+                <span class="stock">In Stock</span>
+            </div>
+
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                4.8 (25 Reviews)
+            </div>
+
+            <div class="price">
+                $90.00
+                <span class="old-price">$100.00</span>
+            </div>
+
+            <p class="description">
+                A comfortable and stylish gaming chair designed for
+                home, office and gaming use. Strong construction,
+                comfortable seating and modern design.
+            </p>
+
+            <div class="label">
+                Color: <span id="selectedColor">Black</span>
+            </div>
+
+            <div class="colors">
+
+                <button class="color black selected"
+                        onclick="selectColor('Black', this)"></button>
+
+                <button class="color brown"
+                        onclick="selectColor('Brown', this)"></button>
+
+                <button class="color red"
+                        onclick="selectColor('Red', this)"></button>
+
+                <button class="color green"
+                        onclick="selectColor('Green', this)"></button>
+
+                <button class="color blue"
+                        onclick="selectColor('Blue', this)"></button>
+
+            </div>
+
+            <div class="buy-area">
+
+                <div class="quantity">
+                    <button onclick="changeQuantity(-1)">−</button>
+                    <span id="quantity">1</span>
+                    <button onclick="changeQuantity(1)">+</button>
+                </div>
+
+                <button class="button cart-button" onclick="addMainProductToCart()">
+                    Add To Cart
+                </button>
+
+                <button class="button buy-button" onclick="buyMainProduct()">
+                    Buy Now
+                </button>
+
+                <button class="wishlist" onclick="toggleWishlist(this)">
+                    ♡
+                </button>
+
+            </div>
+
+            <div class="info">
+                <b>SKU:</b> FNGC8766-ABC<br>
+                <b>Tags:</b> Furniture, Office, Gaming Chair, Chair<br>
+                <b>Delivery:</b> Available for home delivery
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TABS -->
+    <section class="tabs">
+
+        <div class="tab-buttons">
+
+            <button onclick="openTab('description', this)">
+                Description
+            </button>
+
+            <button class="active" onclick="openTab('additional', this)">
+                Additional Information
+            </button>
+
+            <button onclick="openTab('review', this)">
+                Review
+            </button>
+
+        </div>
+
+
+        <div id="description" class="tab">
+            <p class="description">
+                This gaming chair is designed for comfortable long
+                working and gaming sessions. It has a modern design
+                suitable for bedrooms, offices and gaming rooms.
+            </p>
+        </div>
+
+
+        <div id="additional" class="tab active">
+
+            <table>
+                <tr>
+                    <th>Feature</th>
+                    <th>Description</th>
+                </tr>
+
+                <tr>
+                    <td>Seat Material</td>
+                    <td>Leather</td>
+                </tr>
+
+                <tr>
+                    <td>Color</td>
+                    <td>Black, Brown, Red, Green, Blue</td>
+                </tr>
+
+                <tr>
+                    <td>Item Weight</td>
+                    <td>25 Kilograms</td>
+                </tr>
+
+                <tr>
+                    <td>Dimensions</td>
+                    <td>29"W × 29"D × 46"H</td>
+                </tr>
+
+                <tr>
+                    <td>Frame</td>
+                    <td>Iron</td>
+                </tr>
+            </table>
+
+        </div>
+
+
+        <div id="review" class="tab">
+
+            <h3>Customer Reviews</h3>
+
+            <p style="margin-top:10px;">
+                ⭐⭐⭐⭐⭐ 4.8 / 5
+            </p>
+
+            <p style="margin-top:10px;">
+                Very comfortable and good quality chair.
+            </p>
+
+            <button class="button cart-button" style="margin-top:15px;"
+                    onclick="showMessage('Review form can be connected to your database later.')">
+                Write a Review
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RELATED PRODUCTS -->
+    <section class="related" id="related">
+
+        <p>— Related Products —</p>
+
+        <h2>
+            Explore <span>Related Products</span>
+        </h2>
+
+        <div class="products">
+
+            <div class="card product-card" data-name="Swivel Chair">
+
+                <span class="discount">50% off</span>
+
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1541558869434-2840d308329a?auto=format&fit=crop&w=500&q=80">
+                </div>
+
+                <p>Chair</p>
+                <h3>Swivel Chair</h3>
+                <div class="card-price">$60.00</div>
+
+                <div class="card-buttons">
+                    <button onclick="addProduct('Swivel Chair', 60, this)">
+                        Add
+                    </button>
+                    <button onclick="buyProduct('Swivel Chair', 60)">
+                        Buy
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="card product-card" data-name="Circular Sofa Chair">
+
+                <span class="discount">40% off</span>
+
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=500&q=80">
+                </div>
+
+                <p>Chair</p>
+                <h3>Circular Sofa Chair</h3>
+                <div class="card-price">$108.00</div>
+
+                <div class="card-buttons">
+                    <button onclick="addProduct('Circular Sofa Chair', 108, this)">
+                        Add
+                    </button>
+                    <button onclick="buyProduct('Circular Sofa Chair', 108)">
+                        Buy
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="card product-card" data-name="Brown Swivel Chair">
+
+                <span class="discount">50% off</span>
+
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=500&q=80">
+                </div>
+
+                <p>Chair</p>
+                <h3>Brown Swivel Chair</h3>
+                <div class="card-price">$90.00</div>
+
+                <div class="card-buttons">
+                    <button onclick="addProduct('Brown Swivel Chair', 90, this)">
+                        Add
+                    </button>
+                    <button onclick="buyProduct('Brown Swivel Chair', 90)">
+                        Buy
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="card product-card" data-name="Wingback Chair">
+
+                <span class="discount">20% off</span>
+
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=500&q=80">
+                </div>
+
+                <p>Chair</p>
+                <h3>Wingback Chair</h3>
+                <div class="card-price">$160.00</div>
+
+                <div class="card-buttons">
+                    <button onclick="addProduct('Wingback Chair', 160, this)">
+                        Add
+                    </button>
+                    <button onclick="buyProduct('Wingback Chair', 160)">
+                        Buy
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="services">
+
+        <div class="service">
+            <div class="service-icon">📦</div>
+            <div>
+                <h4>Delivery</h4>
+                <p>Home delivery available</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">💳</div>
+            <div>
+                <h4>Flexible Payment</h4>
+                <p>Cash on delivery and online payment</p>
+            </div>
+        </div>
+
+        <div class="service">
+            <div class="service-icon">🎧</div>
+            <div>
+                <h4>Customer Support</h4>
+                <p>Contact us for help with your order</p>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer id="footer">
+
+    <div class="container footer">
+
+        <div>
+            <h3>Furniture.</h3>
+            <p>
+                Modern furniture for comfortable
+                living and working.
+            </p>
+        </div>
+
+        <div>
+            <h3>Company</h3>
+            <a href="#home">Home</a><br>
+            <a href="#related">Products</a>
+        </div>
+
+        <div>
+            <h3>Customer</h3>
+            <a href="#" onclick="openOrders(); return false;">My Orders</a><br>
+            <a href="#" onclick="openCart(); return false;">My Cart</a>
+        </div>
+
+        <div>
+            <h3>Information</h3>
+            <a href="#">Privacy</a><br>
+            <a href="#">Terms</a>
+        </div>
+
+    </div>
+
+    <div class="container copyright">
+        © 2026 Furniture. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<!-- DARK OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+
+<!-- CART DRAWER -->
+<div class="cart-drawer" id="cartDrawer">
+
+    <div class="drawer-head">
+        <h2>My Cart</h2>
+        <button class="close" onclick="closeCart()">×</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-summary">
+
+        <div class="summary-line">
+            <span>Subtotal</span>
+            <b id="cartSubtotal">$0.00</b>
+        </div>
+
+        <div class="summary-line">
+            <span>Delivery</span>
+            <b id="deliveryFee">$0.00</b>
+        </div>
+
+        <div class="summary-line total">
+            <span>Total</span>
+            <b id="cartTotal">$0.00</b>
+        </div>
+
+        <button class="checkout-button" onclick="openCheckout()">
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- CHECKOUT MODAL -->
+<div class="modal" id="checkoutModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>Checkout</h2>
+            <button class="close" onclick="closeCheckout()">×</button>
+        </div>
+
+        <div id="checkoutContent">
+
+            <div class="order-summary">
+                <b>Order Summary</b>
+                <div id="checkoutItems" style="margin-top:10px;"></div>
+
+                <div class="summary-line total">
+                    <span>Total</span>
+                    <b id="checkoutTotal">$0.00</b>
+                </div>
+            </div>
+
+            <form id="orderForm" onsubmit="placeOrder(event)">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number *</label>
+                        <input type="tel" id="customerPhone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="customerEmail">
+                    </div>
+
+                    <div class="form-group">
+                        <label>City *</label>
+                        <input type="text" id="customerCity" required>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Delivery Address *</label>
+                        <textarea id="customerAddress" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Delivery Method</label>
+                        <select id="deliveryMethod">
+                            <option value="home">Home Delivery</option>
+                            <option value="pickup">Store Pickup</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Payment Method</label>
+                        <select id="paymentMethod">
+                            <option value="cod">Cash on Delivery</option>
+                            <option value="online">Online Payment</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <p style="font-size:11px;color:#777;margin:10px 0;">
+                    After placing the order, your order details are sent directly to the shop.
+                </p>
+
+                <button class="place-order" type="submit">
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+        <div id="orderSuccess" style="display:none;" class="success">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Order Placed Successfully!</h2>
+
+            <div class="order-number" id="newOrderNumber"></div>
+
+            <p>
+                Thank you for your order. We saved your order
+                in this browser so you can view it later.
+            </p>
+            <button class="small-button" onclick="closeCheckout(); openOrders();">
+                View My Orders
+            </button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ORDERS MODAL -->
+<div class="modal" id="ordersModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <h2>My Orders</h2>
+            <button class="close" onclick="closeOrders()">×</button>
+        </div>
+
+        <div id="ordersList"></div>
+
+    </div>
+
+</div>
+
+
+<!-- MESSAGE -->
+<div class="message" id="message"></div>
+
+
+<script>
+
+
+/* =========================
+   SHOP CONTACT SETTINGS
+   CHANGE THESE TWO VALUES
+========================= */
+
+var SHOP_EMAIL = "bbbbbibek5@gmail.com";
+var SHOP_WHATSAPP = "+9779829312825"; // Country code + number, no + sign
+
+/* =========================
+   AUTOMATIC ORDER EMAIL
+   PHP file: send-order.php
+   Shop email: bbbbbibek5@gmail.com
+========================= */
+
+/* =========================
+   PRODUCT DATA
+========================= */
+
+var mainProduct = {
+    name: "Red Gaming Chair",
+    price: 90,
+    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=700&q=80"
+};
+
+var images = [
+    "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1616627983736-8c3f6a5b7c48?auto=format&fit=crop&w=700&q=80",
+    "https://images.unsplash.com/photo-1592078615290-033ee584e267?auto=format&fit=crop&w=700&q=80"
+];
+
+var currentImage = 0;
+
+
+/* =========================
+   CART
+========================= */
+
+var cart = JSON.parse(localStorage.getItem("furnitureCart")) || [];
+var orders = JSON.parse(localStorage.getItem("furnitureOrders")) || [];
+
+
+function saveCart() {
+    localStorage.setItem("furnitureCart", JSON.stringify(cart));
+}
+
+
+function addProduct(name, price, button) {
+
+    var image = button
+        .closest(".card")
+        .querySelector("img")
+        .src;
+
+    addToCart(name, price, image, 1);
+
+    showMessage(name + " added to cart");
+}
+
+
+function addMainProductToCart() {
+
+    var quantity = parseInt(document.getElementById("quantity").innerText);
+    var color = document.getElementById("selectedColor").innerText;
+
+    addToCart(
+        mainProduct.name + " - " + color,
+        mainProduct.price,
+        mainProduct.image,
+        quantity
+    );
+
+    showMessage("Product added to cart");
+}
+
+
+function addToCart(name, price, image, quantity) {
+
+    var existing = cart.find(function(item) {
+        return item.name === name;
+    });
+
+    if (existing) {
+        existing.quantity += quantity;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            image: image,
+            quantity: quantity
+        });
+    }
+
+    saveCart();
+    updateCart();
+}
+
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+    updateCart();
+}
+
+
+function changeCartQuantity(index, number) {
+
+    cart[index].quantity += number;
+
+    if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+    }
+
+    saveCart();
+    updateCart();
+}
+
+
+function getSubtotal() {
+
+    var total = 0;
+
+    cart.forEach(function(item) {
+        total += item.price * item.quantity;
+    });
+
+    return total;
+}
+
+
+function getDeliveryFee() {
+
+    if (cart.length === 0) {
+        return 0;
+    }
+
+    return getSubtotal() >= 100 ? 0 : 5;
+}
+
+
+function getTotal() {
+    return getSubtotal() + getDeliveryFee();
+}
+
+
+/* =========================
+   DISPLAY CART
+========================= */
+
+function updateCart() {
+
+    var container = document.getElementById("cartItems");
+    var count = document.getElementById("cartCount");
+
+    var itemCount = 0;
+
+    cart.forEach(function(item) {
+        itemCount += item.quantity;
+    });
+
+    count.innerText = itemCount;
+
+    if (cart.length === 0) {
+
+        container.innerHTML =
+            "<p style='padding:30px 0;color:#777;text-align:center;'>" +
+            "Your cart is empty." +
+            "</p>";
+
+    } else {
+
+        container.innerHTML = "";
+
+        cart.forEach(function(item, index) {
+
+            container.innerHTML += `
+                <div class="cart-item">
+
+                    <img src="${item.image}" alt="${item.name}">
+
+                    <div>
+                        <h4>${item.name}</h4>
+                        <p>$${item.price.toFixed(2)} × ${item.quantity}</p>
+
+                        <div style="margin-top:7px;">
+                            <button onclick="changeCartQuantity(${index}, -1)">−</button>
+                            ${item.quantity}
+                            <button onclick="changeCartQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+
+                    <button class="remove-item"
+                            onclick="removeFromCart(${index})">
+                        Remove
+                    </button>
+
+                </div>
+            `;
+        });
+    }
+
+    document.getElementById("cartSubtotal").innerText =
+        "$" + getSubtotal().toFixed(2);
+
+    document.getElementById("deliveryFee").innerText =
+        getDeliveryFee() === 0 ? "Free" : "$" + getDeliveryFee().toFixed(2);
+
+    document.getElementById("cartTotal").innerText =
+        "$" + getTotal().toFixed(2);
+}
+
+
+/* =========================
+   CART OPEN / CLOSE
+========================= */
+
+function openCart() {
+    document.getElementById("cartDrawer").classList.add("open");
+    document.getElementById("overlay").classList.add("show");
+    updateCart();
+}
+
+
+function closeCart() {
+    document.getElementById("cartDrawer").classList.remove("open");
+    document.getElementById("overlay").classList.remove("show");
+}
+
+
+/* =========================
+   BUY NOW
+========================= */
+
+function buyMainProduct() {
+
+    cart = [];
+
+    var quantity = parseInt(document.getElementById("quantity").innerText);
+    var color = document.getElementById("selectedColor").innerText;
+
+    cart.push({
+        name: mainProduct.name + " - " + color,
+        price: mainProduct.price,
+        image: mainProduct.image,
+        quantity: quantity
+    });
+
+    saveCart();
+    updateCart();
+    openCheckout();
+}
+
+
+function buyProduct(name, price) {
+
+    cart = [];
+
+    cart.push({
+        name: name,
+        price: price,
+        image: "",
+        quantity: 1
+    });
+
+    saveCart();
+    updateCart();
+    openCheckout();
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function openCheckout() {
+
+    if (cart.length === 0) {
+        showMessage("Your cart is empty");
+        return;
+    }
+
+    closeCart();
+
+    document.getElementById("checkoutModal").classList.add("show");
+
+    document.getElementById("checkoutContent").style.display = "block";
+    document.getElementById("orderSuccess").style.display = "none";
+
+    showCheckoutItems();
+}
+
+
+function closeCheckout() {
+    document.getElementById("checkoutModal").classList.remove("show");
+}
+
+
+function showCheckoutItems() {
+
+    var container = document.getElementById("checkoutItems");
+
+    container.innerHTML = "";
+
+    cart.forEach(function(item) {
+
+        container.innerHTML += `
+            <div class="summary-line">
+                <span>${item.name} × ${item.quantity}</span>
+                <b>$${(item.price * item.quantity).toFixed(2)}</b>
+            </div>
+        `;
+
+    });
+
+    container.innerHTML += `
+        <div class="summary-line">
+            <span>Delivery</span>
+            <b>${getDeliveryFee() === 0 ? "Free" : "$" + getDeliveryFee().toFixed(2)}</b>
+        </div>
+    `;
+
+    document.getElementById("checkoutTotal").innerText =
+        "$" + getTotal().toFixed(2);
+}
+
+
+/* =========================
+   PLACE ORDER
+========================= */
+
+function placeOrder(event) {
+
+    event.preventDefault();
+
+    if (cart.length === 0) {
+        showMessage("Your cart is empty");
+        return;
+    }
+
+    var button = document.querySelector(
+        '#orderForm .place-order'
+    );
+
+    var originalButtonText = button
+        ? button.innerText
+        : "Place Order";
+
+    if (button) {
+        button.disabled = true;
+        button.innerText = "Sending Order...";
+    }
+
+    var orderNumber =
+        "ORD-" +
+        new Date().getFullYear() +
+        "-" +
+        Math.floor(100000 + Math.random() * 900000);
+
+    var customer = {
+        name: document.getElementById("customerName").value.trim(),
+        phone: document.getElementById("customerPhone").value.trim(),
+        email: document.getElementById("customerEmail").value.trim(),
+        city: document.getElementById("customerCity").value.trim(),
+        address: document.getElementById("customerAddress").value.trim(),
+        delivery: document.getElementById("deliveryMethod").value,
+        payment: document.getElementById("paymentMethod").value
+    };
+
+    var formData = new FormData();
+
+    formData.append("name", customer.name);
+    formData.append("phone", customer.phone);
+    formData.append("email", customer.email);
+    formData.append("city", customer.city);
+    formData.append("address", customer.address);
+
+    /* These names match send-order.php */
+    formData.append("delivery", customer.delivery);
+    formData.append("payment", customer.payment);
+
+    formData.append("order_number", orderNumber);
+    formData.append(
+        "order_date",
+        new Date().toLocaleString()
+    );
+
+    formData.append(
+        "items",
+        JSON.stringify(cart)
+    );
+
+    formData.append(
+        "subtotal",
+        getSubtotal().toFixed(2)
+    );
+
+    formData.append(
+        "delivery_fee",
+        getDeliveryFee().toFixed(2)
+    );
+
+    formData.append(
+        "total",
+        getTotal().toFixed(2)
+    );
+
+
+    /*
+       IMPORTANT:
+       Both index.html and send-order.php are inside public_html.
+
+       The leading / makes the request go to:
+       https://your-domain.com/send-order.php
+    */
+    fetch("/send-order.php", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    })
+
+    .then(function(response) {
+
+        return response.text().then(function(text) {
+
+            if (!response.ok) {
+                throw new Error(
+                    "Server error " +
+                    response.status +
+                    ": " +
+                    text.substring(0, 200)
+                );
+            }
+
+            try {
+                return JSON.parse(text);
+            } catch (e) {
+                throw new Error(
+                    "PHP did not return JSON. " +
+                    "Check send-order.php and cPanel PHP errors."
+                );
+            }
+        });
+    })
+
+    .then(function(result) {
+
+        if (!result.success) {
+            throw new Error(
+                result.message ||
+                "The server could not process the order."
+            );
+        }
+
+
+        /* Save only after PHP confirms success */
+        var order = {
+            number: result.order_number || orderNumber,
+            date: new Date().toLocaleString(),
+            customer: customer,
+            items: cart.slice(),
+            total: getTotal(),
+            status: "Order Received"
+        };
+
+        orders.unshift(order);
+
+        localStorage.setItem(
+            "furnitureOrders",
+            JSON.stringify(orders)
+        );
+
+
+        /* Empty cart */
+        cart = [];
+
+        saveCart();
+        updateCart();
+
+
+        /* Reset checkout */
+        document.getElementById("orderForm").reset();
+
+
+        /* Show success */
+        document.getElementById("checkoutContent").style.display =
+            "none";
+
+        document.getElementById("orderSuccess").style.display =
+            "block";
+
+        document.getElementById("newOrderNumber").innerText =
+            order.number;
+
+
+        showMessage(
+            "Order sent successfully!"
+        );
+    })
+
+    .catch(function(error) {
+
+        console.error("Order error:", error);
+
+        alert(
+            "Order could not be sent.\n\n" +
+            error.message +
+            "\n\n" +
+            "Make sure send-order.php is uploaded directly inside public_html."
+        );
+
+    })
+
+    .finally(function() {
+
+        if (button) {
+            button.disabled = false;
+            button.innerText = originalButtonText;
+        }
+    });
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+function openOrders() {
+
+    document.getElementById("ordersModal").classList.add("show");
+
+    displayOrders();
+}
+
+
+function closeOrders() {
+
+    document.getElementById("ordersModal").classList.remove("show");
+}
+
+
+function displayOrders() {
+
+    var container = document.getElementById("ordersList");
+
+    if (orders.length === 0) {
+
+        container.innerHTML =
+            "<p style='color:#777;'>You have no orders yet.</p>";
+
+        return;
+    }
+
+    container.innerHTML = "";
+
+    orders.forEach(function(order) {
+
+        var items = "";
+
+        order.items.forEach(function(item) {
+            items += item.name + " × " + item.quantity + "<br>";
+        });
+
+        container.innerHTML += `
+            <div style="
+                border:1px solid #eee;
+                border-radius:8px;
+                padding:15px;
+                margin-bottom:12px;
+            ">
+
+                <b>${order.number}</b>
+
+                <p style="color:#777;font-size:12px;margin:6px 0;">
+                    ${order.date}
+                </p>
+
+                <p style="font-size:13px;line-height:1.7;">
+                    ${items}
+                </p>
+
+                <p style="margin-top:8px;">
+                    <b>Total: $${order.total.toFixed(2)}</b>
+                </p>
+
+                <p style="color:#155b31;margin-top:5px;">
+                    Status: ${order.status}
+                </p>
+
+            </div>
+        `;
+    });
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+function changeImage(number) {
+
+    currentImage = number;
+
+    document.getElementById("mainImage").src =
+        images[number];
+
+    var thumbs =
+        document.querySelectorAll(".thumbnail");
+
+    thumbs.forEach(function(item) {
+        item.classList.remove("active");
+    });
+
+    thumbs[number].classList.add("active");
+}
+
+
+function nextImage() {
+
+    currentImage++;
+
+    if (currentImage >= images.length) {
+        currentImage = 0;
+    }
+
+    changeImage(currentImage);
+}
+
+
+function previousImage() {
+
+    currentImage--;
+
+    if (currentImage < 0) {
+        currentImage = images.length - 1;
+    }
+
+    changeImage(currentImage);
+}
+
+
+/* =========================
+   COLOR
+========================= */
+
+function selectColor(color, button) {
+
+    document.getElementById("selectedColor").innerText =
+        color;
+
+    document.querySelectorAll(".color").forEach(function(item) {
+        item.classList.remove("selected");
+    });
+
+    button.classList.add("selected");
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+function changeQuantity(number) {
+
+    var quantity =
+        document.getElementById("quantity");
+
+    var value =
+        parseInt(quantity.innerText);
+
+    value += number;
+
+    if (value < 1) {
+        value = 1;
+    }
+
+    quantity.innerText = value;
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function toggleWishlist(button) {
+
+    if (button.innerText === "♡") {
+
+        button.innerText = "♥";
+        button.style.color = "red";
+
+        showMessage("Added to wishlist");
+
+    } else {
+
+        button.innerText = "♡";
+        button.style.color = "black";
+
+        showMessage("Removed from wishlist");
+    }
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+function openTab(tabName, button) {
+
+    document.querySelectorAll(".tab").forEach(function(tab) {
+        tab.classList.remove("active");
+    });
+
+    document.querySelectorAll(".tab-buttons button").forEach(function(item) {
+        item.classList.remove("active");
+    });
+
+    document.getElementById(tabName).classList.add("active");
+
+    button.classList.add("active");
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function toggleSearch() {
+
+    var search =
+        document.getElementById("searchBox");
+
+    if (search.style.display === "block") {
+        search.style.display = "none";
+    } else {
+        search.style.display = "block";
+        document.getElementById("searchInput").focus();
+    }
+}
+
+
+function searchProducts() {
+
+    var text =
+        document.getElementById("searchInput").value.toLowerCase();
+
+    document.querySelectorAll(".product-card").forEach(function(card) {
+
+        var name =
+            card.getAttribute("data-name").toLowerCase();
+
+        if (name.includes(text)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(text) {
+
+    var message =
+        document.getElementById("message");
+
+    message.innerText = text;
+    message.style.display = "block";
+
+    setTimeout(function() {
+        message.style.display = "none";
+    }, 2000);
+}
+
+
+
+/* START */
+updateCart();
+
+</script>
+
+</body>
+</html>
