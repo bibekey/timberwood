@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TimberWood Furniture Shop</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#fff;
+    color:#29231f;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+}
+
+
+/* =========================
+   COLORS
+========================= */
+
+:root{
+    --brown:#3b2a20;
+    --dark:#241812;
+    --gold:#b68d40;
+    --cream:#f7f3ed;
+    --border:#e4ddd4;
+    --text:#29231f;
+    --muted:#777;
+    --red:#b43c34;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:var(--dark);
+    color:#fff;
+    font-size:12px;
+    padding:8px 0;
+    text-align:center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+}
+
+.header{
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    text-decoration:none;
+    color:var(--brown);
+}
+
+.logo strong{
+    font-family:Georgia,serif;
+    font-size:24px;
+}
+
+.logo small{
+    display:block;
+    font-size:8px;
+    color:var(--gold);
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    flex:1;
+    max-width:600px;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    height:44px;
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:0 45px 0 15px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:var(--gold);
+}
+
+.search-button{
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:34px;
+    height:34px;
+    border:0;
+    background:var(--cream);
+    border-radius:5px;
+}
+
+
+/* =========================
+   HEADER BUTTONS
+========================= */
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.icon-button{
+    width:40px;
+    height:40px;
+    border:1px solid var(--border);
+    background:#fff;
+    border-radius:50%;
+    position:relative;
+}
+
+.icon-button:hover{
+    border-color:var(--gold);
+}
+
+.cart-count{
+    position:absolute;
+    top:-5px;
+    right:-3px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:var(--brown);
+    color:#fff;
+    font-size:9px;
+    display:grid;
+    place-items:center;
+}
+
+
+/* =========================
+   CATEGORY MENU
+========================= */
+
+.categories{
+    border-bottom:1px solid var(--border);
+    background:#fff;
+}
+
+.category-list{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:14px 0;
+}
+
+.category-list button{
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--brown);
+    padding:9px 17px;
+    border-radius:25px;
+    white-space:nowrap;
+    font-size:12px;
+}
+
+.category-list button:hover,
+.category-list button.active{
+    background:var(--brown);
+    color:#fff;
+    border-color:var(--brown);
+}
+
+
+/* =========================
+   SHOP HEADER
+========================= */
+
+.shop-header{
+    padding:35px 0 20px;
+}
+
+.shop-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+}
+
+.shop-title h1{
+    font-family:Georgia,serif;
+    font-size:34px;
+    font-weight:normal;
+    color:var(--brown);
+}
+
+.shop-title p{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:5px;
+}
+
+.sort-box select{
+    height:40px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:0 12px;
+    background:#fff;
+}
+
+
+/* =========================
+   FILTER BAR
+========================= */
+
+.filter-bar{
+    display:flex;
+    gap:8px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.filter-button{
+    border:1px solid var(--border);
+    background:#fff;
+    padding:9px 15px;
+    border-radius:6px;
+    font-size:11px;
+}
+
+.filter-button:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.product-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card{
+    border:1px solid var(--border);
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    transition:.25s;
+}
+
+.product-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,.09);
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.product-image{
+    height:280px;
+    background:var(--cream);
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    height:100%;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   BADGES
+========================= */
+
+.badge{
+    position:absolute;
+    top:12px;
+    left:12px;
+    z-index:2;
+    background:var(--brown);
+    color:#fff;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:9px;
+}
+
+.badge.sale{
+    background:var(--red);
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+.wishlist{
+    position:absolute;
+    right:12px;
+    top:12px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    font-size:18px;
+    z-index:3;
+}
+
+.wishlist.active{
+    color:var(--red);
+}
+
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.product-info{
+    padding:15px;
+}
+
+.product-category{
+    font-size:9px;
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.product-name{
+    font-size:15px;
+    color:var(--brown);
+    margin:5px 0;
+}
+
+.product-code{
+    font-size:10px;
+    color:#999;
+}
+
+.rating{
+    color:var(--gold);
+    font-size:11px;
+    margin:7px 0;
+}
+
+.rating span{
+    color:#888;
+}
+
+.price{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:8px 0 13px;
+}
+
+.current-price{
+    font-size:16px;
+    font-weight:bold;
+    color:var(--brown);
+}
+
+.old-price{
+    font-size:11px;
+    color:#999;
+    text-decoration:line-through;
+}
+
+
+/* =========================
+   PRODUCT BUTTONS
+========================= */
+
+.product-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+}
+
+.product-buttons button{
+    height:38px;
+    border-radius:6px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.add-cart{
+    border:0;
+    background:var(--brown);
+    color:#fff;
+}
+
+.view{
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--brown);
+}
+
+.add-cart:hover{
+    background:var(--dark);
+}
+
+
+/* =========================
+   LOAD MORE
+========================= */
+
+.load-more{
+    text-align:center;
+    padding:45px 0 70px;
+}
+
+.load-more button{
+    border:1px solid var(--brown);
+    background:#fff;
+    color:var(--brown);
+    padding:13px 30px;
+    border-radius:6px;
+    font-size:12px;
+}
+
+.load-more button:hover{
+    background:var(--brown);
+    color:#fff;
+}
+
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    z-index:200;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart{
+    position:fixed;
+    right:-430px;
+    top:0;
+    width:420px;
+    max-width:95%;
+    height:100vh;
+    background:#fff;
+    z-index:300;
+    padding:20px;
+    overflow-y:auto;
+    transition:.3s;
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--border);
+    padding-bottom:15px;
+}
+
+.cart-header h2{
+    font-family:Georgia,serif;
+    font-weight:normal;
+}
+
+.close-cart{
+    border:0;
+    background:none;
+    font-size:28px;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:70px 1fr auto;
+    gap:10px;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    background:var(--cream);
+    border-radius:7px;
+}
+
+.cart-item h4{
+    font-size:12px;
+}
+
+.cart-item p{
+    font-size:11px;
+    color:#777;
+}
+
+.remove{
+    border:0;
+    background:none;
+    color:var(--red);
+    font-size:10px;
+}
+
+.cart-total{
+    border-top:1px solid var(--border);
+    margin-top:20px;
+    padding-top:20px;
+}
+
+.total{
+    display:flex;
+    justify-content:space-between;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.checkout{
+    width:100%;
+    height:45px;
+    border:0;
+    background:var(--brown);
+    color:#fff;
+    margin-top:15px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    left:50%;
+    transform:translateX(-50%);
+    background:var(--dark);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:25px;
+    font-size:11px;
+    display:none;
+    z-index:500;
+}
+
+.toast.show{
+    display:block;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .header{
+        flex-wrap:wrap;
+        padding:12px 0;
+    }
+
+    .logo{
+        flex:1;
+    }
+
+    .search-box{
+        order:3;
+        flex-basis:100%;
+        max-width:none;
+    }
+
+    .shop-title{
+        align-items:start;
+        flex-direction:column;
+    }
+
+    .shop-title h1{
+        font-size:28px;
+    }
+
+    .sort-box{
+        width:100%;
+    }
+
+    .sort-box select{
+        width:100%;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-image{
+        height:190px;
+    }
+
+    .product-info{
+        padding:10px;
+    }
+
+    .product-name{
+        font-size:13px;
+    }
+
+    .product-buttons{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<div class="topbar">
+    Free Delivery Available | Shop Premium Furniture
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="container header">
+
+    <a href="#" class="logo">
+
+        <strong>TimberWood</strong>
+
+        <small>
+            FURNITURE & INTERIORS
+        </small>
+
+    </a>
+
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Search furniture..."
+            oninput="searchProducts()"
+        >
+
+        <button class="search-button">
+            🔍
+        </button>
+
+    </div>
+
+
+    <div class="header-buttons">
+
+        <button class="icon-button">
+            ♡
+        </button>
+
+        <button
+            class="icon-button"
+            onclick="openCart()"
+        >
+
+            🛒
+
+            <span
+                class="cart-count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<div class="categories">
+
+<div class="container">
+
+<div class="category-list">
+
+    <button
+        class="active"
+        onclick="filterCategory('all',this)"
+    >
+        All Products
+    </button>
+
+    <button
+        onclick="filterCategory('sofa',this)"
+    >
+        Sofa
+    </button>
+
+    <button
+        onclick="filterCategory('bed',this)"
+    >
+        Bed
+    </button>
+
+    <button
+        onclick="filterCategory('dining',this)"
+    >
+        Dining
+    </button>
+
+    <button
+        onclick="filterCategory('chair',this)"
+    >
+        Chairs
+    </button>
+
+    <button
+        onclick="filterCategory('office',this)"
+    >
+        Office
+    </button>
+
+    <button
+        onclick="filterCategory('table',this)"
+    >
+        Centre Tables
+    </button>
+
+    <button
+        onclick="filterCategory('wardrobe',this)"
+    >
+        Wardrobe
+    </button>
+
+    <button
+        onclick="filterCategory('shoe',this)"
+    >
+        Shoe Rack
+    </button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     SHOP
+========================= -->
+
+<main class="container">
+
+
+<div class="shop-header">
+
+<div class="shop-title">
+
+<div>
+
+    <h1>
+        Furniture Collection
+    </h1>
+
+    <p id="productCount">
+        Showing all products
+    </p>
+
+</div>
+
+
+<div class="sort-box">
+
+<select
+    id="sort"
+    onchange="sortProducts()"
+>
+
+    <option value="featured">
+        Sort: Featured
+    </option>
+
+    <option value="low">
+        Price: Low to High
+    </option>
+
+    <option value="high">
+        Price: High to Low
+    </option>
+
+    <option value="new">
+        Newest
+    </option>
+
+</select>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     FILTERS
+========================= -->
+
+<div class="filter-bar">
+
+    <button
+        class="filter-button"
+        onclick="filterPrice('all')"
+    >
+        All Prices
+    </button>
+
+    <button
+        class="filter-button"
+        onclick="filterPrice('under10')"
+    >
+        Under Rs. 10,000
+    </button>
+
+    <button
+        class="filter-button"
+        onclick="filterPrice('10to20')"
+    >
+        Rs. 10,000 - 20,000
+    </button>
+
+    <button
+        class="filter-button"
+        onclick="filterPrice('over20')"
+    >
+        Above Rs. 20,000
+    </button>
+
+</div>
+
+
+<!-- =========================
+     PRODUCT GRID
+========================= -->
+
+<div
+    class="product-grid"
+    id="productGrid"
+>
+
+
+<!-- PRODUCT 1 -->
+
+<div
+    class="product-card"
+    data-category="table"
+    data-price="9000"
+    data-name="White Centre Table"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        FEATURED
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-001.webp"
+        alt="White Centre Table"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Centre Table
+    </div>
+
+    <div class="product-name">
+        White Centre Table
+    </div>
+
+    <div class="product-code">
+        TW-CT-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.8 (25)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 9,000
+        </span>
+
+        <span class="old-price">
+            Rs. 10,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'White Centre Table',
+                9000,
+                '../TW-CT-001/TW-CT-001.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 2 -->
+
+<div
+    class="product-card"
+    data-category="table"
+    data-price="11500"
+    data-name="Modern Coffee Table"
+>
+
+<div class="product-image">
+
+    <span class="badge sale">
+        10% OFF
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-01.webp"
+        alt="Modern Coffee Table"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Centre Table
+    </div>
+
+    <div class="product-name">
+        Modern Coffee Table
+    </div>
+
+    <div class="product-code">
+        TW-CT-002
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.7 (18)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 11,500
+        </span>
+
+        <span class="old-price">
+            Rs. 12,500
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Modern Coffee Table',
+                11500,
+                '../TW-CT-001/TW-CT-01.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 3 -->
+
+<div
+    class="product-card"
+    data-category="table"
+    data-price="13500"
+    data-name="Premium Centre Table"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        NEW
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-02.webp"
+        alt="Premium Centre Table"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Living Room
+    </div>
+
+    <div class="product-name">
+        Premium Centre Table
+    </div>
+
+    <div class="product-code">
+        TW-CT-003
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.9 (31)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 13,500
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Premium Centre Table',
+                13500,
+                '../TW-CT-001/TW-CT-02.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 4 -->
+
+<div
+    class="product-card"
+    data-category="sofa"
+    data-price="35000"
+    data-name="Luxury Sofa"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        BEST SELLER
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-001.webp"
+        alt="Luxury Sofa"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Sofa
+    </div>
+
+    <div class="product-name">
+        Luxury Sofa
+    </div>
+
+    <div class="product-code">
+        TW-SF-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.9 (42)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 35,000
+        </span>
+
+        <span class="old-price">
+            Rs. 40,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Luxury Sofa',
+                35000,
+                '../TW-CT-001/TW-CT-001.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 5 -->
+
+<div
+    class="product-card"
+    data-category="bed"
+    data-price="42000"
+    data-name="Modern Wooden Bed"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        NEW
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-01.webp"
+        alt="Modern Wooden Bed"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Bed
+    </div>
+
+    <div class="product-name">
+        Modern Wooden Bed
+    </div>
+
+    <div class="product-code">
+        TW-BD-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.8 (16)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 42,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Modern Wooden Bed',
+                42000,
+                '../TW-CT-001/TW-CT-01.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 6 -->
+
+<div
+    class="product-card"
+    data-category="chair"
+    data-price="8500"
+    data-name="Dining Chair"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        SALE
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-02.webp"
+        alt="Dining Chair"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Chair
+    </div>
+
+    <div class="product-name">
+        Premium Dining Chair
+    </div>
+
+    <div class="product-code">
+        TW-CH-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.7 (21)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 8,500
+        </span>
+
+        <span class="old-price">
+            Rs. 10,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Premium Dining Chair',
+                8500,
+                '../TW-CT-001/TW-CT-02.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 7 -->
+
+<div
+    class="product-card"
+    data-category="office"
+    data-price="18000"
+    data-name="Office Chair"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        NEW
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-001.webp"
+        alt="Office Chair"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Office
+    </div>
+
+    <div class="product-name">
+        Executive Office Chair
+    </div>
+
+    <div class="product-code">
+        TW-OC-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.8 (12)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 18,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Executive Office Chair',
+                18000,
+                '../TW-CT-001/TW-CT-001.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 8 -->
+
+<div
+    class="product-card"
+    data-category="wardrobe"
+    data-price="32000"
+    data-name="Modern Wardrobe"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        FEATURED
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-01.webp"
+        alt="Modern Wardrobe"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Wardrobe
+    </div>
+
+    <div class="product-name">
+        Modern Sliding Wardrobe
+    </div>
+
+    <div class="product-code">
+        TW-WR-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.8 (19)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 32,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Modern Sliding Wardrobe',
+                32000,
+                '../TW-CT-001/TW-CT-01.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 9 -->
+
+<div
+    class="product-card"
+    data-category="dining"
+    data-price="55000"
+    data-name="Dining Table Set"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        BEST SELLER
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-02.webp"
+        alt="Dining Table Set"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Dining
+    </div>
+
+    <div class="product-name">
+        6 Seater Dining Set
+    </div>
+
+    <div class="product-code">
+        TW-DT-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.9 (35)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 55,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                '6 Seater Dining Set',
+                55000,
+                '../TW-CT-001/TW-CT-02.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 10 -->
+
+<div
+    class="product-card"
+    data-category="shoe"
+    data-price="12500"
+    data-name="Shoe Rack"
+>
+
+<div class="product-image">
+
+    <span class="badge">
+        NEW
+    </span>
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-001.webp"
+        alt="Shoe Rack"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Shoe Rack
+    </div>
+
+    <div class="product-name">
+        Modern Shoe Rack
+    </div>
+
+    <div class="product-code">
+        TW-SR-001
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.6 (14)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 12,500
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button
+            class="add-cart"
+            onclick="addCart(
+                'Modern Shoe Rack',
+                12500,
+                '../TW-CT-001/TW-CT-001.webp'
+            )"
+        >
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 11 -->
+
+<div
+    class="product-card"
+    data-category="sofa"
+    data-price="48000"
+    data-name="Three Seater Sofa"
+>
+
+<div class="product-image">
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-02.webp"
+        alt="Three Seater Sofa"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Sofa
+    </div>
+
+    <div class="product-name">
+        Three Seater Sofa
+    </div>
+
+    <div class="product-code">
+        TW-SF-002
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.8 (28)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 48,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button class="add-cart">
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT 12 -->
+
+<div
+    class="product-card"
+    data-category="table"
+    data-price="15000"
+    data-name="Luxury Centre Table"
+>
+
+<div class="product-image">
+
+    <button
+        class="wishlist"
+        onclick="wishlist(this)"
+    >
+        ♡
+    </button>
+
+    <img
+        src="../TW-CT-001/TW-CT-001.webp"
+        alt="Luxury Centre Table"
+    >
+
+</div>
+
+<div class="product-info">
+
+    <div class="product-category">
+        Centre Table
+    </div>
+
+    <div class="product-name">
+        Luxury Centre Table
+    </div>
+
+    <div class="product-code">
+        TW-CT-004
+    </div>
+
+    <div class="rating">
+        ★★★★★
+        <span>4.9 (42)</span>
+    </div>
+
+    <div class="price">
+
+        <span class="current-price">
+            Rs. 15,000
+        </span>
+
+    </div>
+
+    <div class="product-buttons">
+
+        <button class="add-cart">
+            Add to Cart
+        </button>
+
+        <button class="view">
+            View Details
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     LOAD MORE
+========================= -->
+
+<div class="load-more">
+
+<button onclick="loadMore()">
+    Load More Products
+</button>
+
+</div>
+
+
+</main>
+
+
+<!-- =========================
+     CART OVERLAY
+========================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="cart"
+    id="cart"
+>
+
+<div class="cart-header">
+
+    <h2>
+        Shopping Cart
+    </h2>
+
+    <button
+        class="close-cart"
+        onclick="closeCart()"
+    >
+        ×
+    </button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div class="cart-total">
+
+    <div class="total">
+
+        <span>
+            Total
+        </span>
+
+        <span id="total">
+            Rs. 0
+        </span>
+
+    </div>
+
+    <button
+        class="checkout"
+        onclick="checkout()"
+    >
+        Proceed to Checkout
+    </button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+/* =========================
+   CART
+========================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "timberwoodCart"
+        )
+    ) || [];
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "timberwoodCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function formatPrice(price){
+
+    return "Rs. " +
+        price.toLocaleString("en-IN");
+
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+function addCart(
+    name,
+    price,
+    image
+){
+
+    let item =
+        cart.find(
+            x => x.name === name
+        );
+
+
+    if(item){
+
+        item.quantity++;
+
+    }else{
+
+        cart.push({
+
+            name:name,
+            price:price,
+            image:image,
+            quantity:1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+    showToast(
+        name + " added to cart"
+    );
+
+}
+
+
+/* =========================
+   UPDATE CART
+========================= */
+
+function updateCart(){
+
+    let count = 0;
+
+    cart.forEach(
+        item =>
+            count += item.quantity
+    );
+
+
+    document.getElementById(
+        "cartCount"
+    ).innerText = count;
+
+
+    let html = "";
+
+    cart.forEach(
+        (item,index) => {
+
+            html += `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div>
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        ${formatPrice(item.price)}
+                        ×
+                        ${item.quantity}
+                    </p>
+
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="removeCart(${index})"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    if(cart.length === 0){
+
+        html = `
+            <p style="
+                text-align:center;
+                padding:40px 0;
+                color:#777;
+            ">
+                Your cart is empty.
+            </p>
+        `;
+
+    }
+
+
+    document.getElementById(
+        "cartItems"
+    ).innerHTML = html;
+
+
+    let total =
+        cart.reduce(
+            (sum,item) =>
+                sum +
+                item.price *
+                item.quantity,
+            0
+        );
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+        formatPrice(total);
+
+}
+
+
+/* =========================
+   REMOVE
+========================= */
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================
+   OPEN CART
+========================= */
+
+function openCart(){
+
+    document
+        .getElementById("cart")
+        .classList.add("open");
+
+    document
+        .getElementById("overlay")
+        .classList.add("show");
+
+}
+
+
+/* =========================
+   CLOSE CART
+========================= */
+
+function closeCart(){
+
+    document
+        .getElementById("cart")
+        .classList.remove("open");
+
+    document
+        .getElementById("overlay")
+        .classList.remove("show");
+
+}
+
+
+/* =========================
+   WISHLIST
+========================= */
+
+function wishlist(button){
+
+    button.classList.toggle(
+        "active"
+    );
+
+
+    if(
+        button.classList.contains(
+            "active"
+        )
+    ){
+
+        button.innerText = "♥";
+
+        showToast(
+            "Added to wishlist"
+        );
+
+    }else{
+
+        button.innerText = "♡";
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function searchProducts(){
+
+    let search =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase();
+
+
+    let cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+
+    let count = 0;
+
+
+    cards.forEach(
+        card => {
+
+            let name =
+                card.dataset.name
+                    .toLowerCase();
+
+
+            if(
+                name.includes(search)
+            ){
+
+                card.style.display = "";
+                count++;
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        count +
+        " products found";
+
+}
+
+
+/* =========================
+   CATEGORY FILTER
+========================= */
+
+function filterCategory(
+    category,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".category-list button"
+        )
+        .forEach(
+            btn =>
+                btn.classList.remove(
+                    "active"
+                )
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    let cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+
+    let count = 0;
+
+
+    cards.forEach(
+        card => {
+
+            if(
+                category === "all" ||
+                card.dataset.category === category
+            ){
+
+                card.style.display = "";
+                count++;
+
+            }else{
+
+                card.style.display = "none";
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        count +
+        " products";
+
+}
+
+
+/* =========================
+   PRICE FILTER
+========================= */
+
+function filterPrice(type){
+
+    let cards =
+        document.querySelectorAll(
+            ".product-card"
+        );
+
+
+    cards.forEach(
+        card => {
+
+            let price =
+                Number(
+                    card.dataset.price
+                );
+
+
+            let show = true;
+
+
+            if(
+                type === "under10"
+            ){
+
+                show = price < 10000;
+
+            }
+
+
+            if(
+                type === "10to20"
+            ){
+
+                show =
+                    price >= 10000 &&
+                    price <= 20000;
+
+            }
+
+
+            if(
+                type === "over20"
+            ){
+
+                show = price > 20000;
+
+            }
+
+
+            card.style.display =
+                show ? "" : "none";
+
+        }
+    );
+
+}
+
+
+/* =========================
+   SORT PRODUCTS
+========================= */
+
+function sortProducts(){
+
+    let grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+
+    let cards =
+        [...grid.querySelectorAll(
+            ".product-card"
+        )];
+
+
+    let sort =
+        document.getElementById(
+            "sort"
+        ).value;
+
+
+    if(sort === "low"){
+
+        cards.sort(
+            (a,b) =>
+                Number(a.dataset.price) -
+                Number(b.dataset.price)
+        );
+
+    }
+
+
+    if(sort === "high"){
+
+        cards.sort(
+            (a,b) =>
+                Number(b.dataset.price) -
+                Number(a.dataset.price)
+        );
+
+    }
+
+
+    if(sort === "new"){
+
+        cards.reverse();
+
+    }
+
+
+    cards.forEach(
+        card =>
+            grid.appendChild(card)
+    );
+
+}
+
+
+/* =========================
+   LOAD MORE
+========================= */
+
+function loadMore(){
+
+    showToast(
+        "More products can be loaded here"
+    );
+
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        "Checkout page coming next"
+    );
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+    let toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2000
+        );
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
