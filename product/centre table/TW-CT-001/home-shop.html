@@ -1,0 +1,3898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TimberWood | Premium Furniture & Interior</title>
+
+<meta
+    name="description"
+    content="Shop premium furniture from TimberWood. Sofas, beds, dining tables, chairs, centre tables, office furniture and custom furniture."
+>
+
+<style>
+
+/* =========================================================
+   TIMBERWOOD E-COMMERCE HOME PAGE
+========================================================= */
+
+:root {
+    --brown: #3b2a20;
+    --dark: #241812;
+    --gold: #b68d40;
+    --gold-light: #d7b46a;
+    --cream: #f7f3ed;
+    --soft: #eee8df;
+    --white: #ffffff;
+    --text: #29231f;
+    --muted: #777069;
+    --border: #e4ddd4;
+    --green: #2e7046;
+    --red: #b43c34;
+    --shadow: 0 12px 35px rgba(44,31,22,.10);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.5;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+.section {
+    padding: 70px 0;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar {
+    background: var(--dark);
+    color: #eee5da;
+    font-size: 12px;
+}
+
+.topbar-inner {
+    min-height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar-right {
+    display: flex;
+    gap: 20px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    background: rgba(255,255,255,.97);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.header {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 180px;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+.logo-text strong {
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    color: var(--brown);
+}
+
+.logo-text small {
+    color: var(--gold);
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    font-size: 13px;
+    color: #514a44;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.icon-btn {
+    width: 41px;
+    height: 41px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.icon-btn:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    width: 18px;
+    height: 18px;
+    background: var(--brown);
+    color: white;
+    border-radius: 50%;
+    font-size: 9px;
+    display: grid;
+    place-items: center;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.search-area {
+    display: none;
+    padding: 12px 0;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+}
+
+.search-area.show {
+    display: block;
+}
+
+.search {
+    width: 100%;
+    height: 45px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: var(--gold);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    background: var(--cream);
+}
+
+.hero-slider {
+    position: relative;
+    min-height: 570px;
+    overflow: hidden;
+}
+
+.hero-slide {
+    display: none;
+    min-height: 570px;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-slide.active {
+    display: grid;
+}
+
+.hero-content {
+    padding: 40px 0;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(42px, 5vw, 70px);
+    line-height: 1.02;
+    color: var(--brown-dark);
+    margin: 15px 0;
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 520px;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.btn {
+    height: 47px;
+    padding: 0 22px;
+    border-radius: 7px;
+    border: 0;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.btn-primary {
+    background: var(--brown);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--dark);
+}
+
+.btn-outline {
+    background: white;
+    color: var(--brown);
+    border: 1px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--gold);
+}
+
+.hero-image {
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slider-buttons {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    display: flex;
+    gap: 7px;
+}
+
+.slider-buttons button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    background: white;
+    border-radius: 50%;
+}
+
+.slider-buttons button:hover {
+    background: var(--brown);
+    color: white;
+}
+
+.dots {
+    position: absolute;
+    left: 0;
+    bottom: 35px;
+    display: flex;
+    gap: 7px;
+}
+
+.dot {
+    width: 25px;
+    height: 4px;
+    border: 0;
+    background: #d0c7bd;
+}
+
+.dot.active {
+    background: var(--gold);
+}
+
+/* =========================================================
+   CATEGORY STRIP
+========================================================= */
+
+.category-strip {
+    border-bottom: 1px solid var(--border);
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    padding: 22px 0;
+}
+
+.category-item {
+    text-align: center;
+    font-size: 11px;
+    color: var(--brown);
+}
+
+.category-image {
+    height: 90px;
+    background: var(--cream);
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.category-image img {
+    height: 100%;
+    object-fit: contain;
+    transition: .3s;
+}
+
+.category-item:hover .category-image img {
+    transform: scale(1.08);
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.section-heading small {
+    display: block;
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: 34px;
+    color: var(--brown);
+}
+
+.view-all {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    overflow: hidden;
+    transition: .25s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.product-image {
+    height: 270px;
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 100%;
+    object-fit: contain;
+    transition: .35s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--brown);
+    color: white;
+    border-radius: 20px;
+    padding: 5px 9px;
+    font-size: 9px;
+    z-index: 2;
+}
+
+.product-badge.sale {
+    background: var(--red);
+}
+
+.product-heart {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 0;
+    background: white;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.product-heart.active {
+    color: var(--red);
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-category {
+    color: var(--gold);
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.product-name {
+    font-size: 15px;
+    margin: 5px 0;
+    color: var(--brown);
+}
+
+.product-code {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.product-rating {
+    margin: 7px 0;
+    color: var(--gold);
+    font-size: 11px;
+}
+
+.product-rating span {
+    color: var(--muted);
+}
+
+.price-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0 13px;
+}
+
+.product-price {
+    font-weight: bold;
+    color: var(--brown);
+}
+
+.old-price {
+    color: #aaa;
+    font-size: 11px;
+    text-decoration: line-through;
+}
+
+.product-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.product-actions button {
+    height: 37px;
+    border-radius: 6px;
+    border: 0;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.add-cart {
+    background: var(--brown);
+    color: white;
+}
+
+.buy-now {
+    background: var(--soft);
+    color: var(--brown);
+}
+
+/* =========================================================
+   OFFER BANNERS
+========================================================= */
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.offer {
+    min-height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background: var(--cream);
+}
+
+.offer-content {
+    position: relative;
+    z-index: 2;
+    width: 52%;
+    padding: 35px;
+}
+
+.offer small {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.offer h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    margin: 8px 0;
+    color: var(--brown);
+}
+
+.offer p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.offer img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================================================
+   SHOP BY ROOM
+========================================================= */
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.room {
+    height: 300px;
+    border-radius: 13px;
+    overflow: hidden;
+    position: relative;
+    background: var(--cream);
+}
+
+.room img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.room:hover img {
+    transform: scale(1.06);
+}
+
+.room-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 35px 20px 20px;
+    color: white;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.75)
+    );
+}
+
+.room-overlay h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+.room-overlay a {
+    display: inline-block;
+    margin-top: 5px;
+    font-size: 10px;
+    color: var(--gold-light);
+}
+
+/* =========================================================
+   BRANDS
+========================================================= */
+
+.brands {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+}
+
+.brand {
+    height: 90px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: white;
+    color: var(--brown);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.brand:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* =========================================================
+   PROJECT SECTION
+========================================================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 15px;
+}
+
+.project {
+    height: 360px;
+    overflow: hidden;
+    border-radius: 14px;
+    position: relative;
+}
+
+.project.large {
+    height: 500px;
+    grid-row: span 2;
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.project:hover img {
+    transform: scale(1.05);
+}
+
+.project-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 35px 20px 20px;
+    color: white;
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.8)
+    );
+}
+
+.project-caption small {
+    color: var(--gold-light);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.project-caption h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    margin-top: 3px;
+}
+
+/* =========================================================
+   WHY TIMBERWOOD
+========================================================= */
+
+.why {
+    background: var(--cream);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.why-card {
+    background: white;
+    padding: 28px 20px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.why-icon {
+    width: 52px;
+    height: 52px;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    background: var(--cream);
+    border-radius: 50%;
+    font-size: 23px;
+}
+
+.why-card h3 {
+    font-size: 14px;
+    margin: 13px 0 5px;
+}
+
+.why-card p {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter {
+    background: var(--brown);
+    color: white;
+}
+
+.newsletter-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 30px;
+}
+
+.newsletter h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.newsletter p {
+    color: #d5c9be;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.subscribe {
+    display: flex;
+    gap: 7px;
+}
+
+.subscribe input {
+    flex: 1;
+    height: 46px;
+    border: 0;
+    border-radius: 7px;
+    padding: 0 15px;
+    outline: none;
+}
+
+.subscribe button {
+    height: 46px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--gold);
+    color: white;
+    font-weight: bold;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: var(--dark);
+    color: white;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 35px;
+    padding: 55px 0;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+}
+
+.footer p,
+.footer a {
+    color: #c8bdb3;
+    font-size: 11px;
+    line-height: 2;
+}
+
+.footer h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.footer a:hover {
+    color: var(--gold-light);
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.12);
+    text-align: center;
+    color: #988c82;
+    font-size: 10px;
+    padding: 18px 0;
+}
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 200;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.cart-drawer {
+    position: fixed;
+    z-index: 210;
+    top: 0;
+    right: -440px;
+    width: min(430px, 95%);
+    height: 100vh;
+    background: white;
+    padding: 22px;
+    overflow-y: auto;
+    transition: .3s;
+    box-shadow: -10px 0 40px rgba(0,0,0,.2);
+}
+
+.cart-drawer.open {
+    right: 0;
+}
+
+.cart-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-head h2 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+.close {
+    border: 0;
+    background: none;
+    font-size: 27px;
+    color: var(--muted);
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 70px 1fr auto;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+}
+
+.cart-item img {
+    height: 65px;
+    object-fit: contain;
+    background: var(--cream);
+    border-radius: 8px;
+}
+
+.cart-item h4 {
+    font-size: 12px;
+}
+
+.cart-item p {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.cart-qty {
+    display: flex;
+    gap: 6px;
+    margin-top: 5px;
+}
+
+.cart-qty button {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--border);
+    background: white;
+}
+
+.remove {
+    border: 0;
+    background: none;
+    color: var(--red);
+    font-size: 10px;
+}
+
+.cart-total {
+    margin-top: 20px;
+    border-top: 1px solid var(--border);
+    padding-top: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.total-row.final {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.checkout {
+    width: 100%;
+    height: 47px;
+    margin-top: 12px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--brown);
+    color: white;
+    font-weight: bold;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast {
+    position: fixed;
+    z-index: 500;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--dark);
+    color: white;
+    padding: 11px 18px;
+    border-radius: 30px;
+    font-size: 11px;
+    display: none;
+}
+
+.toast.show {
+    display: block;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width: 1000px) {
+
+    nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+
+    .hero-slide {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .categories {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .room-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brands {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width: 650px) {
+
+    .topbar-right {
+        display: none;
+    }
+
+    .topbar-inner {
+        justify-content: center;
+    }
+
+    .header {
+        min-height: 65px;
+    }
+
+    .logo {
+        min-width: auto;
+    }
+
+    .logo-text strong {
+        font-size: 19px;
+    }
+
+    .logo-mark {
+        width: 36px;
+        height: 36px;
+    }
+
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero-slider,
+    .hero-slide {
+        min-height: auto;
+    }
+
+    .hero-slide {
+        grid-template-columns: 1fr;
+        padding: 45px 0 75px;
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .dots {
+        bottom: 20px;
+    }
+
+    .slider-buttons {
+        bottom: 13px;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-heading {
+        align-items: center;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .categories {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 15px;
+    }
+
+    .category-item {
+        min-width: 90px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .product-image {
+        height: 175px;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .product-name {
+        font-size: 13px;
+    }
+
+    .product-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-content {
+        width: 60%;
+        padding: 25px;
+    }
+
+    .offer h3 {
+        font-size: 25px;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .room {
+        height: 220px;
+    }
+
+    .brands {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project,
+    .project.large {
+        height: 260px;
+    }
+
+    .project.large {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .why-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .newsletter-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .subscribe {
+        flex-direction: column;
+    }
+
+    .footer {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+    <div class="container topbar-inner">
+
+        <span>
+            Premium Furniture & Interior Solutions
+        </span>
+
+        <div class="topbar-right">
+
+            <span>
+                📞 +977 9829312825
+            </span>
+
+            <span>
+                🚚 Delivery Available
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="container header">
+
+        <a href="#" class="logo">
+
+            <div class="logo-mark">
+                TW
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    TimberWood
+                </strong>
+
+                <small>
+                    FURNITURE & INTERIORS
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#">
+                Home
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#featured">
+                Shop
+            </a>
+
+            <a href="#offers">
+                Offers
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#">
+                About
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                class="icon-btn"
+                onclick="toggleSearch()"
+            >
+                🔍
+            </button>
+
+            <button
+                class="icon-btn"
+                onclick="showToast('Wishlist opened')"
+            >
+                ♡
+            </button>
+
+            <button
+                class="icon-btn"
+                onclick="openCart()"
+            >
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount"
+                >
+                    0
+                </span>
+
+            </button>
+
+            <button
+                class="icon-btn mobile-menu"
+                onclick="toggleSearch()"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="search-area"
+        id="searchArea"
+    >
+
+        <div class="container">
+
+            <input
+                id="searchInput"
+                class="search"
+                placeholder="Search sofa, bed, dining table, chair..."
+                oninput="searchProducts()"
+            >
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="container hero-slider">
+
+
+        <!-- SLIDE 1 -->
+
+        <div class="hero-slide active">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    New Collection 2026
+                </div>
+
+                <h1>
+                    Furniture<br>
+                    Made for Living.
+                </h1>
+
+                <p>
+                    Discover elegant furniture designed for
+                    modern homes, offices, hotels and commercial
+                    spaces.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#featured"
+                        class="btn btn-primary"
+                    >
+                        Shop Furniture
+                    </a>
+
+                    <a
+                        href="#categories"
+                        class="btn btn-outline"
+                    >
+                        Explore Categories
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="../TW-CT-001/TW-CT-001.webp"
+                    alt="TimberWood Centre Table"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 2 -->
+
+        <div class="hero-slide">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    Premium Living
+                </div>
+
+                <h1>
+                    Make Your<br>
+                    Space Beautiful.
+                </h1>
+
+                <p>
+                    Premium sofas, centre tables, chairs,
+                    dining furniture and custom solutions
+                    for your interior.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#rooms"
+                        class="btn btn-primary"
+                    >
+                        Shop by Room
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="../TW-CT-001/TW-CT-01.webp"
+                    alt="TimberWood Furniture"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- SLIDE 3 -->
+
+        <div class="hero-slide">
+
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    Custom Furniture
+                </div>
+
+                <h1>
+                    Designed<br>
+                    For You.
+                </h1>
+
+                <p>
+                    Need a different size, material, colour
+                    or finish? Talk to our furniture team
+                    about your custom requirement.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#"
+                        class="btn btn-primary"
+                        onclick="showToast('Custom furniture enquiry opened')"
+                    >
+                        Request a Quote
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="../TW-CT-001/TW-CT-02.webp"
+                    alt="Custom Furniture"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="dots">
+
+            <button
+                class="dot active"
+                onclick="goSlide(0)"
+            ></button>
+
+            <button
+                class="dot"
+                onclick="goSlide(1)"
+            ></button>
+
+            <button
+                class="dot"
+                onclick="goSlide(2)"
+            ></button>
+
+        </div>
+
+
+        <div class="slider-buttons">
+
+            <button onclick="previousSlide()">
+                ‹
+            </button>
+
+            <button onclick="nextSlide()">
+                ›
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section
+    class="category-strip"
+    id="categories"
+>
+
+    <div class="container">
+
+        <div class="categories">
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="Sofas"
+                    >
+
+                </div>
+
+                Sofas
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-01.webp"
+                        alt="Beds"
+                    >
+
+                </div>
+
+                Beds
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-02.webp"
+                        alt="Dining"
+                    >
+
+                </div>
+
+                Dining
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="Chairs"
+                    >
+
+                </div>
+
+                Chairs
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-01.webp"
+                        alt="Office"
+                    >
+
+                </div>
+
+                Office
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-02.webp"
+                        alt="Centre Tables"
+                    >
+
+                </div>
+
+                Centre Tables
+
+            </a>
+
+
+            <a href="#" class="category-item">
+
+                <div class="category-image">
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="Wardrobes"
+                    >
+
+                </div>
+
+                Wardrobes
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURED PRODUCTS
+===================================================== -->
+
+<section
+    class="section"
+    id="featured"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Shop Our Collection
+                </small>
+
+                <h2>
+                    Featured Furniture
+                </h2>
+
+            </div>
+
+            <a
+                href="#"
+                class="view-all"
+            >
+                View All Products →
+            </a>
+
+        </div>
+
+
+        <div
+            class="products"
+            id="productGrid"
+        >
+
+
+            <!-- PRODUCT 1 -->
+
+            <div
+                class="product-card"
+                data-name="White Centre Table"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        FEATURED
+                    </span>
+
+                    <button
+                        class="product-heart"
+                        onclick="toggleHeart(this)"
+                    >
+                        ♡
+                    </button>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="White Centre Table"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Centre Table
+                    </div>
+
+                    <div class="product-name">
+                        White Centre Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-CT-001
+                    </div>
+
+                    <div class="product-rating">
+                        ★★★★★
+                        <span>
+                            4.8 (25)
+                        </span>
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 9,000
+                        </span>
+
+                        <span class="old-price">
+                            Rs. 10,000
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="add-cart"
+                            onclick="
+                            addCart(
+                                'White Centre Table',
+                                9000,
+                                '../TW-CT-001/TW-CT-001.webp'
+                            )"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-now"
+                            onclick="
+                            buyNow(
+                                'White Centre Table',
+                                9000,
+                                '../TW-CT-001/TW-CT-001.webp'
+                            )"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div
+                class="product-card"
+                data-name="Modern Coffee Table"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-badge sale">
+                        10% OFF
+                    </span>
+
+                    <button
+                        class="product-heart"
+                        onclick="toggleHeart(this)"
+                    >
+                        ♡
+                    </button>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-01.webp"
+                        alt="Modern Coffee Table"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Centre Table
+                    </div>
+
+                    <div class="product-name">
+                        Modern Coffee Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-CT-002
+                    </div>
+
+                    <div class="product-rating">
+                        ★★★★★
+                        <span>
+                            4.7 (18)
+                        </span>
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 11,500
+                        </span>
+
+                        <span class="old-price">
+                            Rs. 12,500
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="add-cart"
+                            onclick="
+                            addCart(
+                                'Modern Coffee Table',
+                                11500,
+                                '../TW-CT-001/TW-CT-01.webp'
+                            )"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-now"
+                            onclick="
+                            buyNow(
+                                'Modern Coffee Table',
+                                11500,
+                                '../TW-CT-001/TW-CT-01.webp'
+                            )"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div
+                class="product-card"
+                data-name="Premium Centre Table"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                    <button
+                        class="product-heart"
+                        onclick="toggleHeart(this)"
+                    >
+                        ♡
+                    </button>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-02.webp"
+                        alt="Premium Centre Table"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Living Room
+                    </div>
+
+                    <div class="product-name">
+                        Premium Centre Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-CT-003
+                    </div>
+
+                    <div class="product-rating">
+                        ★★★★★
+                        <span>
+                            4.9 (31)
+                        </span>
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 13,500
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="add-cart"
+                            onclick="
+                            addCart(
+                                'Premium Centre Table',
+                                13500,
+                                '../TW-CT-001/TW-CT-02.webp'
+                            )"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-now"
+                            onclick="
+                            buyNow(
+                                'Premium Centre Table',
+                                13500,
+                                '../TW-CT-001/TW-CT-02.webp'
+                            )"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+
+            <div
+                class="product-card"
+                data-name="Luxury Lounge Table"
+            >
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        BEST SELLER
+                    </span>
+
+                    <button
+                        class="product-heart"
+                        onclick="toggleHeart(this)"
+                    >
+                        ♡
+                    </button>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="Luxury Lounge Table"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Lounge
+                    </div>
+
+                    <div class="product-name">
+                        Luxury Lounge Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-CT-004
+                    </div>
+
+                    <div class="product-rating">
+                        ★★★★★
+                        <span>
+                            4.9 (42)
+                        </span>
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 15,000
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="add-cart"
+                            onclick="
+                            addCart(
+                                'Luxury Lounge Table',
+                                15000,
+                                '../TW-CT-001/TW-CT-001.webp'
+                            )"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-now"
+                            onclick="
+                            buyNow(
+                                'Luxury Lounge Table',
+                                15000,
+                                '../TW-CT-001/TW-CT-001.webp'
+                            )"
+                        >
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OFFERS
+===================================================== -->
+
+<section
+    class="section"
+    id="offers"
+    style="background:#f7f3ed;"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Special Offers
+                </small>
+
+                <h2>
+                    Shop & Save
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="offer-grid">
+
+
+            <div class="offer">
+
+                <div class="offer-content">
+
+                    <small>
+                        Living Room
+                    </small>
+
+                    <h3>
+                        Upgrade Your<br>
+                        Living Space
+                    </h3>
+
+                    <p>
+                        Discover selected furniture
+                        at special prices.
+                    </p>
+
+                    <button
+                        class="btn btn-primary"
+                        style="margin-top:18px;"
+                    >
+                        Shop Now
+                    </button>
+
+                </div>
+
+                <img
+                    src="../TW-CT-001/TW-CT-001.webp"
+                    alt="Living Room Furniture"
+                >
+
+            </div>
+
+
+            <div class="offer">
+
+                <div class="offer-content">
+
+                    <small>
+                        Custom Furniture
+                    </small>
+
+                    <h3>
+                        Made For<br>
+                        Your Space
+                    </h3>
+
+                    <p>
+                        Choose your size, finish
+                        and design.
+                    </p>
+
+                    <button
+                        class="btn btn-primary"
+                        style="margin-top:18px;"
+                        onclick="showToast('Custom furniture enquiry')"
+                    >
+                        Request Quote
+                    </button>
+
+                </div>
+
+                <img
+                    src="../TW-CT-001/TW-CT-01.webp"
+                    alt="Custom Furniture"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEW ARRIVALS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Just Arrived
+                </small>
+
+                <h2>
+                    New Arrivals
+                </h2>
+
+            </div>
+
+            <a
+                href="#"
+                class="view-all"
+            >
+                View Collection →
+            </a>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="New Furniture"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Centre Table
+                    </div>
+
+                    <div class="product-name">
+                        Contemporary Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-CT-005
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 12,000
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button
+                            class="add-cart"
+                            onclick="
+                            addCart(
+                                'Contemporary Table',
+                                12000,
+                                '../TW-CT-001/TW-CT-001.webp'
+                            )"
+                        >
+                            Add to Cart
+                        </button>
+
+                        <button class="buy-now">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-01.webp"
+                        alt="Modern Table"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Furniture
+                    </div>
+
+                    <div class="product-name">
+                        Modern Side Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-ST-001
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 8,500
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button class="add-cart">
+                            Add to Cart
+                        </button>
+
+                        <button class="buy-now">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-02.webp"
+                        alt="Premium Table"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Living Room
+                    </div>
+
+                    <div class="product-name">
+                        Premium Wood Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-WT-001
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 14,500
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button class="add-cart">
+                            Add to Cart
+                        </button>
+
+                        <button class="buy-now">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <span class="product-badge">
+                        NEW
+                    </span>
+
+                    <img
+                        src="../TW-CT-001/TW-CT-001.webp"
+                        alt="Designer Table"
+                    >
+
+                </div>
+
+                <div class="product-info">
+
+                    <div class="product-category">
+                        Designer
+                    </div>
+
+                    <div class="product-name">
+                        Designer Centre Table
+                    </div>
+
+                    <div class="product-code">
+                        TW-DT-001
+                    </div>
+
+                    <div class="price-line">
+
+                        <span class="product-price">
+                            Rs. 17,500
+                        </span>
+
+                    </div>
+
+                    <div class="product-actions">
+
+                        <button class="add-cart">
+                            Add to Cart
+                        </button>
+
+                        <button class="buy-now">
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SHOP BY ROOM
+===================================================== -->
+
+<section
+    class="section"
+    id="rooms"
+    style="background:#f7f3ed;"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Find Your Style
+                </small>
+
+                <h2>
+                    Shop by Room
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="room-grid">
+
+
+            <div class="room">
+
+                <img
+                    src="../TW-CT-001/TW-CT-001.webp"
+                    alt="Living Room"
+                >
+
+                <div class="room-overlay">
+
+                    <h3>
+                        Living Room
+                    </h3>
+
+                    <a href="#">
+                        Shop Living Room →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="room">
+
+                <img
+                    src="../TW-CT-001/TW-CT-01.webp"
+                    alt="Bedroom"
+                >
+
+                <div class="room-overlay">
+
+                    <h3>
+                        Bedroom
+                    </h3>
+
+                    <a href="#">
+                        Shop Bedroom →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="room">
+
+                <img
+                    src="../TW-CT-001/TW-CT-02.webp"
+                    alt="Office"
+                >
+
+                <div class="room-overlay">
+
+                    <h3>
+                        Office
+                    </h3>
+
+                    <a href="#">
+                        Shop Office →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="room">
+
+                <img
+                    src="../TW-CT-001/TW-CT-001.webp"
+                    alt="Dining Room"
+                >
+
+                <div class="room-overlay">
+
+                    <h3>
+                        Dining
+                    </h3>
+
+                    <a href="#">
+                        Shop Dining →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BRANDS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Trusted Brands
+                </small>
+
+                <h2>
+                    Our Brands
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="brands">
+
+            <div class="brand">
+                Sleepwell
+            </div>
+
+            <div class="brand">
+                CenturyPly
+            </div>
+
+            <div class="brand">
+                Greenply
+            </div>
+
+            <div class="brand">
+                Merino
+            </div>
+
+            <div class="brand">
+                Action Tesa
+            </div>
+
+            <div class="brand">
+                Ebco
+            </div>
+
+            <div class="brand">
+                Hafele
+            </div>
+
+            <div class="brand">
+                Hettich
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section
+    class="section"
+    id="projects"
+    style="background:#f7f3ed;"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Inspiration
+                </small>
+
+                <h2>
+                    Our Projects
+                </h2>
+
+            </div>
+
+            <a
+                href="#"
+                class="view-all"
+            >
+                View All Projects →
+            </a>
+
+        </div>
+
+
+        <div class="projects">
+
+
+            <div class="project large">
+
+                <img
+                    src="../TW-CT-001/TW-CT-001.webp"
+                    alt="Residential Interior"
+                >
+
+                <div class="project-caption">
+
+                    <small>
+                        RESIDENTIAL
+                    </small>
+
+                    <h3>
+                        Modern Residence
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="../TW-CT-001/TW-CT-01.webp"
+                    alt="Office Interior"
+                >
+
+                <div class="project-caption">
+
+                    <small>
+                        OFFICE
+                    </small>
+
+                    <h3>
+                        Corporate Office
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img
+                    src="../TW-CT-001/TW-CT-02.webp"
+                    alt="Hotel Interior"
+                >
+
+                <div class="project-caption">
+
+                    <small>
+                        HOTEL
+                    </small>
+
+                    <h3>
+                        Hotel Furniture
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHY TIMBERWOOD
+===================================================== -->
+
+<section class="section why">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <small>
+                    Why Choose Us
+                </small>
+
+                <h2>
+                    The TimberWood Difference
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🪵
+                </div>
+
+                <h3>
+                    Quality Materials
+                </h3>
+
+                <p>
+                    Carefully selected materials
+                    for durable furniture.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    Custom Designs
+                </h3>
+
+                <p>
+                    Furniture designed according
+                    to your space.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🚚
+                </div>
+
+                <h3>
+                    Reliable Delivery
+                </h3>
+
+                <p>
+                    Safe and convenient furniture
+                    delivery.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    Expert Support
+                </h3>
+
+                <p>
+                    Get help choosing furniture
+                    for your project.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="section newsletter">
+
+    <div class="container newsletter-inner">
+
+        <div>
+
+            <h2>
+                Stay Inspired.
+            </h2>
+
+            <p>
+                Get new collections, offers and
+                furniture ideas directly in your inbox.
+            </p>
+
+        </div>
+
+
+        <form
+            class="subscribe"
+            onsubmit="subscribe(event)"
+        >
+
+            <input
+                type="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button>
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container footer">
+
+
+        <div>
+
+            <div class="footer-logo">
+                TimberWood
+            </div>
+
+            <p style="margin-top:10px;">
+                Premium furniture and interior solutions
+                for homes, offices, hotels and commercial
+                spaces.
+            </p>
+
+            <p style="margin-top:10px;">
+                📍 Nepal
+            </p>
+
+            <p>
+                📞 +977 9829312825
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Shop
+            </h3>
+
+            <a href="#">
+                Sofas
+            </a><br>
+
+            <a href="#">
+                Beds
+            </a><br>
+
+            <a href="#">
+                Dining
+            </a><br>
+
+            <a href="#">
+                Chairs
+            </a><br>
+
+            <a href="#">
+                Office Furniture
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Company
+            </h3>
+
+            <a href="#">
+                About Us
+            </a><br>
+
+            <a href="#">
+                Services
+            </a><br>
+
+            <a href="#">
+                Projects
+            </a><br>
+
+            <a href="#">
+                Contact
+            </a><br>
+
+            <a href="#">
+                Blog
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer
+            </h3>
+
+            <a href="#">
+                My Account
+            </a><br>
+
+            <a href="#">
+                My Orders
+            </a><br>
+
+            <a
+                href="#"
+                onclick="openCart(); return false;"
+            >
+                Shopping Cart
+            </a><br>
+
+            <a href="#">
+                Shipping
+            </a><br>
+
+            <a href="#">
+                Privacy Policy
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © 2026 TimberWood Pvt. Ltd.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     CART OVERLAY
+===================================================== -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =====================================================
+     CART DRAWER
+===================================================== -->
+
+<div
+    class="cart-drawer"
+    id="cartDrawer"
+>
+
+    <div class="cart-head">
+
+        <h2>
+            Shopping Cart
+        </h2>
+
+        <button
+            class="close"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cart-total">
+
+        <div class="total-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <strong id="subtotal">
+                Rs. 0
+            </strong>
+
+        </div>
+
+
+        <div class="total-row">
+
+            <span>
+                Delivery
+            </span>
+
+            <strong>
+                Free
+            </strong>
+
+        </div>
+
+
+        <div class="total-row final">
+
+            <span>
+                Total
+            </span>
+
+            <strong id="total">
+                Rs. 0
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            Proceed to Checkout
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =========================================================
+   CART
+========================================================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem(
+            "timberwoodCart"
+        )
+    ) || [];
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "timberwoodCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function money(value) {
+
+    return "Rs. " +
+        Number(value).toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   ADD CART
+========================================================= */
+
+function addCart(
+    name,
+    price,
+    image
+) {
+
+    let item =
+        cart.find(
+            product =>
+                product.name === name
+        );
+
+
+    if (item) {
+
+        item.quantity++;
+
+    } else {
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            image: image,
+
+            quantity: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+    showToast(
+        name + " added to cart"
+    );
+
+}
+
+
+/* =========================================================
+   CART DISPLAY
+========================================================= */
+
+function updateCart() {
+
+    let container =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    let count = 0;
+
+
+    cart.forEach(
+        item =>
+            count += item.quantity
+    );
+
+
+    document.getElementById(
+        "cartCount"
+    ).innerText = count;
+
+
+    if (cart.length === 0) {
+
+        container.innerHTML =
+
+            `<p style="
+                text-align:center;
+                color:#777;
+                padding:40px 0;
+            ">
+                Your cart is empty.
+            </p>`;
+
+    } else {
+
+        container.innerHTML = "";
+
+
+        cart.forEach(
+            (item, index) => {
+
+                container.innerHTML += `
+
+                    <div class="cart-item">
+
+                        <img
+                            src="${item.image}"
+                            alt="${item.name}"
+                        >
+
+                        <div>
+
+                            <h4>
+                                ${item.name}
+                            </h4>
+
+                            <p>
+                                ${money(item.price)}
+                            </p>
+
+                            <div class="cart-qty">
+
+                                <button
+                                    onclick="
+                                    changeQty(
+                                        ${index},
+                                        -1
+                                    )"
+                                >
+                                    −
+                                </button>
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+                                <button
+                                    onclick="
+                                    changeQty(
+                                        ${index},
+                                        1
+                                    )"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="remove"
+                            onclick="
+                            removeCart(
+                                ${index}
+                            )"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+
+    let subtotal =
+        cart.reduce(
+            (total, item) =>
+                total +
+                item.price *
+                item.quantity,
+            0
+        );
+
+
+    document.getElementById(
+        "subtotal"
+    ).innerText =
+        money(subtotal);
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+        money(subtotal);
+
+}
+
+
+/* =========================================================
+   CHANGE QUANTITY
+========================================================= */
+
+function changeQty(
+    index,
+    number
+) {
+
+    cart[index].quantity += number;
+
+
+    if (
+        cart[index].quantity <= 0
+    ) {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   REMOVE
+========================================================= */
+
+function removeCart(index) {
+
+    cart.splice(index, 1);
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+function openCart() {
+
+    document
+        .getElementById(
+            "cartDrawer"
+        )
+        .classList.add("open");
+
+
+    document
+        .getElementById(
+            "overlay"
+        )
+        .classList.add("show");
+
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+function closeCart() {
+
+    document
+        .getElementById(
+            "cartDrawer"
+        )
+        .classList.remove("open");
+
+
+    document
+        .getElementById(
+            "overlay"
+        )
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyNow(
+    name,
+    price,
+    image
+) {
+
+    cart = [
+
+        {
+
+            name: name,
+
+            price: price,
+
+            image: image,
+
+            quantity: 1
+
+        }
+
+    ];
+
+
+    saveCart();
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        "Connect this button to your checkout page"
+    );
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleHeart(button) {
+
+    button.classList.toggle(
+        "active"
+    );
+
+
+    if (
+        button.classList.contains(
+            "active"
+        )
+    ) {
+
+        button.innerText = "♥";
+
+        showToast(
+            "Added to wishlist"
+        );
+
+    } else {
+
+        button.innerText = "♡";
+
+        showToast(
+            "Removed from wishlist"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function toggleSearch() {
+
+    document
+        .getElementById(
+            "searchArea"
+        )
+        .classList.toggle(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "searchInput"
+        )
+        .focus();
+
+}
+
+
+function searchProducts() {
+
+    let search =
+        document
+            .getElementById(
+                "searchInput"
+            )
+            .value
+            .toLowerCase();
+
+
+    document
+        .querySelectorAll(
+            ".product-card"
+        )
+        .forEach(
+            card => {
+
+                let name =
+                    card
+                        .dataset
+                        .name
+                        .toLowerCase();
+
+
+                card.style.display =
+                    name.includes(search)
+                    ? ""
+                    : "none";
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
+
+let currentSlide = 0;
+
+
+let slides =
+    document.querySelectorAll(
+        ".hero-slide"
+    );
+
+
+let dots =
+    document.querySelectorAll(
+        ".dot"
+    );
+
+
+function goSlide(number) {
+
+    slides.forEach(
+        slide =>
+            slide.classList.remove(
+                "active"
+            )
+    );
+
+
+    dots.forEach(
+        dot =>
+            dot.classList.remove(
+                "active"
+            )
+    );
+
+
+    currentSlide = number;
+
+
+    slides[currentSlide]
+        .classList.add(
+            "active"
+        );
+
+
+    dots[currentSlide]
+        .classList.add(
+            "active"
+        );
+
+}
+
+
+function nextSlide() {
+
+    currentSlide++;
+
+
+    if (
+        currentSlide >=
+        slides.length
+    ) {
+
+        currentSlide = 0;
+
+    }
+
+
+    goSlide(
+        currentSlide
+    );
+
+}
+
+
+function previousSlide() {
+
+    currentSlide--;
+
+
+    if (
+        currentSlide < 0
+    ) {
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+
+    goSlide(
+        currentSlide
+    );
+
+}
+
+
+setInterval(
+    nextSlide,
+    5000
+);
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+function subscribe(event) {
+
+    event.preventDefault();
+
+
+    showToast(
+        "Thank you for subscribing!"
+    );
+
+
+    event.target.reset();
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(text) {
+
+    let toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.innerText = text;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            function() {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+updateCart();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TimberWood | Premium Furniture Product</title>
+
+<meta name="description"
+content="TimberWood premium furniture collection. Explore quality furniture for home, office, bedroom and dining spaces.">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --brown:#3b2a20;
+    --brown-dark:#241812;
+    --brown-light:#6f5140;
+    --gold:#b68d40;
+    --gold-light:#d7b56b;
+    --cream:#f8f5ef;
+    --cream-dark:#eee8dc;
+    --white:#ffffff;
+    --black:#171311;
+    --gray:#77716c;
+    --gray-light:#eeeae5;
+    --green:#3d684b;
+    --red:#b43d35;
+
+    --shadow:0 15px 40px rgba(50,35,25,.10);
+    --radius:18px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--black);
+    background:#fff;
+    line-height:1.5;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:var(--brown-dark);
+    color:#eee;
+    font-size:11px;
+}
+
+.topbar-inner{
+    min-height:35px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.topbar span{
+    opacity:.85;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--gray-light);
+}
+
+.header{
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+/* LOGO */
+
+.logo{
+    text-decoration:none;
+    color:var(--brown);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    min-width:max-content;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--brown);
+    color:var(--gold-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    font-weight:bold;
+}
+
+.logo-text{
+    font-size:22px;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+.logo-sub{
+    display:block;
+    color:var(--gold);
+    font-size:8px;
+    letter-spacing:2px;
+    margin-top:1px;
+}
+
+/* NAV */
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:27px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#514a45;
+    font-size:13px;
+    font-weight:600;
+    position:relative;
+}
+
+nav a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.25s;
+}
+
+nav a:hover:after{
+    width:100%;
+}
+
+/* HEADER BUTTONS */
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.icon-button{
+    width:42px;
+    height:42px;
+    border:1px solid var(--gray-light);
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    font-size:17px;
+    transition:.25s;
+}
+
+.icon-button:hover{
+    background:var(--cream);
+    border-color:var(--gold-light);
+    transform:translateY(-2px);
+}
+
+.cart-count{
+    position:absolute;
+    top:-4px;
+    right:-2px;
+    min-width:18px;
+    height:18px;
+    padding:0 4px;
+    border-radius:20px;
+    background:var(--gold);
+    color:#fff;
+    font-size:9px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+/* SEARCH */
+
+.search-box{
+    display:none;
+    padding:14px 0;
+    background:var(--cream);
+    border-top:1px solid var(--gray-light);
+}
+
+.search-box.show{
+    display:block;
+}
+
+.search-wrapper{
+    position:relative;
+}
+
+.search-wrapper span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.search-box input{
+    width:100%;
+    border:1px solid #ddd5ca;
+    background:#fff;
+    border-radius:10px;
+    padding:13px 15px 13px 43px;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:var(--gold);
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.breadcrumb{
+    padding:28px 0 20px;
+    color:#918a84;
+    font-size:12px;
+}
+
+.breadcrumb span{
+    color:var(--brown);
+}
+
+/* =========================================================
+   PRODUCT SECTION
+========================================================= */
+
+.product{
+    display:grid;
+    grid-template-columns:1.08fr .92fr;
+    gap:60px;
+    align-items:start;
+}
+
+/* =========================================================
+   PRODUCT GALLERY
+========================================================= */
+
+.gallery{
+    position:relative;
+}
+
+.main-image{
+    height:570px;
+    background:linear-gradient(135deg,#f7f3ed,#ece5da);
+    border-radius:24px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.main-image:after{
+    content:"TIMBERWOOD";
+    position:absolute;
+    bottom:20px;
+    right:25px;
+    font-size:9px;
+    letter-spacing:3px;
+    color:rgba(59,42,32,.25);
+}
+
+.main-image img{
+    width:91%;
+    height:91%;
+    object-fit:contain;
+    transition:.4s;
+}
+
+.main-image:hover img{
+    transform:scale(1.025);
+}
+
+/* BADGE */
+
+.gallery-badge{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:var(--brown);
+    color:#fff;
+    padding:8px 13px;
+    border-radius:30px;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:.5px;
+    z-index:2;
+}
+
+/* IMAGE COUNT */
+
+.image-count{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:rgba(255,255,255,.9);
+    padding:8px 12px;
+    border-radius:30px;
+    font-size:11px;
+    color:var(--brown);
+    z-index:2;
+}
+
+/* GALLERY ARROWS */
+
+.gallery-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:44px;
+    height:44px;
+    border:1px solid rgba(0,0,0,.08);
+    background:rgba(255,255,255,.9);
+    color:var(--brown);
+    border-radius:50%;
+    font-size:24px;
+    z-index:3;
+    transition:.2s;
+}
+
+.gallery-arrow:hover{
+    background:var(--brown);
+    color:#fff;
+}
+
+.gallery-left{
+    left:15px;
+}
+
+.gallery-right{
+    right:15px;
+}
+
+/* ZOOM */
+
+.zoom-button{
+    position:absolute;
+    bottom:18px;
+    right:18px;
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.9);
+    z-index:3;
+}
+
+/* THUMBNAILS */
+
+.thumbnails{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-top:12px;
+}
+
+.thumbnail{
+    height:85px;
+    border:2px solid transparent;
+    border-radius:12px;
+    padding:4px;
+    background:#f5f1eb;
+    overflow:hidden;
+}
+
+.thumbnail.active{
+    border-color:var(--gold);
+}
+
+.thumbnail img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+.category{
+    color:var(--gold);
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:2px;
+}
+
+.title-row{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:8px;
+}
+
+h1{
+    color:var(--brown-dark);
+    font-size:38px;
+    line-height:1.15;
+    letter-spacing:-1px;
+}
+
+.stock{
+    background:#e9f3eb;
+    color:var(--green);
+    border-radius:20px;
+    padding:6px 10px;
+    font-size:9px;
+    font-weight:bold;
+    white-space:nowrap;
+    margin-top:5px;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin:15px 0;
+    font-size:12px;
+    color:var(--gray);
+}
+
+.stars{
+    color:var(--gold);
+    letter-spacing:2px;
+    font-size:14px;
+}
+
+/* PRICE */
+
+.price-box{
+    padding:17px 0;
+    border-top:1px solid var(--gray-light);
+    border-bottom:1px solid var(--gray-light);
+}
+
+.price{
+    color:var(--brown);
+    font-size:29px;
+    font-weight:bold;
+}
+
+.old-price{
+    color:#aaa;
+    font-size:14px;
+    text-decoration:line-through;
+    margin-left:8px;
+}
+
+.save{
+    display:inline-block;
+    margin-left:8px;
+    color:var(--green);
+    background:#eef7f0;
+    padding:4px 8px;
+    border-radius:5px;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.description{
+    color:#706a65;
+    font-size:13px;
+    line-height:1.8;
+}
+
+.details-description{
+    margin:20px 0;
+}
+
+/* MODEL */
+
+.model-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    margin:18px 0;
+    color:#777;
+    font-size:11px;
+}
+
+.model-info strong{
+    color:var(--brown);
+}
+
+/* COLOR */
+
+.option-title{
+    font-size:12px;
+    font-weight:bold;
+    color:var(--brown);
+    margin:22px 0 10px;
+}
+
+.selected-color{
+    color:var(--gold);
+}
+
+.colors{
+    display:flex;
+    gap:12px;
+}
+
+.color{
+    width:27px;
+    height:27px;
+    border-radius:50%;
+    border:3px solid #fff;
+    outline:1px solid #ccc;
+}
+
+.color.selected{
+    outline:3px solid var(--gold);
+}
+
+.black{background:#1e1e1e}
+.brown{background:#76503c}
+.beige{background:#c8b39b}
+.grey{background:#858585}
+.green{background:#426c56}
+
+/* QUANTITY */
+
+.buy-row{
+    display:flex;
+    gap:9px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.quantity{
+    height:48px;
+    display:flex;
+    align-items:center;
+    border:1px solid #ddd5ca;
+    border-radius:30px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.quantity button{
+    width:40px;
+    height:100%;
+    border:none;
+    background:#fff;
+    font-size:18px;
+}
+
+.quantity span{
+    width:35px;
+    text-align:center;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.btn{
+    border:none;
+    height:48px;
+    padding:0 23px;
+    border-radius:30px;
+    font-weight:bold;
+    font-size:12px;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-cart{
+    background:var(--brown);
+    color:#fff;
+}
+
+.btn-buy{
+    background:var(--gold);
+    color:#fff;
+}
+
+.wishlist{
+    width:48px;
+    height:48px;
+    border:1px solid #ddd5ca;
+    background:#fff;
+    border-radius:50%;
+    font-size:20px;
+}
+
+.wishlist.active{
+    color:var(--red);
+    border-color:#e7b5b0;
+    background:#fff6f5;
+}
+
+/* DELIVERY INFO */
+
+.delivery-box{
+    background:var(--cream);
+    border-radius:14px;
+    padding:15px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.delivery-item{
+    text-align:center;
+    font-size:10px;
+    color:#777;
+}
+
+.delivery-item strong{
+    display:block;
+    color:var(--brown);
+    margin-bottom:3px;
+    font-size:11px;
+}
+
+/* =========================================================
+   PRODUCT TRUST
+========================================================= */
+
+.trust-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    margin:45px 0;
+    background:var(--gray-light);
+    border:1px solid var(--gray-light);
+    border-radius:15px;
+    overflow:hidden;
+}
+
+.trust-item{
+    background:#fff;
+    padding:18px;
+    text-align:center;
+}
+
+.trust-icon{
+    font-size:21px;
+    margin-bottom:7px;
+}
+
+.trust-item strong{
+    display:block;
+    color:var(--brown);
+    font-size:12px;
+}
+
+.trust-item span{
+    color:#999;
+    font-size:10px;
+}
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.tabs{
+    margin:30px 0 70px;
+}
+
+.tab-buttons{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    border-bottom:1px solid var(--gray-light);
+}
+
+.tab-buttons button{
+    border:none;
+    background:none;
+    padding:17px 4px;
+    color:#999;
+    font-size:12px;
+    font-weight:bold;
+    position:relative;
+}
+
+.tab-buttons button.active{
+    color:var(--brown);
+}
+
+.tab-buttons button.active:after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+    height:3px;
+    background:var(--gold);
+}
+
+.tab{
+    display:none;
+    padding:28px 0;
+}
+
+.tab.active{
+    display:block;
+}
+
+/* SPECIFICATIONS */
+
+.spec-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    border:1px solid var(--gray-light);
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.spec-item{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    padding:13px 15px;
+    border-bottom:1px solid var(--gray-light);
+    font-size:12px;
+}
+
+.spec-item:nth-child(odd){
+    background:#fcfaf7;
+}
+
+.spec-label{
+    color:#888;
+}
+
+.spec-value{
+    color:var(--brown);
+    font-weight:bold;
+}
+
+/* REVIEW */
+
+.review-box{
+    padding:20px;
+    background:var(--cream);
+    border-radius:15px;
+}
+
+.review-score{
+    font-size:30px;
+    font-weight:bold;
+    color:var(--brown);
+}
+
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+.related{
+    padding:65px 0;
+    background:var(--cream);
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-heading small{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.section-heading h2{
+    font-size:30px;
+    color:var(--brown-dark);
+    margin:7px 0;
+}
+
+.section-heading p{
+    color:#8b837b;
+    font-size:12px;
+}
+
+/* PRODUCT GRID */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid #e9e2d9;
+    border-radius:16px;
+    padding:8px;
+    overflow:hidden;
+    position:relative;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+}
+
+.card-image{
+    height:225px;
+    background:#f5f1eb;
+    border-radius:11px;
+    overflow:hidden;
+    position:relative;
+}
+
+.card-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.card:hover .card-image img{
+    transform:scale(1.05);
+}
+
+.discount{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:var(--brown);
+    color:#fff;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:9px;
+    z-index:2;
+}
+
+.card-content{
+    padding:10px 6px 5px;
+}
+
+.card-category{
+    color:var(--gold);
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.card h3{
+    font-size:14px;
+    color:var(--brown);
+    margin:5px 0;
+}
+
+.card-price{
+    font-size:15px;
+    font-weight:bold;
+    color:var(--brown-dark);
+    margin-bottom:9px;
+}
+
+.card-old-price{
+    font-size:10px;
+    color:#aaa;
+    text-decoration:line-through;
+    margin-left:4px;
+}
+
+.card-buttons{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+}
+
+.card-buttons button{
+    border:none;
+    padding:9px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.add-btn{
+    background:var(--brown);
+    color:#fff;
+}
+
+.buy-btn{
+    background:#f0d8a5;
+    color:var(--brown);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:var(--brown-dark);
+    color:#fff;
+    padding:55px 0 20px;
+}
+
+.footer{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.3fr;
+    gap:40px;
+}
+
+.footer-brand h2{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.footer-brand p{
+    color:#bdb1a8;
+    max-width:300px;
+    font-size:12px;
+    line-height:1.8;
+}
+
+footer h3{
+    font-size:13px;
+    margin-bottom:13px;
+}
+
+footer a{
+    display:block;
+    color:#bdb1a8;
+    text-decoration:none;
+    font-size:11px;
+    line-height:2.3;
+}
+
+footer a:hover{
+    color:var(--gold-light);
+}
+
+.footer-contact{
+    color:#bdb1a8;
+    font-size:11px;
+    line-height:2;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:35px;
+    padding-top:18px;
+    text-align:center;
+    color:#91867e;
+    font-size:10px;
+}
+
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(25,18,13,.6);
+    backdrop-filter:blur(3px);
+    z-index:80;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart-drawer{
+    position:fixed;
+    right:-460px;
+    top:0;
+    width:min(450px,94%);
+    height:100vh;
+    background:#fff;
+    z-index:100;
+    transition:.35s;
+    padding:22px;
+    overflow-y:auto;
+    box-shadow:-20px 0 50px rgba(0,0,0,.15);
+}
+
+.cart-drawer.open{
+    right:0;
+}
+
+.drawer-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--gray-light);
+}
+
+.drawer-head h2{
+    color:var(--brown);
+    font-size:21px;
+}
+
+.close{
+    border:none;
+    background:none;
+    font-size:27px;
+    color:#777;
+}
+
+.cart-item{
+    display:grid;
+    grid-template-columns:75px 1fr auto;
+    gap:11px;
+    padding:15px 0;
+    border-bottom:1px solid var(--gray-light);
+}
+
+.cart-item img{
+    width:75px;
+    height:70px;
+    object-fit:cover;
+    background:#f5f1eb;
+    border-radius:9px;
+}
+
+.cart-item h4{
+    color:var(--brown);
+    font-size:12px;
+}
+
+.cart-item p{
+    color:#888;
+    font-size:11px;
+    margin:4px 0;
+}
+
+.cart-qty button{
+    width:22px;
+    height:22px;
+    border:1px solid #ddd;
+    background:#fff;
+    border-radius:5px;
+}
+
+.remove-item{
+    border:none;
+    background:none;
+    color:var(--red);
+    font-size:10px;
+}
+
+.cart-summary{
+    margin-top:20px;
+}
+
+.summary-line{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin:9px 0;
+    font-size:12px;
+}
+
+.total{
+    border-top:1px solid var(--gray-light);
+    padding-top:15px;
+    margin-top:15px;
+    font-size:18px;
+    color:var(--brown);
+}
+
+.checkout-button{
+    width:100%;
+    border:none;
+    padding:14px;
+    background:var(--brown);
+    color:#fff;
+    border-radius:10px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:120;
+    background:rgba(20,14,10,.65);
+    backdrop-filter:blur(4px);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(680px,100%);
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:18px;
+    padding:25px;
+}
+
+.modal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.modal-head h2{
+    color:var(--brown);
+}
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.form-group{
+    margin-bottom:4px;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+.form-group label{
+    display:block;
+    font-size:10px;
+    font-weight:bold;
+    color:var(--brown);
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    border:1px solid #ddd5ca;
+    border-radius:8px;
+    padding:11px;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--gold);
+}
+
+.form-group textarea{
+    min-height:80px;
+    resize:vertical;
+}
+
+.order-summary{
+    background:var(--cream);
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:18px;
+}
+
+.place-order{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:var(--brown);
+    color:#fff;
+    border-radius:9px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.place-order:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.success{
+    text-align:center;
+    padding:25px 10px;
+}
+
+.success-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    margin:auto auto 15px;
+    background:#eaf5ed;
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+}
+
+.order-number{
+    color:var(--gold);
+    font-size:19px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.small-button{
+    border:none;
+    background:var(--brown);
+    color:#fff;
+    padding:10px 15px;
+    border-radius:8px;
+    margin-top:15px;
+}
+
+/* =========================================================
+   IMAGE MODAL
+========================================================= */
+
+.image-modal img{
+    max-width:90vw;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.image-modal{
+    background:rgba(0,0,0,.9);
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.message{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--brown-dark);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:30px;
+    font-size:11px;
+    z-index:200;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+.message.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
+
+/* =========================================================
+   MOBILE ACTION BAR
+========================================================= */
+
+.mobile-actions{
+    display:none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+    nav{
+        display:none;
+    }
+
+    .product{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .main-image{
+        height:520px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .topbar{
+        display:none;
+    }
+
+    .header{
+        min-height:66px;
+        gap:10px;
+    }
+
+    .logo-mark{
+        width:37px;
+        height:37px;
+    }
+
+    .logo-text{
+        font-size:18px;
+    }
+
+    .header-actions{
+        margin-left:auto;
+    }
+
+    .icon-button{
+        width:37px;
+        height:37px;
+        font-size:15px;
+    }
+
+    .header-actions .orders-button{
+        display:none;
+    }
+
+    .breadcrumb{
+        padding:18px 0;
+    }
+
+    .main-image{
+        height:390px;
+        border-radius:18px;
+    }
+
+    .thumbnail{
+        height:65px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .title-row{
+        display:block;
+    }
+
+    .stock{
+        display:inline-block;
+        margin-top:8px;
+    }
+
+    .delivery-box{
+        grid-template-columns:1fr;
+    }
+
+    .trust-row{
+        grid-template-columns:1fr;
+    }
+
+    .tab-buttons{
+        justify-content:flex-start;
+        gap:25px;
+        overflow-x:auto;
+    }
+
+    .tab-buttons button{
+        white-space:nowrap;
+    }
+
+    .spec-grid{
+        grid-template-columns:1fr;
+    }
+
+    .spec-item{
+        grid-template-columns:130px 1fr;
+    }
+
+    .products{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card-image{
+        height:155px;
+    }
+
+    .card h3{
+        font-size:12px;
+    }
+
+    .card-price{
+        font-size:13px;
+    }
+
+    .card-buttons button{
+        padding:8px 4px;
+        font-size:9px;
+    }
+
+    .footer{
+        grid-template-columns:1fr 1fr;
+        gap:25px;
+    }
+
+    .footer-brand{
+        grid-column:1/-1;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .buy-row{
+        padding-bottom:65px;
+    }
+
+    .mobile-actions{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        position:fixed;
+        bottom:0;
+        left:0;
+        right:0;
+        padding:8px;
+        background:rgba(255,255,255,.96);
+        backdrop-filter:blur(10px);
+        border-top:1px solid #ddd;
+        z-index:70;
+        gap:7px;
+    }
+
+    .mobile-actions button{
+        height:45px;
+        border:none;
+        border-radius:9px;
+        font-weight:bold;
+        font-size:11px;
+    }
+
+    .mobile-cart{
+        background:var(--brown);
+        color:#fff;
+    }
+
+    .mobile-buy{
+        background:var(--gold);
+        color:#fff;
+    }
+}
+
+@media(max-width:400px){
+
+    .products{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .card-image{
+        height:135px;
+    }
+
+    .logo-sub{
+        display:none;
+    }
+
+    .main-image{
+        height:340px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     TOP BAR
+========================================================= -->
+
+<div class="topbar">
+    <div class="container topbar-inner">
+
+        <span>Premium Furniture & Interior Solutions</span>
+
+        <span>
+            🚚 Home Delivery &nbsp; | &nbsp;
+            📞 +977 9829312825
+        </span>
+
+    </div>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header>
+
+    <div class="container header">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-mark">
+                TW
+            </div>
+
+            <div>
+                <div class="logo-text">
+                    TimberWood
+                </div>
+
+                <span class="logo-sub">
+                    FURNITURE & INTERIORS
+                </span>
+            </div>
+
+        </a>
+
+
+        <nav>
+
+            <a href="#home">Home</a>
+            <a href="#product">Shop</a>
+            <a href="#related">Collection</a>
+            <a href="#specifications">Specifications</a>
+            <a href="#footer">Contact</a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <button
+                class="icon-button"
+                onclick="toggleSearch()"
+                title="Search">
+                🔍
+            </button>
+
+            <button
+                class="icon-button orders-button"
+                onclick="openOrders()"
+                title="Orders">
+                📦
+            </button>
+
+            <button
+                class="icon-button"
+                onclick="openCart()"
+                title="Cart">
+
+                🛒
+
+                <span
+                    class="cart-count"
+                    id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box" id="searchBox">
+
+        <div class="container">
+
+            <div class="search-wrapper">
+
+                <span>🔍</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search chairs, sofas, beds, tables..."
+                    oninput="searchProducts()">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main id="home">
+
+<div class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <div class="breadcrumb">
+
+        Home
+        /
+        Furniture
+        /
+        Sofas
+        /
+        <span>Luxury Sofa Set</span>
+
+    </div>
+
+
+    <!-- =====================================================
+         PRODUCT
+    ===================================================== -->
+
+    <section class="product" id="product">
+
+
+        <!-- GALLERY -->
+
+        <div class="gallery">
+
+            <div class="main-image">
+
+                <span class="gallery-badge">
+                    BEST SELLER
+                </span>
+
+                <span
+                    class="image-count"
+                    id="imageCount">
+                    1 / 4
+                </span>
+
+
+                <button
+                    class="gallery-arrow gallery-left"
+                    onclick="previousImage()">
+                    ‹
+                </button>
+
+
+                <img
+                    id="mainImage"
+                    src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90"
+                    alt="TimberWood Luxury Sofa Set">
+
+
+                <button
+                    class="gallery-arrow gallery-right"
+                    onclick="nextImage()">
+                    ›
+                </button>
+
+
+                <button
+                    class="zoom-button"
+                    onclick="openImageZoom()">
+                    ⛶
+                </button>
+
+            </div>
+
+
+            <div class="thumbnails">
+
+                <button
+                    class="thumbnail active"
+                    onclick="changeImage(0)">
+
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80">
+
+                </button>
+
+
+                <button
+                    class="thumbnail"
+                    onclick="changeImage(1)">
+
+                    <img src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=400&q=80">
+
+                </button>
+
+
+                <button
+                    class="thumbnail"
+                    onclick="changeImage(2)">
+
+                    <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=400&q=80">
+
+                </button>
+
+
+                <button
+                    class="thumbnail"
+                    onclick="changeImage(3)">
+
+                    <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=400&q=80">
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             DETAILS
+        ================================================= -->
+
+<div class="product-details">
+
+    <div class="category">
+        Premium Sofa Collection
+    </div>
+
+    <div class="title-row">
+
+        <h1>
+            Luxury Sofa Set
+        </h1>
+
+        <span class="stock">
+            IN STOCK
+        </span>
+
+    </div>
+
+    <div class="rating">
+
+        <span class="stars">
+            ★★★★★
+        </span>
+
+        <span>4.8</span>
+
+        <span>·</span>
+
+        <span>25 Reviews</span>
+
+    </div>
+
+    <div class="price-box">
+
+        <span class="price">
+            Rs. 1,35,000
+        </span>
+
+        <span class="old-price">
+            Rs. 1,50,000
+        </span>
+
+        <span class="save">
+            10% OFF
+        </span>
+
+    </div>
+
+    <p class="description details-description">
+
+        Bring comfort and elegance to your living room with
+        the TimberWood Luxury Sofa Set. Designed with a
+        spacious seating area, soft cushioning and a durable
+        frame, this sofa is perfect for modern homes,
+        apartments, offices and reception areas.
+
+        <br><br>
+
+        Its timeless design combines premium upholstery,
+        comfortable seating and strong construction to provide
+        long-lasting everyday comfort.
+
+    </p>
+
+    <div class="model-info">
+
+        <span>
+            <strong>Model:</strong>
+            TW-SF-001
+        </span>
+
+        <span>
+            <strong>SKU:</strong>
+            TW-LS-001
+        </span>
+
+        <span>
+            <strong>Category:</strong>
+            Sofa
+        </span>
+
+    </div>
+
+    <div class="option-title">
+
+        Color:
+        <span
+            class="selected-color"
+            id="selectedColor">
+            Beige
+        </span>
+
+    </div>
+
+    <div class="colors">
+
+        <button
+            class="color black"
+            onclick="selectColor('Black',this)"
+            title="Black">
+        </button>
+
+        <button
+            class="color brown"
+            onclick="selectColor('Brown',this)"
+            title="Brown">
+        </button>
+
+        <button
+            class="color beige selected"
+            onclick="selectColor('Beige',this)"
+            title="Beige">
+        </button>
+
+        <button
+            class="color grey"
+            onclick="selectColor('Grey',this)"
+            title="Grey">
+        </button>
+
+        <button
+            class="color green"
+            onclick="selectColor('Green',this)"
+            title="Green">
+        </button>
+
+    </div>
+
+    <div class="buy-row">
+
+        <div class="quantity">
+
+            <button onclick="changeQuantity(-1)">
+                −
+            </button>
+
+            <span id="quantity">
+                1
+            </span>
+
+            <button onclick="changeQuantity(1)">
+                +
+            </button>
+
+        </div>
+
+        <button
+            class="btn btn-cart"
+            onclick="addMainProductToCart()">
+
+            Add to Cart
+
+        </button>
+
+        <button
+            class="btn btn-buy"
+            onclick="buyMainProduct()">
+
+            Buy Now
+
+        </button>
+
+        <button
+            class="wishlist"
+            id="wishlistButton"
+            onclick="toggleWishlist(this)"
+            title="Wishlist">
+
+            ♡
+
+        </button>
+
+    </div>
+
+    <div class="delivery-box">
+
+        <div class="delivery-item">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <strong>
+                Delivery
+            </strong>
+
+            Home delivery
+
+        </div>
+
+        <div class="delivery-item">
+
+            <div class="trust-icon">
+                🛋️
+            </div>
+
+            <strong>
+                Installation
+            </strong>
+
+            Available
+
+        </div>
+
+        <div class="delivery-item">
+
+            <div class="trust-icon">
+                💳
+            </div>
+
+            <strong>
+                Payment
+            </strong>
+
+            COD available
+
+        </div>
+
+    </div>
+
+</div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TRUST
+    ===================================================== -->
+
+    <section class="trust-row">
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🚚
+            </div>
+
+            <strong>
+                Home Delivery
+            </strong>
+
+            <span>
+                Delivery available across Nepal
+            </span>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🪵
+            </div>
+
+            <strong>
+                Quality Furniture
+            </strong>
+
+            <span>
+                Carefully selected materials
+            </span>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+                🎧
+            </div>
+
+            <strong>
+                Customer Support
+            </strong>
+
+            <span>
+                Assistance before and after purchase
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         TABS
+    ===================================================== -->
+
+    <section class="tabs" id="specifications">
+
+
+        <div class="tab-buttons">
+
+            <button
+                onclick="openTab('descriptionTab',this)">
+                Description
+            </button>
+
+            <button
+                class="active"
+                onclick="openTab('specTab',this)">
+                Specifications
+            </button>
+
+            <button
+                onclick="openTab('reviewTab',this)">
+                Reviews
+            </button>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+<div class="tab" id="descriptionTab">
+
+    <p class="description">
+
+        The TimberWood Luxury Sofa Set is designed to create
+        a comfortable and elegant living space.
+
+        <br><br>
+
+        The sofa features a strong wooden frame, high-density
+        cushioning and premium upholstery. Its spacious seating
+        makes it suitable for family living rooms, apartments,
+        offices, lounges and reception areas.
+
+        <br><br>
+
+        The modern design can be customized with different
+        upholstery colors to match your interior.
+
+    </p>
+
+</div>
+
+
+        <!-- SPECIFICATIONS -->
+
+<div class="tab active" id="specTab">
+
+    <div class="spec-grid">
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Product Type
+            </span>
+
+            <span class="spec-value">
+                Luxury Sofa Set
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Model Number
+            </span>
+
+            <span class="spec-value">
+                TW-SF-001
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Seating Capacity
+            </span>
+
+            <span class="spec-value">
+                5 Seater
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Material
+            </span>
+
+            <span class="spec-value">
+                Premium Fabric
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Frame
+            </span>
+
+            <span class="spec-value">
+                Solid Wood
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Cushion
+            </span>
+
+            <span class="spec-value">
+                High Density Foam
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Color
+            </span>
+
+            <span class="spec-value">
+                Beige, Brown, Grey, Black, Green
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Dimensions
+            </span>
+
+            <span class="spec-value">
+                110"W × 35"D × 32"H
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Upholstery
+            </span>
+
+            <span class="spec-value">
+                Premium Fabric
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Warranty
+            </span>
+
+            <span class="spec-value">
+                Contact TimberWood
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Availability
+            </span>
+
+            <span class="spec-value">
+                In Stock
+            </span>
+        </div>
+
+        <div class="spec-item">
+            <span class="spec-label">
+                Delivery
+            </span>
+
+            <span class="spec-value">
+                Available Across Nepal
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- REVIEWS -->
+
+        <div
+            class="tab"
+            id="reviewTab">
+
+            <div class="review-box">
+
+                <div class="review-score">
+                    4.8 / 5
+                </div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p
+                    class="description"
+                    style="margin-top:10px;">
+
+                    Based on 25 customer reviews.
+
+                </p>
+
+                <p
+                    class="description"
+                    style="margin-top:15px;">
+
+                    "Very comfortable and good quality chair.
+                    The design looks excellent in my office."
+
+                </p>
+
+                <button
+                    class="btn btn-cart"
+                    style="margin-top:15px;"
+                    onclick="showMessage('Review form can be connected to your database later.')">
+
+                    Write a Review
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================================
+     RELATED PRODUCTS
+========================================================= -->
+
+<section class="related" id="related">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>
+                TimberWood Sofa Collection
+            </small>
+
+            <h2>
+                Explore More Sofas
+            </h2>
+
+            <p>
+                Discover comfortable and stylish sofas for your home.
+            </p>
+
+        </div>
+
+        <div class="products">
+
+            <!-- SOFA 1 -->
+
+            <div
+                class="card product-card"
+                data-name="Modern 3 Seater Sofa">
+
+                <span class="discount">
+                    15% OFF
+                </span>
+
+                <div class="card-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=700&q=85"
+                        alt="Modern 3 Seater Sofa">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        3 Seater Sofa
+                    </div>
+
+                    <h3>
+                        Modern 3 Seater Sofa
+                    </h3>
+
+                    <div class="card-price">
+                        Rs. 85,000
+
+                        <span class="card-old-price">
+                            Rs. 1,00,000
+                        </span>
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="add-btn"
+                            onclick="addProduct('Modern 3 Seater Sofa',85000,this)">
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="buyProduct('Modern 3 Seater Sofa',85000,this)">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFA 2 -->
+
+            <div
+                class="card product-card"
+                data-name="L Shape Sofa">
+
+                <span class="discount">
+                    12% OFF
+                </span>
+
+                <div class="card-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=700&q=85"
+                        alt="L Shape Sofa">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        L Shape Sofa
+                    </div>
+
+                    <h3>
+                        Premium L Shape Sofa
+                    </h3>
+
+                    <div class="card-price">
+                        Rs. 1,15,000
+
+                        <span class="card-old-price">
+                            Rs. 1,30,000
+                        </span>
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="add-btn"
+                            onclick="addProduct('Premium L Shape Sofa',115000,this)">
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="buyProduct('Premium L Shape Sofa',115000,this)">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFA 3 -->
+
+            <div
+                class="card product-card"
+                data-name="Modern Fabric Sofa">
+
+                <span class="discount">
+                    10% OFF
+                </span>
+
+                <div class="card-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=700&q=85"
+                        alt="Modern Fabric Sofa">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Living Room Sofa
+                    </div>
+
+                    <h3>
+                        Modern Fabric Sofa
+                    </h3>
+
+                    <div class="card-price">
+                        Rs. 95,000
+
+                        <span class="card-old-price">
+                            Rs. 1,05,000
+                        </span>
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="add-btn"
+                            onclick="addProduct('Modern Fabric Sofa',95000,this)">
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="buyProduct('Modern Fabric Sofa',95000,this)">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFA 4 -->
+
+            <div
+                class="card product-card"
+                data-name="Luxury Recliner Sofa">
+
+                <span class="discount">
+                    18% OFF
+                </span>
+
+                <div class="card-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=85"
+                        alt="Luxury Recliner Sofa">
+
+                </div>
+
+                <div class="card-content">
+
+                    <div class="card-category">
+                        Recliner Sofa
+                    </div>
+
+                    <h3>
+                        Luxury Recliner Sofa
+                    </h3>
+
+                    <div class="card-price">
+                        Rs. 1,25,000
+
+                        <span class="card-old-price">
+                            Rs. 1,50,000
+                        </span>
+                    </div>
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="add-btn"
+                            onclick="addProduct('Luxury Recliner Sofa',125000,this)">
+                            Add to Cart
+                        </button>
+
+                        <button
+                            class="buy-btn"
+                            onclick="buyProduct('Luxury Recliner Sofa',125000,this)">
+                            Buy Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer id="footer">
+
+    <div class="container footer">
+
+        <div class="footer-brand">
+
+            <h2>
+                TimberWood
+            </h2>
+
+            <p>
+                Premium furniture and interior solutions
+                designed to make your spaces comfortable,
+                functional and beautiful.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Company
+            </h3>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#product">
+                Shop
+            </a>
+
+            <a href="#related">
+                Products
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Customer
+            </h3>
+
+            <a
+                href="#"
+                onclick="openOrders();return false;">
+                My Orders
+            </a>
+
+            <a
+                href="#"
+                onclick="openCart();return false;">
+                My Cart
+            </a>
+
+            <a href="#">
+                Privacy
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <div class="footer-contact">
+
+                📞 +977 9829312825
+                <br>
+
+                ✉ bbbbbibek5@gmail.com
+                <br>
+
+                📍 Nepal
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © 2026 TimberWood Pvt. Ltd.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     MOBILE ACTIONS
+========================================================= -->
+
+<div class="mobile-actions">
+
+    <button
+        class="mobile-cart"
+        onclick="addMainProductToCart()">
+
+        🛒 Add to Cart
+
+    </button>
+
+    <button
+        class="mobile-buy"
+        onclick="buyMainProduct()">
+
+        Buy Now
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     OVERLAY
+========================================================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()">
+</div>
+
+
+<!-- =========================================================
+     CART DRAWER
+========================================================= -->
+
+<div
+    class="cart-drawer"
+    id="cartDrawer">
+
+    <div class="drawer-head">
+
+        <h2>
+            My Cart
+        </h2>
+
+        <button
+            class="close"
+            onclick="closeCart()">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cart-summary">
+
+        <div class="summary-line">
+
+            <span>
+                Subtotal
+            </span>
+
+            <b id="cartSubtotal">
+                Rs. 0
+            </b>
+
+        </div>
+
+
+        <div class="summary-line">
+
+            <span>
+                Delivery
+            </span>
+
+            <b id="deliveryFee">
+                Free
+            </b>
+
+        </div>
+
+
+        <div class="summary-line total">
+
+            <span>
+                Total
+            </span>
+
+            <b id="cartTotal">
+                Rs. 0
+            </b>
+
+        </div>
+
+
+        <button
+            class="checkout-button"
+            onclick="openCheckout()">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     CHECKOUT MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="checkoutModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>
+                Checkout
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeCheckout()">
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="checkoutContent">
+
+
+            <div class="order-summary">
+
+                <b>
+                    Order Summary
+                </b>
+
+                <div
+                    id="checkoutItems"
+                    style="margin-top:10px;">
+                </div>
+
+                <div class="summary-line total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <b id="checkoutTotal">
+                        Rs. 0
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <form
+                id="orderForm"
+                onsubmit="placeOrder(event)">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail">
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            City *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerCity"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            Delivery Address *
+                        </label>
+
+                        <textarea
+                            id="customerAddress"
+                            required>
+                        </textarea>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Delivery Method
+                        </label>
+
+                        <select id="deliveryMethod">
+
+                            <option value="home">
+                                Home Delivery
+                            </option>
+
+                            <option value="pickup">
+                                Store Pickup
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Payment Method
+                        </label>
+
+                        <select id="paymentMethod">
+
+                            <option value="cod">
+                                Cash on Delivery
+                            </option>
+
+                            <option value="online">
+                                Online Payment
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    style="
+                    font-size:10px;
+                    color:#888;
+                    margin-top:13px;">
+
+                    Your order information will be
+                    securely sent to TimberWood.
+
+                </p>
+
+
+                <button
+                    class="place-order"
+                    type="submit">
+
+                    Place Order
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- SUCCESS -->
+
+        <div
+            id="orderSuccess"
+            style="display:none;"
+            class="success">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Order Placed!
+            </h2>
+
+            <div
+                class="order-number"
+                id="newOrderNumber">
+            </div>
+
+            <p class="description">
+
+                Thank you for shopping with TimberWood.
+                Your order has been received successfully.
+
+            </p>
+
+            <button
+                class="small-button"
+                onclick="closeCheckout();openOrders();">
+
+                View My Orders
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ORDERS MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="ordersModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+
+            <h2>
+                My Orders
+            </h2>
+
+            <button
+                class="close"
+                onclick="closeOrders()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="ordersList"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     IMAGE ZOOM MODAL
+========================================================= -->
+
+<div
+    class="modal image-modal"
+    id="imageModal"
+    onclick="closeImageZoom()">
+
+    <button
+        class="close"
+        style="
+        position:absolute;
+        top:20px;
+        right:25px;
+        color:white;
+        font-size:35px;">
+        ×
+    </button>
+
+    <img
+        id="zoomImage"
+        src=""
+        alt="Product Image">
+
+</div>
+
+
+<!-- =========================================================
+     MESSAGE
+========================================================= -->
+
+<div
+    class="message"
+    id="message">
+</div>
+
+
+<script>
+
+/* =========================================================
+   SHOP SETTINGS
+========================================================= */
+
+const SHOP_EMAIL = "bbbbbibek5@gmail.com";
+const SHOP_WHATSAPP = "9779829312825";
+
+
+/* =========================================================
+   MAIN PRODUCT
+========================================================= */
+
+const mainProduct = {
+
+    name:"Luxury Sofa Set",
+
+    price:135000,
+
+    image:
+    "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90"
+    
+};
+
+
+const images = [
+
+    "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=90",
+
+    "https://images.unsplash.com/photo-1550226891-ef816aed4a98?auto=format&fit=crop&w=1200&q=90",
+
+    "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1200&q=90",
+
+    "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1200&q=90"
+
+];
+
+
+let currentImage = 0;
+
+
+/* =========================================================
+   CART + ORDERS
+========================================================= */
+
+let cart =
+JSON.parse(
+localStorage.getItem("timberwoodCart")
+) || [];
+
+
+let orders =
+JSON.parse(
+localStorage.getItem("timberwoodOrders")
+) || [];
+
+
+function saveCart(){
+
+    localStorage.setItem(
+        "timberwoodCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function saveOrders(){
+
+    localStorage.setItem(
+        "timberwoodOrders",
+        JSON.stringify(orders)
+    );
+
+}
+
+
+/* =========================================================
+   CURRENCY
+========================================================= */
+
+function money(amount){
+
+    return "Rs. " +
+    Number(amount).toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   ADD PRODUCT
+========================================================= */
+
+function addProduct(name,price,button){
+
+    const card =
+    button.closest(".card");
+
+    const image =
+    card.querySelector("img").src;
+
+    addToCart(
+        name,
+        price,
+        image,
+        1
+    );
+
+    showMessage(
+        name + " added to cart"
+    );
+
+}
+
+
+/* =========================================================
+   ADD MAIN PRODUCT
+========================================================= */
+
+function addMainProductToCart(){
+
+    const quantity =
+    parseInt(
+        document.getElementById("quantity").innerText
+    );
+
+    const color =
+    document.getElementById("selectedColor").innerText;
+
+    addToCart(
+
+        mainProduct.name +
+        " - " +
+        color,
+
+        mainProduct.price,
+
+        mainProduct.image,
+
+        quantity
+
+    );
+
+    showMessage(
+        "Product added to cart"
+    );
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addToCart(
+    name,
+    price,
+    image,
+    quantity
+){
+
+    const existing =
+    cart.find(
+        item => item.name === name
+    );
+
+
+    if(existing){
+
+        existing.quantity += quantity;
+
+    }else{
+
+        cart.push({
+
+            name:name,
+            price:price,
+            image:image,
+            quantity:quantity
+
+        });
+
+    }
+
+
+    saveCart();
+    updateCart();
+
+}
+
+
+/* =========================================================
+   CART TOTAL
+========================================================= */
+
+function getSubtotal(){
+
+    return cart.reduce(
+        (total,item) =>
+        total +
+        item.price *
+        item.quantity,
+        0
+    );
+
+}
+
+
+function getDeliveryFee(){
+
+    if(cart.length === 0){
+        return 0;
+    }
+
+    return getSubtotal() >= 15000
+        ? 0
+        : 500;
+
+}
+
+
+function getTotal(){
+
+    return getSubtotal()
+    +
+    getDeliveryFee();
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
+
+function updateCart(){
+
+    const container =
+    document.getElementById("cartItems");
+
+    let itemCount = 0;
+
+    cart.forEach(item => {
+
+        itemCount +=
+        item.quantity;
+
+    });
+
+
+    document.getElementById(
+        "cartCount"
+    ).innerText =
+    itemCount;
+
+
+    if(cart.length === 0){
+
+        container.innerHTML = `
+
+            <div style="
+                padding:45px 10px;
+                text-align:center;
+                color:#888;
+            ">
+
+                <div style="
+                    font-size:40px;
+                    margin-bottom:10px;
+                ">
+                    🛒
+                </div>
+
+                Your cart is empty.
+
+            </div>
+
+        `;
+
+    }else{
+
+        container.innerHTML = "";
+
+
+        cart.forEach(
+        (item,index) => {
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}">
+
+                    <div>
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            ${money(item.price)}
+                        </p>
+
+                        <div class="cart-qty">
+
+                            <button
+                                onclick="
+                                changeCartQuantity(
+                                    ${index},
+                                    -1
+                                )">
+                                −
+                            </button>
+
+                            <span style="
+                                margin:0 7px;
+                                font-size:11px;">
+                                ${item.quantity}
+                            </span>
+
+                            <button
+                                onclick="
+                                changeCartQuantity(
+                                    ${index},
+                                    1
+                                )">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        class="remove-item"
+                        onclick="
+                        removeFromCart(${index})">
+
+                        Remove
+
+                    </button>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    document.getElementById(
+        "cartSubtotal"
+    ).innerText =
+    money(getSubtotal());
+
+
+    document.getElementById(
+        "deliveryFee"
+    ).innerText =
+    getDeliveryFee() === 0
+        ? "Free"
+        : money(getDeliveryFee());
+
+
+    document.getElementById(
+        "cartTotal"
+    ).innerText =
+    money(getTotal());
+
+}
+
+
+/* =========================================================
+   CART QUANTITY
+========================================================= */
+
+function changeCartQuantity(
+    index,
+    amount
+){
+
+    cart[index].quantity += amount;
+
+
+    if(
+        cart[index].quantity <= 0
+    ){
+
+        cart.splice(index,1);
+
+    }
+
+
+    saveCart();
+    updateCart();
+
+}
+
+
+function removeFromCart(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+    updateCart();
+
+    showMessage(
+        "Item removed"
+    );
+
+}
+
+
+/* =========================================================
+   CART OPEN
+========================================================= */
+
+function openCart(){
+
+    document
+    .getElementById("cartDrawer")
+    .classList.add("open");
+
+    document
+    .getElementById("overlay")
+    .classList.add("show");
+
+    updateCart();
+
+}
+
+
+function closeCart(){
+
+    document
+    .getElementById("cartDrawer")
+    .classList.remove("open");
+
+    document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+function buyMainProduct(){
+
+    const quantity =
+    parseInt(
+        document.getElementById("quantity").innerText
+    );
+
+    const color =
+    document.getElementById("selectedColor").innerText;
+
+
+    cart = [
+
+        {
+
+            name:
+            mainProduct.name +
+            " - " +
+            color,
+
+            price:
+            mainProduct.price,
+
+            image:
+            mainProduct.image,
+
+            quantity:
+            quantity
+
+        }
+
+    ];
+
+
+    saveCart();
+    updateCart();
+    openCheckout();
+
+}
+
+
+function buyProduct(
+    name,
+    price,
+    button
+){
+
+    let image = "";
+
+    if(button){
+
+        const card =
+        button.closest(".card");
+
+        if(card){
+
+            image =
+            card.querySelector("img").src;
+
+        }
+
+    }
+
+
+    cart = [
+
+        {
+
+            name:name,
+            price:price,
+            image:image,
+            quantity:1
+
+        }
+
+    ];
+
+
+    saveCart();
+    updateCart();
+    openCheckout();
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function openCheckout(){
+
+    if(cart.length === 0){
+
+        showMessage(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    closeCart();
+
+
+    document
+    .getElementById("checkoutModal")
+    .classList.add("show");
+
+
+    document
+    .getElementById("checkoutContent")
+    .style.display =
+    "block";
+
+
+    document
+    .getElementById("orderSuccess")
+    .style.display =
+    "none";
+
+
+    showCheckoutItems();
+
+}
+
+
+function closeCheckout(){
+
+    document
+    .getElementById("checkoutModal")
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   CHECKOUT ITEMS
+========================================================= */
+
+function showCheckoutItems(){
+
+    const container =
+    document.getElementById(
+        "checkoutItems"
+    );
+
+
+    container.innerHTML = "";
+
+
+    cart.forEach(item => {
+
+        container.innerHTML += `
+
+            <div class="summary-line">
+
+                <span>
+                    ${item.name}
+                    × ${item.quantity}
+                </span>
+
+                <b>
+                    ${money(
+                        item.price *
+                        item.quantity
+                    )}
+                </b>
+
+            </div>
+
+        `;
+
+    });
+
+
+    container.innerHTML += `
+
+        <div class="summary-line">
+
+            <span>
+                Delivery
+            </span>
+
+            <b>
+                ${
+                    getDeliveryFee() === 0
+                    ? "Free"
+                    : money(getDeliveryFee())
+                }
+            </b>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "checkoutTotal"
+    ).innerText =
+    money(getTotal());
+
+}
+
+
+/* =========================================================
+   PLACE ORDER
+========================================================= */
+
+function placeOrder(event){
+
+    event.preventDefault();
+
+
+    if(cart.length === 0){
+
+        showMessage(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    const button =
+    document.querySelector(
+        "#orderForm .place-order"
+    );
+
+
+    const originalText =
+    button.innerText;
+
+
+    button.disabled = true;
+    button.innerText =
+    "Sending Order...";
+
+
+    const orderNumber =
+    "TW-" +
+    new Date()
+    .getFullYear() +
+    "-" +
+    Math.floor(
+        100000 +
+        Math.random() *
+        900000
+    );
+
+
+    const customer = {
+
+        name:
+        document
+        .getElementById(
+            "customerName"
+        )
+        .value.trim(),
+
+        phone:
+        document
+        .getElementById(
+            "customerPhone"
+        )
+        .value.trim(),
+
+        email:
+        document
+        .getElementById(
+            "customerEmail"
+        )
+        .value.trim(),
+
+        city:
+        document
+        .getElementById(
+            "customerCity"
+        )
+        .value.trim(),
+
+        address:
+        document
+        .getElementById(
+            "customerAddress"
+        )
+        .value.trim(),
+
+        delivery:
+        document
+        .getElementById(
+            "deliveryMethod"
+        ).value,
+
+        payment:
+        document
+        .getElementById(
+            "paymentMethod"
+        ).value
+
+    };
+
+
+    const formData =
+    new FormData();
+
+
+    formData.append(
+        "name",
+        customer.name
+    );
+
+    formData.append(
+        "phone",
+        customer.phone
+    );
+
+    formData.append(
+        "email",
+        customer.email
+    );
+
+    formData.append(
+        "city",
+        customer.city
+    );
+
+    formData.append(
+        "address",
+        customer.address
+    );
+
+    formData.append(
+        "delivery",
+        customer.delivery
+    );
+
+    formData.append(
+        "payment",
+        customer.payment
+    );
+
+    formData.append(
+        "order_number",
+        orderNumber
+    );
+
+    formData.append(
+        "order_date",
+        new Date().toLocaleString()
+    );
+
+    formData.append(
+        "items",
+        JSON.stringify(cart)
+    );
+
+    formData.append(
+        "subtotal",
+        getSubtotal().toFixed(2)
+    );
+
+    formData.append(
+        "delivery_fee",
+        getDeliveryFee().toFixed(2)
+    );
+
+    formData.append(
+        "total",
+        getTotal().toFixed(2)
+    );
+
+
+    fetch(
+        "/send-order.php",
+        {
+
+            method:"POST",
+
+            body:formData,
+
+            headers:{
+                "Accept":
+                "application/json"
+            }
+
+        }
+    )
+
+    .then(response => {
+
+        return response.text()
+        .then(text => {
+
+            if(!response.ok){
+
+                throw new Error(
+                    "Server error " +
+                    response.status
+                );
+
+            }
+
+
+            try{
+
+                return JSON.parse(text);
+
+            }catch(error){
+
+                throw new Error(
+                    "send-order.php did not return valid JSON."
+                );
+
+            }
+
+        });
+
+    })
+
+    .then(result => {
+
+        if(!result.success){
+
+            throw new Error(
+                result.message ||
+                "Order could not be processed."
+            );
+
+        }
+
+
+        const order = {
+
+            number:
+            result.order_number ||
+            orderNumber,
+
+            date:
+            new Date()
+            .toLocaleString(),
+
+            customer:
+            customer,
+
+            items:
+            cart.slice(),
+
+            total:
+            getTotal(),
+
+            status:
+            "Order Received"
+
+        };
+
+
+        orders.unshift(order);
+
+        saveOrders();
+
+
+        cart = [];
+
+        saveCart();
+        updateCart();
+
+
+        document
+        .getElementById(
+            "orderForm"
+        )
+        .reset();
+
+
+        document
+        .getElementById(
+            "checkoutContent"
+        )
+        .style.display =
+        "none";
+
+
+        document
+        .getElementById(
+            "orderSuccess"
+        )
+        .style.display =
+        "block";
+
+
+        document
+        .getElementById(
+            "newOrderNumber"
+        )
+        .innerText =
+        order.number;
+
+
+        showMessage(
+            "Order sent successfully!"
+        );
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Order Error:",
+            error
+        );
+
+
+        alert(
+            "Order could not be sent.\n\n" +
+            error.message +
+            "\n\n" +
+            "Make sure send-order.php is uploaded directly inside public_html."
+        );
+
+    })
+
+    .finally(() => {
+
+        button.disabled = false;
+
+        button.innerText =
+        originalText;
+
+    });
+
+}
+
+
+/* =========================================================
+   ORDERS
+========================================================= */
+
+function openOrders(){
+
+    document
+    .getElementById(
+        "ordersModal"
+    )
+    .classList.add("show");
+
+
+    displayOrders();
+
+}
+
+
+function closeOrders(){
+
+    document
+    .getElementById(
+        "ordersModal"
+    )
+    .classList.remove("show");
+
+}
+
+
+function displayOrders(){
+
+    const container =
+    document.getElementById(
+        "ordersList"
+    );
+
+
+    if(orders.length === 0){
+
+        container.innerHTML = `
+
+            <div style="
+                text-align:center;
+                padding:35px;
+                color:#888;
+            ">
+
+                <div style="
+                    font-size:40px;
+                    margin-bottom:10px;
+                ">
+                    📦
+                </div>
+
+                You have no orders yet.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    orders.forEach(order => {
+
+        let items = "";
+
+
+        order.items.forEach(item => {
+
+            items += `
+                ${item.name}
+                × ${item.quantity}
+                <br>
+            `;
+
+        });
+
+
+        container.innerHTML += `
+
+            <div style="
+                border:1px solid #eee5dc;
+                border-radius:12px;
+                padding:15px;
+                margin-bottom:12px;
+                background:#fff;
+            ">
+
+                <b style="
+                    color:#3b2a20;
+                ">
+                    ${order.number}
+                </b>
+
+                <p style="
+                    color:#999;
+                    font-size:10px;
+                    margin:5px 0 10px;
+                ">
+                    ${order.date}
+                </p>
+
+                <p style="
+                    font-size:11px;
+                    line-height:1.8;
+                ">
+                    ${items}
+                </p>
+
+                <p style="
+                    margin-top:8px;
+                    color:#3b2a20;
+                ">
+                    <b>
+                        Total:
+                        ${money(order.total)}
+                    </b>
+                </p>
+
+                <p style="
+                    color:#3d684b;
+                    font-size:11px;
+                    margin-top:5px;
+                ">
+                    ${order.status}
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================================
+   IMAGE GALLERY
+========================================================= */
+
+function changeImage(number){
+
+    currentImage = number;
+
+
+    document.getElementById(
+        "mainImage"
+    ).src =
+    images[number];
+
+
+    document.getElementById(
+        "imageCount"
+    ).innerText =
+    (number + 1) +
+    " / " +
+    images.length;
+
+
+    document
+    .querySelectorAll(".thumbnail")
+    .forEach(
+        item =>
+        item.classList.remove("active")
+    );
+
+
+    document
+    .querySelectorAll(".thumbnail")
+    [number]
+    .classList.add("active");
+
+}
+
+
+function nextImage(){
+
+    currentImage++;
+
+    if(
+        currentImage >=
+        images.length
+    ){
+
+        currentImage = 0;
+
+    }
+
+    changeImage(currentImage);
+
+}
+
+
+function previousImage(){
+
+    currentImage--;
+
+    if(currentImage < 0){
+
+        currentImage =
+        images.length - 1;
+
+    }
+
+    changeImage(currentImage);
+
+}
+
+
+/* =========================================================
+   IMAGE ZOOM
+========================================================= */
+
+function openImageZoom(){
+
+    document.getElementById(
+        "zoomImage"
+    ).src =
+    images[currentImage];
+
+
+    document
+    .getElementById(
+        "imageModal"
+    )
+    .classList.add("show");
+
+}
+
+
+function closeImageZoom(){
+
+    document
+    .getElementById(
+        "imageModal"
+    )
+    .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   COLOR
+========================================================= */
+
+function selectColor(
+    color,
+    button
+){
+
+    document.getElementById(
+        "selectedColor"
+    ).innerText =
+    color;
+
+
+    document
+    .querySelectorAll(".color")
+    .forEach(
+        item =>
+        item.classList.remove("selected")
+    );
+
+
+    button.classList.add(
+        "selected"
+    );
+
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQuantity(number){
+
+    const element =
+    document.getElementById(
+        "quantity"
+    );
+
+
+    let value =
+    parseInt(
+        element.innerText
+    );
+
+
+    value += number;
+
+
+    if(value < 1){
+
+        value = 1;
+
+    }
+
+
+    if(value > 20){
+
+        value = 20;
+
+    }
+
+
+    element.innerText =
+    value;
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(button){
+
+    button.classList.toggle(
+        "active"
+    );
+
+
+    if(
+        button.classList.contains(
+            "active"
+        )
+    ){
+
+        button.innerText = "♥";
+
+        localStorage.setItem(
+            "timberwoodWishlist",
+            "true"
+        );
+
+        showMessage(
+            "Added to wishlist"
+        );
+
+    }else{
+
+        button.innerText = "♡";
+
+        localStorage.removeItem(
+            "timberwoodWishlist"
+        );
+
+        showMessage(
+            "Removed from wishlist"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD WISHLIST
+========================================================= */
+
+function loadWishlist(){
+
+    const saved =
+    localStorage.getItem(
+        "timberwoodWishlist"
+    );
+
+
+    if(saved === "true"){
+
+        const button =
+        document.getElementById(
+            "wishlistButton"
+        );
+
+        button.classList.add(
+            "active"
+        );
+
+        button.innerText = "♥";
+
+    }
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function openTab(
+    tabName,
+    button
+){
+
+    document
+    .querySelectorAll(".tab")
+    .forEach(
+        tab =>
+        tab.classList.remove(
+            "active"
+        )
+    );
+
+
+    document
+    .querySelectorAll(
+        ".tab-buttons button"
+    )
+    .forEach(
+        item =>
+        item.classList.remove(
+            "active"
+        )
+    );
+
+
+    document
+    .getElementById(tabName)
+    .classList.add("active");
+
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function toggleSearch(){
+
+    document
+    .getElementById("searchBox")
+    .classList.toggle("show");
+
+
+    const box =
+    document.getElementById(
+        "searchBox"
+    );
+
+
+    if(
+        box.classList.contains("show")
+    ){
+
+        document
+        .getElementById(
+            "searchInput"
+        )
+        .focus();
+
+    }
+
+}
+
+
+function searchProducts(){
+
+    const text =
+    document
+    .getElementById(
+        "searchInput"
+    )
+    .value
+    .toLowerCase()
+    .trim();
+
+
+    document
+    .querySelectorAll(
+        ".product-card"
+    )
+    .forEach(card => {
+
+        const name =
+        card
+        .getAttribute(
+            "data-name"
+        )
+        .toLowerCase();
+
+
+        card.style.display =
+        name.includes(text)
+        ? ""
+        : "none";
+
+    });
+
+}
+
+
+/* =========================================================
+   TOAST MESSAGE
+========================================================= */
+
+let messageTimer;
+
+
+function showMessage(text){
+
+    const message =
+    document.getElementById(
+        "message"
+    );
+
+
+    message.innerText =
+    text;
+
+
+    message.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        messageTimer
+    );
+
+
+    messageTimer =
+    setTimeout(
+        () => {
+
+            message.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
+
+}
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeCart();
+            closeCheckout();
+            closeOrders();
+            closeImageZoom();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+updateCart();
+loadWishlist();
+
+</script>
+
+</body>
+</html>
