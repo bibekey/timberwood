@@ -1,0 +1,1861 @@
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --brown:#3b2a20;
+    --brown-dark:#21150f;
+    --brown-light:#604637;
+
+    --gold:#b68d40;
+    --gold-light:#d6b46a;
+
+    --cream:#f7f2ea;
+    --cream-2:#efe6da;
+
+    --white:#ffffff;
+    --black:#111111;
+
+    --text:#4b4540;
+    --muted:#77716c;
+
+    --border:rgba(59,42,32,.10);
+
+    --shadow:0 20px 60px rgba(33,21,15,.10);
+    --shadow-heavy:0 30px 80px rgba(33,21,15,.18);
+
+    --radius:22px;
+    --transition:.35s ease;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Poppins",sans-serif;
+    color:var(--text);
+    background:#fff;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    min-height:620px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:150px 5% 100px;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            rgba(33,21,15,.70),
+            rgba(33,21,15,.55)
+        ),
+        url("https://i.pinimg.com/1200x/0d/8d/8e/0d8d8e58f0b4d1e1b8f6d0c8e2a3b2e4.jpg")
+        center/cover no-repeat;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,180,106,.18),
+            transparent 50%
+        );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+    max-width:850px;
+
+    animation:heroReveal 1s ease both;
+}
+
+.hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-bottom:22px;
+
+    color:var(--gold-light);
+
+    font-size:13px;
+    font-weight:600;
+
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.hero-tag::before,
+.hero-tag::after{
+    content:"";
+
+    width:40px;
+    height:1px;
+
+    background:var(--gold-light);
+}
+
+.hero h1{
+    color:#fff;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(48px,7vw,86px);
+    line-height:1.05;
+
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold-light);
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+
+    color:rgba(255,255,255,.86);
+
+    font-size:17px;
+    line-height:1.9;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    min-height:52px;
+
+    padding:0 28px;
+
+    border-radius:50px;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:var(--transition);
+}
+
+.btn-gold{
+    color:#fff;
+    background:var(--gold);
+
+    box-shadow:
+        0 12px 30px rgba(182,141,64,.25);
+}
+
+.btn-gold:hover{
+    background:#9f7632;
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.55);
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:var(--brown);
+
+    transform:translateY(-3px);
+}
+
+@keyframes heroReveal{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   SECTION COMMON
+========================================================= */
+
+section{
+    position:relative;
+}
+
+.section{
+    width:min(1280px,90%);
+    margin:auto;
+}
+
+.section-title{
+    width:min(720px,90%);
+    margin:0 auto 55px;
+
+    text-align:center;
+}
+
+.section-label{
+    display:block;
+
+    margin-bottom:12px;
+
+    color:var(--gold);
+
+    font-size:12px;
+    font-weight:700;
+
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.section-title h2{
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(35px,5vw,52px);
+    line-height:1.2;
+
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:var(--muted);
+    font-size:15px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services{
+    padding:110px 0;
+    background:#fff;
+}
+
+.services-grid{
+    width:min(1280px,90%);
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+}
+
+.service-card{
+    position:relative;
+
+    padding:38px 32px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+}
+
+.service-card::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    transform:scaleX(0);
+    transform-origin:left;
+
+    transition:var(--transition);
+}
+
+.service-card:hover{
+    transform:translateY(-10px);
+
+    box-shadow:var(--shadow);
+
+    border-color:rgba(182,141,64,.25);
+}
+
+.service-card:hover::before{
+    transform:scaleX(1);
+}
+
+.service-icon{
+    width:68px;
+    height:68px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:25px;
+
+    color:var(--gold);
+
+    background:var(--cream);
+
+    border-radius:18px;
+
+    font-size:26px;
+
+    transition:var(--transition);
+}
+
+.service-card:hover .service-icon{
+    color:#fff;
+    background:var(--gold);
+
+    transform:rotate(-5deg) scale(1.05);
+}
+
+.service-card h3{
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+
+    margin-bottom:13px;
+}
+
+.service-card p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.85;
+
+    margin-bottom:22px;
+}
+
+.service-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    color:var(--gold);
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:var(--transition);
+}
+
+.service-link:hover{
+    gap:13px;
+}
+
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats{
+    padding:90px 0;
+
+    background:
+        linear-gradient(
+            rgba(33,21,15,.94),
+            rgba(33,21,15,.94)
+        ),
+        url("https://i.pinimg.com/1200x/65/2f/76/652f76d7dbd75dff9f8a37d4d8e3a4ef.jpg")
+        center/cover no-repeat;
+}
+
+.stats-grid{
+    width:min(1100px,90%);
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+}
+
+.stat{
+    text-align:center;
+
+    padding:25px 15px;
+
+    border-right:1px solid rgba(255,255,255,.15);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat-icon{
+    color:var(--gold-light);
+
+    font-size:25px;
+
+    margin-bottom:12px;
+}
+
+.stat h3{
+    color:#fff;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:45px;
+
+    line-height:1;
+
+    margin-bottom:10px;
+}
+
+.stat p{
+    color:rgba(255,255,255,.68);
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process{
+    padding:110px 0;
+
+    background:var(--cream);
+}
+
+.process-grid{
+    width:min(1200px,90%);
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    position:relative;
+}
+
+.process-grid::before{
+    content:"";
+
+    position:absolute;
+
+    top:42px;
+    left:12%;
+    right:12%;
+
+    height:1px;
+
+    background:rgba(182,141,64,.35);
+
+    z-index:0;
+}
+
+.process-card{
+    position:relative;
+
+    z-index:1;
+
+    text-align:center;
+
+    padding:0 15px;
+}
+
+.process-number{
+    width:84px;
+    height:84px;
+
+    margin:0 auto 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    color:var(--gold);
+
+    border:1px solid rgba(182,141,64,.35);
+
+    border-radius:50%;
+
+    font-size:24px;
+
+    box-shadow:
+        0 10px 30px rgba(33,21,15,.08);
+
+    transition:var(--transition);
+}
+
+.process-card:hover .process-number{
+    color:#fff;
+
+    background:var(--gold);
+
+    transform:translateY(-5px);
+}
+
+.process-card h3{
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    margin-bottom:12px;
+}
+
+.process-card p{
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   SERVICE FEATURE
+========================================================= */
+
+.feature{
+    padding:110px 0;
+
+    background:#fff;
+}
+
+.feature-grid{
+    width:min(1250px,90%);
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+}
+
+.feature-content h2{
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(35px,4vw,52px);
+
+    line-height:1.2;
+
+    margin-bottom:20px;
+}
+
+.feature-content h2 span{
+    color:var(--gold);
+}
+
+.feature-content > p{
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+}
+
+.feature-points{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:15px;
+}
+
+.feature-point{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    padding:17px;
+
+    background:var(--cream);
+
+    border-radius:15px;
+}
+
+.feature-point i{
+    color:var(--gold);
+
+    margin-top:3px;
+}
+
+.feature-point strong{
+    display:block;
+
+    color:var(--brown-dark);
+
+    font-size:14px;
+
+    margin-bottom:3px;
+}
+
+.feature-point span{
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.feature-image{
+    position:relative;
+}
+
+.feature-image img{
+    width:100%;
+    height:560px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    box-shadow:var(--shadow-heavy);
+}
+
+.feature-badge{
+    position:absolute;
+
+    left:-25px;
+    bottom:30px;
+
+    padding:22px 25px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow);
+
+    z-index:2;
+}
+
+.feature-badge strong{
+    display:block;
+
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+}
+
+.feature-badge span{
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+#scrollTop{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    width:46px;
+    height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    background:var(--gold);
+
+    border:0;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18);
+
+    cursor:pointer;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:var(--transition);
+
+    z-index:9000;
+}
+
+#scrollTop.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+#scrollTop:hover{
+    background:var(--brown);
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .services-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stat{
+        border-right:0;
+
+        border-bottom:
+            1px solid rgba(255,255,255,.15);
+    }
+
+    .stat:nth-child(3),
+    .stat:nth-child(4){
+        border-bottom:0;
+    }
+
+    .process-grid{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:50px 25px;
+    }
+
+    .process-grid::before{
+        display:none;
+    }
+
+    .feature-grid{
+        gap:45px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+    .hero{
+        min-height:600px;
+
+        padding:
+            130px 5% 80px;
+    }
+
+    .feature-grid{
+        grid-template-columns:1fr;
+
+        gap:50px;
+    }
+
+    .feature-image img{
+        height:430px;
+    }
+
+    .feature-badge{
+        left:15px;
+    }
+
+    .feature-points{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .hero{
+        min-height:570px;
+
+        padding:
+            120px 5% 70px;
+    }
+
+    .hero-tag{
+        font-size:11px;
+
+        letter-spacing:2px;
+    }
+
+    .hero-tag::before,
+    .hero-tag::after{
+        width:25px;
+    }
+
+    .hero p{
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .services,
+    .process,
+    .feature{
+        padding:75px 0;
+    }
+
+    .section-title{
+        margin-bottom:40px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card{
+        padding:30px 25px;
+    }
+
+    .stats{
+        padding:65px 0;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
+
+        gap:5px;
+    }
+
+    .stat{
+        padding:20px 5px;
+    }
+
+    .stat h3{
+        font-size:34px;
+    }
+
+    .stat p{
+        font-size:10px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+
+        gap:40px;
+    }
+
+    .feature-points{
+        grid-template-columns:1fr;
+    }
+
+    .feature-image img{
+        height:350px;
+    }
+
+    .feature-badge{
+        padding:17px 20px;
+
+        left:10px;
+        bottom:20px;
+    }
+
+    .cta{
+        padding:75px 5%;
+    }
+
+    #scrollTop{
+        right:18px;
+        bottom:18px;
+
+        width:42px;
+        height:42px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+
+        transition:none !important;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-tag">
+            TimberWood Services
+        </div>
+
+        <h1>
+            Designed For
+            <span>Better Living.</span>
+        </h1>
+
+        <p>
+            Premium furniture design, custom craftsmanship and interior
+            solutions created to transform ordinary spaces into elegant,
+            comfortable and functional environments.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#services" class="btn btn-gold">
+                Explore Services
+                <i class="fas fa-arrow-down"></i>
+            </a>
+
+            <a href="contact.html" class="btn btn-outline">
+                Get a Consultation
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SERVICES
+======================================================= -->
+
+<section
+    class="services"
+    id="services">
+
+    <div class="section-title reveal">
+
+        <span class="section-label">
+            What We Offer
+        </span>
+
+        <h2>
+            Our Furniture & Interior Services
+        </h2>
+
+        <p>
+            Professional furniture and interior solutions designed
+            around your space, style and requirements.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+
+        <!-- SERVICE 1 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-couch"></i>
+            </div>
+
+            <h3>
+                Custom Furniture Design
+            </h3>
+
+            <p>
+                Get furniture designed according to your room size,
+                preferred style, functionality and individual requirements.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Discuss Your Design
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+        <!-- SERVICE 2 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-house"></i>
+            </div>
+
+            <h3>
+                Interior Solutions
+            </h3>
+
+            <p>
+                Complete interior furniture solutions for homes, offices,
+                bedrooms, living rooms and commercial spaces.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Plan Your Space
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+        <!-- SERVICE 3 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-ruler-combined"></i>
+            </div>
+
+            <h3>
+                Space Planning
+            </h3>
+
+            <p>
+                Practical furniture layouts and measurements planned
+                to make the best use of your available space.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Get Space Advice
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+        <!-- SERVICE 4 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-palette"></i>
+            </div>
+
+            <h3>
+                Furniture Finishing
+            </h3>
+
+            <p>
+                Choose suitable colors, textures, laminates, finishes
+                and design details to complement your interior.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Explore Finishes
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+        <!-- SERVICE 5 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-screwdriver-wrench"></i>
+            </div>
+
+            <h3>
+                Repair & Maintenance
+            </h3>
+
+            <p>
+                Furniture repair, adjustment and maintenance support
+                to help keep your furniture functional and presentable.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Request Support
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+        <!-- SERVICE 6 -->
+
+        <article class="service-card reveal">
+
+            <div class="service-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+
+            <h3>
+                Delivery & Installation
+            </h3>
+
+            <p>
+                Reliable furniture delivery and professional installation
+                support according to your project requirements.
+            </p>
+
+            <a
+                href="contact.html"
+                class="service-link">
+
+                Arrange Installation
+
+                <i class="fas fa-arrow-right"></i>
+
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     STATS
+======================================================= -->
+
+<section class="stats">
+
+    <div class="stats-grid">
+
+
+        <div class="stat reveal">
+
+            <div class="stat-icon">
+                <i class="fas fa-award"></i>
+            </div>
+
+            <h3 data-count="3">
+                0+
+            </h3>
+
+            <p>
+                Years Experience
+            </p>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+
+            <h3 data-count="200">
+                0+
+            </h3>
+
+            <p>
+                Happy Customers
+            </p>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <div class="stat-icon">
+                <i class="fas fa-chair"></i>
+            </div>
+
+            <h3 data-count="220">
+                0+
+            </h3>
+
+            <p>
+                Furniture Designs
+            </p>
+
+        </div>
+
+
+        <div class="stat reveal">
+
+            <div class="stat-icon">
+                <i class="fas fa-gem"></i>
+            </div>
+
+            <h3 data-count="100">
+                0%
+            </h3>
+
+            <p>
+                Quality Focus
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PROCESS
+======================================================= -->
+
+<section class="process">
+
+    <div class="section-title reveal">
+
+        <span class="section-label">
+            Simple Workflow
+        </span>
+
+        <h2>
+            Our Work Process
+        </h2>
+
+        <p>
+            A straightforward process from your first idea to the final setup.
+        </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+        <!-- STEP 1 -->
+
+        <div class="process-card reveal">
+
+            <div class="process-number">
+                <i class="fas fa-comments"></i>
+            </div>
+
+            <h3>
+                Consultation
+            </h3>
+
+            <p>
+                We understand your requirements, preferences, measurements
+                and project expectations.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="process-card reveal">
+
+            <div class="process-number">
+                <i class="fas fa-compass-drafting"></i>
+            </div>
+
+            <h3>
+                Design Planning
+            </h3>
+
+            <p>
+                Furniture concepts, layouts, materials and finishing options
+                are discussed according to your project.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="process-card reveal">
+
+            <div class="process-number">
+                <i class="fas fa-hammer"></i>
+            </div>
+
+            <h3>
+                Craftsmanship
+            </h3>
+
+            <p>
+                The selected design moves into production and finishing
+                according to the agreed requirements.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 4 -->
+
+        <div class="process-card reveal">
+
+            <div class="process-number">
+                <i class="fas fa-truck"></i>
+            </div>
+
+            <h3>
+                Delivery & Setup
+            </h3>
+
+            <p>
+                Your furniture is delivered and installation support is
+                arranged according to the project.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     FEATURE
+======================================================= -->
+
+<section class="feature">
+
+    <div class="feature-grid">
+
+
+        <div class="feature-content reveal">
+
+            <span class="section-label">
+                Built Around You
+            </span>
+
+            <h2>
+                Furniture That Fits
+                <span>Your Space.</span>
+            </h2>
+
+            <p>
+                Every room has a different character. Our custom furniture
+                and interior services allow you to select designs and
+                specifications that complement your space and lifestyle.
+            </p>
+
+
+            <div class="feature-points">
+
+
+                <div class="feature-point">
+
+                    <i class="fas fa-ruler"></i>
+
+                    <div>
+
+                        <strong>
+                            Custom Dimensions
+                        </strong>
+
+                        <span>
+                            Furniture planned around your available space.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-point">
+
+                    <i class="fas fa-palette"></i>
+
+                    <div>
+
+                        <strong>
+                            Finish Selection
+                        </strong>
+
+                        <span>
+                            Choose finishes that complement your interior.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-point">
+
+                    <i class="fas fa-layer-group"></i>
+
+                    <div>
+
+                        <strong>
+                            Material Options
+                        </strong>
+
+                        <span>
+                            Discuss suitable materials for your project.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-point">
+
+                    <i class="fas fa-house"></i>
+
+                    <div>
+
+                        <strong>
+                            Complete Solutions
+                        </strong>
+
+                        <span>
+                            Furniture and interior support in one place.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="feature-image reveal">
+
+            <img
+                src="https://i.pinimg.com/1200x/ab/a6/8c/aba68cad83b2d1295b17582e65702ffd.jpg"
+                alt="Custom luxury furniture"
+                loading="lazy">
+
+            <div class="feature-badge">
+
+                <strong>
+                    Custom
+                </strong>
+
+                <span>
+                    Designed for your space
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     SCROLL TOP
+======================================================= -->
+
+<button
+    id="scrollTop"
+    aria-label="Scroll to top"
+    type="button">
+
+    <i class="fas fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            function(entries, observer){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:0.12
+            }
+
+        );
+
+
+    revealElements.forEach(function(element){
+
+        revealObserver.observe(element);
+
+    });
+
+}else{
+
+    revealElements.forEach(function(element){
+
+        element.classList.add("visible");
+
+    });
+
+}
+
+
+/* =========================================================
+   COUNTER ANIMATION
+========================================================= */
+
+const counters =
+    document.querySelectorAll("[data-count]");
+
+let countersStarted = false;
+
+
+function animateCounters(){
+
+    if(countersStarted){
+        return;
+    }
+
+    const statsSection =
+        document.querySelector(".stats");
+
+    if(!statsSection){
+        return;
+    }
+
+    const sectionTop =
+        statsSection.getBoundingClientRect().top;
+
+
+    if(sectionTop < window.innerHeight * 0.85){
+
+        countersStarted = true;
+
+
+        counters.forEach(function(counter){
+
+            const target =
+                parseInt(
+                    counter.getAttribute("data-count"),
+                    10
+                );
+
+
+            const suffix =
+                target === 100 ? "%" : "+";
+
+
+            const duration = 1400;
+
+            const startTime =
+                performance.now();
+
+
+            function updateCounter(currentTime){
+
+                const progress =
+                    Math.min(
+                        (currentTime - startTime) / duration,
+                        1
+                    );
+
+
+                const eased =
+                    1 - Math.pow(1 - progress, 3);
+
+
+                const current =
+                    Math.floor(target * eased);
+
+
+                counter.textContent =
+                    current + suffix;
+
+
+                if(progress < 1){
+
+                    requestAnimationFrame(
+                        updateCounter
+                    );
+
+                }else{
+
+                    counter.textContent =
+                        target + suffix;
+
+                }
+
+            }
+
+
+            requestAnimationFrame(
+                updateCounter
+            );
+
+        });
+
+    }
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    animateCounters,
+    {
+        passive:true
+    }
+);
+
+
+animateCounters();
+
+
+/* =========================================================
+   SCROLL TO TOP
+========================================================= */
+
+const scrollTop =
+    document.getElementById("scrollTop");
+
+
+window.addEventListener(
+
+    "scroll",
+
+    function(){
+
+        if(window.scrollY > 500){
+
+            scrollTop.classList.add("show");
+
+        }else{
+
+            scrollTop.classList.remove("show");
+
+        }
+
+    },
+
+    {
+        passive:true
+    }
+
+);
+
+
+scrollTop.addEventListener(
+    "click",
+    function(){
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+);
+
+</script>
