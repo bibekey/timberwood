@@ -1307,6 +1307,53 @@ We use premium quality plywood, laminates, fabrics, rexine, and branded hardware
 
 
 
+
+<!-- =========================================================
+     TIMBERWOOD FRONTEND COPY-DETERRENCE PROTECTION
+     IMPORTANT: Browser-delivered HTML/CSS/JS can never be
+     completely hidden from a determined visitor.
+========================================================= -->
+<script>
+(function () {
+    "use strict";
+
+    // Disable right-click context menu
+    document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+    }, { passive: false });
+
+    // Disable common source/dev-tools shortcuts
+    document.addEventListener("keydown", function (e) {
+        const key = e.key.toLowerCase();
+
+        if (
+            e.key === "F12" ||
+            (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
+            (e.ctrlKey && key === "u")
+        ) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        }
+    }, true);
+
+    // Disable drag-selection of images
+    document.addEventListener("dragstart", function (e) {
+        if (e.target && e.target.tagName === "IMG") {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+    // Disable image dragging/selection through CSS at runtime
+    document.documentElement.style.setProperty(
+        "-webkit-user-select", "none"
+    );
+
+    // Do not rely on this as real security.
+    // Sensitive credentials, API keys and server logic MUST remain in PHP.
+})();
+</script>
+
 <script src="assets/main.js"></script>
 <script>
 window.__TW_LOADED__ = true;
