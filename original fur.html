@@ -1,0 +1,4993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TimberWood | Premium Furniture</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TimberWood Furniture specializes in luxury furniture and modern interior solutions including premium beds, sofas, dining tables, wardrobes, office furniture, and custom wooden designs crafted for elegant living spaces.">
+<meta name="keywords" content="TimberWood Furniture, TimberWood, Luxury Furniture, Modern Furniture, Wooden Furniture, Premium Beds, Sofa Set, Dining Table, Wardrobe, Home Furniture, Interior Design, Office Furniture, Custom Furniture, Furniture Store Nepal, TimberWood Nepal, Elegant Living, Modern Interior, Furniture Catalog, Luxury Home Decor, Wood Interior, Contemporary Furniture">
+<meta name="author" content="TimberWood Furniture">
+<meta property="og:image" content="img/img/LOGO.png">
+<meta name="robots" content="noarchive">
+
+<link rel="icon" href="favicon.png" type="image/x-icon">   
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --brown:#3b2a20;
+    --dark:#21150f;
+    --gold:#b68d40;
+    --gold2:#d6b46a;
+
+    --cream:#f7f2ea;
+    --cream2:#efe6da;
+
+    --white:#ffffff;
+    --text:#29231f;
+    --muted:#7c746d;
+    --border:#e5ddd3;
+
+    --red:#b43c34;
+    --green:#28734d;
+
+    --shadow:0 18px 45px rgba(48,31,20,.10);
+    --shadow2:0 8px 25px rgba(48,31,20,.08);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    color:var(--text);
+    background:#fff;
+    line-height:1.5;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1280px;
+    margin:auto;
+}
+
+.hidden{
+    display:none!important;
+}
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    background:var(--dark);
+    color:#fff;
+    text-align:center;
+    font-size:11px;
+    padding:8px;
+    letter-spacing:.5px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--border);
+}
+
+.header{
+    min-height:74px;
+
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+/* LOGO */
+
+.logo{
+    min-width:175px;
+}
+
+.logo strong{
+    display:block;
+    font:normal 26px Georgia,serif;
+    color:var(--brown);
+}
+
+.logo small{
+    display:block;
+    color:var(--gold);
+    font-size:8px;
+    letter-spacing:3px;
+}
+
+/* SEARCH */
+
+.search{
+    flex:1;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    height:44px;
+
+    border:1px solid var(--border);
+    border-radius:30px;
+
+    padding:0 50px 0 18px;
+
+    outline:0;
+}
+
+.search input:focus{
+    border-color:var(--gold);
+}
+
+.search button{
+    position:absolute;
+
+    right:5px;
+    top:5px;
+
+    width:34px;
+    height:34px;
+
+    border:0;
+    border-radius:50%;
+
+    background:var(--cream);
+}
+
+/* HEADER ACTIONS */
+
+.header-actions{
+    display:flex;
+    gap:8px;
+}
+
+.icon-btn{
+    width:42px;
+    height:42px;
+
+    border:1px solid var(--border);
+    border-radius:50%;
+
+    background:#fff;
+
+    position:relative;
+}
+
+.icon-btn:hover{
+    border-color:var(--gold);
+}
+
+.count{
+    position:absolute;
+
+    right:-2px;
+    top:-4px;
+
+    width:18px;
+    height:18px;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--brown);
+    color:#fff;
+
+    border-radius:50%;
+
+    font-size:9px;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav{
+    border-bottom:1px solid var(--border);
+    background:#fff;
+}
+
+.nav-list{
+    display:flex;
+    gap:8px;
+
+    overflow-x:auto;
+
+    padding:10px 0;
+}
+
+.nav-list::-webkit-scrollbar{
+    height:0;
+}
+
+.nav-list button{
+    border:0;
+    background:transparent;
+
+    color:var(--brown);
+
+    white-space:nowrap;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    font-size:11px;
+}
+
+.nav-list button:hover,
+.nav-list button.active{
+    background:var(--brown);
+    color:#fff;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    min-height:560px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(31,20,13,.92),
+            rgba(31,20,13,.45),
+            rgba(31,20,13,.08)
+        ),
+        url("https://i.pinimg.com/736x/63/f3/05/63f305555bb46367b3bdb5b15ed10b28.jpg")
+        center/cover;
+
+    display:flex;
+    align-items:center;
+
+    color:#fff;
+}
+
+.hero-content{
+    max-width:650px;
+    padding:80px 0;
+}
+
+.hero-label{
+    color:var(--gold2);
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    font-size:11px;
+
+    margin-bottom:14px;
+}
+
+.hero h1{
+
+    font:normal clamp(40px,6vw,72px)/1.02 Georgia,serif;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:520px;
+
+    color:#eee;
+
+    font-size:14px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:10px;
+    margin-top:28px;
+}
+
+/* BUTTON */
+
+.btn{
+
+    padding:13px 22px;
+
+    border-radius:3px;
+
+    border:1px solid var(--gold);
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.btn.gold{
+    background:var(--gold);
+    color:#fff;
+}
+
+.btn.gold:hover{
+    background:#9f7834;
+}
+
+.btn.light{
+    background:transparent;
+    color:#fff;
+    border-color:#fff;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro{
+    text-align:center;
+    padding:70px 0 35px;
+}
+
+.eyebrow{
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-weight:bold;
+}
+
+.intro h2,
+.section-title h2{
+
+    font:normal 38px Georgia,serif;
+
+    color:var(--brown);
+
+    margin:8px 0;
+}
+
+.intro p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+    padding:50px 0;
+}
+
+.section.cream{
+    background:var(--cream);
+}
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:20px;
+
+    margin-bottom:24px;
+}
+
+.section-title p{
+
+    font-size:11px;
+
+    color:var(--muted);
+}
+
+.view-all{
+
+    border:1px solid var(--brown);
+
+    background:#fff;
+
+    color:var(--brown);
+
+    padding:10px 16px;
+
+    font-size:10px;
+}
+
+.view-all:hover{
+
+    background:var(--brown);
+
+    color:#fff;
+}
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.products{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+/* PRODUCT CARD */
+
+.card{
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    overflow:hidden;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow);
+}
+
+/* PRODUCT IMAGE */
+
+.image{
+
+    height:285px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--cream);
+}
+
+.image img{
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.card:hover .image img{
+
+    transform:scale(1.05);
+}
+
+/* BADGE */
+
+.badge{
+
+    position:absolute;
+
+    left:12px;
+    top:12px;
+
+    z-index:3;
+
+    padding:5px 9px;
+
+    border-radius:20px;
+
+    background:var(--brown);
+
+    color:#fff;
+
+    font-size:8px;
+
+    letter-spacing:.5px;
+}
+
+.badge.sale{
+    background:var(--red);
+}
+
+.badge.new{
+    background:var(--green);
+}
+
+/* WISHLIST */
+
+.wish{
+
+    position:absolute;
+
+    right:12px;
+    top:12px;
+
+    z-index:4;
+
+    width:35px;
+    height:35px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    font-size:17px;
+}
+
+.wish.active{
+
+    color:var(--red);
+}
+
+/* PRODUCT INFO */
+
+.info{
+    padding:16px;
+}
+
+.category{
+
+    color:var(--gold);
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+.name{
+
+    font-size:15px;
+
+    color:var(--brown);
+
+    margin:5px 0;
+
+    min-height:22px;
+}
+
+.code{
+
+    font-size:9px;
+
+    color:#aaa;
+
+    letter-spacing:.5px;
+}
+
+.rating{
+
+    font-size:10px;
+
+    color:var(--gold);
+
+    margin:7px 0;
+}
+
+.rating span{
+
+    color:#888;
+
+    margin-left:3px;
+}
+
+.price{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+
+    margin:10px 0 14px;
+}
+
+.current{
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    color:var(--brown);
+}
+
+.old{
+
+    font-size:10px;
+
+    color:#999;
+
+    text-decoration:line-through;
+}
+
+/* CARD BUTTONS */
+
+.card-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:6px;
+}
+
+.card-actions button{
+
+    height:37px;
+
+    border-radius:3px;
+
+    font-size:9px;
+
+    font-weight:bold;
+}
+
+.add{
+
+    border:0;
+
+    background:var(--brown);
+
+    color:#fff;
+}
+
+.add:hover{
+    background:var(--dark);
+}
+
+.detail{
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    color:var(--brown);
+}
+
+.detail:hover{
+    border-color:var(--brown);
+}
+
+/* =========================================================
+   CATEGORY SHOWCASE
+========================================================= */
+
+.category-showcase{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.category-tile{
+
+    height:330px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:var(--brown);
+
+    cursor:pointer;
+}
+
+.category-tile img{
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.category-tile:hover img{
+
+    transform:scale(1.06);
+}
+
+.tile-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:end;
+
+    padding:25px;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(0,0,0,.82)
+        );
+}
+
+.tile-overlay small{
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:var(--gold2);
+}
+
+.tile-overlay h3{
+
+    font:normal 27px Georgia,serif;
+}
+
+.tile-overlay button{
+
+    align-self:flex-start;
+
+    margin-top:10px;
+
+    border:1px solid #fff;
+
+    background:transparent;
+
+    color:#fff;
+
+    padding:8px 14px;
+
+    font-size:9px;
+}
+
+/* =========================================================
+   EDITORIAL
+========================================================= */
+
+.editorial{
+
+    display:grid;
+
+    grid-template-columns:
+        1.25fr .75fr;
+
+    min-height:430px;
+
+    background:var(--dark);
+
+    color:#fff;
+}
+
+.editorial-image{
+
+    min-height:430px;
+
+    background:var(--cream);
+}
+
+.editorial-image img{
+
+    height:100%;
+
+    object-fit:cover;
+}
+
+.editorial-content{
+
+    padding:55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.editorial-content h2{
+
+    font:normal 43px Georgia,serif;
+
+    margin:10px 0 16px;
+}
+
+.editorial-content p{
+
+    font-size:12px;
+
+    color:#d8d0c8;
+
+    max-width:430px;
+}
+
+.editorial .btn{
+
+    align-self:flex-start;
+
+    margin-top:25px;
+}
+
+/* =========================================================
+   DINING
+========================================================= */
+
+.dining-stage{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    background:var(--cream2);
+
+    min-height:430px;
+}
+
+.dining-stage .image{
+
+    height:430px;
+
+    background:transparent;
+}
+
+.dining-stage .info{
+
+    padding:55px;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-direction:column;
+}
+
+.dining-stage h2{
+
+    font:normal 40px Georgia,serif;
+
+    color:var(--brown);
+
+    margin:8px 0;
+}
+
+.dining-stage p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    max-width:430px;
+}
+
+.feature-list{
+
+    margin:18px 0;
+
+    list-style:none;
+
+    font-size:11px;
+
+    color:var(--brown);
+}
+
+.feature-list li{
+    margin:7px 0;
+}
+
+.feature-list li:before{
+
+    content:"✓";
+
+    color:var(--gold);
+
+    margin-right:8px;
+}
+
+/* =========================================================
+   HORIZONTAL PRODUCTS
+========================================================= */
+
+.horizontal{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:15px;
+}
+
+.horizontal .card{
+
+    display:grid;
+
+    grid-template-columns:115px 1fr;
+}
+
+.horizontal .image{
+
+    height:145px;
+}
+
+.horizontal .info{
+
+    padding:12px;
+}
+
+.horizontal .name{
+
+    font-size:13px;
+}
+
+.horizontal .current{
+
+    font-size:14px;
+}
+
+.horizontal .card-actions{
+
+    grid-template-columns:1fr;
+}
+
+.horizontal .detail{
+    display:none;
+}
+
+/* =========================================================
+   OFFICE
+========================================================= */
+
+.office-section{
+
+    background:var(--dark);
+
+    color:#fff;
+}
+
+.office-section .section-title h2{
+    color:#fff;
+}
+
+.office-section .section-title p{
+    color:#bbb;
+}
+
+.office-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:18px;
+}
+
+.office-card{
+
+    min-height:360px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#2d211a;
+}
+
+.office-card img{
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.78;
+
+    transition:.4s;
+}
+
+.office-card:hover img{
+
+    transform:scale(1.05);
+
+    opacity:1;
+}
+
+.office-text{
+
+    position:absolute;
+
+    left:25px;
+
+    bottom:25px;
+}
+
+.office-text h3{
+
+    font:normal 29px Georgia,serif;
+}
+
+.office-text p{
+
+    font-size:10px;
+
+    color:#ddd;
+}
+
+/* =========================================================
+   OFFERS
+========================================================= */
+
+.offer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.3fr .7fr;
+
+    gap:18px;
+}
+
+.offer{
+
+    min-height:280px;
+
+    padding:35px;
+
+    background:var(--cream);
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.offer.dark{
+
+    background:var(--brown);
+
+    color:#fff;
+}
+
+.offer h3{
+
+    font:normal 34px Georgia,serif;
+
+    max-width:430px;
+}
+
+.offer p{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    max-width:400px;
+
+    margin:10px 0;
+}
+
+.offer.dark p{
+    color:#ddd;
+}
+
+.offer strong{
+    color:var(--gold2);
+}
+
+.offer img{
+
+    position:absolute;
+
+    right:-30px;
+
+    bottom:-30px;
+
+    width:45%;
+
+    max-height:110%;
+
+    object-fit:contain;
+}
+
+/* =========================================================
+   SHOP
+========================================================= */
+
+.shop-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:20px;
+
+    margin-bottom:22px;
+}
+
+.shop-head h2{
+
+    font:normal 36px Georgia,serif;
+
+    color:var(--brown);
+}
+
+.shop-head p{
+
+    font-size:11px;
+
+    color:var(--muted);
+}
+
+.sort{
+
+    height:38px;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    padding:0 12px;
+}
+
+/* FILTERS */
+
+.filters{
+
+    display:flex;
+
+    gap:7px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:22px;
+}
+
+.filter{
+
+    padding:9px 13px;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    border-radius:20px;
+
+    font-size:10px;
+}
+
+.filter.active,
+.filter:hover{
+
+    background:var(--brown);
+
+    color:#fff;
+
+    border-color:var(--brown);
+}
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.65);
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+
+    width:900px;
+
+    max-width:100%;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#fff;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    position:relative;
+}
+
+.modal-image{
+
+    min-height:450px;
+
+    background:var(--cream);
+}
+
+.modal-image img{
+
+    width:100%;
+
+    height:100%;
+
+    min-height:450px;
+
+    object-fit:cover;
+}
+
+.modal-content{
+
+    padding:45px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.modal-content h2{
+
+    font:normal 38px Georgia,serif;
+
+    color:var(--brown);
+
+    margin:8px 0;
+}
+
+.modal-content p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin:10px 0;
+}
+
+.modal-close{
+
+    position:absolute;
+
+    right:15px;
+
+    top:15px;
+
+    width:38px;
+
+    height:38px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.15);
+
+    font-size:20px;
+
+    z-index:3;
+}
+
+.modal-meta{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:8px;
+
+    margin:15px 0;
+}
+
+.meta-box{
+
+    padding:10px;
+
+    background:var(--cream);
+
+    font-size:10px;
+
+    color:var(--brown);
+}
+
+.modal-actions{
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+}
+
+.modal-actions button{
+    flex:1;
+}
+
+/* =========================================================
+   CART
+========================================================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    z-index:2000;
+
+    display:none;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.cart{
+
+    position:fixed;
+
+    right:-460px;
+
+    top:0;
+
+    width:430px;
+
+    max-width:94%;
+
+    height:100vh;
+
+    background:#fff;
+
+    z-index:2500;
+
+    padding:22px;
+
+    overflow:auto;
+
+    transition:.3s;
+}
+
+.cart.open{
+    right:0;
+}
+
+.cart-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--border);
+
+    padding-bottom:15px;
+}
+
+.cart-head h2{
+
+    font:normal 25px Georgia,serif;
+}
+
+.close{
+
+    border:0;
+
+    background:none;
+
+    font-size:27px;
+}
+
+/* CART ITEM */
+
+.cart-item{
+
+    display:grid;
+
+    grid-template-columns:
+        65px 1fr;
+
+    gap:12px;
+
+    padding:15px 0;
+
+    border-bottom:1px solid var(--border);
+}
+
+.cart-item img{
+
+    width:65px;
+
+    height:65px;
+
+    object-fit:cover;
+
+    background:var(--cream);
+}
+
+.cart-item h4{
+    font-size:11px;
+}
+
+.cart-item p{
+
+    font-size:10px;
+
+    color:#777;
+}
+
+.cart-controls{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:7px;
+}
+
+.qty-btn{
+
+    width:25px;
+
+    height:25px;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    border-radius:3px;
+}
+
+.qty{
+
+    min-width:18px;
+
+    text-align:center;
+
+    font-size:10px;
+}
+
+.remove{
+
+    margin-left:auto;
+
+    border:0;
+
+    background:none;
+
+    color:var(--red);
+
+    font-size:9px;
+}
+
+.cart-total{
+
+    padding-top:20px;
+}
+
+.total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-weight:bold;
+}
+
+.checkout{
+
+    width:100%;
+
+    height:45px;
+
+    margin-top:15px;
+
+    border:0;
+
+    background:var(--brown);
+
+    color:#fff;
+
+    font-weight:bold;
+
+    font-size:11px;
+}
+
+.whatsapp{
+
+    width:100%;
+
+    height:42px;
+
+    margin-top:8px;
+
+    border:0;
+
+    background:#25D366;
+
+    color:#fff;
+
+    font-weight:bold;
+
+    font-size:11px;
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:var(--dark);
+
+    color:#fff;
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+    font-size:10px;
+
+    display:none;
+
+    z-index:5000;
+}
+
+.toast.show{
+    display:block;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:var(--dark);
+
+    color:#fff;
+
+    margin-top:50px;
+}
+
+.footer{
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:35px;
+
+    padding:55px 0;
+}
+
+.footer h3{
+
+    font:normal 24px Georgia,serif;
+
+    margin-bottom:10px;
+}
+
+.footer h4{
+
+    font-size:11px;
+
+    color:var(--gold2);
+
+    margin-bottom:12px;
+}
+
+.footer p,
+.footer li{
+
+    font-size:10px;
+
+    color:#bdb4ad;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer li{
+    margin:7px 0;
+}
+
+.footer li:hover{
+    color:#fff;
+}
+
+.copyright{
+
+    border-top:1px solid #44372f;
+
+    padding:16px 0;
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:9px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .products{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .category-showcase{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .horizontal{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .footer{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:750px){
+
+    .header{
+
+        flex-wrap:wrap;
+
+        padding:10px 0;
+    }
+
+    .logo{
+        flex:1;
+    }
+
+    .search{
+
+        order:3;
+
+        flex-basis:100%;
+    }
+
+    .hero{
+        min-height:560px;
+    }
+
+    .hero-content{
+        padding:60px 0;
+    }
+
+    .intro{
+        padding:50px 0 20px;
+    }
+
+    .intro h2,
+    .section-title h2{
+        font-size:30px;
+    }
+
+    .section{
+        padding:35px 0;
+    }
+
+    .products{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .image{
+        height:210px;
+    }
+
+    .info{
+        padding:11px;
+    }
+
+    .card-actions{
+        grid-template-columns:1fr;
+    }
+
+    .editorial,
+    .dining-stage,
+    .offer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .editorial-image{
+        min-height:300px;
+        height:300px;
+    }
+
+    .editorial-content,
+    .dining-stage .info{
+        padding:30px;
+    }
+
+    .dining-stage .image{
+        height:300px;
+    }
+
+    .horizontal{
+        grid-template-columns:1fr;
+    }
+
+    .category-showcase{
+        grid-template-columns:1fr;
+    }
+
+    .category-tile{
+        height:280px;
+    }
+
+    .office-grid{
+        grid-template-columns:1fr;
+    }
+
+    .shop-head{
+
+        align-items:start;
+
+        flex-direction:column;
+    }
+
+    .sort{
+        width:100%;
+    }
+
+    .footer{
+        grid-template-columns:1fr;
+    }
+
+    .modal-box{
+        grid-template-columns:1fr;
+    }
+
+    .modal-image,
+    .modal-image img{
+        min-height:280px;
+        height:280px;
+    }
+
+    .modal-content{
+        padding:30px;
+    }
+}
+
+@media(max-width:450px){
+
+    .products{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .image{
+        height:175px;
+    }
+
+    .name{
+        font-size:12px;
+    }
+
+    .current{
+        font-size:13px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .hero-actions .btn{
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =======================================================
+     TOP BAR
+======================================================= -->
+
+<div class="topbar">
+
+    Free Delivery Available
+    &nbsp; | &nbsp;
+    Premium Furniture & Interiors
+
+</div>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
+<header>
+
+<div class="container header">
+
+    <a class="logo" href="#home">
+
+        <strong>TimberWood</strong>
+
+        <small>
+            FURNITURE & Interiors
+        </small>
+
+    </a>
+
+
+    <div class="search">
+
+        <input
+            id="search"
+            type="text"
+            placeholder="Search sofa, bed, dining table..."
+        >
+
+        <button onclick="searchProducts()">
+            ⌕
+        </button>
+
+    </div>
+
+
+    <div class="header-actions">
+
+        <button
+            class="icon-btn"
+            onclick="showWishlist()"
+            title="Wishlist"
+        >
+            ♡
+            <span
+                class="count"
+                id="wishlistCount"
+            >
+                0
+            </span>
+        </button>
+
+
+        <button
+            class="icon-btn"
+            onclick="openCart()"
+            title="Cart"
+        >
+            🛒
+
+            <span
+                class="count"
+                id="cartCount"
+            >
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+     NAVIGATION
+======================================================= -->
+
+<nav class="nav">
+
+<div class="container nav-list">
+
+    <button
+        class="active"
+        onclick="scrollToSection('home',this)"
+    >
+        Home
+    </button>
+
+    <button
+        onclick="showCategory('sofa')"
+    >
+        Sofas
+    </button>
+
+    <button
+        onclick="showCategory('bed')"
+    >
+        Beds
+    </button>
+
+    <button
+        onclick="showCategory('dining')"
+    >
+        Dining
+    </button>
+
+    <button
+        onclick="showCategory('chair')"
+    >
+        Chairs
+    </button>
+
+    <button
+        onclick="showCategory('office')"
+    >
+        Office
+    </button>
+
+    <button
+        onclick="showCategory('table')"
+    >
+        Centre Tables
+    </button>
+
+    <button
+        onclick="showCategory('wardrobe')"
+    >
+        Wardrobes
+    </button>
+
+    <button
+        onclick="scrollToSection('all-products')"
+    >
+        All Products
+    </button>
+
+</div>
+
+</nav>
+
+
+<!-- =======================================================
+     HERO
+======================================================= -->
+
+<section
+    class="hero"
+    id="home"
+>
+
+<div class="container">
+
+    <div class="hero-content">
+
+        <div class="hero-label">
+            TimberWood Collection
+        </div>
+
+        <h1>
+            Furniture That Defines Your Space.
+        </h1>
+
+        <p>
+            Discover premium furniture designed for modern
+            Nepali homes, offices, hotels and commercial spaces.
+        </p>
+
+        <div class="hero-actions">
+
+            <button
+                class="btn gold"
+                onclick="scrollToSection('all-products')"
+            >
+                Explore Collection
+            </button>
+
+            <button
+                class="btn light"
+                onclick="scrollToSection('categories')"
+            >
+                View Categories
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     INTRO
+======================================================= -->
+
+<section class="intro">
+
+<div class="container">
+
+    <div class="eyebrow">
+        Curated for you
+    </div>
+
+    <h2>
+        Designed to Live Beautifully
+    </h2>
+
+    <p>
+        From statement sofas to practical storage,
+        explore TimberWood furniture designed for
+        comfort, quality and timeless style.
+    </p>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     BEST SELLERS
+======================================================= -->
+
+<section
+    class="section"
+    id="best-sellers"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Most Loved
+            </div>
+
+            <h2>
+                Best Sellers
+            </h2>
+
+            <p>
+                Our most popular furniture pieces.
+            </p>
+
+        </div>
+
+        <button
+            class="view-all"
+            onclick="showCategory('all')"
+        >
+            View All
+        </button>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="bestSellerGrid"
+    ></div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     CATEGORY SHOWCASE
+======================================================= -->
+
+<section
+    class="section cream"
+    id="categories"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Shop by room
+            </div>
+
+            <h2>
+                Explore Collections
+            </h2>
+
+            <p>
+                Different furniture. Different design experience.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-showcase">
+
+        <div
+            class="category-tile"
+            onclick="showCategory('sofa')"
+        >
+
+            <img
+                src="https://i.pinimg.com/1200x/22/6c/04/226c0479c18e1ace84fde981d9d392f3.jpg"
+                alt="Sofa Collection"
+            >
+
+            <div class="tile-overlay">
+
+                <small>
+                    01 / LIVING
+                </small>
+
+                <h3>
+                    Sofas
+                </h3>
+
+                <button>
+                    Explore Collection →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="category-tile"
+            onclick="showCategory('bed')"
+        >
+
+            <img
+                src="https://i.pinimg.com/736x/35/b0/79/35b079c70d7acd1c3acc2238c939ba80.jpg"
+                alt="Bed Collection"
+            >
+
+            <div class="tile-overlay">
+
+                <small>
+                    02 / BEDROOM
+                </small>
+
+                <h3>
+                    Beds
+                </h3>
+
+                <button>
+                    Explore Collection →
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="category-tile"
+            onclick="showCategory('dining')"
+        >
+
+            <img
+                src="https://i.pinimg.com/736x/06/2a/76/062a76635bd55d6b16062ddb6a32b141.jpg"
+                alt="Dining Collection"
+            >
+
+            <div class="tile-overlay">
+
+                <small>
+                    03 / DINING
+                </small>
+
+                <h3>
+                    Dining
+                </h3>
+
+                <button>
+                    Explore Collection →
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     SOFA EDITORIAL
+======================================================= -->
+
+<section class="section">
+
+<div class="container">
+
+    <div class="editorial">
+
+        <div class="editorial-image">
+
+            <img
+                src="https://i.pinimg.com/1200x/e1/d9/76/e1d97627b583c61354f2d989b0a2c600.jpg"
+                alt="Luxury Sofa Collection"
+            >
+
+        </div>
+
+
+        <div class="editorial-content">
+
+            <div class="eyebrow">
+                Living Room
+            </div>
+
+            <h2>
+                Make Room for Comfort.
+            </h2>
+
+            <p>
+                Bring warmth and character into your living
+                room with statement seating designed around
+                everyday comfort and timeless style.
+            </p>
+
+            <button
+                class="btn gold"
+                onclick="showCategory('sofa')"
+            >
+                Shop Sofas
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     BEDROOM
+======================================================= -->
+
+<section
+    class="section cream"
+    id="beds"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Bedroom Collection
+            </div>
+
+            <h2>
+                Sleep in Style
+            </h2>
+
+            <p>
+                Furniture designed to make the bedroom feel complete.
+            </p>
+
+        </div>
+
+        <button
+            class="view-all"
+            onclick="showCategory('bed')"
+        >
+            View Beds
+        </button>
+
+    </div>
+
+
+    <div class="editorial">
+
+        <div class="editorial-image">
+
+            <img
+                src="img/product/bed1.webp"
+                alt="Modern Wooden Bed"
+            >
+
+        </div>
+
+
+        <div class="editorial-content">
+
+            <div class="eyebrow">
+                TW-BD-001
+            </div>
+
+            <h2>
+                Modern Wooden Bed
+            </h2>
+
+            <p>
+                Elegant bedroom furniture designed with
+                practical proportions and a timeless finish.
+            </p>
+
+            <div class="price">
+
+                <span class="current">
+                    Rs. 42,000
+                </span>
+
+            </div>
+
+            <button
+                class="btn gold"
+                onclick="openProduct('TW-BD-001')"
+            >
+                View Product
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     DINING
+======================================================= -->
+
+<section
+    class="section"
+    id="dining"
+>
+
+<div class="container">
+
+    <div class="dining-stage">
+
+        <div class="image">
+
+            <img
+                src="https://i.pinimg.com/736x/4a/af/02/4aaf020dfb8b5bde29864c7cfa3f0443.jpg"
+                alt="Dining Furniture"
+            >
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="eyebrow">
+                Dining Collection
+            </div>
+
+            <h2>
+                Gather Around Something Beautiful.
+            </h2>
+
+            <p>
+                Make everyday meals feel special with
+                dining furniture built for family,
+                guests and memorable conversations.
+            </p>
+
+
+            <ul class="feature-list">
+
+                <li>
+                    6-seater dining solutions
+                </li>
+
+                <li>
+                    Comfortable dining chairs
+                </li>
+
+                <li>
+                    Modern contemporary finishes
+                </li>
+
+                <li>
+                    Residential & commercial options
+                </li>
+
+            </ul>
+
+
+            <button
+                class="btn gold"
+                onclick="showCategory('dining')"
+            >
+                Explore Dining
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     CHAIRS
+======================================================= -->
+
+<section
+    class="section cream"
+    id="chairs"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Seating
+            </div>
+
+            <h2>
+                Chairs, Your Way
+            </h2>
+
+            <p>
+                Compact designs for dining, work and everyday comfort.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="horizontal"
+        id="chairGrid"
+    ></div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     OFFICE
+======================================================= -->
+
+<section
+    class="section office-section"
+    id="office"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Work Collection
+            </div>
+
+            <h2>
+                Office, Elevated.
+            </h2>
+
+            <p>
+                Professional furniture for productive spaces.
+            </p>
+
+        </div>
+
+        <button
+            class="view-all"
+            onclick="showCategory('office')"
+        >
+            View Office
+        </button>
+
+    </div>
+
+
+    <div class="office-grid">
+
+        <div class="office-card">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWdDn_uM2ExMLmYcWIM-OEYvFqPD6O6SxOGtC84M8LA&s=10"
+                alt="Executive Office Chair"
+            >
+
+            <div class="office-text">
+
+                <div class="eyebrow">
+                    GP-109
+                </div>
+
+                <h3>
+                    Executive Office Chair
+                </h3>
+
+                <p>
+                    Rs. 33,300
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="office-card">
+
+            <img
+                src="img/product/officetable1.webp"
+                alt="Office Furniture"
+            >
+
+            <div class="office-text">
+
+                <div class="eyebrow">
+                    Office Collection
+                </div>
+
+                <h3>
+                    Built for Business.
+                </h3>
+
+                <p>
+                    Modern • Functional • Professional
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     CENTRE TABLES
+======================================================= -->
+
+<section
+    class="section"
+    id="tables"
+>
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div>
+
+            <div class="eyebrow">
+                Living Room
+            </div>
+
+            <h2>
+                Centre Table Gallery
+            </h2>
+
+            <p>
+                Premium centre tables for modern interiors.
+            </p>
+
+        </div>
+
+        <button
+            class="view-all"
+            onclick="showCategory('table')"
+        >
+            View Tables
+        </button>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="tableGrid"
+    ></div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     WARDROBE
+======================================================= -->
+
+<section
+    class="section cream"
+    id="wardrobes"
+>
+
+<div class="container">
+
+    <div class="editorial">
+
+        <div class="editorial-image">
+
+            <img
+                src="img/product/wardrobe1.webp"
+                alt="Modern Sliding Wardrobe"
+            >
+
+        </div>
+
+
+        <div class="editorial-content">
+
+            <div class="eyebrow">
+                Storage Collection
+            </div>
+
+            <h2>
+                Storage With Style.
+            </h2>
+
+            <p>
+                Create a clean, organized bedroom with
+                modern wardrobe designs that combine
+                useful storage and elegant finishes.
+            </p>
+
+            <div class="price">
+
+                <span class="current">
+                    Rs. 95,000
+                </span>
+
+            </div>
+
+            <button
+                class="btn gold"
+                onclick="openProduct('TW-WR-001')"
+            >
+                View Wardrobe
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     OFFERS
+======================================================= -->
+
+<section
+    class="section"
+    id="offers"
+>
+
+<div class="container">
+
+    <div class="offer-grid">
+
+        <div class="offer">
+
+            <div class="eyebrow">
+                Special Offer
+            </div>
+
+            <h3>
+                Refresh Your Home With
+                <strong>TimberWood.</strong>
+            </h3>
+
+            <p>
+                Selected furniture pieces are available
+                with special promotional pricing.
+            </p>
+
+            <button
+                class="btn gold"
+                onclick="showCategory('all')"
+            >
+                Shop Offers
+            </button>
+
+            <img
+                src="https://i.pinimg.com/736x/79/cf/ca/79cfca688000b09be8a9b367c7f4c2c5.jpg"
+                alt="Furniture offer"
+            >
+
+        </div>
+
+
+        <div class="offer dark">
+
+            <div class="eyebrow">
+                Custom Furniture
+            </div>
+
+            <h3>
+                Have an idea?
+            </h3>
+
+            <p>
+                Talk to TimberWood for furniture
+                and interior solutions.
+            </p>
+
+            <button
+                class="btn light"
+                onclick="requestQuote()"
+            >
+                Request Quote
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     ALL PRODUCTS
+======================================================= -->
+
+<section
+    class="section"
+    id="all-products"
+>
+
+<div class="container">
+
+    <div class="shop-head">
+
+        <div>
+
+            <div class="eyebrow">
+                Complete Collection
+            </div>
+
+            <h2>
+                All Products
+            </h2>
+
+            <p id="productCount">
+                Showing all products
+            </p>
+
+        </div>
+
+
+        <select
+            class="sort"
+            id="sort"
+            onchange="sortProducts()"
+        >
+
+            <option value="featured">
+                Sort: Featured
+            </option>
+
+            <option value="low">
+                Price: Low to High
+            </option>
+
+            <option value="high">
+                Price: High to Low
+            </option>
+
+            <option value="new">
+                Newest
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button
+            class="filter active"
+            onclick="filterCategory('all',this)"
+        >
+            All
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('sofa',this)"
+        >
+            Sofa
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('bed',this)"
+        >
+            Bed
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('dining',this)"
+        >
+            Dining
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('chair',this)"
+        >
+            Chair
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('office',this)"
+        >
+            Office
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('table',this)"
+        >
+            Centre Table
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('wardrobe',this)"
+        >
+            Wardrobe
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterCategory('shoe',this)"
+        >
+            Shoe Rack
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterPrice('under10',this)"
+        >
+            Under Rs. 10,000
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterPrice('10to20',this)"
+        >
+            Rs. 10,000–20,000
+        </button>
+
+        <button
+            class="filter"
+            onclick="filterPrice('over20',this)"
+        >
+            Above Rs. 20,000
+        </button>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="productGrid"
+    ></div>
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer>
+
+<div class="container footer">
+
+    <div>
+
+        <h3>
+            TimberWood
+        </h3>
+
+        <p>
+            Furniture & Interiors
+        </p>
+
+        <p style="margin-top:12px">
+            Premium furniture solutions for homes,
+            offices, hotels and commercial spaces.
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            COLLECTIONS
+        </h4>
+
+        <ul>
+
+            <li onclick="showCategory('sofa')">
+                Sofas
+            </li>
+
+            <li onclick="showCategory('bed')">
+                Beds
+            </li>
+
+            <li onclick="showCategory('dining')">
+                Dining
+            </li>
+
+            <li onclick="showCategory('chair')">
+                Chairs
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            FURNITURE
+        </h4>
+
+        <ul>
+
+            <li onclick="showCategory('office')">
+                Office
+            </li>
+
+            <li onclick="showCategory('table')">
+                Centre Tables
+            </li>
+
+            <li onclick="showCategory('wardrobe')">
+                Wardrobes
+            </li>
+
+            <li onclick="showCategory('shoe')">
+                Shoe Racks
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <div>
+
+        <h4>
+            CONTACT
+        </h4>
+
+        <p>
+            Custom Furniture
+        </p>
+
+        <p>
+            Interior Consultation
+        </p>
+
+        <p>
+            Request a Quote
+        </p>
+
+        <p>
+            Nepal
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="copyright">
+
+    © 2026 TimberWood Furniture & Interiors.
+    All rights reserved.
+
+</div>
+
+</footer>
+
+
+<!-- =======================================================
+     OVERLAY
+======================================================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+<!-- =======================================================
+     CART
+======================================================= -->
+
+<aside
+    class="cart"
+    id="cart"
+>
+
+    <div class="cart-head">
+
+        <h2>
+            Shopping Cart
+        </h2>
+
+        <button
+            class="close"
+            onclick="closeCart()"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="cartItems"></div>
+
+
+    <div class="cart-total">
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="total">
+                Rs. 0
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            Proceed to Checkout
+        </button>
+
+
+        <button
+            class="whatsapp"
+            onclick="orderWhatsApp()"
+        >
+            Order via WhatsApp
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =======================================================
+     PRODUCT MODAL
+======================================================= -->
+
+<div
+    class="modal"
+    id="productModal"
+    onclick="closeModal(event)"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="closeProductModal()"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-image">
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+        </div>
+
+
+        <div class="modal-content">
+
+            <div
+                class="eyebrow"
+                id="modalCategory"
+            ></div>
+
+            <h2 id="modalName">
+                Product
+            </h2>
+
+            <div
+                class="code"
+                id="modalCode"
+            ></div>
+
+            <div class="rating">
+                ★★★★★
+                <span id="modalRating"></span>
+            </div>
+
+            <div class="price">
+
+                <span
+                    class="current"
+                    id="modalPrice"
+                >
+                </span>
+
+                <span
+                    class="old"
+                    id="modalOldPrice"
+                >
+                </span>
+
+            </div>
+
+            <p id="modalDescription"></p>
+
+
+            <div class="modal-meta">
+
+                <div class="meta-box">
+                    Material:
+                    <strong id="modalMaterial"></strong>
+                </div>
+
+                <div class="meta-box">
+                    Availability:
+                    <strong id="modalAvailability"></strong>
+                </div>
+
+            </div>
+
+
+            <div class="modal-actions">
+
+                <button
+                    class="btn gold"
+                    id="modalAdd"
+                >
+                    Add to Cart
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="requestQuote()"
+                >
+                    Request Quote
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =======================================================
+     TOAST
+======================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =======================================================
+     JAVASCRIPT
+======================================================= -->
+
+<script>
+
+/* =========================================================
+   PRODUCT DATABASE
+
+   EDIT PRODUCTS HERE
+========================================================= */
+
+const products = [
+
+    {
+        code:"TW-SF-001",
+        name:"Luxury Sofa",
+        category:"sofa",
+        categoryName:"Sofa",
+        price:135000,
+        oldPrice:150000,
+        rating:"4.9 (42)",
+        badge:"BEST SELLER",
+        image:"img/product/sofaset1.webp",
+        material:"Premium Fabric & Wood",
+        availability:"In Stock",
+        description:
+        "Premium luxury sofa designed for modern living rooms with comfortable seating and elegant proportions.",
+        featured:true,
+        newest:true
+    },
+
+    {
+        code:"TW-SF-002",
+        name:"Single Seater Sofa",
+        category:"sofa",
+        categoryName:"Sofa",
+        price:25000,
+        oldPrice:30000,
+        rating:"4.8 (28)",
+        badge:"POPULAR",
+        image:"img/product/sofaset3.webp",
+        material:"Fabric & Hardwood",
+        availability:"In Stock",
+        description:
+        "Comfortable three-seater sofa suitable for contemporary homes and apartments.",
+        featured:true
+    },
+
+    {
+        code:"TW-SF-003",
+        name:"Modern L Shape Sofa",
+        category:"sofa",
+        categoryName:"Sofa",
+        price:81000,
+        oldPrice:90000,
+        rating:"4.9 (32)",
+        badge:"NEW",
+        image:"img/product/sofaset2.webp",
+        material:"Premium Fabric",
+        availability:"Available",
+        description:
+        "Spacious L-shaped sofa designed for larger living rooms.",
+        newest:true
+    },
+
+    {
+        code:"TW8317BD",
+        name:"Premium King Size Bed",
+        category:"bed",
+        categoryName:"Bed",
+        price:107100,
+        oldPrice:119000,
+        rating:"4.8 (16)",
+        badge:"NEW",
+        image:"img/product/bed1.webp",
+        material:"Solid Wood",
+        availability:"In Stock",
+        description:
+        "Modern plywood bed with a clean profile and timeless design.",
+        featured:true,
+        newest:true
+    },
+
+    {
+        code:"TW-BD-002",
+        name:"Premium Bedroom Bed",
+        category:"bed",
+        categoryName:"Bed",
+        price:118800,
+        oldPrice:132000,
+        rating:"4.8 (21)",
+        badge:"POPULAR",
+        image:"img/product/bed2.webp",
+        material:"Engineered Wood",
+        availability:"Available",
+        description:
+        "Elegant bedroom bed designed for comfortable and stylish interiors."
+    },
+
+    {
+        code:"Standard",
+        name:"4 Seater Dining Set",
+        category:"dining",
+        categoryName:"Dining",
+        price:88000,
+        oldPrice:98000,
+        rating:"4.9 (35)",
+        badge:"BEST SELLER",
+        image:"img/product/diningsets1.webp",
+        material:"Solid PlyWood",
+        availability:"In Stock",
+        description:
+        "Four-seater dining set designed for family meals and entertaining guests.",
+        featured:true
+    },
+
+    {
+        code:"TW-DT-002",
+        name:"Modern 3 Seater Dining Set",
+        category:"dining",
+        categoryName:"Dining",
+        price:21700,
+        oldPrice:24955,
+        rating:"4.7 (18)",
+        badge:"NEW",
+        image:"img/product/diningsets2.webp",
+        material:"Wood & Veneer",
+        availability:"Available",
+        description:
+        "Compact dining set suitable for modern apartments.",
+        newest:true
+    },
+
+    {
+        code:"TW-CH-001",
+        name:"Premium Dining Chair",
+        category:"chair",
+        categoryName:"Chair",
+        price:17100,
+        oldPrice:19000,
+        rating:"4.7 (21)",
+        badge:"SALE",
+        image:"img/product/dining1.webp",
+        material:"Wood & Fabric",
+        availability:"In Stock",
+        description:
+        "Comfortable dining chair with premium upholstery."
+    },
+
+    {
+        code:"TW-CH-002",
+        name:"Modern Dining Chair",
+        category:"chair",
+        categoryName:"Chair",
+        price:17100,
+        oldPrice:19000,
+        rating:"4.8 (19)",
+        badge:"POPULAR",
+        image:"img/product/dining2.webp",
+        material:"Wood & Fabric",
+        availability:"Available",
+        description:
+        "Modern dining chair designed for contemporary dining rooms."
+    },
+
+    {
+        code:"Tulip Royale",
+        name:"Cafeteria Seating Chair",
+        category:"chair",
+        categoryName:"Chair",
+        price:7830,
+        oldPrice:8700,
+        rating:"4.8 (24)",
+        badge:"NEW",
+        image:"https://qedocafeteriaseating.com/assets/images/products/all-500px/tulip-royale-gray.jpg",
+        material:"Fabric & Wood",
+        availability:"In Stock",
+        description:
+        "Stylish cafeteria chair for cafe, Restaurant and lounges.",
+        newest:true
+    },
+
+    {
+        code:"GP-109",
+        name:"Executive Office Chair",
+        category:"office",
+        categoryName:"Office",
+        price:33300,
+        oldPrice:37000,
+        rating:"4.8 (12)",
+        badge:"NEW",
+        image:"https://geeken.in/storage/1243/GP-133.png",
+        material:"PU Leather & Metal",
+        availability:"In Stock",
+        description:
+        "Professional executive office chair designed for comfort and long working hours.",
+        newest:true
+    },
+
+    {
+        code:"TW-OC-002",
+        name:"Executive Office Table",
+        category:"office",
+        categoryName:"Office",
+        price:51000,
+        oldPrice:60000,
+        rating:"4.8 (14)",
+        badge:"FEATURED",
+        image:"img/product/officetable2.webp",
+        material:"Engineered PlyWood",
+        availability:"Available",
+        description:
+        "Professional office desk with generous workspace and modern styling."
+    },
+
+    {
+        code:"TW-CT-001",
+        name:"Cloudy Centre Table",
+        category:"table",
+        categoryName:"Centre Table",
+        price:25000,
+        oldPrice:30000,
+        rating:"4.8 (25)",
+        badge:"FEATURED",
+        image:"img/product/centretable2.webp",
+        material:"Engineered Wood",
+        availability:"In Stock",
+        description:
+        "Minimal white centre table suitable for modern living rooms.",
+        featured:true
+    },
+
+    {
+        code:"TW-CT-002",
+        name:"Modern Coffee Table",
+        category:"table",
+        categoryName:"Centre Table",
+        price:25000,
+        oldPrice:30000,
+        rating:"4.7 (18)",
+        badge:"10% OFF",
+        image:"img/product/centretable3.webp",
+        material:"PlyWood & Veneer",
+        availability:"Available",
+        description:
+        "Modern coffee table with practical proportions and elegant styling."
+    },
+
+    {
+        code:"TW-CT-003",
+        name:"Premium Centre Table",
+        category:"table",
+        categoryName:"Centre Table",
+        price:27000,
+        oldPrice:30000,
+        rating:"4.9 (31)",
+        badge:"NEW",
+        image:"img/product/centretable1.webp",
+        material:"Wood & Glass",
+        availability:"In Stock",
+        description:
+        "Premium centre table designed as a statement piece.",
+        newest:true
+    },
+
+    {
+        code:"TW-WR-001",
+        name:"Modern Wardrobe",
+        category:"wardrobe",
+        categoryName:"Wardrobe",
+        price:95000,
+        oldPrice:105000,
+        rating:"4.8 (19)",
+        badge:"NEW",
+        image:"img/product/wardrobe1.webp",
+        material:"Signature PlyWood",
+        availability:"Available",
+        description:
+        "Modern sliding wardrobe with practical storage and contemporary finishes.",
+        featured:true
+    },
+
+       {
+        code:"TW-WR-002",
+        name:"Modern Wardrobe",
+        category:"wardrobe",
+        categoryName:"Wardrobe",
+        price:81000,
+        oldPrice:90000,
+        rating:"4.8 (19)",
+        badge:"FEATURED",
+        image:"img/product/wardrobe2.webp",
+        material:"Signature PlyWood",
+        availability:"Available",
+        description:
+        "Modern sliding wardrobe with practical storage and contemporary finishes.",
+        featured:true
+    },
+
+    {
+        code:"TW-SR-001",
+        name:"Modern Shoe Rack",
+        category:"shoe",
+        categoryName:"Shoe Rack",
+        price:48500,
+        oldPrice:58000,
+        rating:"4.6 (14)",
+        badge:"NEW",
+        image:"img/product/shoerack1.webp",
+        material:"Laminates | PlyWood",
+        availability:"In Stock",
+        description:
+        "Compact modern shoe rack for organized home entrances.",
+        newest:true
+    }
+
+];
+
+
+/* =========================================================
+   CART & WISHLIST
+========================================================= */
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("timberwoodCart")
+    ) || [];
+
+let wishlist =
+    JSON.parse(
+        localStorage.getItem("timberwoodWishlist")
+    ) || [];
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+function formatPrice(price){
+
+    return "Rs. " +
+        Number(price).toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   SAVE DATA
+========================================================= */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "timberwoodCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+function saveWishlist(){
+
+    localStorage.setItem(
+        "timberwoodWishlist",
+        JSON.stringify(wishlist)
+    );
+
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(product){
+
+    let active =
+        wishlist.includes(product.code)
+        ? "active"
+        : "";
+
+    let heart =
+        wishlist.includes(product.code)
+        ? "♥"
+        : "♡";
+
+    return `
+
+    <article
+        class="card product-item"
+        data-category="${product.category}"
+        data-price="${product.price}"
+        data-name="${product.name}"
+        data-code="${product.code}"
+    >
+
+        <div class="image">
+
+            ${
+                product.badge
+                ?
+                `<span class="badge ${
+                    product.badge==="SALE"
+                    ? "sale"
+                    :
+                    product.badge==="NEW"
+                    ? "new"
+                    : ""
+                }">
+                    ${product.badge}
+                </span>`
+                :
+                ""
+            }
+
+            <button
+                class="wish ${active}"
+                onclick="toggleWishlist('${product.code}',this)"
+            >
+                ${heart}
+            </button>
+
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                onerror="this.src='images/placeholder.jpg'"
+            >
+
+        </div>
+
+
+        <div class="info">
+
+            <div class="category">
+                ${product.categoryName}
+            </div>
+
+            <div class="name">
+                ${product.name}
+            </div>
+
+            <div class="code">
+                ${product.code}
+            </div>
+
+            <div class="rating">
+                ★★★★★
+                <span>${product.rating}</span>
+            </div>
+
+            <div class="price">
+
+                <span class="current">
+                    ${formatPrice(product.price)}
+                </span>
+
+                ${
+                    product.oldPrice
+                    ?
+                    `<span class="old">
+                        ${formatPrice(product.oldPrice)}
+                    </span>`
+                    :
+                    ""
+                }
+
+            </div>
+
+
+            <div class="card-actions">
+
+                <button
+                    class="add"
+                    onclick="addCartByCode('${product.code}')"
+                >
+                    Add to Cart
+                </button>
+
+                <button
+                    class="detail"
+                    onclick="openProduct('${product.code}')"
+                >
+                    View Details
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
+
+function renderProducts(){
+
+    let grid =
+        document.getElementById("productGrid");
+
+    grid.innerHTML =
+        products
+        .map(productCard)
+        .join("");
+
+}
+
+
+/* =========================================================
+   BEST SELLERS
+========================================================= */
+
+function renderBestSellers(){
+
+    let grid =
+        document.getElementById("bestSellerGrid");
+
+    let items =
+        products
+        .filter(p=>p.featured)
+        .slice(0,4);
+
+    grid.innerHTML =
+        items.map(productCard).join("");
+
+}
+
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+function renderTables(){
+
+    let grid =
+        document.getElementById("tableGrid");
+
+    let items =
+        products
+        .filter(p=>p.category==="table");
+
+    grid.innerHTML =
+        items.map(productCard).join("");
+
+}
+
+
+/* =========================================================
+   CHAIRS
+========================================================= */
+
+function renderChairs(){
+
+    let grid =
+        document.getElementById("chairGrid");
+
+    let items =
+        products
+        .filter(p=>p.category==="chair");
+
+    grid.innerHTML =
+        items.map(productCard).join("");
+
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+function addCartByCode(code){
+
+    let product =
+        products.find(
+            p=>p.code===code
+        );
+
+    if(!product) return;
+
+    let item =
+        cart.find(
+            x=>x.code===code
+        );
+
+    if(item){
+
+        item.quantity++;
+
+    }else{
+
+        cart.push({
+
+            code:product.code,
+
+            name:product.name,
+
+            price:product.price,
+
+            image:product.image,
+
+            quantity:1
+
+        });
+
+    }
+
+    saveCart();
+
+    updateCart();
+
+    showToast(
+        product.name +
+        " added to cart"
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE CART
+========================================================= */
+
+function updateCart(){
+
+    let count =
+        cart.reduce(
+            (sum,item)=>
+            sum + item.quantity,
+            0
+        );
+
+    document.getElementById(
+        "cartCount"
+    ).innerText=count;
+
+
+    let html="";
+
+
+    cart.forEach(
+        (item,index)=>{
+
+            html+=`
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    onerror="this.src='images/placeholder.jpg'"
+                >
+
+                <div>
+
+                    <h4>
+                        ${item.name}
+                    </h4>
+
+                    <p>
+                        ${formatPrice(item.price)}
+                    </p>
+
+
+                    <div class="cart-controls">
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQuantity(${index},-1)"
+                        >
+                            −
+                        </button>
+
+                        <span class="qty">
+                            ${item.quantity}
+                        </span>
+
+                        <button
+                            class="qty-btn"
+                            onclick="changeQuantity(${index},1)"
+                        >
+                            +
+                        </button>
+
+                        <button
+                            class="remove"
+                            onclick="removeCart(${index})"
+                        >
+                            Remove
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        }
+    );
+
+
+    if(!cart.length){
+
+        html=`
+
+        <p
+            style="
+            text-align:center;
+            padding:45px 0;
+            color:#777;
+            font-size:11px;
+            "
+        >
+            Your cart is empty.
+        </p>
+
+        `;
+
+    }
+
+
+    document.getElementById(
+        "cartItems"
+    ).innerHTML=html;
+
+
+    let total =
+        cart.reduce(
+            (sum,item)=>
+            sum +
+            item.price *
+            item.quantity,
+            0
+        );
+
+
+    document.getElementById(
+        "total"
+    ).innerText =
+        formatPrice(total);
+
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+function changeQuantity(index,amount){
+
+    cart[index].quantity += amount;
+
+    if(cart[index].quantity<=0){
+
+        cart.splice(index,1);
+
+    }
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   REMOVE
+========================================================= */
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+    updateCart();
+
+    showToast(
+        "Product removed from cart"
+    );
+
+}
+
+
+/* =========================================================
+   OPEN CART
+========================================================= */
+
+function openCart(){
+
+    document
+        .getElementById("cart")
+        .classList.add("open");
+
+    document
+        .getElementById("overlay")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE CART
+========================================================= */
+
+function closeCart(){
+
+    document
+        .getElementById("cart")
+        .classList.remove("open");
+
+    document
+        .getElementById("overlay")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+function toggleWishlist(code,button){
+
+    let index =
+        wishlist.indexOf(code);
+
+    if(index===-1){
+
+        wishlist.push(code);
+
+        button.classList.add("active");
+
+        button.innerText="♥";
+
+        showToast(
+            "Added to wishlist"
+        );
+
+    }else{
+
+        wishlist.splice(index,1);
+
+        button.classList.remove("active");
+
+        button.innerText="♡";
+
+        showToast(
+            "Removed from wishlist"
+        );
+
+    }
+
+    saveWishlist();
+
+    updateWishlistCount();
+
+}
+
+
+/* =========================================================
+   WISHLIST COUNT
+========================================================= */
+
+function updateWishlistCount(){
+
+    document.getElementById(
+        "wishlistCount"
+    ).innerText =
+        wishlist.length;
+
+}
+
+
+/* =========================================================
+   SHOW WISHLIST
+========================================================= */
+
+function showWishlist(){
+
+    if(!wishlist.length){
+
+        showToast(
+            "Your wishlist is empty"
+        );
+
+        return;
+
+    }
+
+    let grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+    let cards =
+        grid.querySelectorAll(
+            ".product-item"
+        );
+
+    cards.forEach(card=>{
+
+        card.classList.toggle(
+            "hidden",
+            !wishlist.includes(
+                card.dataset.code
+            )
+        );
+
+    });
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        wishlist.length +
+        " wishlist products";
+
+    scrollToSection(
+        "all-products"
+    );
+
+}
+
+
+/* =========================================================
+   FILTER CATEGORY
+========================================================= */
+
+function filterCategory(
+    category,
+    button
+){
+
+    let cards =
+        getProducts();
+
+    let count=0;
+
+    cards.forEach(card=>{
+
+        let show =
+            category==="all" ||
+            card.dataset.category===category;
+
+        card.classList.toggle(
+            "hidden",
+            !show
+        );
+
+        if(show) count++;
+
+    });
+
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(
+            x=>x.classList.remove("active")
+        );
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        count +
+        " products";
+
+
+    document
+        .getElementById("all-products")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   SHOW CATEGORY
+========================================================= */
+
+function showCategory(category){
+
+    let cards =
+        getProducts();
+
+    cards.forEach(card=>{
+
+        let show =
+            category==="all" ||
+            card.dataset.category===category;
+
+        card.classList.toggle(
+            "hidden",
+            !show
+        );
+
+    });
+
+
+    let count =
+        cards.filter(
+            card=>
+            !card.classList.contains("hidden")
+        ).length;
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        count +
+        " products";
+
+
+    document
+        .getElementById("all-products")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   PRICE FILTER
+========================================================= */
+
+function filterPrice(
+    type,
+    button
+){
+
+    let cards =
+        getProducts();
+
+    let count=0;
+
+
+    cards.forEach(card=>{
+
+        let price =
+            Number(card.dataset.price);
+
+        let show=true;
+
+
+        if(type==="under10")
+            show=price<10000;
+
+
+        if(type==="10to20")
+            show=
+                price>=10000 &&
+                price<=20000;
+
+
+        if(type==="over20")
+            show=price>20000;
+
+
+        card.classList.toggle(
+            "hidden",
+            !show
+        );
+
+
+        if(show) count++;
+
+    });
+
+
+    document
+        .querySelectorAll(".filter")
+        .forEach(
+            x=>x.classList.remove("active")
+        );
+
+
+    if(button)
+        button.classList.add("active");
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        count +
+        " products";
+
+
+    document
+        .getElementById("all-products")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function searchProducts(){
+
+    let search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    let cards =
+        getProducts();
+
+    let count=0;
+
+
+    cards.forEach(card=>{
+
+        let text =
+            (
+                card.dataset.name +
+                " " +
+                card.dataset.category +
+                " " +
+                card.dataset.code
+            )
+            .toLowerCase();
+
+
+        let show =
+            !search ||
+            text.includes(search);
+
+
+        card.classList.toggle(
+            "hidden",
+            !show
+        );
+
+
+        if(show) count++;
+
+    });
+
+
+    document.getElementById(
+        "productCount"
+    ).innerText =
+        search
+        ?
+        count+" products found"
+        :
+        "Showing all products";
+
+}
+
+
+/* =========================================================
+   GET PRODUCTS
+========================================================= */
+
+function getProducts(){
+
+    return [
+        ...document.querySelectorAll(
+            "#productGrid .product-item"
+        )
+    ];
+
+}
+
+
+/* =========================================================
+   SORT
+========================================================= */
+
+function sortProducts(){
+
+    let grid =
+        document.getElementById(
+            "productGrid"
+        );
+
+    let cards =
+        getProducts();
+
+    let sort =
+        document.getElementById(
+            "sort"
+        ).value;
+
+
+    if(sort==="low"){
+
+        cards.sort(
+            (a,b)=>
+            Number(a.dataset.price) -
+            Number(b.dataset.price)
+        );
+
+    }
+
+
+    if(sort==="high"){
+
+        cards.sort(
+            (a,b)=>
+            Number(b.dataset.price) -
+            Number(a.dataset.price)
+        );
+
+    }
+
+
+    if(sort==="new"){
+
+        cards.sort(
+            (a,b)=>{
+
+                let aProduct =
+                    products.find(
+                        p=>p.code===
+                        a.dataset.code
+                    );
+
+                let bProduct =
+                    products.find(
+                        p=>p.code===
+                        b.dataset.code
+                    );
+
+                return (
+                    Number(!!bProduct.newest) -
+                    Number(!!aProduct.newest)
+                );
+
+            }
+        );
+
+    }
+
+
+    cards.forEach(
+        card=>
+        grid.appendChild(card)
+    );
+
+}
+
+
+/* =========================================================
+   PRODUCT MODAL
+========================================================= */
+
+function openProduct(code){
+
+    let product =
+        products.find(
+            p=>p.code===code
+        );
+
+    if(!product) return;
+
+
+    document.getElementById(
+        "modalImage"
+    ).src =
+        product.image;
+
+
+    document.getElementById(
+        "modalImage"
+    ).alt =
+        product.name;
+
+
+    document.getElementById(
+        "modalCategory"
+    ).innerText =
+        product.categoryName;
+
+
+    document.getElementById(
+        "modalName"
+    ).innerText =
+        product.name;
+
+
+    document.getElementById(
+        "modalCode"
+    ).innerText =
+        product.code;
+
+
+    document.getElementById(
+        "modalRating"
+    ).innerText =
+        product.rating;
+
+
+    document.getElementById(
+        "modalPrice"
+    ).innerText =
+        formatPrice(product.price);
+
+
+    document.getElementById(
+        "modalOldPrice"
+    ).innerText =
+        product.oldPrice
+        ?
+        formatPrice(product.oldPrice)
+        :
+        "";
+
+
+    document.getElementById(
+        "modalDescription"
+    ).innerText =
+        product.description;
+
+
+    document.getElementById(
+        "modalMaterial"
+    ).innerText =
+        " " + product.material;
+
+
+    document.getElementById(
+        "modalAvailability"
+    ).innerText =
+        " " + product.availability;
+
+
+    document.getElementById(
+        "modalAdd"
+    ).onclick =
+        function(){
+
+            addCartByCode(
+                product.code
+            );
+
+        };
+
+
+    document
+        .getElementById("productModal")
+        .classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeProductModal(){
+
+    document
+        .getElementById("productModal")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   MODAL BACKGROUND
+========================================================= */
+
+function closeModal(event){
+
+    if(
+        event.target.id===
+        "productModal"
+    ){
+
+        closeProductModal();
+
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function scrollToSection(
+    id,
+    button
+){
+
+    let el =
+        document.getElementById(id);
+
+    if(el){
+
+        el.scrollIntoView({
+            behavior:"smooth"
+        });
+
+    }
+
+
+    if(button){
+
+        document
+            .querySelectorAll(
+                ".nav-list button"
+            )
+            .forEach(
+                x=>
+                x.classList.remove(
+                    "active"
+                )
+            );
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+function orderWhatsApp(){
+
+    if(!cart.length){
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    let message =
+        "Hello TimberWood,%0A%0A" +
+        "I would like to order:%0A%0A";
+
+
+    cart.forEach(item=>{
+
+        message +=
+            "• " +
+            item.name +
+            " (" +
+            item.code +
+            ")" +
+            " × " +
+            item.quantity +
+            " - " +
+            formatPrice(
+                item.price *
+                item.quantity
+            ) +
+            "%0A";
+
+    });
+
+
+    let total =
+        cart.reduce(
+            (sum,item)=>
+            sum +
+            item.price *
+            item.quantity,
+            0
+        );
+
+
+    message +=
+        "%0ATotal: " +
+        formatPrice(total) +
+        "%0A%0A" +
+        "Please provide availability and delivery details.";
+
+    let phone =
+        "9779829312825";
+
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   REQUEST QUOTE
+========================================================= */
+
+function requestQuote(){
+
+    let message =
+        "Hello TimberWood,%0A%0A" +
+        "I would like to request a furniture/interior quotation.%0A%0A" +
+        "Please contact me with more details.";
+
+
+    let phone =
+        "9779829312825";
+
+
+    window.open(
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        message,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   CHECKOUT
+========================================================= */
+
+function checkout(){
+
+    if(!cart.length){
+
+        showToast(
+            "Your cart is empty"
+        );
+
+        return;
+
+    }
+
+
+    orderWhatsApp();
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    let toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.innerText =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+
+    window.toastTimer =
+        setTimeout(
+            ()=>{
+                toast.classList.remove(
+                    "show"
+                );
+            },
+            2000
+        );
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderProducts();
+
+renderBestSellers();
+
+renderTables();
+
+renderChairs();
+
+updateCart();
+
+updateWishlistCount();
+
+
+/* =========================================================
+   SEARCH ENTER KEY
+========================================================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(
+                event.key==="Enter"
+            ){
+
+                searchProducts();
+
+                scrollToSection(
+                    "all-products"
+                );
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key==="Escape"){
+
+            closeCart();
+
+            closeProductModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
