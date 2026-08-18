@@ -3411,7 +3411,7 @@ footer{
                             type="tel"
                             id="customerPhone"
                             required
-                            placeholder="98XXXXXXXX"
+                            placeholder="Number"
                             style="
                             width:100%;
                             height:42px;
@@ -3439,7 +3439,7 @@ footer{
                         <input
                             type="email"
                             id="customerEmail"
-                            placeholder="your@email.com"
+                            placeholder="email"
                             style="
                             width:100%;
                             height:42px;
@@ -3468,7 +3468,7 @@ footer{
                             type="text"
                             id="customerCity"
                             required
-                            placeholder="Biratnagar"
+                            placeholder="address"
                             style="
                             width:100%;
                             height:42px;
@@ -3498,7 +3498,7 @@ footer{
                     <textarea
                         id="customerAddress"
                         required
-                        placeholder="Complete delivery address"
+                        placeholder="delivery address"
                         rows="3"
                         style="
                         width:100%;
@@ -3650,8 +3650,8 @@ const products = [
         name:"Luxury Sofa",
         category:"sofa",
         categoryName:"Sofa",
-        price:135000,
-        oldPrice:150000,
+        price:125000,
+        oldPrice:157000,
         rating:"4.9 (42)",
         badge:"BEST SELLER",
         image:"img/product/sofaset1.webp",
@@ -3668,15 +3668,15 @@ const products = [
         name:"Single Seater Sofa",
         category:"sofa",
         categoryName:"Sofa",
-        price:25000,
-        oldPrice:30000,
+        price:22000,
+        oldPrice:28000,
         rating:"4.8 (28)",
-        badge:"POPULAR",
+        badge:"20 % OFF",
         image:"img/product/sofaset3.webp",
         material:"Fabric & Hardwood",
         availability:"In Stock",
         description:
-        "Comfortable three-seater sofa suitable for contemporary homes and apartments.",
+        "Comfortable single-seater sofa suitable for contemporary homes and apartments.",
         featured:true
     },
 
@@ -3685,8 +3685,8 @@ const products = [
         name:"Modern L Shape Sofa",
         category:"sofa",
         categoryName:"Sofa",
-        price:81000,
-        oldPrice:90000,
+        price:75000,
+        oldPrice:94000,
         rating:"4.9 (32)",
         badge:"NEW",
         image:"img/product/sofaset2.webp",
@@ -3702,15 +3702,15 @@ const products = [
         name:"Premium King Size Bed",
         category:"bed",
         categoryName:"Bed",
-        price:107100,
+        price:95000,
         oldPrice:119000,
         rating:"4.8 (16)",
         badge:"NEW",
         image:"img/product/bed1.webp",
-        material:"Solid Wood",
+        material:"Plywood | Fabric",
         availability:"In Stock",
         description:
-        "Modern plywood bed with a clean profile and timeless design.",
+        "Modern plywood bed with a clean profile, two bedside table and timeless design.",
         featured:true,
         newest:true
     },
@@ -3720,15 +3720,15 @@ const products = [
         name:"Premium Bedroom Bed",
         category:"bed",
         categoryName:"Bed",
-        price:118800,
-        oldPrice:132000,
+        price:107000,
+        oldPrice:134000,
         rating:"4.8 (21)",
         badge:"POPULAR",
         image:"img/product/bed2.webp",
         material:"Engineered Wood",
         availability:"Available",
         description:
-        "Elegant bedroom bed designed for comfortable and stylish interiors."
+        "Elegant bedroom bed designed for comfortable and stylish interiors.with two bedside table."
     },
 
     {
@@ -3737,14 +3737,14 @@ const products = [
         category:"dining",
         categoryName:"Dining",
         price:88000,
-        oldPrice:98000,
+        oldPrice:111000,
         rating:"4.9 (35)",
         badge:"BEST SELLER",
         image:"img/product/diningsets1.webp",
         material:"Solid PlyWood",
         availability:"In Stock",
         description:
-        "Four-seater dining set designed for family meals and entertaining guests.",
+        "Four-seater dining set designed for family meals and entertaining guests. with four chair",
         featured:true
     },
 
@@ -3753,8 +3753,8 @@ const products = [
         name:"Modern 3 Seater Dining Set",
         category:"dining",
         categoryName:"Dining",
-        price:21700,
-        oldPrice:24955,
+        price:19540,
+        oldPrice:21700,
         rating:"4.7 (18)",
         badge:"NEW",
         image:"img/product/diningsets2.webp",
@@ -3770,8 +3770,8 @@ const products = [
         name:"Premium Dining Chair",
         category:"chair",
         categoryName:"Chair",
-        price:17100,
-        oldPrice:19000,
+        price:16500,
+        oldPrice:21000,
         rating:"4.7 (21)",
         badge:"SALE",
         image:"img/product/dining1.webp",
@@ -3786,8 +3786,8 @@ const products = [
         name:"Modern Dining Chair",
         category:"chair",
         categoryName:"Chair",
-        price:17100,
-        oldPrice:19000,
+        price:16500,
+        oldPrice:21000,
         rating:"4.8 (19)",
         badge:"POPULAR",
         image:"img/product/dining2.webp",
@@ -3837,7 +3837,7 @@ const products = [
         category:"office",
         categoryName:"Office",
         price:51000,
-        oldPrice:60000,
+        oldPrice:64000,
         rating:"4.8 (14)",
         badge:"FEATURED",
         image:"img/product/officetable2.webp",
@@ -3849,15 +3849,15 @@ const products = [
 
     {
         code:"TW-CT-001",
-        name:"Cloudy Centre Table",
+        name:"Cloud Centre Table",
         category:"table",
         categoryName:"Centre Table",
-        price:25000,
+        price:24000,
         oldPrice:30000,
         rating:"4.8 (25)",
         badge:"FEATURED",
         image:"img/product/centretable2.webp",
-        material:"Engineered Wood",
+        material:"Laminates | PlyWood",
         availability:"In Stock",
         description:
         "Minimal white centre table suitable for modern living rooms.",
@@ -3866,15 +3866,15 @@ const products = [
 
     {
         code:"TW-CT-002",
-        name:"Modern Coffee Table",
+        name:"Tea Table",
         category:"table",
         categoryName:"Centre Table",
-        price:25000,
-        oldPrice:30000,
+        price:18000,
+        oldPrice:23000,
         rating:"4.7 (18)",
         badge:"10% OFF",
         image:"img/product/centretable3.webp",
-        material:"PlyWood & Veneer",
+        material:"PlyWood | Laminates",
         availability:"Available",
         description:
         "Modern coffee table with practical proportions and elegant styling."
@@ -3886,11 +3886,11 @@ const products = [
         category:"table",
         categoryName:"Centre Table",
         price:27000,
-        oldPrice:30000,
+        oldPrice:34000,
         rating:"4.9 (31)",
         badge:"NEW",
         image:"img/product/centretable1.webp",
-        material:"Wood & Glass",
+        material:"PlyWood | Laminates",
         availability:"In Stock",
         description:
         "Premium centre table designed as a statement piece.",
@@ -3902,8 +3902,8 @@ const products = [
         name:"Modern Wardrobe",
         category:"wardrobe",
         categoryName:"Wardrobe",
-        price:95000,
-        oldPrice:105000,
+        price:94000,
+        oldPrice:118000,
         rating:"4.8 (19)",
         badge:"NEW",
         image:"img/product/wardrobe1.webp",
@@ -3920,7 +3920,7 @@ const products = [
         category:"wardrobe",
         categoryName:"Wardrobe",
         price:81000,
-        oldPrice:90000,
+        oldPrice:102000,
         rating:"4.8 (19)",
         badge:"FEATURED",
         image:"img/product/wardrobe2.webp",
@@ -3936,8 +3936,8 @@ const products = [
         name:"Modern Shoe Rack",
         category:"shoe",
         categoryName:"Shoe Rack",
-        price:48500,
-        oldPrice:58000,
+        price:48000,
+        oldPrice:60000,
         rating:"4.6 (14)",
         badge:"NEW",
         image:"img/product/shoerack1.webp",
