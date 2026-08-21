@@ -4352,410 +4352,158 @@ PORTFOLIO
 /* =========================
 CATALOG
 ========================= */
-/* =========================================================
-   CATALOG FILTERS — PREMIUM HORIZONTAL SCROLL
-========================================================= */
+/* =========================
+   CATALOG FILTER SCROLL
+========================= */
 
 .filter-wrapper {
     position: relative;
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin: 0 0 32px;
+    gap: 8px;
+    margin-bottom: 30px;
 }
 
-
-/* =========================================================
-   FILTER AREA
-========================================================= */
+/* Filter container */
 
 .catalog-filters {
-    display:flex;
-    gap:12px;
-    overflow-x:auto;
-    scrollbar-width:none;
-    padding:25px 5%;
-    background:#fff;
-    position:sticky;
-    top:75px;
-    z-index:99;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+
+    padding: 5px 2px;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
 }
 
 .catalog-filters::-webkit-scrollbar {
     display: none;
 }
 
-
-/* =========================================================
-   FILTER BUTTON
-========================================================= */
+/* Filter buttons */
 
 .filter-btn {
-    position: relative;
-
     flex: 0 0 auto;
+    white-space: nowrap;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 42px;
-
-    padding: 0 19px;
-
-    border: 1px solid #e4ddd5;
-    border-radius: 50px;
-
+    border: 1px solid #ddd;
     background: #fff;
 
-    color: #51463e;
+    padding: 11px 18px;
+    border-radius: 30px;
 
-    font-family: inherit;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: .1px;
-
-    white-space: nowrap;
 
     cursor: pointer;
 
-    box-shadow:
-        0 2px 8px rgba(45, 32, 23, .04);
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        transform .25s ease;
 
     scroll-snap-align: start;
-
-    transition:
-        color .25s ease,
-        background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease;
 }
-
-
-/* Hover */
 
 .filter-btn:hover {
-    color: #3b2a20;
-
-    background: #faf7f3;
-
-    border-color: #c9ad7a;
-
-    box-shadow:
-        0 5px 16px rgba(45, 32, 23, .08);
-
     transform: translateY(-2px);
 }
-
-
-/* Active */
 
 .filter-btn.active {
+    background: #b68d40;
     color: #fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #b68d40,
-            #9d7432
-        );
-
     border-color: #b68d40;
-
-    box-shadow:
-        0 6px 18px rgba(182, 141, 64, .25);
 }
 
-
-/* Active hover */
-
-.filter-btn.active:hover {
-    color: #fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c59b50,
-            #a77b35
-        );
-
-    border-color: #c59b50;
-
-    transform: translateY(-2px);
-}
-
-
-/* Click */
-
-.filter-btn:active {
-    transform: scale(.96);
-}
-
-
-/* =========================================================
-   LEFT / RIGHT SCROLL BUTTONS
-========================================================= */
+/* =========================
+   LEFT / RIGHT BUTTONS
+========================= */
 
 .filter-scroll {
-    position: relative;
+    flex: 0 0 40px;
 
-    flex: 0 0 42px;
+    width: 40px;
+    height: 40px;
 
-    width: 42px;
-    height: 42px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+
+    background: #fff;
+    color: #3b2a20;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 0;
-
-    border: 1px solid #ded5cc;
-    border-radius: 50%;
-
-    background: #fff;
-
-    color: #3b2a20;
-
     cursor: pointer;
 
-    z-index: 10;
+    z-index: 5;
 
-    box-shadow:
-        0 4px 14px rgba(45, 32, 23, .09);
+    box-shadow: 0 4px 12px rgba(0,0,0,.08);
 
     transition:
-        color .25s ease,
         background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease,
-        opacity .25s ease;
+        color .25s ease,
+        transform .25s ease;
 }
-
-
-/* Arrow icon */
-
-.filter-scroll i {
-    font-size: 12px;
-    line-height: 1;
-}
-
-
-/* Hover */
 
 .filter-scroll:hover {
+    background: #b68d40;
     color: #fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #b68d40,
-            #9d7432
-        );
-
     border-color: #b68d40;
-
-    box-shadow:
-        0 7px 20px rgba(182, 141, 64, .25);
-
-    transform: scale(1.06);
+    transform: scale(1.05);
 }
-
-
-/* Click */
 
 .filter-scroll:active {
-    transform: scale(.94);
+    transform: scale(.95);
+}
+
+.filter-scroll i {
+    font-size: 13px;
 }
 
 
-/* =========================================================
-   FADED EDGE EFFECT
-========================================================= */
-
-.filter-wrapper::before,
-.filter-wrapper::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    width: 35px;
-
-    pointer-events: none;
-
-    z-index: 3;
-}
-
-
-/* Left fade */
-
-.filter-wrapper::before {
-    left: 45px;
-
-    background:
-        linear-gradient(
-            to right,
-            #fff,
-            rgba(255,255,255,0)
-        );
-}
-
-
-/* Right fade */
-
-.filter-wrapper::after {
-    right: 45px;
-
-    background:
-        linear-gradient(
-            to left,
-            #fff,
-            rgba(255,255,255,0)
-        );
-}
-
-
-/* =========================================================
-   FOCUS ACCESSIBILITY
-========================================================= */
-
-.filter-btn:focus-visible,
-.filter-scroll:focus-visible {
-    outline: 2px solid #b68d40;
-    outline-offset: 3px;
-}
-
-
-/* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .filter-wrapper {
-        gap: 8px;
-        margin-bottom: 28px;
-    }
-
-    .catalog-filters {
-        gap: 9px;
-        padding: 6px 3px;
-    }
-
-    .filter-btn {
-        min-height: 40px;
-        padding: 0 17px;
-        font-size: 13px;
-    }
-
-    .filter-scroll {
-        flex-basis: 40px;
-        width: 40px;
-        height: 40px;
-    }
-
-}
-
-
-/* =========================================================
+/* =========================
    MOBILE
-========================================================= */
+========================= */
 
 @media (max-width: 620px) {
 
     .filter-wrapper {
-        gap: 7px;
-        margin-bottom: 24px;
+        gap: 6px;
     }
-
 
     .catalog-filters {
         gap: 8px;
-
-        padding: 5px 2px;
-
-        scroll-snap-type: x mandatory;
+        padding: 4px 0;
     }
-
 
     .filter-btn {
-        min-height: 38px;
-
-        padding: 0 15px;
-
-        border-radius: 40px;
-
-        font-size: 12px;
-        font-weight: 600;
+        padding: 9px 15px;
+        font-size: 13px;
     }
-
 
     .filter-scroll {
         flex: 0 0 34px;
 
         width: 34px;
         height: 34px;
-
-        box-shadow:
-            0 3px 10px rgba(45, 32, 23, .10);
     }
-
 
     .filter-scroll i {
-        font-size: 10px;
-    }
-
-
-    /* Smaller fade on mobile */
-
-    .filter-wrapper::before,
-    .filter-wrapper::after {
-        width: 22px;
-    }
-
-    .filter-wrapper::before {
-        left: 38px;
-    }
-
-    .filter-wrapper::after {
-        right: 38px;
-    }
-
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 380px) {
-
-    .filter-wrapper {
-        gap: 5px;
-    }
-
-    .filter-btn {
-        min-height: 36px;
-        padding: 0 13px;
         font-size: 11px;
     }
-
-    .filter-scroll {
-        flex-basis: 32px;
-        width: 32px;
-        height: 32px;
-    }
-
-    .filter-scroll i {
-        font-size: 9px;
-    }
-
 }
 
 /* =========================
