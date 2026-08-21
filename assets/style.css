@@ -2262,10 +2262,8 @@ font-size:24px;
 
 /* =========================
 HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
-========================= */
-
 /* =========================
-   PREMIUM HERO
+   HERO WITH IMAGE
 ========================= */
 
 .hero{
@@ -2278,76 +2276,50 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     overflow:hidden;
     isolation:isolate;
 
-    background:
-        radial-gradient(
-            circle at 50% 35%,
-            rgba(200,155,99,.18),
-            transparent 45%
-        ),
-        linear-gradient(
-            135deg,
-            #080b0f 0%,
-            #121820 50%,
-            #080b0f 100%
-        );
+    background:#111;
 }
 
-/* Animated background glow */
+/* Background image + dark overlay */
 .hero::before{
     content:"";
     position:absolute;
-    inset:-30%;
+    inset:0;
     z-index:-2;
 
     background:
-        radial-gradient(
-            circle at 30% 40%,
-            rgba(200,155,99,.20),
-            transparent 28%
+        linear-gradient(
+            rgba(8,10,12,.78),
+            rgba(8,10,12,.72)
         ),
-        radial-gradient(
-            circle at 75% 65%,
-            rgba(255,255,255,.08),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            rgba(200,155,99,.08),
-            transparent 40%
-        );
+        url("https://i.pinimg.com/736x/97/91/40/979140409d0029c4c6724a190907b3af.jpg")
+        center center / cover no-repeat;
 
-    filter:blur(25px);
-    animation:heroGlow 12s ease-in-out infinite alternate;
+    transform:scale(1.05);
+
+    animation:heroImage 18s ease-in-out infinite alternate;
 }
 
-/* Subtle grid */
+/* Gold atmospheric glow */
 .hero::after{
     content:"";
     position:absolute;
     inset:0;
     z-index:-1;
-    opacity:.18;
 
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.05) 1px,
-            transparent 1px
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(200,155,99,.18),
+            transparent 45%
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,.05) 1px,
-            transparent 1px
+            rgba(0,0,0,.35),
+            transparent 50%,
+            rgba(0,0,0,.35)
         );
 
-    background-size:60px 60px;
-
-    mask-image:linear-gradient(
-        to bottom,
-        transparent,
-        black 20%,
-        black 80%,
-        transparent
-    );
+    pointer-events:none;
 }
 
 /* =========================
@@ -2362,9 +2334,8 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     padding:60px 20px;
 }
 
-/* Small label */
 .hero-content::before{
-    content:"Interior DESIGN • Custom Furniture";
+    content:"WEB DESIGN • DEVELOPMENT • DIGITAL SOLUTIONS";
 
     display:inline-block;
     margin-bottom:22px;
@@ -2375,16 +2346,16 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     letter-spacing:3px;
 
     padding:9px 18px;
-    border:1px solid rgba(200,155,99,.35);
+
+    border:1px solid rgba(200,155,99,.45);
     border-radius:50px;
 
-    background:rgba(200,155,99,.06);
+    background:rgba(0,0,0,.25);
     backdrop-filter:blur(8px);
 
     animation:fadeUp .8s ease both;
 }
 
-/* Heading */
 .hero h1{
     margin:0 auto 22px;
 
@@ -2392,18 +2363,13 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
 
     color:#fff;
 
-    font-size:clamp(
-        42px,
-        7vw,
-        76px
-    );
-
+    font-size:clamp(42px,7vw,76px);
     font-weight:800;
     line-height:1.04;
     letter-spacing:-2px;
 
     text-shadow:
-        0 10px 40px rgba(0,0,0,.35);
+        0 5px 25px rgba(0,0,0,.55);
 
     animation:fadeUp .9s ease .1s both;
 }
@@ -2424,145 +2390,39 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     -webkit-text-fill-color:transparent;
 }
 
-/* Description */
 .hero p{
     max-width:680px;
     margin:0 auto;
 
-    color:rgba(255,255,255,.78);
+    color:rgba(255,255,255,.85);
 
     font-size:18px;
     line-height:1.8;
-    font-weight:400;
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.6);
 
     animation:fadeUp 1s ease .2s both;
 }
 
 /* =========================
-   OPTIONAL HERO BUTTONS
+   IMAGE ZOOM
 ========================= */
 
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:14px;
-    margin-top:32px;
-
-    animation:fadeUp 1s ease .3s both;
-}
-
-.hero-buttons a{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    min-height:52px;
-    padding:0 25px;
-
-    border-radius:10px;
-
-    text-decoration:none;
-    font-weight:700;
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        background .3s ease;
-}
-
-.hero-buttons .primary{
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #c89b63,
-            #a66f4e
-        );
-
-    box-shadow:
-        0 12px 30px rgba(200,155,99,.20);
-}
-
-.hero-buttons .secondary{
-    color:#fff;
-
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.05);
-
-    backdrop-filter:blur(10px);
-}
-
-.hero-buttons a:hover{
-    transform:translateY(-4px);
-}
-
-.hero-buttons .primary:hover{
-    box-shadow:
-        0 18px 40px rgba(200,155,99,.32);
-}
-
-.hero-buttons .secondary:hover{
-    background:rgba(255,255,255,.10);
-}
-
-/* =========================
-   SCROLL INDICATOR
-========================= */
-
-.hero-scroll{
-    position:absolute;
-    bottom:24px;
-    left:50%;
-    transform:translateX(-50%);
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:8px;
-
-    color:rgba(255,255,255,.55);
-
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-
-    z-index:3;
-}
-
-.hero-scroll span{
-    width:1px;
-    height:38px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #c89b63,
-            transparent
-        );
-
-    animation:scrollLine 1.8s ease-in-out infinite;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-
-@keyframes heroGlow{
+@keyframes heroImage{
 
     0%{
-        transform:translate3d(-2%, -1%, 0) scale(1);
-    }
-
-    50%{
-        transform:translate3d(3%, 2%, 0) scale(1.05);
+        transform:scale(1.05);
     }
 
     100%{
-        transform:translate3d(-1%, 3%, 0) scale(1.08);
+        transform:scale(1.12);
     }
 }
+
+/* =========================
+   CONTENT ANIMATION
+========================= */
 
 @keyframes fadeUp{
 
@@ -2577,21 +2437,6 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
     }
 }
 
-@keyframes scrollLine{
-
-    0%,
-    100%{
-        opacity:.3;
-        transform:scaleY(.6);
-        transform-origin:top;
-    }
-
-    50%{
-        opacity:1;
-        transform:scaleY(1);
-    }
-}
-
 /* =========================
    MOBILE
 ========================= */
@@ -2602,6 +2447,10 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
         min-height:1vh;
     }
 
+    .hero::before{
+        background-position:center;
+    }
+
     .hero-content{
         width:94%;
         padding:50px 10px;
@@ -2609,37 +2458,22 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
 
     .hero-content::before{
         font-size:9px;
-        letter-spacing:1.7px;
+        letter-spacing:1.5px;
         padding:8px 13px;
     }
 
     .hero h1{
         font-size:clamp(38px,11vw,52px);
-        letter-spacing:-1.5px;
         line-height:1.08;
-        margin-bottom:18px;
+        letter-spacing:-1.5px;
     }
 
     .hero p{
         font-size:15px;
         line-height:1.7;
     }
-
-    .hero-buttons{
-        flex-direction:column;
-        width:100%;
-        margin-top:26px;
-    }
-
-    .hero-buttons a{
-        width:100%;
-        max-width:320px;
-    }
-
-    .hero-scroll{
-        bottom:16px;
-    }
 }
+
 /* =========================
    PARTNERS
 ========================= */
