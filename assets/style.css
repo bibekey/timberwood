@@ -4511,7 +4511,6 @@ CATALOG GRID
 ========================= */
 
 .catalog{
-    padding:40px 5% 80px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
     gap:25px;
