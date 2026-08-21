@@ -6067,6 +6067,89 @@ setTimeout(() => {
 
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const filterContainer = document.getElementById("catalogFilters");
+
+    const leftButton = document.querySelector(".filter-scroll.left");
+    const rightButton = document.querySelector(".filter-scroll.right");
+
+    const scrollAmount = 300;
+
+
+    /* =========================
+       SCROLL LEFT
+    ========================= */
+
+    leftButton.addEventListener("click", function () {
+
+        filterContainer.scrollBy({
+            left: -scrollAmount,
+            behavior: "smooth"
+        });
+
+    });
+
+
+    /* =========================
+       SCROLL RIGHT
+    ========================= */
+
+    rightButton.addEventListener("click", function () {
+
+        filterContainer.scrollBy({
+            left: scrollAmount,
+            behavior: "smooth"
+        });
+
+    });
+
+
+    /* =========================
+       SHOW / HIDE ARROWS
+    ========================= */
+
+    function updateScrollButtons() {
+
+        const maxScroll =
+            filterContainer.scrollWidth -
+            filterContainer.clientWidth;
+
+        if (filterContainer.scrollLeft <= 5) {
+            leftButton.style.opacity = "0.35";
+            leftButton.style.pointerEvents = "none";
+        } else {
+            leftButton.style.opacity = "1";
+            leftButton.style.pointerEvents = "auto";
+        }
+
+
+        if (filterContainer.scrollLeft >= maxScroll - 5) {
+            rightButton.style.opacity = "0.35";
+            rightButton.style.pointerEvents = "none";
+        } else {
+            rightButton.style.opacity = "1";
+            rightButton.style.pointerEvents = "auto";
+        }
+    }
+
+
+    filterContainer.addEventListener(
+        "scroll",
+        updateScrollButtons
+    );
+
+    window.addEventListener(
+        "resize",
+        updateScrollButtons
+    );
+
+
+    updateScrollButtons();
+
+});
+
 /* =========================
 IMAGE VIEWER
 ========================= */
