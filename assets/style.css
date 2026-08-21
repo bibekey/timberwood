@@ -4486,7 +4486,7 @@ CATALOG
 
     .catalog-filters {
         gap: 8px;
-        padding: 4px 0;
+        padding: 10px 0;
     }
 
     .filter-btn {
@@ -4528,7 +4528,7 @@ CARD
     position:relative;
     transition:.4s;
     cursor:pointer;
-    border:1px solid rgba(255,255,255,.05);
+    border:2px solid rgba(255,255,255,.05);
     -webkit-tap-highlight-color: transparent;
 }
 
