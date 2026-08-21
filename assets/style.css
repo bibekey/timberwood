@@ -4371,28 +4371,15 @@ CATALOG
 ========================================================= */
 
 .catalog-filters {
-    position: relative;
-
-    flex: 1;
-    min-width: 0;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 7px 4px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: x proximity;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-
-    -webkit-overflow-scrolling: touch;
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding:25px 5%;
+    background:#fff;
+    position:sticky;
+    top:75px;
+    z-index:99;
 }
 
 .catalog-filters::-webkit-scrollbar {
