@@ -9,9 +9,7 @@
 <meta name="author" content="TimberWood Furniture">
 <meta property="og:image" content="img/img/LOGO.png">
 <meta name="robots" content="noarchive">
-    
 
-<link rel="stylesheet" href="assets/style.css">
 <link rel="icon" href="favicon.png" type="image/x-icon">   
 <style>
 
@@ -228,15 +226,15 @@ header{
 }
 
 /* =========================================================
-   nav-furIGATION
+   NAVIGATION
 ========================================================= */
 
-.nav-fur{
+.nav{
     border-bottom:1px solid var(--border);
     background:#fff;
 }
 
-.nav-fur-list{
+.nav-list{
     display:flex;
     gap:8px;
 
@@ -245,11 +243,11 @@ header{
     padding:10px 0;
 }
 
-.nav-fur-list::-webkit-scrollbar{
+.nav-list::-webkit-scrollbar{
     height:0;
 }
 
-.nav-fur-list button{
+.nav-list button{
     border:0;
     background:transparent;
 
@@ -264,8 +262,8 @@ header{
     font-size:11px;
 }
 
-.nav-fur-list button:hover,
-.nav-fur-list button.active{
+.nav-list button:hover,
+.nav-list button.active{
     background:var(--brown);
     color:#fff;
 }
@@ -1896,27 +1894,6 @@ footer{
 
 <body>
 
-<!-- NAVBAR -->
-
-<nav>
-
-    <div class="logo"><img src="img/img/LOGO.png" alt="TimberWood"></div>
-
-    <ul id="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="furniture.html">Furniture</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="catalog.html">Catalog</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <div id="menuBtn" class="menu-btn" onclick="toggleMenu()">☰</div>
-
-</nav>
-
 
 <!-- =======================================================
      TOP BAR
@@ -2009,9 +1986,9 @@ footer{
      NAVIGATION
 ======================================================= -->
 
-<nav-fur class="nav-fur">
+<nav class="nav">
 
-<div class="container nav-fur-list">
+<div class="container nav-list">
 
     <button
         class="active"
@@ -2070,7 +2047,7 @@ footer{
 
 </div>
 
-</nav-fur>
+</nav>
 
 
 <!-- =======================================================
@@ -5077,7 +5054,7 @@ function scrollToSection(
 
         document
             .querySelectorAll(
-                ".nav-fur-list button"
+                ".nav-list button"
             )
             .forEach(
                 x=>
