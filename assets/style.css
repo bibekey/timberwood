@@ -2262,8 +2262,6 @@ font-size:24px;
 
 /* =========================
 HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
-/* =========================
-   HERO WITH IMAGE
 ========================= */
 
 .hero{
@@ -2326,22 +2324,22 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
    HERO CONTENT
 ========================= */
 
-.hero-content{
+.hero-contents{
     position:relative;
     z-index:2;
     width:92%;
     max-width:900px;
-    padding:60px 20px;
+    padding:90px 20px;
 }
 
-.hero-content::before{
+.hero-contents::before{
     content:"interior DESIGN • CUSTOM FURNITURE";
 
     display:inline-block;
     margin-bottom:22px;
 
     color:#c89b63;
-    font-size:12px;
+    font-size:10px;
     font-weight:700;
     letter-spacing:3px;
 
@@ -2451,12 +2449,12 @@ HOME: PORTFOLIO|SERVICES|BLOG|CONTACT
         background-position:center;
     }
 
-    .hero-content{
+    .hero-contents{
         width:94%;
         padding:50px 10px;
     }
 
-    .hero-content::before{
+    .hero-contents::before{
         font-size:9px;
         letter-spacing:1.5px;
         padding:8px 13px;
