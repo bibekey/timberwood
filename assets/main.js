@@ -546,7 +546,7 @@ function startSlider(){
 
         nextSlide();
 
-    },5000);
+    },7000);
 
 }
 
